@@ -1,0 +1,17 @@
+.menu {
+  list-style: none;
+}
+
+.menu-item {
+  text-decoration-line: none;
+  width: fit-content;
+  height: fit-content;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+
+  &:hover, &:focus-visible {
+    color: var(--primary);
+    cursor: pointer;
+    outline: none;
+  }
+}

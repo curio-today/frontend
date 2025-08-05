@@ -2,7 +2,7 @@
 
 import "./index.scss"
 import { Icon } from "@/components/ui/Icon";
-import { ButtonProps } from "../props";
+import { ButtonProps } from "@/shared/props/ButtonProps";
 
 // TODO: add tooltip wrapper
 
