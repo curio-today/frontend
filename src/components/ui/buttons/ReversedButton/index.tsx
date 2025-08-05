@@ -10,7 +10,7 @@ export const ReversedButton = (props: ButtonProps) => {
             {props.hasIcon && (
                 <Icon></Icon>
             )}
-            {props.text}
+            <h3>{props.text}</h3>
         </button>
     )
 }

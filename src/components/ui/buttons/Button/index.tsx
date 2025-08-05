@@ -12,7 +12,7 @@ export const Button = ({hasIcon, text}: ButtonProps) => {
             {hasIcon && (
                 <Icon></Icon>
             )}
-            {text}
+            <h3>{text}</h3>
         </button>
     )
 }
