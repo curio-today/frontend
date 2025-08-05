@@ -1,42 +1,13 @@
-body {
-  background: #1a1a1a;
-}
-
-button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 1.5rem;
-
-  color: white;
-
-
-  transition: border 0.2s ease-out;
-  border: 1px solid var(--Colors-Border, #333);
-  border-radius: var(--Corner-Radius-Button, 0.75rem);
-
-  &:active {
-    transform: scale(0.95);
-  }
-
-  &:hover,
-  &:focus-visible {
-    transition: background-color 0.2s ease-out;
-    cursor: pointer;
-    outline: none;
-  }
-}
-
 button.normal {
-  background: var(--Colors-Accent, #262626);
+  background-color: var(--accent, #262626);
+
   &:hover,
   &:focus-visible {
-    border: 1px solid var(--Colors-Primary, #4C9AFF);
+    border: 1px solid var(--primary, #4C9AFF);
   }
 
   &:active {
-    background-color: var(--Colors-Primary, #4C9AFF);
+    background-color: var(--primary, #4C9AFF);
   }
 }
 
