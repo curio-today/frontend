@@ -1,6 +1,4 @@
 button.normal {
-  background-color: var(--accent, #262626);
-
   &:hover,
   &:focus-visible {
     border: 1px solid var(--primary, #4C9AFF);
@@ -10,6 +8,3 @@ button.normal {
     background-color: var(--primary, #4C9AFF);
   }
 }
-
-
-
