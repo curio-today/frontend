@@ -1,0 +1,9 @@
+button.reversed {
+  border-radius: var(--Corner-Radius-Button, 0.75rem);
+  background: var(--Colors-Primary, #4C9AFF);
+  border-color: var(--Colors-Accent, #262626);
+
+  &:hover {
+    background: var(--Colors-Primary, #5da5ff);
+  }
+}

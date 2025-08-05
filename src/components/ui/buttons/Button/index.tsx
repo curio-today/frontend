@@ -1,18 +1,14 @@
 "use client"
 
-import './index.scss'
+import "./index.scss"
 import { Icon } from "@/components/Icon";
-
-type ButtonProps = {
-    text: string;
-    hasIcon?: boolean;
-}
+import { ButtonProps } from "../props";
 
 // TODO: add tooltip wrapper
 
 export const Button = ({hasIcon, text}: ButtonProps) => {
     return (
-        <button className="button">
+        <button className="normal">
             {hasIcon && (
                 <Icon></Icon>
             )}
