@@ -1,4 +1,6 @@
+import { IconProps } from "@/components/ui/Icon/props";
+
 export type ButtonProps = {
     text: string;
-    hasIcon?: boolean;
+    icon?: IconProps;
 }
