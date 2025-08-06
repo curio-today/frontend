@@ -1,6 +1,10 @@
 import { IconProps } from "@/shared/props/IconProps";
 import { TextProps } from "@/shared/props/TextProps";
+import { ButtonHTMLAttributes } from "react";
 
 
 export type ButtonProps =
-    TextProps & { icon?: IconProps };
+    & Partial<TextProps>
+    & { icon?: IconProps }
+    & ButtonHTMLAttributes<HTMLButtonElement>
+

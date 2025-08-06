@@ -24,13 +24,15 @@
 }
 
 button {
+  height: 4rem;
+  min-width: 5.125rem;
   font-family: inherit;
   background-color: var(--accent, #262626);
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
-  padding: 1.5rem;
+  padding: clamp(1vw, 1.5rem, 2vw);
   color: white;
 
   transition: border 0.2s ease-out;
@@ -47,7 +49,9 @@ button {
     cursor: pointer;
     outline: none;
   }
+
 }
+
 
 h1 {
   font-size: var(--h1, 2.986rem);
@@ -62,6 +66,10 @@ h3 {
 p {
   font-size: var(--p, 1rem);
 }
+a {
+  font-size: var(--p, 1rem);
+}
+
 small {
   font-size: var(--small, 0.75rem);
 }

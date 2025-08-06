@@ -1,25 +1,19 @@
 "use client"
 
-import { IconProps } from "./props";
-import Image from "next/image";
-
 import "./index.scss"
 
-
-const IconMap = {
-    clock: "icons/clock.svg",
-    external: "icons/external.svg",
-    sun: "icons/sun.svg",
-    moon: "icons/moon.svg",
-}
+import { IconProps } from "@/shared/props/IconProps";
+import Image from "next/image";
 
 
-export const Icon = ({ name, ...props}: IconProps) => {
+
+
+export const Icon = ({ src, alt, style, ...props}: IconProps) => {
     return (
-        <div className="icon-wrapper">
+        <div className="icon-wrapper" style={style}>
             <Image
-                src={IconMap[name]}
-                alt={name}
+                src={src}
+                alt={alt}
                 layout="fill"
                 objectFit="contain"
                 priority

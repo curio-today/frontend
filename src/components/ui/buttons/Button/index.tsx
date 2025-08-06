@@ -6,13 +6,18 @@ import { ButtonProps } from "@/shared/props/ButtonProps";
 
 // TODO: add tooltip wrapper
 
-export const Button = ({icon, text}: ButtonProps) => {
+export const Button = ({icon, text, ...props}: ButtonProps) => {
     return (
-        <button className="normal">
+        <button className="normal" {...props}>
             {icon && (
-                <Icon {...icon}></Icon>
+                <Icon {...icon} style={{
+                    width: 32,
+                    height: 32,
+                }}></Icon>
             )}
-            <h3>{text}</h3>
+            {text && (
+                <p>{text}</p>
+            )}
         </button>
     )
 }

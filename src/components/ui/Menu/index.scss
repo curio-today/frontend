@@ -1,8 +1,19 @@
 .menu {
+  display: flex;
   list-style: none;
 }
 
+.menu.vertical {
+  flex-direction: column;
+}
+
+.menu.horizontal {
+  flex-direction: row;
+  gap: 1rem;
+}
+
 .menu-item {
+  color: var(--text);
   text-decoration-line: none;
   width: fit-content;
   height: fit-content;
@@ -13,5 +24,11 @@
     color: var(--primary);
     cursor: pointer;
     outline: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .menu-item:first-child {
+      display: none;
+    }
   }
 }

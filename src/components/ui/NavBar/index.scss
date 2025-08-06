@@ -1,0 +1,38 @@
+nav.bar {
+  background-color: var(--accent);
+
+  width: 100%;
+  max-height: 136px;
+  padding: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+
+  .buttons {
+    gap: 0.75rem;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  nav.bar {
+    .buttons {
+
+    }
+  }
+  
+}
