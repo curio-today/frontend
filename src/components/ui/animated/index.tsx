@@ -1,14 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/buttons";
-import { ReactNode, useState } from "react";
-
-
-export type AnimatedProps = {
-    name: string,
-    children: ReactNode,
-    isClicked?: boolean,
-}
+import { useState } from "react";
+import { AnimatedProps } from "@/shared/props/AnimatedProps";
 
 
 export const AnimatedIconButton = ({name, children }: AnimatedProps) => {
