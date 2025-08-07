@@ -1,17 +1,10 @@
-"use client"
 import "./index.scss"
-
-import { useState } from "react";
-import BurgerIcon from "@/components/ui/animated/BurgerIcon";
+import BurgerIconButton from "@/components/ui/animated/BurgerIconButton";
 
 export const BurgerMenu = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleMenu = () => setIsOpen(!isOpen);
-
     return (
         <div className="burger-menu">
-            <BurgerIcon />
+            <BurgerIconButton />
         </div>
     )
 }

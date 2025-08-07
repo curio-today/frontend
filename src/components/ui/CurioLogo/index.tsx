@@ -9,7 +9,7 @@ export const CurioLogo = () => {
         <Link href="/">
             <Icon src="/logos/curio.webp" alt="curio-logotype" style={{
                 width: "clamp(8vw, 8rem, 10rem)",
-                height: "50px"
+                height: "80px"
             }} />
         </Link>
     )

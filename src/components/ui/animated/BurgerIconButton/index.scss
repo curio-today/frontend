@@ -16,10 +16,10 @@
   span {
     display: block;
     position: absolute;
-    height: 6px;
+    height: 4px;
     width: 100%;
-    background: var(--primary, hsla(214, 100%, 65%, 1));
-    border-radius: 9px;
+    background: var(--text, #fff);
+    border-radius: 0.5rem;
     opacity: 1;
     left: 0;
     --webkit-transform: rotate(0deg);
