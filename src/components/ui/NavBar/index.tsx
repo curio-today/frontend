@@ -7,18 +7,12 @@ import { Menu } from "@/components/ui/Menu";
 import { CurioLogo } from "@/components/ui/CurioLogo";
 import { Button } from "@/components/ui/buttons";
 import Link from "next/link";
+import { BurgerMenu } from "@/components/ui/BurgerMenu";
+
 
 
 export const NavBar = () => {
-    const isMobile: boolean = useMobile();
-
-    if (isMobile) {
-        return (
-            <nav className="bar">
-                <CurioLogo />
-            </nav>
-        );
-    }
+    const isMobile: boolean = useMobile(1350);
 
     return (
         <nav className="bar">
@@ -29,34 +23,39 @@ export const NavBar = () => {
                 <Menu.Item text="Amuses" href={"/category/amuses"}/>
                 <Menu.Item text="Inspires" href={"/category/inspires"}/>
             </Menu>
-
-            <Menu orientation="horizontal" className="buttons">
-                <Link href="/support" passHref>
-                    <Button text="Support" className="reversed" />
-                </Link>
-                <Button
-                    icon={{
-                        src: "/icons/globe.svg",
-                        alt: "globe",
-                    }}
-                    text="EN"
-                />
-                <Button
-                    icon={{
-                        src: "/icons/moon.svg",
-                        alt: "Moon",
-                    }}
-                />
-                <Link href="/search" passHref>
-                    <Button
-                        icon={{
-                            src: "/icons/magnifying glass.svg",
-                            alt: "Magnifying glass",
-                        }}
-                        text="Search"
-                    />
-                </Link>
-            </Menu>
+            { isMobile ? (
+                <BurgerMenu />
+            ) : (
+                <>
+                    <Menu orientation="horizontal" className="buttons">
+                        <Link href="/support" passHref>
+                            <Button text="Support" className="reversed" />
+                        </Link>
+                        <Button
+                            icon={{
+                                src: "/icons/globe.svg",
+                                alt: "globe",
+                            }}
+                            text="EN"
+                        />
+                        <Button
+                            icon={{
+                                src: "/icons/moon.svg",
+                                alt: "Moon",
+                            }}
+                        />
+                        <Link href="/search" passHref>
+                            <Button
+                                icon={{
+                                    src: "/icons/magnifying glass.svg",
+                                    alt: "Magnifying glass",
+                                }}
+                                text="Search"
+                            />
+                        </Link>
+                    </Menu>
+                </>
+            )}
         </nav>
     );
 };

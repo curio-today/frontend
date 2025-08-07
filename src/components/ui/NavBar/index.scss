@@ -14,8 +14,9 @@ nav.bar {
   .buttons {
     gap: 0.75rem;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    z-index: 1;
   }
 
   .links {
@@ -23,16 +24,17 @@ nav.bar {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    z-index: 0;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 500px) {
   nav.bar {
-    .buttons {
-
+    .links {
+      display: none;
     }
   }
-  
 }
