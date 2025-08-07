@@ -1,5 +1,5 @@
 import "./index.scss"
-import { AnimatedIconButton } from "@/components/ui/animated";
+import { AnimatedIconButton } from "@/components/animated";
 
 const BurgerIconButton = () => {
     return (

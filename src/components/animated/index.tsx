@@ -1,9 +1,8 @@
 "use client"
 
-import { Button } from "@/components/ui/buttons";
+import { Button } from "@/components/ui/Button";
 import { useState } from "react";
 import { AnimatedProps } from "@/shared/props/AnimatedProps";
-
 
 export const AnimatedIconButton = ({name, children }: AnimatedProps) => {
     const [isClicked, setIsClicked] = useState<boolean>(false)

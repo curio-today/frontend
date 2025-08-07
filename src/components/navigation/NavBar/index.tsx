@@ -2,11 +2,11 @@
 
 import "./index.scss"
 
-import { Menu } from "@/components/ui/Menu";
-import { CurioLogo } from "@/components/ui/CurioLogo";
-import { Button } from "@/components/ui/buttons";
+import { Menu } from "@/components/navigation/Menu";
+import { CurioLogo } from "@/components/branding/CurioLogo";
+import { Button } from "@/components/ui/Button";
 import Link from "next/link";
-import { BurgerMenu } from "@/components/ui/BurgerMenu";
+import { BurgerMenu } from "@/components/navigation/BurgerMenu";
 
 export const NavBar = () => {
     return (
