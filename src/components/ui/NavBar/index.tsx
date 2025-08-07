@@ -1,8 +1,7 @@
 "use client"
-
 import "./index.scss"
 
-import useMobile from "@/hooks/useMobile"
+import useResponsiveLayout from "@/hooks/useResponsiveLayout"
 import { Menu } from "@/components/ui/Menu";
 import { CurioLogo } from "@/components/ui/CurioLogo";
 import { Button } from "@/components/ui/buttons";
@@ -10,9 +9,8 @@ import Link from "next/link";
 import { BurgerMenu } from "@/components/ui/BurgerMenu";
 
 
-
 export const NavBar = () => {
-    const isMobile: boolean = useMobile(1350);
+    const isMobile: boolean = useResponsiveLayout(1350);
 
     return (
         <nav className="bar">
@@ -26,8 +24,7 @@ export const NavBar = () => {
             { isMobile ? (
                 <BurgerMenu />
             ) : (
-                <>
-                    <Menu orientation="horizontal" className="buttons">
+                <Menu orientation="horizontal" className="buttons">
                         <Link href="/support" passHref>
                             <Button text="Support" className="reversed" />
                         </Link>
@@ -54,7 +51,6 @@ export const NavBar = () => {
                             />
                         </Link>
                     </Menu>
-                </>
             )}
         </nav>
     );
