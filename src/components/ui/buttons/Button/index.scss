@@ -1,0 +1,10 @@
+button.normal {
+  &:hover,
+  &:focus-visible {
+    border: 1px solid var(--primary, #4C9AFF);
+  }
+
+  &:active {
+    background-color: var(--primary, #4C9AFF);
+  }
+}
