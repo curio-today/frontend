@@ -1,0 +1,18 @@
+nav.mobileNavBar {
+  position: fixed;
+  width: 100%;
+  height: 6rem;
+  top: auto;
+  bottom: 0;
+
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.8rem 2rem;
+
+  background-color: var(--accent);
+
+  .buttons {
+    gap: 3rem;
+  }
+
+}
