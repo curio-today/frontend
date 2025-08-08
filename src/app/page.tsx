@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+
 import { Button } from "@/components/ui/Button";
 
 
@@ -7,7 +8,6 @@ export default function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
           <Button text="Click me!" />
-
           <h1>Smart Curiosity</h1>
           <h2>Smart Curiosity</h2>
           <h3>Smart Curiosity</h3>

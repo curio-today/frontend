@@ -5,6 +5,6 @@ import { ButtonHTMLAttributes } from "react";
 
 export type ButtonProps =
     & Partial<TextProps>
-    & { icon?: IconProps }
+    & { icon?: IconProps, mode?: "normal" | "reversed" }
     & ButtonHTMLAttributes<HTMLButtonElement>
 

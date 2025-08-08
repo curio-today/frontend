@@ -1,11 +1,7 @@
-"use client"
-
 import "./index.scss"
 
 import { IconProps } from "@/shared/props/IconProps";
 import Image from "next/image";
-
-
 
 
 export const Icon = ({ src, alt, style, ...props}: IconProps) => {
@@ -14,7 +10,7 @@ export const Icon = ({ src, alt, style, ...props}: IconProps) => {
             <Image
                 src={src}
                 alt={alt}
-                layout="fill"
+                fill
                 objectFit="contain"
                 priority
                 {...props}
