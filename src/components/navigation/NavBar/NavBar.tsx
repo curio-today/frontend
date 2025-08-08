@@ -9,11 +9,13 @@ import Buttons from "./parts/Buttons";
 
 const NavBar = () => {
     return (
-        <nav className={styles.navBar}>
+        <header className={styles.siteHeader}>
             <CurioLogo />
-            <Links />
+            <nav aria-label="Main navigation">
+                <Links />
+            </nav>
             <Buttons />
-        </nav>
+        </header>
     );
 };
 

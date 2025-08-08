@@ -1,11 +1,10 @@
 .links {
   position: absolute;
   left: 50%;
-  height: 100%;
+  align-items: center;
   transform: translateX(-50%);
   will-change: transform;
   justify-content: center;
-  align-items: center;
   gap: 2rem !important;
 
   * {
