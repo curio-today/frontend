@@ -1,0 +1,20 @@
+.iconWrapper {
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+
+.small {
+  width: clamp(1rem, 2vw, 2rem);
+}
+
+.medium {
+  width: clamp(2rem, 3vw, 4rem);
+}
+
+.large {
+  width: clamp(3rem, 5vw, 7rem);
+}
+
+.huge {
+  width: clamp(5rem, 8vw, 15rem);
+}
