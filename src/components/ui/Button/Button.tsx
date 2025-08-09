@@ -1,11 +1,11 @@
 import styles from "./Button.module.scss"
 
-import Text from "@/components/ui/Text"
 import dynamic from "next/dynamic";
 
 import { ButtonProps } from "./types/ButtonProps";
 
 const Icon = dynamic(() => import("@/components/ui/Icon"));
+const Text = dynamic(() => import("@/components/ui/Text"));
 
 const Button = ({ icon, title, children, mode = "normal" }: ButtonProps) => {
     return (
