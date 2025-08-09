@@ -1,5 +1,6 @@
 import styles from "./Button.module.scss"
 
+import Text from "@/components/ui/Text"
 import dynamic from "next/dynamic";
 
 import { ButtonProps } from "./types/ButtonProps";
@@ -13,7 +14,7 @@ const Button = ({ icon, title, children, mode = "normal" }: ButtonProps) => {
                 <Icon icon={icon} size="medium"></Icon>
             )}
             {title && (
-                <p>{title}</p>
+                <Text variant="p">{title}</Text>
             )}
             {children}
         </button>
