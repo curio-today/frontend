@@ -63,5 +63,13 @@ export const IconData: IconDataType = {
   curio: {
     url: "/logos/curio.webp",
     alt: "curio"
+  },
+  newspaper: {
+    url: "/icons/newspaper.svg",
+    alt: "newspaper"
+  },
+  lightbulb: {
+    url: "/icons/lightbulb.svg",
+    alt: "lightbulb"
   }
 }
