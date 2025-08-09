@@ -8,7 +8,7 @@ import { Size } from "@/types/Size";
 export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof Omit<TextProps, "children">> & {
     icon?: IconType;
     iconSize?: Size;
-    textVariant: TextVariant;
+    textVariant?: TextVariant;
     mode?: ButtonType;
 };
 
