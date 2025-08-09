@@ -40,8 +40,5 @@
 
 .noBorder {
   border: none;
-
-  &:hover {
-
-  }
+  min-width: 1vw;
 }
