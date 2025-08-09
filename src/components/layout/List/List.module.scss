@@ -2,6 +2,13 @@
   display: flex;
   list-style: none;
   gap: 1rem;
+
+  li {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+  }
 }
 
 .small {
