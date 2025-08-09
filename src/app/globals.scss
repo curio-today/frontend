@@ -1,6 +1,7 @@
 
 :root {
   --primary: hsla(214, 100%, 65%, 1);
+  --primary-lighten: hsla(214, 100%, 75%, 1);
   --text: hsla(0, 0%, 100%, 1);
   --accent: hsla(0, 0%, 15%, 1);
   --secondary: hsla(0, 0%, 36%, 1);
@@ -24,54 +25,37 @@
 }
 
 button {
+  -webkit-tap-highlight-color: transparent;
   height: 4rem;
   min-width: 5.125rem;
+  max-width: 16rem;
   font-family: inherit;
   background-color: var(--accent, #262626);
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
-  padding: clamp(1vw, 1.5rem, 2vw);
-  color: white;
+  padding: clamp(1rem, 1.2vw, 1.5rem);
+  color: var(--text);
 
-  transition: border 0.2s ease-out;
+  transition: transform 0.15s ease-out, background-color 0.2s ease-out, opacity 0.2s ease-out;
+  will-change: transform, background-color, opacity;
+
   border: 1px solid var(--border, #333);
   border-radius: var(--button-radius, 0.75rem);
 
+  /* Press effect */
   &:active {
     transform: scale(0.95);
   }
 
+  /* Hover/focus styles */
   &:hover,
   &:focus-visible {
-    transition: background-color 0.2s ease-out;
     cursor: pointer;
     outline: none;
+    background-color: var(--accent-hover, #333);
   }
-
-}
-
-
-h1 {
-  font-size: var(--h1, 2.986rem);
-}
-h2 {
-  font-size: var(--h2, 2.488rem);
-}
-h3 {
-  font-weight: normal;
-  font-size: var(--h3, 1.728rem);
-}
-p {
-  font-size: var(--p, 1rem);
-}
-a {
-  font-size: var(--p, 1rem);
-}
-
-small {
-  font-size: var(--small, 0.75rem);
 }
 
 
@@ -94,8 +78,4 @@ body {
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
 

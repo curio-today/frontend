@@ -1,6 +1,7 @@
 import './index.scss'
 import { TextProps } from "@/shared/props/TextProps";
 import { HTMLAttributes, ReactNode } from "react";
+import Link from "next/link";
 
 type MenuItemProps = TextProps & {
     href: string;
@@ -23,7 +24,7 @@ export const Menu = ({ children, orientation, className = "", ...props}: MenuPro
 const MenuItem = ({ text, href }: MenuItemProps) => {
     return (
       <li className="menu-item" tabIndex={0}>
-          <a href={href}>{text}</a>
+          <Link href={href}>{text}</Link>
       </li>
     );
 }

@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.scss";
-import { NavBar } from "@/components/navigation/NavBar";
+
+import NavBar from "@/components/navigation/NavBar";
+import MobileNavBar from "@/components/navigation/MobileNavBar";
+
+import { ReactNode } from "react";
 
 const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,13 +20,14 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en" className={outfit.className}>
         <body>
-            <NavBar/>
+            <NavBar />
             {children}
+            <MobileNavBar />
         </body>
     </html>
   );

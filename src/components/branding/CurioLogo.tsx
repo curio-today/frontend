@@ -4,13 +4,15 @@ import { Icon } from "@/components/ui/Icon";
 import Link from "next/link";
 
 
-export const CurioLogo = () => {
+const CurioLogo = () => {
     return (
         <Link href="/">
             <Icon src="/logos/curio.webp" alt="curio-logotype" style={{
-                width: "clamp(8vw, 8rem, 10rem)",
+                width: "clamp(4vw, 6rem, 10rem)",
                 height: "80px"
             }} />
         </Link>
     )
 }
+
+export default CurioLogo;

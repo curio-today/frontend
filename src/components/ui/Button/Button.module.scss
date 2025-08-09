@@ -1,0 +1,40 @@
+.normal {
+  &:hover,
+  &:focus-visible {
+    border: 1px solid var(--primary, #4C9AFF);
+  }
+
+  &:active {
+    background-color: var(--primary, #4C9AFF);
+  }
+}
+
+.fill {
+  background-color: var(--primary, #4C9AFF);
+
+  &:hover,
+  &:focus-visible {
+    border: 1px solid var(--text);
+  }
+
+  &:active {
+    background-color: var(--primary-lighten);
+  }
+}
+
+.outline {
+  background-color: transparent;
+  border: 1px solid var(--primary, #4C9AFF);
+
+  &:hover,
+  &:focus-visible {
+    border: 1px solid var(--text);
+    background-color: rgba(76, 154, 255, 0.1); // subtle tint on hover
+  }
+
+  &:active {
+    background-color: var(--primary-lighten);
+    color: var(--text);
+  }
+}
+
