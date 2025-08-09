@@ -4,6 +4,22 @@
   gap: 1rem;
 }
 
+.small {
+  gap: 0.5rem;
+}
+
+.medium {
+  gap: 2rem;
+}
+
+.large {
+  gap: 4rem;
+}
+
+.huge {
+  gap: 6rem;
+}
+
 .horizontal {
   flex-direction: row;
 }
