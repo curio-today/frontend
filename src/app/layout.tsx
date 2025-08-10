@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.scss";
 
-import NavBar from "@/components/navigation/NavBar";
-import MobileNavBar from "@/components/navigation/MobileNavBar";
-
 import { ReactNode } from "react";
+import NavBar from "@/components/navigation/NavBar";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -27,7 +25,6 @@ export default function RootLayout({
         <body>
             <NavBar />
             {children}
-            <MobileNavBar />
         </body>
     </html>
   );

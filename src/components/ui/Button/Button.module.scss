@@ -29,7 +29,7 @@
   &:hover,
   &:focus-visible {
     border: 1px solid var(--text);
-    background-color: rgba(76, 154, 255, 0.1); // subtle tint on hover
+    background-color: rgba(76, 154, 255, 0.1);
   }
 
   &:active {
@@ -38,3 +38,7 @@
   }
 }
 
+.noBorder {
+  border: none;
+  min-width: 1vw;
+}

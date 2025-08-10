@@ -1,22 +1,14 @@
-"use client"
+import dynamic from "next/dynamic";
 
-import styles from "./NavBar.module.scss"
+import { Mobile_NavLinkData, Desktop_NavLinkData } from "@/consts/NavLinkData";
+import { Server_isMobile } from "@/lib/Platform";
 
-import CurioLogo from "@/components/branding/CurioLogo";
-import Links from "./parts/Links";
-import Buttons from "./parts/Buttons";
+const Mobile = dynamic(() => import("./mobile"));
+const Desktop = dynamic(() => import("./desktop"));
 
 
-const NavBar = () => {
-    return (
-        <header className={styles.siteHeader}>
-            <CurioLogo />
-            <nav aria-label="Main navigation">
-                <Links />
-            </nav>
-            <Buttons />
-        </header>
-    );
-};
+async function NavBar() {
+    return await Server_isMobile() ? <Mobile data={Mobile_NavLinkData}/> : <Desktop data={Desktop_NavLinkData}/>;
+}
 
 export default NavBar;

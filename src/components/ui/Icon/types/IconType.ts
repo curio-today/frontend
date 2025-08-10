@@ -1,4 +1,4 @@
-type IconType =
+export type IconType =
     | "clock"
     | "external"
     | "filter"
@@ -12,6 +12,8 @@ type IconType =
     | "share"
     | "sun"
     | "wow"
-    | "curio";
+    | "curio"
+    | "newspaper"
+    | "lightbulb";
 
 export default IconType;
