@@ -1,10 +1,12 @@
+import { Section } from "@/types/Section";
+
 export type Post = {
     slug: string,
     title: string,
     description: string,
     publishedDate: string,
 
-    category: "amazes" | "informs" | "amuses" | "inspires",
+    category: Section,
 
     img: {
         src: string,

@@ -1,0 +1,1 @@
+export type Section = "Amazes" | "Informs" | "Amuses" | "Inspires" | (string & {})
