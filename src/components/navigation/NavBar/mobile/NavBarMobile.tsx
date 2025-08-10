@@ -4,6 +4,7 @@ import List from "@/components/layout/List";
 import { NavBarProps } from "../types/NavBarProps";
 
 import NavLink from "@/components/navigation/NavLink";
+import Button from "@/components/ui/Button";
 
 const NavBarMobile = ({ data }: NavBarProps) => {
     return (
@@ -12,11 +13,15 @@ const NavBarMobile = ({ data }: NavBarProps) => {
                 {data.map((item, index) => (
                     <NavLink
                         key={index}
-                        href={item.href}
-                        title={item.title}
-                        icon={item.icon}
-                        textVariant="small"
-                    />
+                        href={item.href} >
+                        <Button
+                            mode="noBorder"
+                            title={item.title}
+                            icon={item.icon}
+                            textVariant="small"
+                        />
+                    </NavLink>
+
                 ))}
             </List>
         </nav>

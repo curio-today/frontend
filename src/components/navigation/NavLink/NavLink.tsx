@@ -2,16 +2,16 @@
 
 import styles from "./NavLink.module.scss"
 
-import Button, { ButtonProps } from "@/components/ui/Button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { PropsWithChildren } from "react";
 
-export type NavLinkProps = ButtonProps & {
+export type NavLinkProps = PropsWithChildren & {
     href: string,
 }
 
 
-const NavLink = ({href, title, ...rest}: NavLinkProps) => {
+const NavLink = ({ href, children}: NavLinkProps) => {
     const pathname = usePathname();
 
     function checkPathname(): string {
@@ -23,14 +23,10 @@ const NavLink = ({href, title, ...rest}: NavLinkProps) => {
 
     return (
         <Link href={href} passHref className={checkPathname()}>
-            <Button
-                title={title}
-                mode="noBorder"
-                style={{ flexDirection: 'column' }}
-                {...rest}
-            />
+            {children}
         </Link>
     )
 }
+
 
 export default NavLink;
