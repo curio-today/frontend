@@ -9,8 +9,9 @@
   gap: 0;
   transition: gap 0.1s ease;
 
+  text-decoration: none;
+
   p {
-    color: var(--text);
     align-self: center;
     max-width: 0;
     opacity: 0;
