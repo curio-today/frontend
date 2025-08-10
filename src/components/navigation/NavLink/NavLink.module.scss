@@ -1,4 +1,7 @@
 .selected {
+  p {
+    color: var(--primary-lighten);
+  }
   button {
     flex-direction: column;
     background-color: var(--accent-hover, #333);

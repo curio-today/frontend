@@ -22,7 +22,11 @@ const NavLink = ({ href, children}: NavLinkProps) => {
     }
 
     return (
-        <Link href={href} passHref className={checkPathname()}>
+        <Link href={href} passHref className={checkPathname()} onClick={(event) => {
+            if (checkPathname() == styles.selected) {
+                event.preventDefault();
+            }
+        }}>
             {children}
         </Link>
     )
