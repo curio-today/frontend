@@ -5,6 +5,7 @@ import { Property } from "csstype";
 import BackgroundColor = Property.BackgroundColor;
 
 export type BadgeProps = {
+    isActive?: boolean;
     icon: IconType;
     label: Section;
     href: string;

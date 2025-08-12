@@ -1,0 +1,6 @@
+.checkboxList {
+  padding: var(--checkbox-padding);
+  border-radius: var(--checkbox-border-radius);
+  width: fit-content;
+  background-color: var(--checkbox-bg);
+}

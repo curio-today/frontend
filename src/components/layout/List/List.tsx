@@ -2,7 +2,7 @@ import styles from "./List.module.scss"
 import React, { HTMLAttributes } from "react";
 import { Size } from "@/types/Size";
 
-type ListProps = {
+export type ListProps = {
     orientation: "horizontal" | "vertical",
     gap?: Size,
 } & HTMLAttributes<HTMLUListElement>;

@@ -5,14 +5,18 @@ import Text from "@/components/ui/Text";
 import Link from "next/link";
 
 import { BadgeProps } from "./types/BadgeProps";
+import clsx from "clsx";
 
-const Badge = (props: BadgeProps) => {
+const Badge = ({ href, color, icon, label, isActive }: BadgeProps) => {
     return (
-        <Link href={props.href} className={styles.badge} style={{
-            backgroundColor: props.color,
+        <Link href={href} className={clsx(
+            styles.badge,
+            isActive && styles.active
+        )} style={{
+            backgroundColor: color,
         }}>
-            <Icon icon={props.icon} size="small" />
-            <Text variant="p">{props.label}</Text>
+            <Icon icon={icon} size="small" />
+            <Text variant="p">{label}</Text>
         </Link>
     )
 }

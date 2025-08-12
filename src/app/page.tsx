@@ -16,7 +16,13 @@ export default function Home() {
               <Button mode="outline" icon="globe" title="Language"/>
               <Button mode="fill" icon="globe" />
           </List>
-          <Badge icon="wow" label="Amazes" href="/amazes" color="hsla(249, 100%, 65%, 1)" />
+          <Badge
+              icon="wow"
+              label="Amazes"
+              href="/amazes"
+              color="hsla(249, 100%, 65%, 1)"
+              isActive={true}
+          />
 
           <Text variant="h1">Smart Curiosity</Text>
           <Text variant="h2">Smart Curiosity</Text>
