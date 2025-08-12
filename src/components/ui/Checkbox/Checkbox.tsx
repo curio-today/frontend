@@ -1,32 +1,47 @@
 "use client"
 
 import styles from "./Checkbox.module.css"
-import { CheckboxProps } from "./types/CheckboxProps";
 
+import { CheckboxProps } from "./types/CheckboxProps";
+import { CheckboxOption, CheckboxOptionProps } from "./parts/CheckboxOption";
+
+import List from "@/components/layout/List";
 import { useState } from "react";
 import clsx from "clsx";
 
-const Checkbox = ({ checked = false, onChange, label }: CheckboxProps) => {
-    const [isChecked, setIsChecked] = useState<boolean>(checked);
+const Checkbox = ({ options,
+                      orientation = "vertical",
+                      gap = "small",
+                      ...rest}: CheckboxProps) => {
+    const [checkedOption, setCheckedOption] = useState<CheckboxOptionProps>();
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newChecked = e.target.checked;
-        setIsChecked(newChecked);
-        onChange?.(newChecked);
+    const handleCheckboxChange = (checked: boolean, option: CheckboxOptionProps) => {
+        if (checked) {
+            setCheckedOption(option);
+        } else {
+            setCheckedOption(undefined);
+        }
     };
-
     return (
-        <label className={clsx(styles.checkbox, isChecked && styles.checked)}>
-            <input
-                type="checkbox"
-                className={styles.input}
-                checked={isChecked}
-                onChange={handleChange}
-            />
-            <span className={styles.circle} />
-            {label && <span className={styles.label}>{label}</span>}
-        </label>
-    );
+        <List
+            className={clsx(
+                styles.checkboxList,
+                rest.className,
+            )}
+            orientation={orientation}
+            gap={gap}
+            {...rest}
+        >
+            {options.map((option) => (
+                <CheckboxOption key={option.id}
+                                id={option.id}
+                                label={option.label}
+                                checked={checkedOption?.id == option.id}
+                                onChangeAction={(checked) => handleCheckboxChange(checked, option)}
+                />
+            ))}
+        </List>
+    )
 };
 
 export default Checkbox;

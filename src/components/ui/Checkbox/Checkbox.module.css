@@ -1,58 +1,6 @@
-.checkbox {
-  border-radius: var(--tag-radius);
-  border: 1px solid var(--border);
-  display: flex;
-  width: clamp(8rem, 12vw, 13.5rem);
-  height: clamp(3rem, 3vw, 4rem);
-  padding: 0.75rem 1.5rem;
-  align-items: center;
-  gap: 0.625rem;
-  flex-shrink: 0;
-  cursor: pointer;
-  position: relative;
-
-
-  background-color: var(--accent);
-}
-
-.checkbox:hover {
-  border-color: var(--primary);
-
-  .circle {
-    border-color: var(--primary);
-  }
-}
-
-.checked {
-  background-color: var(--primary);
-  pointer-events: none;
-}
-
-.checked .circle {
-  border: 1px solid var(--text);
-  background-color: var(--text);
-}
-
-.input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.circle {
-  width: clamp(1.5rem, 1vw, 2rem);
-  height: clamp(1.5rem, 1vw, 2rem);
-  flex-shrink: 0;
-  background-color: transparent;
-  border-radius: 50%;
-  border: 2px solid var(--border);
-  will-change: background-color;
-  transition: all 0.2s ease;
-}
-
-.label {
-  width: 100%;
-  cursor: pointer;
+.checkboxList {
+  padding: var(--checkbox-padding);
+  border-radius: var(--checkbox-border-radius);
+  width: fit-content;
+  background-color: var(--checkbox-bg);
 }

@@ -27,9 +27,10 @@ const Icon = ({ icon, size, style, ...props}: IconProps) => {
             <Image
                 src={data.url}
                 alt={data.alt}
+                style={{
+                    objectFit: "contain",
+                }}
                 fill
-                objectFit="contain"
-                priority
                 {...props}
             />
         </div>

@@ -1,6 +1,6 @@
+import { CheckboxOptionProps } from "../parts/CheckboxOption";
+import { ListProps } from "@/components/layout/List";
 export type CheckboxProps = {
-    label: string;
-    checked?: boolean;
-    onChange?: (checked: boolean) => void;
-};
+    options: CheckboxOptionProps[];
+} & Partial<ListProps>;
 
