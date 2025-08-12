@@ -2,7 +2,8 @@
     border-radius: var(--tag-radius);
     border: 1px solid var(--border);
     display: flex;
-    width: clamp(8rem, 12vw, 13.5rem);
+
+    width: clamp(18rem, 5vw, 27.5rem);
     height: clamp(3rem, 3vw, 4rem);
     padding: 0.75rem 1.5rem;
     align-items: center;
@@ -10,7 +11,6 @@
     flex-shrink: 0;
     cursor: pointer;
     position: relative;
-
 
     background-color: var(--accent);
 }
@@ -57,6 +57,11 @@
 
 
 .label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+
     width: 100%;
     cursor: pointer;
 }

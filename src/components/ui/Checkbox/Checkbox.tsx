@@ -32,7 +32,7 @@ const Checkbox = ({ options,
             gap={gap}
             {...rest}
         >
-            {options.map((option) => (
+            {options.map((option: CheckboxOptionProps) => (
                 <CheckboxOption key={option.id}
                                 id={option.id}
                                 label={option.label}
