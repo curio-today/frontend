@@ -3,8 +3,8 @@ import styles from "./page.module.css";
 import Button from "@/components/ui/Button";
 import Text from "@/components/ui/Text";
 import Badge from "@/components/ui/Badge";
-import Checkbox from "@/components/ui/Checkbox";
 import { CustomSelectExample } from "./components/CustomSelectExample";
+import Post from "@/components/ui/Post";
 
 export default function Playground() {
     return (
@@ -73,7 +73,7 @@ export default function Playground() {
                 <h3>Typography</h3>
                 <section style={{
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: "column",
                     flexWrap: "wrap",
                     gap: "1rem",
                     borderRadius: "1rem",
@@ -85,6 +85,29 @@ export default function Playground() {
                     <Text variant="h3">Smart Curiosity</Text>
                     <Text variant="p">Smart Curiosity</Text>
                     <Text variant="small">Smart Curiosity</Text>
+                </section>
+
+                <h3>Post</h3>
+                <section style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flexWrap: "wrap",
+                    gap: "1rem",
+                    borderRadius: "1rem",
+                    border: "3px dashed var(--border)",
+                    padding: "0.1rem"
+                }}>
+                    <Post size="small" image={{
+                        src: "https://centralca.cdn-anvilcms.net/media/images/2019/01/02/images/Rainy_Weather_pix.max-1200x675.jpg",
+                        sizes: [],
+                        alt: "alt"
+                    }} slug="testing-nad-gorizontom"
+                          title={"Дожди над горизонтом, гром за кулисами"} subtitle={"Прогноз погоды по регионам Латвии на воскресенье, 21 июля"} badge={{
+                        icon: "wow",
+                        label: "Amazes",
+                        href: "/amazes",
+                        color: "hsla(249, 100%, 65%, 1)"
+                    }} publishedDate={"1 день назад"} />
                 </section>
             </main>
         </div>
