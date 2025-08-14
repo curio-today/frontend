@@ -9,3 +9,5 @@ export type Meta = {
     heading: Heading;
     slug: string;
 }
+
+export type Size = "small" | "medium" | "large" | "huge"
