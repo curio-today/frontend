@@ -3,11 +3,11 @@ export type Image = {
     alt: string;
 }
 
-export type Heading = "amazes" | "informs" | "amuses" | "inspires"
-
 export type Meta = {
     heading: Heading;
     slug: string;
 }
 
+export type Heading = "amazes" | "informs" | "amuses" | "inspires"
 export type Size = "small" | "medium" | "large" | "huge"
+

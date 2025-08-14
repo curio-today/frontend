@@ -1,20 +1,14 @@
 "use client"
 
-import styles from "./CheckboxOption.module.css"
+import styles from "./checkbox-option.module.css"
+import { CheckboxOptionProps } from "./checkbox-option.types";
+
+import { ChangeEvent } from "react";
 import clsx from "clsx";
 
-export type CheckboxOptionProps = {
-    id: number;
-    checked?: boolean;
-    label: string;
-    onChangeAction?: (checked: boolean) => void;
-};
 
-
-export const CheckboxOption = ({ label,
-                          checked = false,
-                           onChangeAction }: CheckboxOptionProps) => {
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const CheckboxOption = ({ label, checked = false, onChangeAction }: CheckboxOptionProps) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         onChangeAction?.(e.target.checked);
     };
 
@@ -25,8 +19,11 @@ export const CheckboxOption = ({ label,
                 className={styles.input}
                 checked={checked}
                 onChange={handleChange}
+                aria-checked={checked}
             />
             {label && <span className={styles.label}>{label}</span>}
         </label>
     );
 }
+
+export default CheckboxOption;
