@@ -1,9 +1,5 @@
-import { BadgeProps } from "@/components/ui/Badge";
-import { Size } from "@/types/Size";
-
 export type PostProps = {
     slug: string;
-    size?: Size;
     image: {
         src: string;
         sizes: string[];
@@ -11,6 +7,9 @@ export type PostProps = {
     }
     title: string;
     subtitle: string;
-    badge: BadgeProps;
+    badge: {
+        label: string;
+        color: string;
+    };
     publishedDate: string;
 }
