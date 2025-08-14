@@ -16,9 +16,9 @@ const NavBarMobile = ({ data }: NavBarProps) => {
                         href={item.href} >
                         <Button
                             mode="noBorder"
-                            title={item.title}
                             icon={item.icon}
-                            titleVariant="small"
+                            title={item.title}
+                            variant="small"
                         />
                     </NavLink>
 

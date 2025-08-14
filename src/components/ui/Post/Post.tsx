@@ -1,30 +1,59 @@
 "use client"
 
 import styles from "./Post.module.scss";
+import { PostProps } from "./types/PostProps";
 
-import { PostProps } from "./types/PostProps"
-;
-import clsx from "clsx";
+import Text from "@/components/ui/Text";
 import Link from "next/link";
 
-const Post = ({ slug, title, subtitle, badge, image, publishedDate, size = "medium"}: PostProps) => {
-    return (
-        <Link href={`/news/${slug}`} passHref
-              id={slug}
-              className={clsx(
-                  styles.post,
-                  size && styles[size],
-              )}
-              style={{
-                  background: `linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+const Post = ({
+                  slug,
+                  title,
+                  subtitle,
+                  image,
+                  publishedDate,
+              }: PostProps) => {
+    const customStyles = {
+        background: `linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
         url(${image.src}) lightgray 50% / cover no-repeat`,
-              }}
-              tabIndex={0}>
-            <section className={styles.contentWrapper}>
-                <h3 className={styles.title}>{title}</h3>
+    }
+
+    return (
+        <Link
+            href={`/news/${slug}`}
+            passHref
+            id={slug}
+            className={styles.post}
+            style={customStyles}
+            tabIndex={0}
+            aria-label={`Read full article: ${title}`}
+        >
+            <section
+                className={styles.contentWrapper}
+                aria-labelledby={`${slug}-title`}
+            >
+                <Text
+                    id={`${slug}-title`}
+                    variant="h3"
+                    className={styles.title}
+                >
+                    {title}
+                </Text>
+
                 <div className={styles.descriptionWrapper}>
-                    <p className={styles.subtitle}>{subtitle}</p>
-                    <time className={styles.date} dateTime={publishedDate}>
+                    <Text
+                        variant="p"
+                        className={styles.subtitle}
+                        aria-label={subtitle}
+                    >
+                        {subtitle}
+                    </Text>
+
+                    <time
+                        className={styles.date}
+                        dateTime={publishedDate}
+                        aria-label={`Published on ${new Date(publishedDate).toLocaleDateString()}`}
+                    >
                         {publishedDate}
                     </time>
                 </div>

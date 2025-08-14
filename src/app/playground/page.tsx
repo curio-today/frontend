@@ -108,6 +108,17 @@ export default function Playground() {
                         href: "/amazes",
                         color: "hsla(249, 100%, 65%, 1)"
                     }} publishedDate={"1 день назад"} />
+                    <Post format="landscape" size="medium" image={{
+                        src: "https://centralca.cdn-anvilcms.net/media/images/2019/01/02/images/Rainy_Weather_pix.max-1200x675.jpg",
+                        sizes: [],
+                        alt: "alt"
+                    }} slug="testing-nad-gorizontom"
+                          title={"Дожди над горизонтом, гром за кулисами"} subtitle={"Прогноз погоды по регионам Латвии на воскресенье, 21 июля"} badge={{
+                        icon: "wow",
+                        label: "Amazes",
+                        href: "/amazes",
+                        color: "hsla(249, 100%, 65%, 1)"
+                    }} publishedDate={"1 день назад"} />
                 </section>
             </main>
         </div>
