@@ -1,6 +1,6 @@
 "use client"
 
-import styles from "./Button.module.scss"
+import styles from "./button.module.scss"
 
 import dynamic from "next/dynamic";
 import clsx from "clsx";
