@@ -252,14 +252,14 @@ export default function Home() {
     return (
         <div className={styles.page}>
             <header className={styles.posts}>
-                <section className={styles.grid}>
+                <section className={styles.main}>
                     <Post {...data[0]} />
                     <Post {...data[1]} />
                 </section>
-                <section className={styles.grid}>
-                    <Post {...data[0]} />
-                    <Post {...data[1]} />
+                <section className={styles.main}>
                     <Post {...data[2]} />
+                    <Post {...data[3]} />
+                    <Post {...data[4]} />
                 </section>
             </header>
         </div>
