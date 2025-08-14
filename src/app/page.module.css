@@ -1,17 +1,36 @@
-.page {
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+.grid {
+  display: flex;
+  flex-direction: row;
+  gap: inherit;
 }
 
-
-.main {
+.posts {
+  height: fit-content;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  grid-row-start: 2;
+  width: 100%;
+  gap: 1.5rem;
 }
+
+.page {
+  padding: 2rem 5rem;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+  .page {
+    padding: 0.5rem 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .grid {
+    flex-wrap: wrap;
+  }
+  .page {
+    padding: 0.5rem 2rem;
+  }
+}
+
