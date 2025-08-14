@@ -1,39 +1,37 @@
 "use client"
 
-import styles from "./Post.module.scss";
-import { PostProps } from "./types/PostProps";
+import styles from "./post.module.scss";
+import { PostProps } from "./post.types";
 
 import Text from "@/components/ui/Text";
 import Link from "next/link";
+import { getHeadingUrl } from "@/configs/url.config";
 
 const Post = ({
-                  slug,
                   title,
                   subtitle,
                   image,
-                  publishedDate,
-              }: PostProps) => {
-    const customStyles = {
-        background: `linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
-        url(${image.src}) lightgray 50% / cover no-repeat`,
-    }
-
+                  meta,
+                  publishedDate}: PostProps) => {
     return (
         <Link
-            href={`/news/${slug}`}
+            href={getHeadingUrl(meta.heading, meta.slug)}
             passHref
-            id={slug}
+            id={meta.slug}
             className={styles.post}
-            style={customStyles}
+            style={{
+                background: `linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+                url(${image.src}) lightgray 50% / cover no-repeat`,
+            }}
             tabIndex={0}
             aria-label={`Read full article: ${title}`}
         >
             <section
                 className={styles.contentWrapper}
-                aria-labelledby={`${slug}-title`}
+                aria-labelledby={`${meta.slug}-title`}
             >
                 <Text
-                    id={`${slug}-title`}
+                    id={`${meta.slug}-title`}
                     variant="h3"
                     className={styles.title}
                 >
@@ -51,10 +49,10 @@ const Post = ({
 
                     <time
                         className={styles.date}
-                        dateTime={publishedDate}
-                        aria-label={`Published on ${new Date(publishedDate).toLocaleDateString()}`}
+                        dateTime={publishedDate.toDateString()}
+                        aria-label={`Published on ${publishedDate.toLocaleDateString()}`}
                     >
-                        {publishedDate}
+                        {publishedDate.toLocaleDateString()}
                     </time>
                 </div>
             </section>
