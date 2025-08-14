@@ -1,19 +1,23 @@
 "use client"
 
-import styles from "./Checkbox.module.css"
+// Types
+import { CheckboxProps } from "./checkbox.types";
 
-import { CheckboxProps } from "./types/CheckboxProps";
-import { CheckboxOption, CheckboxOptionProps } from "./parts/CheckboxOption";
+// Styles
+import styles from "./checkbox.module.css";
 
+// Components
 import List from "@/components/layout/List";
+import CheckboxOption, { CheckboxOptionProps } from "./checkbox-option";
+
+// External libraries
 import { useState } from "react";
 import clsx from "clsx";
 
-const Checkbox = ({ options,
-                      orientation = "vertical",
-                      gap = "small",
-                      ...rest}: CheckboxProps) => {
+
+const Checkbox = ({ options, className, listProps }: CheckboxProps) => {
     const [checkedOption, setCheckedOption] = useState<CheckboxOptionProps>();
+
 
     const handleCheckboxChange = (checked: boolean, option: CheckboxOptionProps) => {
         if (checked) {
@@ -26,11 +30,9 @@ const Checkbox = ({ options,
         <List
             className={clsx(
                 styles.checkboxList,
-                rest.className,
+                className,
             )}
-            orientation={orientation}
-            gap={gap}
-            {...rest}
+            {...listProps}
         >
             {options.map((option: CheckboxOptionProps) => (
                 <CheckboxOption key={option.id}
