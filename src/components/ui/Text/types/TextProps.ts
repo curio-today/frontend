@@ -2,7 +2,7 @@ import TextVariant from "./TextVariant";
 import { HTMLAttributes, ReactNode } from "react";
 
 export type TextProps = {
-    children: ReactNode;
+    children?: ReactNode;
     variant: TextVariant;
 } & HTMLAttributes<HTMLElement>;
 
