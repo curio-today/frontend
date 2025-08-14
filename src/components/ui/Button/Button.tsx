@@ -13,7 +13,7 @@ const Text = dynamic(() => import("@/components/ui/Text"));
 const Button = ({ icon, title, children,
                     mode = "normal",
                     iconSize = "medium",
-                    titleVariant = "p",
+                    variant = "p",
                     className,
                     ...rest }: ButtonProps) => {
     return (
@@ -22,7 +22,7 @@ const Button = ({ icon, title, children,
                 <Icon icon={icon} size={iconSize}></Icon>
             )}
             {title && (
-                <Text variant={titleVariant}>{title}</Text>
+                <Text variant={variant}>{title}</Text>
             )}
             {children}
         </button>
