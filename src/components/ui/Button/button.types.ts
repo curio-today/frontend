@@ -1,9 +1,10 @@
-import styles from "./badge.module.scss";
+import styles from "./button.module.scss";
 
-import { Icon } from "@/shared/data.types";
 import { ComponentProps } from "react";
 import { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
+
+import { IconProps, IconType } from "@/components/ui/Icon";
 
 export const buttonVariants = cva(styles.badge, {
     variants: {
@@ -11,6 +12,7 @@ export const buttonVariants = cva(styles.badge, {
             normal: "",
             outline: styles.outline,
             fill: styles.fill,
+            noBorder: styles.noBorder,
         },
     },
     defaultVariants: {
@@ -19,5 +21,9 @@ export const buttonVariants = cva(styles.badge, {
 })
 
 export type ButtonProps = {
-    icon: Icon;
+    icon?: {
+        type: IconType;
+        props?: IconProps;
+    }
+
 } & ComponentProps<"button"> & VariantProps<typeof buttonVariants>;
