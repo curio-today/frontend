@@ -3,11 +3,11 @@ import { BadgeProps, badgeVariants } from "./badge.types";
 import Icon from "@/components/ui/Icon";
 import Text from "@/components/ui/Text";
 
-import { Headings } from "@/data/headings.data";
+import { HEADINGS } from "@/data/headings.data";
 
 
 const Badge = ({ className, heading, status }: BadgeProps) => {
-    const badgeData = Headings[heading];
+    const badgeData = HEADINGS[heading];
 
     return (
         <div
