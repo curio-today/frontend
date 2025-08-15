@@ -4,7 +4,7 @@ import { ComponentProps } from "react";
 import { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
 
-import { IconProps, IconType } from "@/components/ui/Icon";
+import { IconProps, IconVariant } from "@/components/ui/Icon";
 
 export const buttonVariants = cva(styles.badge, {
     variants: {
@@ -22,7 +22,7 @@ export const buttonVariants = cva(styles.badge, {
 
 export type ButtonProps = {
     icon?: {
-        type: IconType;
+        type: IconVariant;
         props?: IconProps;
     }
 
