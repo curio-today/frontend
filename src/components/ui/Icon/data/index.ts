@@ -1,1 +1,0 @@
-export { IconData } from "./IconData";
