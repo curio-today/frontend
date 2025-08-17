@@ -8,7 +8,7 @@ import { FetchOptions } from "@/shared/network/";
 
 
 
-export async function getPosts(query: FetchOptions): Promise<PostProps[] | null> {
+export async function getPosts(query: FetchOptions): Promise<PostProps[]> {
     const adminUrl = getAdmin();
     const API_KEY = "11f7f25b-a955-454f-b551-3f8ba3c72d33";
 
@@ -21,7 +21,7 @@ export async function getPosts(query: FetchOptions): Promise<PostProps[] | null>
 
         if (!response.ok) {
             console.error("Failed to fetch posts:", response.statusText);
-            return null;
+            return Promise.reject(new Error("Failed to fetch posts."));
         }
 
         const data: ApiResponse<PostAsset> = await response.json();
@@ -42,6 +42,6 @@ export async function getPosts(query: FetchOptions): Promise<PostProps[] | null>
         
     } catch (error) {
         console.error("Error fetching posts:", error);
-        return null;
+        return Promise.reject(error);
     }
 }
