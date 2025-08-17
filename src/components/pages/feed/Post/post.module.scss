@@ -3,9 +3,10 @@
   --transition-fast: 0.2s ease-in-out;
   --transition-medium: 0.25s ease;
 
-  --min-width: 320px;
+  --min-width: 250px;
   --min-height: 400px;
   --max-height: 800px;
+  --max-width: 1200px;
 }
 
 .post {
@@ -19,7 +20,7 @@
   max-height: var(--max-height);
 
   flex: 1;
-  height: 100%;
+  aspect-ratio: 1/1;
 
   overflow: hidden;
   border-radius: var(--card-radius);
@@ -39,7 +40,10 @@
       background: hsla(0, 0%, 15%, 0.6);
       backdrop-filter: blur(5px);
     }
+    .title {
+      -webkit-line-clamp: 4;
 
+    }
     .subtitle,
     .date {
       color: var(--text);
@@ -74,7 +78,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
