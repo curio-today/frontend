@@ -33,6 +33,7 @@ export type PostAsset = Asset & {
         color: string;
         name: string;
     };
+    source: string;
     cover: {
         quality: string;
         filename: string;

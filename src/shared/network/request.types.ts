@@ -6,4 +6,5 @@ export type FetchOptions = {
     endpoint: Endpoint,
     page: number;
     limit: number;
+    slug: string;
 } & Pick<Asset, "_status">

@@ -4,6 +4,7 @@ import "./globals.scss";
 
 import { ReactNode } from "react";
 import NavBar from "@/components/navigation/NavBar";
+import styles from "./layout.module.css";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -24,7 +25,9 @@ export default function RootLayout({
     <html lang="en" className={outfit.className}>
         <body>
             <NavBar />
-            {children}
+            <div className={styles.page}>
+                {children}
+            </div>
         </body>
     </html>
   );
