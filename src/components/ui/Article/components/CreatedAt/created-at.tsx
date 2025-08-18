@@ -2,12 +2,14 @@ import styles from "./created-at.module.css"
 
 import Text, { TextProps } from "@/components/ui/Text";
 
-type CreatedAtProps = TextProps;
+type CreatedAtProps = {
+    timeStamp: string
+} & Partial<TextProps>;
 
 
-const CreatedAt = ({variant = "h3", id = "createdAt", ...rest }: CreatedAtProps) => {
+const CreatedAt = ({timeStamp, variant = "h3", id = "createdAt", ...rest }: CreatedAtProps) => {
     return (
-        <Text variant={variant} className={styles.createdAt} id={id} {...rest}>{convertedTime}</Text>
+        <Text variant={variant} className={styles.createdAt} id={id} {...rest}>{timeStamp}</Text>
     )
 }
 
