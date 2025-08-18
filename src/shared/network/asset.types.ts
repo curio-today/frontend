@@ -1,3 +1,6 @@
+import type { SerializedEditorState } from "lexical";
+
+
 type AssetChild = {
     detail: number;
     format: number;
@@ -11,16 +14,7 @@ type AssetChild = {
 export type Asset = {
     updatedAt: string;
     createdAt: string;
-    content: {
-        root: {
-            children: AssetChild[];
-        };
-        direction: "ltr" | "rtl";
-        format: string;
-        indent: number;
-        type: string;
-        version: number;
-    };
+    content: SerializedEditorState
     slug: string,
     _status: "published" | "draft",
     id: string,
