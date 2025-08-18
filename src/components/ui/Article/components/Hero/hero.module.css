@@ -1,0 +1,17 @@
+.hero {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+
+.caption {
+  justify-self: stretch;
+}
