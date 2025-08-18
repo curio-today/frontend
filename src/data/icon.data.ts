@@ -1,4 +1,5 @@
-import { IconVariant, Image } from "@/shared/data.types";
+import { Image } from "@/shared/data.types";
+import { IconVariant } from "@/components/ui/Icon";
 
 type Icons = {
     [K in IconVariant]: Image
@@ -68,5 +69,9 @@ export const ICONS_SVG: Icons = {
     lightbulb: {
         src: "/icons/lightbulb.svg",
         alt: "lightbulb"
+    },
+    quote: {
+        src: "/icons/quote.svg",
+        alt: "quote"
     }
 }
