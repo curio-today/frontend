@@ -2,11 +2,13 @@ import styles from "./headline.module.css"
 
 import Text, { TextProps } from "@/components/ui/Text";
 
-type HeadlineProps = Partial<TextProps>;
+type HeadlineProps = {
+    headline: string;
+} & Partial<TextProps>;
 
-const Headline = ({ variant = "h1", id = "headline", children, ...rest }: HeadlineProps) => {
+const Headline = ({ variant = "h1", id = "headline", headline, ...rest }: HeadlineProps) => {
     return (
-        <Text variant={variant} className={styles.headline} id={id} {...rest}>{children}</Text>
+        <Text variant={variant} className={styles.headline} id={id} {...rest}>{headline}</Text>
     )
 }
 
