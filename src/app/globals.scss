@@ -24,10 +24,14 @@
   --h1: clamp(1.8rem, 2vw, 3rem);
   --h2: clamp(1.2rem, 1.5vw, 2.5rem);
   --h3: clamp(0.5rem, 1vw, 1.7rem);
-  --p: 1rem;
+  --p: clamp(1rem, 2vw, 2rem);
   --small: 0.75rem;
 
 }
+p {
+  font-size: var(--p);
+}
+
 
 button {
   -webkit-tap-highlight-color: transparent;
