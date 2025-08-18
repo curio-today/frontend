@@ -2,7 +2,7 @@ import styles from "./headline.module.css"
 
 import Text, { TextProps } from "@/components/ui/Text";
 
-type HeadlineProps = TextProps;
+type HeadlineProps = Partial<TextProps>;
 
 const Headline = ({ variant = "h1", id = "headline", children, ...rest }: HeadlineProps) => {
     return (
