@@ -1,3 +1,5 @@
 .subtitle {
+  font-weight: normal;
+  font-size: var(--subtitle);
   color: var(--primary);
 }
