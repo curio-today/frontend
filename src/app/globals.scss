@@ -19,11 +19,11 @@
   --badge-radius: 0.25rem;
   --button-radius: 0.75rem;
 
-  --headline: 4rem;
-  --subtitle: 2.25rem;
-  --h1: 2.986rem;
-  --h2: 2.488rem;
-  --h3: 1.728rem;
+  --headline: clamp(var(--h1), 4.5vw, 4rem);
+  --subtitle: clamp(var(--h2), 2vw, 2.25rem);
+  --h1: clamp(1.8rem, 2vw, 3rem);
+  --h2: clamp(1.2rem, 1.5vw, 2.5rem);
+  --h3: clamp(0.5rem, 1vw, 1.7rem);
   --p: 1rem;
   --small: 0.75rem;
 

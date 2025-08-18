@@ -5,11 +5,14 @@ import { ComponentProps } from "react";
 import Image, { ImageProps } from "next/image";
 
 type HeroProps = ComponentProps<"figure">;
-type HeroImageProps = ImageProps;
+type HeroImageProps = ImageProps & {
+    focalX: number;
+    focalY: number;
+};
 type HeroSourceProps = ComponentProps<"figcaption">;
 
-const HeroImageSource = ({ source, id = "source", variant = "small", ...rest }: { source: string } & Partial<TextProps>) => <Text variant={variant} id={id} {...rest}>{source}</Text>
-const HeroImage = (props: HeroImageProps) => <Image className={styles.image} {...props}/>
+const HeroImageSource = ({ source, id = "source", variant = "p", ...rest }: { source: string } & Partial<TextProps>) => <Text variant={variant} id={id} className={styles.source}{...rest}>{source}</Text>
+const HeroImage = ({width = 300, height = 300, focalY, focalX, sizes, ...rest }: HeroImageProps) => <Image className={styles.image} width={width} height={height} style={{ objectPosition: `${focalX}% ${focalY}%` }} sizes={sizes} {...rest}/>
 
 
 const HeroCaption = ({children, ...rest}: HeroSourceProps) => <figcaption className={styles.caption} {...rest}>{children}</figcaption>

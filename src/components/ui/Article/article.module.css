@@ -1,0 +1,9 @@
+.article {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: 2.25rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}

@@ -1,3 +1,5 @@
+import styles from './article.module.css'
+
 import { PropsWithChildren } from "react";
 
 import Header from "./components/Header";
@@ -9,10 +11,9 @@ import Hero from "./components/Hero";
 import Content from "./components/Content";
 import ReadAlso from "./components/ReadAlso";
 import Delimiter from "./components/Delemiter";
-import Markdown from "./components/Markdown";
 
 const Article = ({children}: PropsWithChildren) => {
-    return <article>{children}</article>
+    return <article className={styles.article}>{children}</article>
 }
 
 Article.Header = Header;
@@ -23,7 +24,6 @@ Article.Subtitle = Subtitle;
 Article.Hero = Hero;
 Article.Content = Content;
 Article.ReadAlso = ReadAlso;
-Article.Markdown = Markdown;
 Article.Delimiter = Delimiter;
 
 export default Article;

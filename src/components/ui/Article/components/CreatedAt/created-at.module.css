@@ -1,3 +1,5 @@
 .createdAt {
+  font-size: var(--h2);
+  font-weight: 400;
   color: var(--secondary);
 }

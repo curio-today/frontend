@@ -1,6 +1,6 @@
-#meta {
+.meta {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
   align-items: center;
-  gap: 1.5rem;
-  align-self: stretch;
 }

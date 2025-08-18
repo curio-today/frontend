@@ -35,6 +35,8 @@ export type PostAsset = Asset & {
     };
     source: string;
     cover: {
+        focalX: number;
+        focalY: number;
         quality: string;
         filename: string;
         mimeType: string;
