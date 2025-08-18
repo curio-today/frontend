@@ -38,7 +38,8 @@ export type IconVariant =
     | "wow"
     | "curio"
     | "newspaper"
-    | "lightbulb";
+    | "lightbulb"
+    | "quote";
 
 export type IconProps = {
     icon: IconVariant;
