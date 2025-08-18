@@ -4,9 +4,9 @@ import { ComponentProps, PropsWithChildren } from "react";
 
 type MetaProps = PropsWithChildren & ComponentProps<"section">;
 
-const Meta = ({ children }: MetaProps) => {
+const Meta = ({ children, ...rest}: MetaProps) => {
     return (
-        <section id={styles.meta}>
+        <section className={styles.meta} {...rest}>
             {children}
         </section>
     )
