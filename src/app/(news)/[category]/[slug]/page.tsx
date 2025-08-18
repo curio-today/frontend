@@ -1,50 +1,61 @@
-import styles from "./page.module.css"
-
-import Image from "next/image";
-import Text from "@/components/ui/Text";
 import Button from "@/components/ui/Button";
 import { getPostBySlug } from "@/lib/api/feed.lib";
 import Article from "@/components/ui/Article";
+import RenderContent from "@/components/RenderContent";
+
+import { ArticlePageProps } from "./page.types";
 
 
-
-export default async function NewsPage({ params }) {
+export default async function ArticlePage({ params }: ArticlePageProps) {
     const { slug } = await params;
     const postAsset = await getPostBySlug(slug);
+
+    if (!postAsset)
+        return null;
+
+    const date = new Date(postAsset.createdAt);
+    postAsset.createdAt = date.toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+    });
+
+
 
     return (
         <Article>
             <Article.Header>
                 <Article.Meta>
-                    <Article.CreatedAt time={postAsset.createdAt} />
-                    <Button icon={{ type: "share" }} />
+                    <Article.CreatedAt timeStamp={postAsset.createdAt} />
+                    <Button icon={{ type: "share" }} mode="noBorder"/>
                 </Article.Meta>
-                <Article.Headline>
-                    {postAsset.title}
-                </Article.Headline>
+                <Article.Headline headline={postAsset.title} />
+                <Article.Subtitle subtitle={postAsset.subtitle} />
             </Article.Header>
             <Article.Hero>
                 <Article.Hero.Image
+                    loading="lazy"
+                    focalX={postAsset.cover.focalX}
+                    focalY={postAsset.cover.focalY}
                     alt={postAsset.cover.alt}
                     src={postAsset.cover.url}
                     quality={100}
-                    priority
                 />
-                <Article.Hero.Source>
-                    <Text variant="p">{postAsset.source}</Text>
-                </Article.Hero.Source>
+                <Article.Hero.Caption>
+                    <Article.Hero.Image.Source source={postAsset.source} />
+                </Article.Hero.Caption>
             </Article.Hero>
             <Article.Content>
-                <Article.Markdown />
+                <RenderContent content={postAsset.content} />
             </Article.Content>
-            <AdBanner />
-            <Article.Delimiter />
-            <Article.ReadAlso>
-                <PostList headingToSearch={postAsset.badge.name.toLowerCase()} />
-            </Article.ReadAlso>
-            <Article.Tags>
-                {postAsset.tags.map(tag => <Tag {...tag}/> )}
-            </Article.Tags>
+            {/*<AdBanner />*/}
+            {/*<Article.Delimiter />*/}
+            {/*<Article.ReadAlso>*/}
+            {/*    <PostList headingToSearch={postAsset.badge.name.toLowerCase()} />*/}
+            {/*</Article.ReadAlso>*/}
+            {/*<Article.Tags>*/}
+            {/*    {postAsset.tags.map(tag => <Tag {...tag}/> )}*/}
+            {/*</Article.Tags>*/}
         </Article>
     );
 }
