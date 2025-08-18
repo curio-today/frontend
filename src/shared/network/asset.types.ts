@@ -1,15 +1,6 @@
 import type { SerializedEditorState } from "lexical";
 
 
-type AssetChild = {
-    detail: number;
-    format: number;
-    mode: string;
-    style: string;
-    text: string;
-    type: string;
-    version: number;
-};
 
 export type Asset = {
     updatedAt: string;
