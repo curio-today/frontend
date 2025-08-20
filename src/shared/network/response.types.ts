@@ -1,6 +1,6 @@
 import { ContentEntry } from "@/shared/network/content.types";
 
-export type AdminResponse<Entry extends ContentEntry> = {
+export type PaginatedContentResponse<Entry extends ContentEntry> = {
     docs: Entry[] | [],
     totalDocs: number
     limit: number,
