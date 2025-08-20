@@ -1,6 +1,6 @@
 import { getPublicApiKey } from "@/configs/client.config";
 import { getAdmin } from "@/configs/url.config";
-import { Endpoint } from "@/shared/network";
+import { Endpoint, FetchOptions } from "@/shared/network";
 
 /**
  * Get auth header for admin api by using a third-part-access collection in admin panel
@@ -29,12 +29,23 @@ function getAuthHeader(): string {
  * @async
  * @template T
  * @param {string} endpoint - The relative API endpoint (e.g. "users", "settings").
+ * @param options
  * @returns {Promise<T>} The parsed JSON response.
  *
  * @throws {Error} If the network request fails or the response is not OK.
  */
-export async function fetchAdmin<T>(endpoint: Endpoint): Promise<T> {    const adminUrl = getAdmin();
-    const requestUrl: string = adminUrl(endpoint);
+export async function fetchAdmin<R> (endpoint: Endpoint, options: FetchOptions): Promise<R> {
+    const adminUrl = getAdmin();
+
+    const params: string[] = [];
+
+    if (options.limit !== undefined) params.push(`limit=${options.limit}`);
+    if (options.page !== undefined) params.push(`page=${options.page}`);
+    if (options.locale !== undefined) params.push(`locale=${options.locale}`);
+    if (options.slug !== undefined) params.push(`where[slug][equals]=${options.slug}`);
+    if (options._status !== undefined) params.push(`where[_status][equals]=${options._status}`);
+
+    const requestUrl = adminUrl(`${endpoint}?${params.join("&")}`);
 
     try {
         const response = await fetch(requestUrl, {
@@ -49,7 +60,7 @@ export async function fetchAdmin<T>(endpoint: Endpoint): Promise<T> {    const a
             return Promise.reject(new Error("Failed to fetch admin."));
         }
 
-        return response.json();
+        return await response.json() as Promise<R>;
     }
     catch (error) {
         console.error("Unexpected error: ",  error);
