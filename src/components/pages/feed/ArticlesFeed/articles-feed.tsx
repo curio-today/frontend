@@ -25,7 +25,7 @@ export const ArticlesFeed = () => {
         <InfiniteScroll<Article> data={data} hasMore={hasMore} loadMore={loadMore}>
             {(articles) => (
                 <Grid>
-                    {articles.map((article, index) => (
+                    {articles.map((article) => (
                         <Grid.Row key={article.slug}>
                             <ArticleComponent {...article} />
                         </Grid.Row>
