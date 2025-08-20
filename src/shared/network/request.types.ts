@@ -1,10 +1,8 @@
-import { Asset } from "@/shared/network/asset.types";
-import { Endpoint } from "@/shared/network/network.types";
-
+import { ContentEntry } from "@/shared/network/content.types";
 
 export type FetchOptions = {
-    endpoint: Endpoint,
-    page: number;
+    page?: number;
     limit: number;
-    slug: string;
-} & Pick<Asset, "_status">
+    locale?: string;
+    slug?: string;
+} & Partial<Pick<ContentEntry, "_status">>
