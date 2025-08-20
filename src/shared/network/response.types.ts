@@ -1,7 +1,7 @@
-import { Asset } from "@/shared/network/asset.types";
+import { ContentEntry } from "@/shared/network/content.types";
 
-export type ApiResponse<Asst extends Asset> = {
-    docs: Asst[],
+export type AdminResponse<Entry extends ContentEntry> = {
+    docs: Entry[] | [],
     totalDocs: number
     limit: number,
     totalPages: number,
