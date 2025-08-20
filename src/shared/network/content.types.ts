@@ -1,8 +1,6 @@
 import type { SerializedEditorState } from "lexical";
 
-
-
-export type Asset = {
+export type ContentEntry = {
     updatedAt: string;
     createdAt: string;
     content: SerializedEditorState
@@ -11,7 +9,7 @@ export type Asset = {
     id: string,
 };
 
-export type PostAsset = Asset & {
+export type Article = ContentEntry & {
     title: string;
     subtitle: string;
     badge: {
