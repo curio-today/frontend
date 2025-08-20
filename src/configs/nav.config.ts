@@ -1,24 +1,24 @@
-import { NavBarData } from "@/components/navigation/NavBar/types/NavBarData";
+import { NavBarData } from "@/components/navigation/NavBar";
 
 export const Desktop_NavLinkData: NavBarData[] = [
     {
         href: "/amazes",
-        title: "Amazes",
+        heading: "amazes",
         icon: "wow",
     },
     {
         href: "/informs",
-        title: "Informs",
+        heading: "informs",
         icon: "megaphone",
     },
     {
         href: "/amuses",
-        title: "Amuses",
+        heading: "amuses",
         icon: "clock",
     },
     {
         href: "/inspires",
-        title: "Inspires",
+        heading: "inspires",
         icon: "lightbulb",
     },
 ]
@@ -26,27 +26,27 @@ export const Desktop_NavLinkData: NavBarData[] = [
 export const Mobile_NavLinkData: NavBarData[] = [
     {
         href: "/amazes",
-        title: "Amazes",
+        heading: "amazes",
         icon: "wow",
     },
     {
         href: "/informs",
-        title: "Informs",
+        heading: "informs",
         icon: "megaphone",
     },
     {
-        href: "/",
-        title: "Feed",
+        href: "/feed",
+        heading: "feed",
         icon: "newspaper",
     },
     {
         href: "/amuses",
-        title: "Amuses",
+        heading: "amuses",
         icon: "clock",
     },
     {
         href: "/inspires",
-        title: "Inspires",
+        heading: "inspires",
         icon: "lightbulb",
     },
 ]
