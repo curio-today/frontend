@@ -3,6 +3,8 @@ import Image from "next/image";
 import { IconProps, iconVariants } from "./icon.types";
 import { ICONS_SVG } from "@/data/icon.data";
 
+import { motion } from "framer-motion";
+
 /**
  * Renders a static (non-animated) icon.
  *
@@ -22,7 +24,7 @@ const Icon = ({ icon, size, style, className, imageProps}: IconProps) => {
     }
 
     return (
-        <div className={iconVariants({ size, className })} style={style}>
+        <motion.div className={iconVariants({ size, className })} style={style} initial={{ scale: 0 }} animate={{ scale: 1 }}>
             <Image
                 {...imageProps}
                 src={data.src}
@@ -30,7 +32,7 @@ const Icon = ({ icon, size, style, className, imageProps}: IconProps) => {
                 style={{ objectFit: "contain" }}
                 fill
             />
-        </div>
+        </motion.div>
     );
 }
 
