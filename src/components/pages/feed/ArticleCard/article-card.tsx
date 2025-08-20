@@ -35,7 +35,7 @@ const ArticleCard = ({
             >
                 <Text
                     id={`${slug}-title`}
-                    variant="h3"
+                    variant="h2"
                     className={styles.title}
                 >
                     {title}
