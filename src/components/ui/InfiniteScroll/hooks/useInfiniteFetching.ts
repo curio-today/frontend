@@ -1,26 +1,25 @@
 import { useCallback, useState } from "react";
 import { FetchOptions } from "@/shared/network";
 
-export const useInfiniteFetching = <T, >(fetchFunction: {(options: FetchOptions): Promise<T[] | null>}, options: FetchOptions) => {
+export const useInfiniteFetching
+        = <T, >(fetchFunction: { (options: FetchOptions): Promise<T[]> }, options: FetchOptions) => {
     const [data, setData] = useState<T[]>([])
-    const [, setPage] = useState(options.page)
-    const [loading, setLoading] = useState(false)
-    const [hasMore, setHasMore] = useState(true)
+    const [page, setPage] = useState<number>(options.page ?? 1);
+    const [loading, setLoading] = useState<boolean>(false)
+    const [hasMore, setHasMore] = useState<boolean>(true)
 
     const loadMore = useCallback(async () => {
         if (loading || !hasMore) return
         setLoading(true)
-        const newData = await fetchFunction({...options})
+        const newData = await fetchFunction({ ...options, page })
         if (newData && newData.length > 0) {
-            if (newData.length === 0) {
-                setHasMore(false)
-            } else {
-                setData(prev => [...prev, ...newData])
-                setPage(prev => prev + 1)
-            }
-            setLoading(false)
+            setData(prev => [...prev, ...newData]);
+            setPage(prev => prev + 1);
+            setLoading(false);
+        } else {
+            setHasMore(false);
         }
-    }, [loading, hasMore, fetchFunction, options])
+    }, [loading, hasMore, fetchFunction, options, page])
 
     return { data, hasMore, loadMore, loading }
 }
