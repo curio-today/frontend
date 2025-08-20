@@ -2,7 +2,7 @@ import styles from "./grid.module.css"
 
 import { GridProps, RowProps } from "./grid.types";
 
-const Row = ({ children, id }: RowProps) => <div className={styles.row} id={id}>{children}</div>
+const Row = ({ children, id, ...rest}: RowProps) => <div className={styles.row} id={id} {...rest}>{children}</div>
 
 const Grid = ({ children }: GridProps) => {
     return (
