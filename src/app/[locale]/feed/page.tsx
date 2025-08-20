@@ -1,12 +1,11 @@
 import styles from "./page.module.css"
 
-import NewsFeed from "@/components/pages/feed/NewsFeed";
-
+import ArticlesFeed from "@/components/pages/feed/ArticlesFeed";
 
 export async function Feed() {
     return (
         <div className={styles.page}>
-            <NewsFeed />
+            <ArticlesFeed />
         </div>
     )
 }
