@@ -1,13 +1,13 @@
 import { IconVariant } from "@/components/ui/Icon";
-import { Heading } from "@/shared/data.types";
 
-export type NavBarData = {
+export type NavBarHeading = {
+    translationKey: string;
     href: string;
-    heading: Heading;
     icon: IconVariant;
+    label?: string;
 }
+
 
 export type NavBarProps = {
-    headings: NavBarData[];
+    headings: NavBarHeading[];
 }
-

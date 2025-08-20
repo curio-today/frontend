@@ -1,52 +1,11 @@
-import { NavBarData } from "@/components/navigation/NavBar";
+import { NavBarHeading } from "@/components/navigation/NavBar/nav-bar.types";
 
-export const Desktop_NavLinkData: NavBarData[] = [
-    {
-        href: "/amazes",
-        heading: "amazes",
-        icon: "wow",
-    },
-    {
-        href: "/informs",
-        heading: "informs",
-        icon: "megaphone",
-    },
-    {
-        href: "/amuses",
-        heading: "amuses",
-        icon: "clock",
-    },
-    {
-        href: "/inspires",
-        heading: "inspires",
-        icon: "lightbulb",
-    },
-]
+export const Desktop: NavBarHeading[] = [
+    { translationKey: "amazes", href: "/amazes", icon: "wow" },
+    { translationKey: "informs", href: "/informs", icon: "clock" },
+    { translationKey: "amuses", href: "/amuses", icon: "clock" },
+    { translationKey: "inspires", href: "/inspires", icon: "clock" },
+];
 
-export const Mobile_NavLinkData: NavBarData[] = [
-    {
-        href: "/amazes",
-        heading: "amazes",
-        icon: "wow",
-    },
-    {
-        href: "/informs",
-        heading: "informs",
-        icon: "megaphone",
-    },
-    {
-        href: "/feed",
-        heading: "feed",
-        icon: "newspaper",
-    },
-    {
-        href: "/amuses",
-        heading: "amuses",
-        icon: "clock",
-    },
-    {
-        href: "/inspires",
-        heading: "inspires",
-        icon: "lightbulb",
-    },
-]
+
+export const Mobile: NavBarHeading[] = Desktop;

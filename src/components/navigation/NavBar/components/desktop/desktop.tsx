@@ -1,15 +1,12 @@
 "use client"
 
 import styles from "./desktop.module.css"
-
 import dynamic from "next/dynamic";
-
-
-import { NavBarProps } from "../../nav-bar.types";
-import Links from "./components/Links";
+import Links from "./components/links";
+import { NavBarProps } from "@/components/navigation/NavBar";
 
 const CurioLogo = dynamic(() => import("@/components/branding/CurioLogo"), { ssr: false });
-const Buttons = dynamic(() => import("@/components/navigation/NavBar/components/desktop/components/Buttons"));
+const Buttons = dynamic(() => import("./components/buttons"));
 
 const Desktop = ({ headings }: NavBarProps) => {
 
