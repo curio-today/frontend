@@ -19,14 +19,17 @@ export const ArticlesFeed = () => {
         locale: locale,
     })
 
-    console.log(data);
-
     return (
         <InfiniteScroll<Article> data={data} hasMore={hasMore} loadMore={loadMore}>
             {(articles) => (
                 <Grid>
                     {articles.map((article) => (
-                        <Grid.Row key={article.slug}>
+                        <Grid.Row key={article.slug}
+                                  initial={{ opacity: 0, y: 50 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  whileHover={{
+                                      scale: 1.05
+                                  }}>
                             <ArticleComponent {...article} />
                         </Grid.Row>
                     ))}
