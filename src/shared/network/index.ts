@@ -1,4 +1,4 @@
 export type { Endpoint } from "./network.types"
 export type { FetchOptions } from "./request.types"
-export type { ApiResponse } from "./response.types"
-export type { Asset } from "./asset.types"
+export type { PaginatedContentResponse } from "./response.types"
+export type { ContentEntry } from "./content.types"
