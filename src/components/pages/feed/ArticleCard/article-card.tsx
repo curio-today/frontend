@@ -1,37 +1,40 @@
-"use client"
-
-import styles from "./post.module.scss";
-import { PostProps } from "./post.types";
+import styles from "./article-card.module.scss";
+import { ArticleProps } from "./article-card.types";
 
 import Text from "@/components/ui/Text";
 import Link from "next/link";
 import { getHeadingUrl } from "@/configs/url.config";
 
-const Post = ({
+const ArticleCard = ({
                   title,
                   subtitle,
-                  image,
-                  meta,
-                  publishedDate}: PostProps) => {
+                  cover,
+                  slug,
+                  badge,
+                  createdAt
+                 }: ArticleProps) => {
+
+    const publishedAt = new Date(createdAt);
+
     return (
         <Link
-            href={getHeadingUrl(meta.heading, meta.slug)}
+            href={getHeadingUrl(badge.name.toLowerCase(), slug)}
             passHref
-            id={meta.slug}
+            id={slug}
             className={styles.post}
             style={{
                 background: `linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
-                url(${image.src}) lightgray 50% / cover no-repeat`,
+                url(${cover.url}) lightgray 50% / cover no-repeat`,
             }}
             tabIndex={0}
             aria-label={`Read full article: ${title}`}
         >
             <section
                 className={styles.contentWrapper}
-                aria-labelledby={`${meta.slug}-title`}
+                aria-labelledby={`${slug}-title`}
             >
                 <Text
-                    id={`${meta.slug}-title`}
+                    id={`${slug}-title`}
                     variant="h3"
                     className={styles.title}
                 >
@@ -49,10 +52,10 @@ const Post = ({
 
                     <time
                         className={styles.date}
-                        dateTime={publishedDate.toDateString()}
-                        aria-label={`Published on ${publishedDate.toLocaleDateString()}`}
+                        dateTime={publishedAt.toDateString()}
+                        aria-label={`Published on ${publishedAt.toLocaleDateString()}`}
                     >
-                        {publishedDate.toLocaleDateString()}
+                        {publishedAt.toLocaleDateString()}
                     </time>
                 </div>
             </section>
@@ -61,4 +64,4 @@ const Post = ({
 }
 
 
-export default Post;
+export default ArticleCard;
