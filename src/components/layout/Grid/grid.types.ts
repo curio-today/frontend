@@ -1,5 +1,7 @@
-import { ComponentProps, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
+
+import { motion } from "framer-motion";
 
 export type GridProps = PropsWithChildren;
 
-export type RowProps = ComponentProps<"div">
+export type RowProps = typeof motion.div;
