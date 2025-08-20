@@ -1,8 +1,8 @@
 import type { SerializedEditorState } from "lexical";
 
 export type ContentEntry = {
-    updatedAt: string;
-    createdAt: string;
+    updatedAt: Date;
+    createdAt: Date;
     content: SerializedEditorState
     slug: string,
     _status: "published" | "draft",
