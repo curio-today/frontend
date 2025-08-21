@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@payloadcms/richtext-lexical": "^3.52.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "motion": "^12.23.12",
     "next": "15.4.4",
+    "next-intl": "^4.3.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "sass": "^1.89.2"
+    "sass": "^1.89.2",
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -22,7 +26,6 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.4.4",
-    "typescript": "^5"
+    "eslint-config-next": "15.4.4"
   }
 }

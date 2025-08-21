@@ -19,11 +19,35 @@
   --badge-radius: 0.25rem;
   --button-radius: 0.75rem;
 
-  --h1: 2.986rem;
-  --h2: 2.488rem;
-  --h3: 1.728rem;
-  --p: 1rem;
-  --small: 0.75rem;
+  /* Headings */
+  --headline: clamp(2.5rem, 4.5vw, 4rem);   /* Big display headline */
+  --subtitle: clamp(1.5rem, 2.5vw, 2.25rem); /* Subtitle */
+  --h1: clamp(1.8rem, 2vw, 3rem);
+  --h2: clamp(1.4rem, 1.8vw, 2.2rem);
+  --h3: clamp(1rem, 1.2vw, 1.5rem);
+
+  /* Body text */
+  --p: clamp(1rem, 1.2vw, 1.25rem);
+  --small: clamp(0.75rem, 1vw, 0.9rem);
+
+}
+
+h1 {
+  font-size: var(--h1);
+}
+h2 {
+  font-size: var(--h2);
+}
+h3 {
+  font-size: var(--h3);
+}
+
+p {
+  font-size: var(--p);
+}
+
+small {
+  font-size: var(--small);
 
 }
 

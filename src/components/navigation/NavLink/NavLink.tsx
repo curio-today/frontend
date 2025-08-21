@@ -15,7 +15,7 @@ const NavLink = ({ href, children}: NavLinkProps) => {
     const pathname = usePathname();
 
     function checkPathname(): string {
-        if (pathname == href) {
+        if (pathname.includes(href)) {
             return styles.selected
         }
         return styles.navLink

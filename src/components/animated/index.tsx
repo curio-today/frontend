@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/components/ui/Button";
+import Button from "@/components/ui/Button";
 import { useState } from "react";
 import { AnimatedProps } from "@/shared/props/AnimatedProps";
 

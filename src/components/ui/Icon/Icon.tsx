@@ -1,10 +1,9 @@
 import Image from "next/image";
 
-import styles from "./Icon.module.scss"
-import { IconProps } from "./types/IconProps";
-import { IconData } from "./data";
+import { IconProps, iconVariants } from "./icon.types";
+import { ICONS_SVG } from "@/data/icon.data";
 
-import clsx from "clsx";
+import { motion } from "framer-motion";
 
 /**
  * Renders a static (non-animated) icon.
@@ -12,28 +11,28 @@ import clsx from "clsx";
  * @param icon - The type or name of the icon to display.
  * @param size - The size of the icon.
  * @param style - Optional inline styles to apply to the icon.
+ * @param className - Will be used on icon wrapper.
  * @param props - Additional props to spread onto the icon element.
  *
  * @constructor
  */
-const Icon = ({ icon, size, style, ...props}: IconProps) => {
-    const data = IconData[icon];
+const Icon = ({ icon, size, style, className, imageProps}: IconProps) => {
+    const data = ICONS_SVG[icon];
+
+    if (!data) {
+        return null;
+    }
 
     return (
-        <div className={clsx(
-            styles.iconWrapper,
-            styles[size]
-        )} style={style}>
+        <motion.div className={iconVariants({ size, className })} style={style} initial={{ scale: 0 }} animate={{ scale: 1 }}>
             <Image
-                src={data.url}
+                {...imageProps}
+                src={data.src}
                 alt={data.alt}
-                style={{
-                    objectFit: "contain",
-                }}
+                style={{ objectFit: "contain" }}
                 fill
-                {...props}
             />
-        </div>
+        </motion.div>
     );
 }
 

@@ -1,0 +1,29 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: clamp(1rem, 1vw, 5rem);
+}
+
+
+.row {
+    display: flex;
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+}
+
+
+.row:nth-child(1),
+.row:nth-child(2) {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+}
+
+
+
+@media screen and (max-width: 870px) {
+    .grid {
+        display: flex;
+        flex-direction: column;
+    }
+}

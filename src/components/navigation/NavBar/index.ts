@@ -1,2 +1,2 @@
-export { default } from "./NavBar"
-export type { NavBarProps } from "./types/NavBarProps"
+export { default } from "./nav-bar"
+export type { NavBarProps } from "./nav-bar.types"

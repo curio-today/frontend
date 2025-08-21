@@ -1,17 +1,17 @@
-import { IconType } from "@/components/ui/Icon";
+import { IconVariant } from "@/components/ui/Icon";
 import { Heading } from "@/shared/data.types";
 import { Property } from "csstype";
 
-export type HeadingData = {
+type HeadingData = {
     [K in Heading]: {
-        icon: IconType,
+        icon: IconVariant,
         label: string,
         href: string;
         color: Property.BackgroundColor;
     }
 }
 
-export const Headings: HeadingData = {
+export const HEADINGS: HeadingData = {
     amuses: {
         icon: "wow",
         label: "Amuses",
