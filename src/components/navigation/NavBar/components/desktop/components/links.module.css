@@ -1,5 +1,6 @@
 .links {
   position: absolute;
+  display: flex;
   left: 50%;
   align-items: center;
   transform: translateX(-50%);

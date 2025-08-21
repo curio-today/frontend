@@ -1,8 +1,12 @@
 {
+  "Messages": {
+    "loading": "Загрузка..."
+  },
   "Headings": {
     "amazes": "Удивляет",
     "informs": "Развивает",
     "amuses": "Забавляет",
+    "feed": "Лента",
     "inspires": "Вдохновляет"
   }
 }

@@ -1,8 +1,12 @@
 {
+  "Messages": {
+    "loading": "Loading..."
+  },
   "Headings": {
     "amazes": "Amazes",
     "informs": "Informs",
     "amuses": "Amuses",
+    "feed": "Feed",
     "inspires": "Inspires"
   }
 }
