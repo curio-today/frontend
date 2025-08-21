@@ -12,3 +12,9 @@ export async function getArticles(options: FetchOptions): Promise<Article[]> {
 
     return paginatedArticles.docs;
 }
+
+export async function getArticle(options: FetchOptions): Promise<Article> {
+    const paginatedArticles = await fetchAdmin<PaginatedContentResponse<Article>>("/api/posts", options);
+
+    return paginatedArticles.docs[0];
+}

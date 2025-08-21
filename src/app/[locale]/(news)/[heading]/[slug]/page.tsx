@@ -1,20 +1,23 @@
 import Button from "@/components/ui/Button";
-import { getPostBySlug } from "@/lib/api/feed.lib";
 import Article from "@/components/ui/Article";
 import RenderContent from "@/components/RenderContent";
 
 import { ArticlePageProps } from "./page.types";
+import { getArticle } from "@/lib/api/feed.lib";
+import { getAdmin } from "@/configs/url.config";
 
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-    const { slug } = await params;
-    const postAsset = await getPostBySlug(slug);
-
-    if (!postAsset)
-        return null;
+    const { slug, locale} = await params;
+    const postAsset = await getArticle({
+        locale,
+        slug: slug,
+        limit: 1
+    });
 
     const date = new Date(postAsset.createdAt);
-    postAsset.createdAt = date.toLocaleDateString("en-US", {
+
+    postAsset.createdAt = date.toLocaleDateString(locale, {
         day: "numeric",
         month: "long",
         year: "numeric",
@@ -35,10 +38,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <Article.Hero>
                 <Article.Hero.Image
                     loading="lazy"
-                    focalX={postAsset.cover.focalX}
-                    focalY={postAsset.cover.focalY}
-                    alt={postAsset.cover.alt}
-                    src={postAsset.cover.url}
+                    focalX={postAsset.cover?.focalX}
+                    focalY={postAsset.cover?.focalY}
+                    alt={postAsset.cover?.alt}
+                    src={getAdmin()(postAsset.cover?.url)}
                     quality={100}
                 />
                 <Article.Hero.Caption>

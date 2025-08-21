@@ -5,4 +5,5 @@ export type FetchOptions = {
     limit: number;
     locale?: string;
     slug?: string;
+    heading?: string;
 } & Partial<Pick<ContentEntry, "_status">>

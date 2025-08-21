@@ -44,6 +44,7 @@ export async function fetchAdmin<R> (endpoint: Endpoint, options: FetchOptions):
     if (options.locale !== undefined) params.push(`locale=${options.locale}`);
     if (options.slug !== undefined) params.push(`where[slug][equals]=${options.slug}`);
     if (options._status !== undefined) params.push(`where[_status][equals]=${options._status}`);
+    if (options.heading !== undefined) params.push(`where[badge.name][equals]=${options.heading}`);
 
     const requestUrl = adminUrl(`${endpoint}?${params.join("&")}`);
 
