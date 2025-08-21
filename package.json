@@ -12,6 +12,7 @@
     "@payloadcms/richtext-lexical": "^3.52.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "motion": "^12.23.12",
     "next": "15.4.4",
     "next-intl": "^4.3.4",
     "react": "19.1.0",
