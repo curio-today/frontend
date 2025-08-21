@@ -8,6 +8,7 @@ import NavLink from "@/components/navigation/NavLink";
 import { motion } from "framer-motion";
 import { useState, useTransition, useEffect } from "react";
 import { useTranslations } from "next-intl";
+import { Namespaces } from "@/configs/translation.config";
 
 const itemVariants = {
     hidden: { y: -200, opacity: 0 },
@@ -17,7 +18,7 @@ const itemVariants = {
 const Links = ({ headings }: NavBarProps) => {
     const [visibleItems, setVisibleItems] = useState<Array<typeof headings[0]>>([]);
     const [isPending, startTransition] = useTransition();
-    const t = useTranslations("Messages");
+    const t = useTranslations(Namespaces.messages);
 
     useEffect(() => {
         startTransition(() => {
