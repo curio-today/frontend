@@ -1,10 +1,12 @@
 import styles from "./button.module.scss";
 
-import { ComponentProps } from "react";
 import { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
+import { HTMLMotionProps } from "framer-motion";
+
 
 import { IconProps, IconVariant } from "@/components/ui/Icon";
+import { PropsWithChildren } from "react";
 
 export const buttonVariants = cva(styles.badge, {
     variants: {
@@ -25,5 +27,4 @@ export type ButtonProps = {
         type: IconVariant;
         props?: IconProps;
     }
-
-} & ComponentProps<"button"> & VariantProps<typeof buttonVariants>;
+} & PropsWithChildren<HTMLMotionProps<"button">> & VariantProps<typeof buttonVariants>;
