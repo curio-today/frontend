@@ -30,6 +30,17 @@
   --p: clamp(1rem, 1.2vw, 1.25rem);
   --small: clamp(0.75rem, 1vw, 0.9rem);
 
+  // Card
+  --card-border-width: 4px;
+  --card-transition-fast: 0.2s ease-in-out;
+  --card-transition-medium: 0.25s ease;
+
+  --card-min-width: 250px;
+  --card-min-height: 400px;
+  --card-max-height: 800px;
+  --card-max-width: 1200px;
+
+
 }
 
 h1 {
