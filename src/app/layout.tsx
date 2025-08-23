@@ -7,7 +7,6 @@ import NavBar from "@/components/navigation/NavBar";
 import styles from "./layout.module.css";
 
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
 const outfit = Outfit({
@@ -25,9 +24,9 @@ export default async function RootLayout({
                                              params,
                                          }: {
     children: ReactNode;
-    params: { locale: string };
+    params: Promise<{ locale: string }>;
 }) {
-    const { locale } = params;
+    const { locale } = await params;
 
     if (!hasLocale(routing.locales, locale)) {
     }

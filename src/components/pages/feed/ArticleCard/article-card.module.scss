@@ -1,35 +1,24 @@
-:root {
-  --card-border-width: 4px;
-  --transition-fast: 0.2s ease-in-out;
-  --transition-medium: 0.25s ease;
-
-  --min-width: 250px;
-  --min-height: 400px;
-  --max-height: 800px;
-  --max-width: 1200px;
-}
-
 .post {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
 
-  min-width: var(--min-width);
-  min-height: var(--min-height);
-  max-height: var(--max-height);
+  min-width: var(--card-min-width);
+  min-height: var(--card-min-height);
+  max-height: var(--card-max-height);
 
   flex: 1;
   aspect-ratio: 1/1;
 
   overflow: hidden;
   border-radius: var(--card-radius);
-  border: var(--card-border-width) solid var(--Colors-Accent, #262626);
+  border: var(--card-border-width) solid var(--accent, #262626);
   box-shadow: 0 1px 1rem rgba(0, 0, 0, 0.52);
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 
-  transition: all var(--transition-fast);
+  transition: all var(--card-transition-fast);
 
   &:hover,
   &:focus-visible {
@@ -85,6 +74,6 @@
 .subtitle,
 .date {
   color: var(--secondary);
-  transition: color var(--transition-medium);
+  transition: color var(--card-transition-medium);
 }
 

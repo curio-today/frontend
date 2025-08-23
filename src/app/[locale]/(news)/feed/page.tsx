@@ -1,7 +1,7 @@
 import ArticlesFeed from "@/components/pages/feed/ArticlesFeed";
 import { getLocale } from "next-intl/server";
 
-export async function Feed() {
+export default async function Feed() {
     const locale = await getLocale();
 
     return (
@@ -14,4 +14,3 @@ export async function Feed() {
     )
 }
 
-export default Feed;

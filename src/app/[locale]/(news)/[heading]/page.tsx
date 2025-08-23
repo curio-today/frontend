@@ -1,12 +1,13 @@
 import ArticlesFeed from "@/components/pages/feed/ArticlesFeed";
 
-export default async function CategoryPage({ params }: { params: { locale: string, heading: string } }) {
+export default async function CategoryPage({ params }: { params: Promise<{ locale: string, heading: string }>}) {
+    const { locale, heading } = await params;
     return (
         <>
             <ArticlesFeed options={{
                 limit: 5,
-                locale: params.locale,
-                heading: params.heading.charAt(0).toUpperCase() + params.heading.slice(1),
+                locale: locale,
+                heading: heading.charAt(0).toUpperCase() + heading.slice(1),
             }} />
         </>
     )
