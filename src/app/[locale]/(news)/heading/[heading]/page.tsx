@@ -2,6 +2,7 @@ import ArticlesFeed from "@/components/pages/feed/ArticlesFeed";
 
 export default async function CategoryPage({ params }: { params: Promise<{ locale: string, heading: string }>}) {
     const { locale, heading } = await params;
+
     return (
         <>
             <ArticlesFeed options={{
