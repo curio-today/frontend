@@ -13,20 +13,13 @@ export type NavLinkProps = PropsWithChildren & {
 
 const NavLink = ({ href, children}: NavLinkProps) => {
     const pathname = usePathname();
-
-    function checkPathname(): string {
-        if (pathname.includes(href)) {
-            return styles.selected
-        }
-        return styles.navLink
-    }
+    const isSelected = pathname.endsWith(href);
 
     return (
-        <Link href={href} passHref className={checkPathname()} onClick={(event) => {
-            if (checkPathname() == styles.selected) {
-                event.preventDefault();
-            }
-        }}>
+        <Link 
+            href={href} 
+            className={isSelected ? styles.selected : styles.navLink}
+        >
             {children}
         </Link>
     )

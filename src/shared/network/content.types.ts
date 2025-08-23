@@ -1,4 +1,5 @@
 import type { SerializedEditorState } from "lexical";
+import { Heading } from "../data.types";
 
 export type ContentEntry = {
     updatedAt: string;
@@ -13,8 +14,7 @@ export type Article = ContentEntry & {
     title: string;
     subtitle: string;
     badge: {
-        color: string;
-        name: string;
+        name: Heading;
     };
     source: string;
     cover: {

@@ -6,7 +6,6 @@
   top: auto;
   bottom: 0;
 
-
   display: flex;
   justify-content: center;
 
@@ -25,7 +24,6 @@
 
         * {
           align-items: center;
-
         }
       }
     }
@@ -33,11 +31,10 @@
 }
 
 
-@media screen and (max-width: 320px) {
+@media (max-width: 450px) {
   .mobileNavBar {
-    ul > li:nth-child(3) {
+    p {
       display: none;
     }
   }
 }
-
