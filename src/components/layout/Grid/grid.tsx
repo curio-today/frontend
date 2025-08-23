@@ -1,3 +1,5 @@
+"use client"
+
 import styles from "./grid.module.css"
 import { motion } from "framer-motion";
 
