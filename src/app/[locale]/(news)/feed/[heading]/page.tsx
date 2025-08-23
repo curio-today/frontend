@@ -1,4 +1,4 @@
-import ArticlesFeed from "@/components/pages/feed/ArticlesFeed";
+import ArticlesFeed from "@/components/ui/ArticlesFeed";
 import { Heading } from "@/shared/data.types";
 import { getLocale } from "next-intl/server";
 

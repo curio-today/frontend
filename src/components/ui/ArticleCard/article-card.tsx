@@ -1,5 +1,5 @@
 import styles from "./article-card.module.scss";
-import { ArticleProps } from "./article-card.types";
+import { ArticleCardProps } from "./article-card.types";
 
 import Text from "@/components/ui/Text";
 import Link from "next/link";
@@ -12,7 +12,7 @@ const ArticleCard = ({
                   slug,
                   badge,
                   createdAt
-                 }: ArticleProps) => {
+                 }: ArticleCardProps) => {
 
     const publishedAt = new Date(createdAt);
 

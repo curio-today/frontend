@@ -10,7 +10,7 @@ export const badgeVariants = cva(styles.badge, {
     variants: {
         status: {
             active: styles.active,
-            inactive: "",
+            inactive: null,
         },
     },
     defaultVariants: {
