@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-import { Desktop, Mobile } from "@/configs/nav.config";
+import { Desktop, Mobile } from "@/data/nav.data";
 import { Server_isMobile } from "@/lib/Platform";
 import { getTranslations } from "next-intl/server";
 import { NavBarHeading } from "@/components/navigation/NavBar/nav-bar.types";

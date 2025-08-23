@@ -48,6 +48,8 @@ export async function fetchAdmin<R> (endpoint: Endpoint, options: FetchOptions):
 
     const requestUrl = adminUrl(`${endpoint}?${params.join("&")}`);
 
+    console.log(requestUrl);
+
     try {
         const response = await fetch(requestUrl, {
             method: "GET",

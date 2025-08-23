@@ -1,6 +1,7 @@
 import { Article } from "@/shared/network/content.types";
 import { FetchOptions, PaginatedContentResponse } from "@/shared/network/";
 import { fetchAdmin } from "@/lib/client.lib";
+import { Heading } from "@/shared/data.types";
 
 
 /**
@@ -13,8 +14,9 @@ export async function getArticles(options: FetchOptions): Promise<Article[]> {
     return paginatedArticles.docs;
 }
 
-export async function getArticle(options: FetchOptions): Promise<Article> {
-    const paginatedArticles = await fetchAdmin<PaginatedContentResponse<Article>>("/api/posts", options);
+export async function getArticle({ limit = 1, ...rest }: FetchOptions): Promise<Article> {
+    const paginatedArticles = await fetchAdmin<PaginatedContentResponse<Article>>("/api/posts", { limit, ...rest });
+    const firstArticle = paginatedArticles.docs[0];
 
-    return paginatedArticles.docs[0];
+    return firstArticle;
 }

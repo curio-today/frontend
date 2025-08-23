@@ -15,6 +15,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         limit: 1
     });
 
+    console.log("postAsset", postAsset);
+
     const date = new Date(postAsset.createdAt);
 
     postAsset.createdAt = date.toLocaleDateString(locale, {
@@ -41,7 +43,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     focalX={postAsset.cover?.focalX}
                     focalY={postAsset.cover?.focalY}
                     alt={postAsset.cover?.alt}
-                    src={getAdmin()(postAsset.cover?.url)}
+                    src={postAsset.cover?.url}
                     quality={100}
                 />
                 <Article.Hero.Caption>

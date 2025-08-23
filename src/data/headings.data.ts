@@ -12,25 +12,25 @@ type HeadingData = {
 }
 
 export const HEADINGS: HeadingData = {
-    amuses: {
+    Amuses: {
         icon: "wow",
         label: "Amuses",
         href: "/amuses",
         color: "-moz-initial"
     },
-    amazes: {
+    Amazes: {
         icon: "clock",
         label: "",
         href: "",
         color: "-moz-initial"
     },
-    informs: {
+    Informs: {
         icon: "clock",
         label: "",
         href: "",
         color: "-moz-initial"
     },
-    inspires: {
+    Inspires: {
         icon: "clock",
         label: "",
         href: "",

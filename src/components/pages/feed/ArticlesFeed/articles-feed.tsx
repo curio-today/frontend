@@ -14,6 +14,7 @@ const ArticleComponent = dynamic(() => import("@/components/pages/feed/ArticleCa
 
 export const ArticlesFeed = ({ options }: ArticlesFeedProps) => {
     const { data, hasMore, loadMore } = useInfiniteFetching<Article>(getArticles, options)
+
     return (
         <InfiniteScroll<Article> data={data} hasMore={hasMore} loadMore={loadMore}>
             {(articles) => (

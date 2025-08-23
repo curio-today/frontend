@@ -8,6 +8,6 @@ export type Meta = {
     slug: string;
 }
 
-export type Heading = "amazes" | "informs" | "amuses" | "inspires" | (string & {})
+export type Heading = "Amazes" | "Informs" | "Amuses" | "Inspires"
 export type Size = "small" | "medium" | "large" | "huge"
 

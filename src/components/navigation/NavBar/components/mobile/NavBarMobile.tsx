@@ -1,4 +1,4 @@
-import styles from "./NavBarMobile.module.scss";
+import styles from "./NavBarMobile.module.css";
 
 import List from "@/components/layout/List";
 import { NavBarProps } from "../../nav-bar.types";
