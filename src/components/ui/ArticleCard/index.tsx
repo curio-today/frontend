@@ -8,5 +8,5 @@ export const ArticleClient = dynamic(() => import("./article-card"), {
 });
 
 export { default } from "./article-card"
-export type { ArticleProps } from "./article-card.types"
+export type { ArticleCardProps } from "./article-card.types"
 

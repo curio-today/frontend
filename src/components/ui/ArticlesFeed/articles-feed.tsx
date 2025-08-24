@@ -6,10 +6,10 @@ import Grid from "@/components/layout/Grid";
 import { Article } from "@/shared/network/content.types"
 
 import dynamic from "next/dynamic";
-import { ArticlesFeedProps } from "@/components/pages/feed/ArticlesFeed/articles-feed.types";
+import { ArticlesFeedProps } from "./articles-feed.types";
 import { getArticles } from "@/lib/api/feed.lib";
 
-const ArticleComponent = dynamic(() => import("@/components/pages/feed/ArticleCard"));
+const ArticleComponent = dynamic(() => import("@/components/ui/ArticleCard"));
 
 
 export const ArticlesFeed = ({ options }: ArticlesFeedProps) => {

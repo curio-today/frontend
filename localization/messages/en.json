@@ -1,4 +1,12 @@
 {
+  "Metadata": {
+    "description": "Smart curiousity",
+    "keywords": "curiosity, learning, education, knowledge, explore, discover, curio, today, curio.today",
+    "openGraph": {
+      "description": "Smart curiousity",
+      "images": ["./meta/en/og-image.png"]
+    }
+  },
   "Messages": {
     "loading": "Loading..."
   },

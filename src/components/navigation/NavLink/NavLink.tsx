@@ -19,6 +19,7 @@ const NavLink = ({ href, children}: NavLinkProps) => {
         <Link 
             href={href} 
             className={isSelected ? styles.selected : styles.navLink}
+            onClick={(e) => isSelected && e.preventDefault()}
         >
             {children}
         </Link>
