@@ -5,6 +5,7 @@ import { NavBarProps } from "../../nav-bar.types";
 
 import NavLink from "@/components/navigation/NavLink";
 import Button from "@/components/ui/Button";
+import SwitchLanguageButton from "@/components/ui/SwitchLanguageButton";
 
 const NavBarMobile = ({ headings }: NavBarProps) => {
     return (
@@ -21,6 +22,7 @@ const NavBarMobile = ({ headings }: NavBarProps) => {
                         />
                     </NavLink>
                 ))}
+
             </List>
         </nav>
     )

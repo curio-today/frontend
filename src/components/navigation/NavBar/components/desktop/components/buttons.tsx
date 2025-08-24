@@ -3,6 +3,7 @@ import styles from "./buttons.module.css";
 import List from "@/components/layout/List";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
+import SwitchLanguageButton from "@/components/ui/SwitchLanguageButton";
 
 export default function Buttons () {
     return (
@@ -10,10 +11,7 @@ export default function Buttons () {
             {/*<Link href="/support" replace>*/}
             {/*    <Button mode="fill" title="Support" />*/}
             {/*</Link>*/}
-            <Button
-                icon={{ type: "globe" }}
-                title="EN"
-            />
+            <SwitchLanguageButton />
             {/*<Button*/}
             {/*    icon={{ type: "moon" }}*/}
             {/*/>*/}

@@ -1,7 +1,10 @@
 import ArticlesFeed from "@/components/ui/ArticlesFeed";
+import SwitchLanguageButton from "@/components/ui/SwitchLanguageButton";
 import { generateHeadingMetadata } from "@/helpers/metadata";
 import { Metadata, Viewport } from "next";
 import { getLocale } from "next-intl/server";
+
+import styles from './page.module.css';
 
 /**
  * @description Generates metadata for the Feed page
@@ -26,6 +29,9 @@ export default async function Feed() {
 
     return (
         <>
+            <div className={styles.button}>
+                <SwitchLanguageButton />
+            </div>
             <ArticlesFeed options={{
                 limit: 5,
                 locale: locale,
