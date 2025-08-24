@@ -11,6 +11,9 @@ type HeadingData = {
     }
 }
 
+/**
+ * @deprecated Use nav.data.ts instead
+ */
 export const HEADINGS: HeadingData = {
     Amuses: {
         icon: "wow",
@@ -35,6 +38,12 @@ export const HEADINGS: HeadingData = {
         label: "",
         href: "",
         color: "-moz-initial"
+    },
+    Feed: {
+        icon: "newspaper",
+        label: "",
+        href: "",
+        color: "initial"
     }
 }
 
