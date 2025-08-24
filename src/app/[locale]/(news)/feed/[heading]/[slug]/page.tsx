@@ -4,7 +4,6 @@ import RenderContent from "@/components/RenderContent";
 
 import { ArticlePageProps } from "./page.types";
 import { getArticle } from "@/lib/api/feed.lib";
-import { getAdmin } from "@/configs/url.config";
 
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
