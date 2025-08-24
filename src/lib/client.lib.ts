@@ -3,6 +3,7 @@ import { getAdmin } from "@/configs/url.config";
 import { Endpoint, FetchOptions } from "@/shared/network";
 
 /**
+ * @deprecated
  * Get auth header for admin api by using a third-part-access collection in admin panel
  * @example
  *         const response = await fetch(requestUrl, {
@@ -53,9 +54,6 @@ export async function fetchAdmin<R> (endpoint: Endpoint, options: FetchOptions):
     try {
         const response = await fetch(requestUrl, {
             method: "GET",
-            headers: {
-                Authorization: getAuthHeader(),
-            }
         });
 
         if (!response.ok) {
