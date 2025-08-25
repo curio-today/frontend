@@ -3,7 +3,9 @@
   align-items: center;
   flex-direction: column;
   margin: 2rem 15vw;
-  min-height: 100vh;
+  min-height: calc(100vh - 5rem);
+  padding-bottom: 5rem;
+  padding-top: 5rem;
 }
 
 @media (max-width: 1400px) {
