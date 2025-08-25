@@ -3,6 +3,7 @@
 import Button from "@/components/ui/Button";
 import { usePathname, useRouter } from "next/navigation";
 import Select, { Option } from "../Select";
+import { TranslatedLabels } from "@/data/nav.data";
 
 export const SwitchLanguageButton = () => {
     const router = useRouter();
@@ -17,12 +18,9 @@ export const SwitchLanguageButton = () => {
     };
 
     return (
-        <Select options={[{ label: 'English', value: 'en' }, 
-            { label: 'Russian', value: 'ru' },
-            { label: 'Latvian', value: 'lv'}
-        ]} value={currentLocale} onChange={function (option: Option): void {
+        <Select options={TranslatedLabels} value={currentLocale} onChange={function (option: Option): void {
             switchLocale(option.value as string);
-        } } hasSearch={false}></Select>
+        }} hasSearch={false}></Select>
     )
 }
 
