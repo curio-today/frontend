@@ -24,7 +24,7 @@ export const ArticlesFeed = ({ options }: ArticlesFeedProps) => {
                                   initial={{ opacity: 0, y: 50 }}
                                   animate={{ opacity: 1, y: 0 }}
                                   whileHover={{
-                                      scale: 1.05
+                                      scale: 1.05,
                                   }}>
                             <ArticleComponent {...article} />
                         </Grid.Row>

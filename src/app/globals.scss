@@ -22,9 +22,10 @@
   /* Headings */
   --headline: clamp(2.5rem, 4.5vw, 4rem);   /* Big display headline */
   --subtitle: clamp(1.5rem, 2.5vw, 2.25rem); /* Subtitle */
-  --h1: clamp(1.8rem, 2vw, 3rem);
-  --h2: clamp(1.4rem, 1.8vw, 2.2rem);
-  --h3: clamp(1rem, 1.2vw, 1.5rem);
+  --h1: clamp(1.4rem, 1.6vw, 2.4rem);
+  --h2: clamp(1.1rem, 1.3vw, 1.8rem);
+  --h3: clamp(0.9rem, 1vw, 1.2rem);
+
 
   /* Body text */
   --p: clamp(1rem, 1.2vw, 1.25rem);

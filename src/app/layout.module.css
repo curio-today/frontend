@@ -1,7 +1,8 @@
 .page {
   display: flex;
   flex-direction: column;
-  padding: 2rem clamp(5rem, 10vw, 20rem);
+  padding: 2rem 20vw;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
