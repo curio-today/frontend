@@ -8,7 +8,7 @@ type Props = {
 
 const ImageWithFocal = ({ focalPoint, children, ...rest }: Props) => {
     return (
-        <Image style={{ objectPosition: `${focalPoint.x} ${focalPoint.y}`}} {...rest}>
+        <Image style={{ objectPosition: `${focalPoint.x} ${focalPoint.y}`, objectFit: "cover"}} {...rest}>
             {children}
         </Image>
     )

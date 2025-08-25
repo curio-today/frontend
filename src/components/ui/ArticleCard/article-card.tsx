@@ -22,8 +22,10 @@ const ArticleCard = ({ badge, createdAt, slug, cover, title, subtitle }: Article
             tabIndex={0}
             aria-label={`Read full article: ${title}`}
         >
-            <h1 className={styles.headline}>{title}</h1>
-            <ImageWithFocal className={styles.cover} focalPoint={coverFocalPoint} src={cover.url} alt={title} width={200} height={200} />
+            <h2 className={styles.headline}>{title}</h2>
+            <div className={styles.cover}>
+                <ImageWithFocal focalPoint={coverFocalPoint} src={cover.url} alt={title} fill/>
+            </div>
             <span className={styles.description}>
                 <p className={styles.subtitle}>{subtitle}</p>
                 <PublishedDate date={createdAt} />
