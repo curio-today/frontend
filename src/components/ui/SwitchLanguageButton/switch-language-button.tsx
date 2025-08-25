@@ -18,8 +18,8 @@ export const SwitchLanguageButton = () => {
 
     return (
         <Select options={[{ label: 'English', value: 'en' }, 
-            { label: 'Russian', value: 'ru' },
-            { label: 'Latvian', value: 'lv'}
+            { label: 'Русский', value: 'ru' },
+            { label: 'Latviešu', value: 'lv'}
         ]} value={currentLocale} onChange={function (option: Option): void {
             switchLocale(option.value as string);
         } } hasSearch={false}></Select>
