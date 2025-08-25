@@ -1,67 +1,35 @@
-import styles from "./article-card.module.scss";
+import styles from "./article-card.module.css"
+
+import ImageWithFocal from "@/components/ui/ImageWithFocal";
 import { ArticleCardProps } from "./article-card.types";
-
-import Text from "@/components/ui/Text";
+import PublishedDate from "./components/PublishedDate";
+import { FocalPoint } from "@/shared/data.types";
 import Link from "next/link";
-import { getAdmin, getArticleUrl } from "@/configs/url.config";
+import { getArticleUrl } from "@/configs/url.config";
 
-const ArticleCard = ({
-                  title,
-                  subtitle,
-                  cover,
-                  slug,
-                  badge,
-                  createdAt
-                 }: ArticleCardProps) => {
-
-    const publishedAt = new Date(createdAt);
-
+const ArticleCard = ({ badge, createdAt, slug, cover, title, subtitle }: ArticleCardProps) => {
+    const coverFocalPoint: FocalPoint = {
+        x: `${cover.focalX}%`,
+        y: `${cover.focalY}%`,
+    }
+    
     return (
         <Link
             href={getArticleUrl({ heading: badge.name, slug: slug})}
             passHref
             id={slug}
-            className={styles.post}
-            style={{
-                background: `linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
-                url(${cover.url}) lightgray 50% / cover no-repeat`,
-            }}
+            className={styles.articleCard}
             tabIndex={0}
             aria-label={`Read full article: ${title}`}
         >
-            <section
-                className={styles.contentWrapper}
-                aria-labelledby={`${slug}-title`}
-            >
-                <Text
-                    id={`${slug}-title`}
-                    variant="h2"
-                    className={styles.title}
-                >
-                    {title}
-                </Text>
-
-                <div className={styles.descriptionWrapper}>
-                    <Text
-                        variant="p"
-                        className={styles.subtitle}
-                        aria-label={subtitle}
-                    >
-                        {subtitle}
-                    </Text>
-
-                    <time
-                        className={styles.date}
-                        dateTime={publishedAt.toDateString()}
-                        aria-label={`Published on ${publishedAt.toLocaleDateString()}`}
-                    >
-                        {publishedAt.toLocaleDateString()}
-                    </time>
-                </div>
-            </section>
+            <h1 className={styles.headline}>{title}</h1>
+            <ImageWithFocal className={styles.cover} focalPoint={coverFocalPoint} src={cover.url} alt={title} width={600} height={400} />
+            <div className={styles.description}>
+                <p className={styles.subtitle}>{subtitle}</p>
+                <PublishedDate date={createdAt} />
+            </div>
         </Link>
-    )
+    )   
 }
-
 
 export default ArticleCard;
