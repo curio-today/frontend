@@ -11,3 +11,9 @@ export type Meta = {
 export type Heading = "Amazes" | "Informs" | "Amuses" | "Inspires" | "Feed"
 export type Size = "small" | "medium" | "large" | "huge"
 
+export type Percent = `${number}%`;
+
+export type FocalPoint = {
+    x: Percent;
+    y: Percent;
+}

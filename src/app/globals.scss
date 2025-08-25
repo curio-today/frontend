@@ -4,6 +4,7 @@
   --primary-lighten: hsla(214, 100%, 75%, 1);
   --text: hsla(0, 0%, 100%, 1);
   --accent: hsla(0, 0%, 15%, 1);
+  --accent-darken: hsla(0, 0%, 15%, 0.5);
   --accent-hover: #333;
   --secondary: hsla(0, 0%, 36%, 1);
   --background: hsla(0, 0%, 12%, 1);
@@ -22,25 +23,20 @@
   /* Headings */
   --headline: clamp(2.5rem, 4.5vw, 4rem);   /* Big display headline */
   --subtitle: clamp(1.5rem, 2.5vw, 2.25rem); /* Subtitle */
-  --h1: clamp(1.8rem, 2vw, 3rem);
-  --h2: clamp(1.4rem, 1.8vw, 2.2rem);
-  --h3: clamp(1rem, 1.2vw, 1.5rem);
+  --h1: clamp(1.4rem, 1.4vw, 2.4rem);
+  --h2: clamp(1.1rem, 1.3vw, 1.8rem);
+  --h3: clamp(0.9rem, 1vw, 1.2rem);
+
 
   /* Body text */
   --p: clamp(1rem, 1.2vw, 1.25rem);
   --small: clamp(0.75rem, 1vw, 0.9rem);
 
   // Card
-  --card-border-width: 4px;
+  --card-border-width: 1px;
+  --card-border-radius: 1rem;
   --card-transition-fast: 0.2s ease-in-out;
   --card-transition-medium: 0.25s ease;
-
-  --card-min-width: 250px;
-  --card-min-height: 400px;
-  --card-max-height: 800px;
-  --card-max-width: 1200px;
-
-
 }
 
 h1 {
