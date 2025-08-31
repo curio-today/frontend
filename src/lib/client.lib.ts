@@ -54,6 +54,10 @@ export async function fetchAdmin<R> (endpoint: Endpoint, options: FetchOptions):
     try {
         const response = await fetch(requestUrl, {
             method: "GET",
+            cache: "force-cache",
+            next: {
+                revalidate: 3600
+            }
         });
 
         if (!response.ok) {
