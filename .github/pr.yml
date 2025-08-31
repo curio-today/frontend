@@ -1,0 +1,34 @@
+name: Auto PR with Commit Title
+
+on:
+  push:
+    branches-ignore:
+      - main
+    tags-ignore:
+      - '*'
+
+jobs:
+  auto-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Get latest commit message
+        id: commit
+        run: echo "commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Auto PR: Sync changes from new branch"
+          branch: ${{ github.ref_name }}
+          base: main
+          title: "${{ env.commit_message }}"
+          body: "This PR was automatically created from branch ${{ github.ref_name }}."
