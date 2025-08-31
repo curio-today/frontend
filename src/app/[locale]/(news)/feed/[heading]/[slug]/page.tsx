@@ -1,56 +1,101 @@
 import Button from "@/components/ui/Button";
 import Article from "@/components/ui/Article";
 import RenderContent from "@/components/RenderContent";
-
-import { ArticlePageProps } from "./page.types";
+import { Metadata } from "next";
 import { getArticle } from "@/lib/api/feed.lib";
+import { formatArticleDateWithLocale } from "@/lib/formater.lib";
+import MetadataConfig from "@/configs/metadata.config";
+
+export type ArticlePageProps = {
+    params: Promise<{
+        slug: string;
+        heading: string;
+        locale: string;
+    }>;
+}
+
+export async function generateMetadata({ params }: ArticlePageProps ): Promise<Metadata> {
+    const { slug, locale } = await params;
+    const article = await getArticle({
+        locale,
+        slug: slug,
+        limit: 1
+    });
+    
+    return {
+        title: article.title,
+        description: article.subtitle,
+        authors: [{
+            name: "Alexander Shunin",
+            url: "https://curio.today/authors/alexander-shunin"
+        }],
+        creator: "Alexander Shunin",
+        publisher: MetadataConfig.siteName,
+        keywords: [""],
+        openGraph: {
+            title: article.title,
+            description: article.subtitle,
+            url: `https:/curio.today/feed/${slug}`,
+            siteName: MetadataConfig.siteName,
+            images: [
+                {
+                    url: article.cover?.url,
+                    width: 1200,
+                    height: 630,
+                    alt: article.cover?.alt
+                }
+            ],
+            locale,
+            type: "article"
+        },
+        robots: {
+            index: true,
+            follow: true,
+            nocache: false,
+        },
+        metadataBase: new URL("https://curio.today")
+    }
+}
 
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-    const { slug, locale} = await params;
-    const postAsset = await getArticle({
+    const { slug, locale } = await params;
+    const article = await getArticle({
         locale,
         slug: slug,
         limit: 1
     });
 
-    console.log("postAsset", postAsset);
-
-    const date = new Date(postAsset.createdAt);
-
-    postAsset.createdAt = date.toLocaleDateString(locale, {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-    });
-
-
+    formatArticleDateWithLocale({ 
+        article,
+        locale
+     })
 
     return (
         <Article>
             <Article.Header>
                 <Article.Meta>
-                    <Article.CreatedAt timeStamp={postAsset.createdAt} />
+                    <Article.CreatedAt timeStamp={article.createdAt} />
                     <Button icon={{ type: "share" }} mode="noBorder"/>
                 </Article.Meta>
-                <Article.Headline headline={postAsset.title} />
-                <Article.Subtitle subtitle={postAsset.subtitle} />
+                <Article.Headline headline={article.title} />
+                <Article.Subtitle subtitle={article.subtitle} />
             </Article.Header>
             <Article.Hero>
                 <Article.Hero.Image
                     loading="lazy"
-                    focalX={postAsset.cover?.focalX}
-                    focalY={postAsset.cover?.focalY}
-                    alt={postAsset.cover?.alt}
-                    src={postAsset.cover?.url}
+                    focalX={article.cover?.focalX}
+                    focalY={article.cover?.focalY}
+                    alt={article.cover?.alt}
+                    src={article.cover?.url}
                     quality={100}
                 />
                 <Article.Hero.Caption>
-                    <Article.Hero.Image.Source source={postAsset.source} />
+                    <Article.Hero.Image.Source source={article.source} />
                 </Article.Hero.Caption>
             </Article.Hero>
             <Article.Content>
-                <RenderContent content={postAsset.content} />
+                <RenderContent content={article.content} />
             </Article.Content>
             {/*<AdBanner />*/}
             {/*<Article.Delimiter />*/}
