@@ -6,6 +6,7 @@ import { getArticle } from "@/lib/api/feed.lib";
 import { formatArticleDateWithLocale } from "@/lib/formater.lib";
 import MetadataConfig from "@/configs/metadata.config";
 import { getAuthors } from "@/helpers/authors";
+import ShareButton from "@/components/ui/ShareButton";
 
 export type ArticlePageProps = {
     params: Promise<{
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: ArticlePageProps ): Promise<M
         openGraph: {
             title: article.title,
             description: article.subtitle,
-            url: `https:/curio.today/feed/${article.badge.name}/${slug}`,
+            url: `https://curio.today/${locale}/feed/${article.badge.name.toLowerCase()}/${slug}`,
             siteName: MetadataConfig.siteName,
             images: [
                 {
@@ -73,7 +74,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <Article.Header>
                 <Article.Meta>
                     <Article.CreatedAt timeStamp={article.createdAt} />
-                    <Button icon={{ type: "share" }} mode="noBorder"/>
+                    <ShareButton urlToCopy={`https://curio.today/${locale}/feed/${article.badge.name.toLowerCase()}/${slug}`}/>
                 </Article.Meta>
                 <Article.Headline headline={article.title} />
                 <Article.Subtitle subtitle={article.subtitle} />
