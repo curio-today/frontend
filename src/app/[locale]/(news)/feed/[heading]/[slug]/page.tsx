@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { getArticle } from "@/lib/api/feed.lib";
 import { formatArticleDateWithLocale } from "@/lib/formater.lib";
 import MetadataConfig from "@/configs/metadata.config";
+import { getAuthors } from "@/helpers/authors";
 
 export type ArticlePageProps = {
     params: Promise<{
@@ -21,21 +22,18 @@ export async function generateMetadata({ params }: ArticlePageProps ): Promise<M
         slug: slug,
         limit: 1
     });
-    
+
     return {
         title: article.title,
         description: article.subtitle,
-        authors: [{
-            name: "Alexander Shunin",
-            url: "https://curio.today/authors/alexander-shunin"
-        }],
+        authors: getAuthors(), 
         creator: "Alexander Shunin",
         publisher: MetadataConfig.siteName,
         keywords: [""],
         openGraph: {
             title: article.title,
             description: article.subtitle,
-            url: `https:/curio.today/feed/${slug}`,
+            url: `https:/curio.today/feed/${article.badge.name}/${slug}`,
             siteName: MetadataConfig.siteName,
             images: [
                 {
@@ -53,7 +51,6 @@ export async function generateMetadata({ params }: ArticlePageProps ): Promise<M
             follow: true,
             nocache: false,
         },
-        metadataBase: new URL("https://curio.today")
     }
 }
 

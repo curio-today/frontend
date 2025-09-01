@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "./globals.scss";
-
+import "./globals.scss"
 import { ReactNode } from "react";
 import NavBar from "@/components/navigation/NavBar";
 import styles from "./layout.module.css";
 
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { routing } from "@/i18n/routing";
+import { NextIntlClientProvider } from "next-intl";
 
 const outfit = Roboto({
     subsets: ["latin"],
@@ -27,9 +25,6 @@ export default async function RootLayout({
     params: Promise<{ locale: string }>;
 }) {
     const { locale } = await params;
-
-    if (!hasLocale(routing.locales, locale)) {
-    }
 
     return (
         <html lang={locale} className={outfit.className}>
