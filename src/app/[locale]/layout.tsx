@@ -28,9 +28,6 @@ export default async function RootLayout({
 }) {
     const { locale } = await params;
 
-    if (!hasLocale(routing.locales, locale)) {
-    }
-
     return (
         <html lang={locale} className={outfit.className}>
             <body>
