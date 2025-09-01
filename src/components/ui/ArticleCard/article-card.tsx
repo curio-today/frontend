@@ -15,14 +15,14 @@ const ArticleCard = ({ badge, createdAt, slug, cover, title, subtitle }: Article
     
     return (
         <Link
-            href={getArticleUrl({ heading: badge.name, slug: slug})}
+            href={getArticleUrl({ heading: badge.name.toLowerCase(), slug: slug})}
             passHref
             id={slug}
             className={styles.articleCard}
             tabIndex={0}
             aria-label={`Read full article: ${title}`}
         >
-            <h2 className={styles.headline}>{title}</h2>
+            <h1 className={styles.headline}>{title}</h1>
             <div className={styles.cover}>
                 <ImageWithFocal focalPoint={coverFocalPoint} src={cover.url} alt={title} fill/>
             </div>
