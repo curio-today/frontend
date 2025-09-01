@@ -35,7 +35,7 @@ function getAuthHeader(): string {
  *
  * @throws {Error} If the network request fails or the response is not OK.
  */
-export async function fetchAdmin<R> (endpoint: Endpoint, options: FetchOptions): Promise<R> {
+export async function fetchAdmin<R> (endpoint: Endpoint, options: FetchOptions, revalidate: number = 60): Promise<R> {
     const adminUrl = getAdmin();
 
     const params: string[] = [];
@@ -56,7 +56,7 @@ export async function fetchAdmin<R> (endpoint: Endpoint, options: FetchOptions):
             method: "GET",
             cache: "force-cache",
             next: {
-                revalidate: 3600
+                revalidate: revalidate, 
             }
         });
 
