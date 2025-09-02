@@ -87,6 +87,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     alt={article.cover?.alt}
                     src={article.cover?.url}
                     quality={100}
+
+                    width={1200}
+                    height={600}
                 />
                 <Article.Hero.Caption>
                     <Article.Hero.Image.Source source={article.source} />
