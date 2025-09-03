@@ -2,22 +2,22 @@ import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { Slug } from "./slug";
 import { ContentStatus } from "./content-status";
 import { BadgeProps } from "@/components/ui/Badge";
-import { Image, ImageWithFocal } from "./image";
+import { ImageWithFocal } from "./image";
 import { MediaAsset } from "../api/media-asset";
 
 export type Article = {
-    updatedAt: Date;
-    createdAt: Date;
-
-    content: SerializedEditorState;
+    id: string;
     slug: Slug;
     _status: ContentStatus;
-    id: string;
+    updatedAt: Date;
+    createdAt: Date;
 
     title: string;
     subtitle: string;
     source: string;
     
     badge: BadgeProps;
-    cover: ImageWithFocal & MediaAsset
+    cover: MediaAsset<ImageWithFocal>;
+
+    content: SerializedEditorState;
 }

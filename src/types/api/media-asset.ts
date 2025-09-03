@@ -1,7 +1,7 @@
 export type MediaAsset<T extends {}> = {
-    quality: string;
+    quality: number;
     mimeType: string;
     filename: string;
-    filesize: string;
-
-}
+    filesize: number;
+    thumbnailURL: string | null;
+} & T;

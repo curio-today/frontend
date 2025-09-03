@@ -1,10 +1,6 @@
-import { ContentEntry } from "@/shared/network/content.types";
-
-/**
- * @depracated use PaginatedContent instead
- */
-export type PaginatedContentResponse<Entry extends ContentEntry> = {
-    docs: Entry[] | [],
+export type PaginatedContent<T> = {
+    docs: T[] | [];
+    
     totalDocs: number
     limit: number,
     totalPages: number,
