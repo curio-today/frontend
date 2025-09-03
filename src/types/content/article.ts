@@ -9,8 +9,8 @@ export type Article = {
     id: string;
     slug: Slug;
     _status: ContentStatus;
-    updatedAt: Date;
-    createdAt: Date;
+    updatedAt: string;
+    createdAt: string;
 
     title: string;
     subtitle: string;
