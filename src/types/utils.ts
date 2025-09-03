@@ -1,10 +1,6 @@
-/**
- * @deprecated use types/utils.ts instead
- */
 export type Options<T> = T[];
 
 /**
- * @deprecated use  types/utils.ts instead
  * Include props from another component under a new key.
  *
  * @template Props - props of another component.
