@@ -1,5 +1,5 @@
 import { Children } from "react";
-import { ListProps, listVariants } from "../../navigation/list.types";
+import { ListProps, listVariants } from "./list.types";
 
 /**
  * Use <ul> and <li> for lists!
