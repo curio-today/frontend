@@ -1,33 +1,32 @@
 import ArticlesFeed from "@/components/ui/ArticlesFeed";
 import { generateHeadingMetadata } from "@/helpers/metadata";
-import { Heading } from "@/shared/data.types";
 import { Metadata } from "next";
-import { HeadingPageProps } from "./page.types";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata({ params }: HeadingPageProps): Promise<Metadata> {
+
+type PageProps = {
+    params: Promise<{ locale: string, heading: string }>;
+}
+
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { locale, heading } = await params;
+
     return generateHeadingMetadata({
         locale: locale,
-        heading: heading as Heading,
+        heading: heading,
     });
 }
 
-export default async function HeadingPage({ params }: HeadingPageProps) {
+export default async function HeadingPage({ params }: PageProps) {
     const { locale, heading } = await params;
     const t = await getTranslations({ locale, namespace: 'Headings' });
 
     const translatedHeading = t(heading);
-
-    const capitalizedHeading = translatedHeading.charAt(0).toUpperCase() + translatedHeading.slice(1);
    
     return (
         <>
-            <ArticlesFeed options={{
-                limit: 5,
-                locale: locale,
-                heading: capitalizedHeading as Heading,
-            }} />
+            <ArticlesFeed locale={locale} heading={translatedHeading} />
         </>
     )
 };
