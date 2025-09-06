@@ -11,7 +11,7 @@ import { ArticleCard } from "./ArticleCard/ArticleCard"
 import { capitalizeString } from "@/utils/capitalizeString"
 
 export type ArticlesFeedProps = {
-    maxArticles?: FetchOptions["limit"];
+    maxArticlesPerRequest?: FetchOptions["limit"];
     locale: FetchOptions["locale"];
     [k: string]: FetchOptions[string];
 }
@@ -29,29 +29,33 @@ async function getArticles(options: FetchOptions): Promise<Article[]> {
         options
      })
 
-    return paginatedArticles.docs;
+    return paginatedArticles.docs.filter((article) => article.title != undefined);
 }
 
 
-export const ArticlesFeed = ({ locale, maxArticles = 5, ...rest}: ArticlesFeedProps) => {
+export const ArticlesFeed = ({ locale, maxArticlesPerRequest: maxArticles = 5, ...rest}: ArticlesFeedProps) => {
     const { data, hasMore, loadMore } = useInfiniteFetching(getArticles, {
         limit: maxArticles,
         locale: locale,
         ...rest
     })
-    
+
     return (
         <InfiniteScroll data={data} hasMore={hasMore} loadMore={loadMore}>
             {
                 (articles) => (
                     <Grid>
-                        {articles.map((article) => (
-                            <Grid.Row key={article.id}
-                                        initial={{ opacity: 0, y: 50 }}
-                                        animate={{ opacity: 1, y: 0 }}> 
-                                <ArticleCard {...article} />
-                            </Grid.Row>
-                        ))}
+                        {articles.map((article) => {
+                            if (article.title === undefined) return null;
+                            
+                            return (
+                                <Grid.Row key={article.id}
+                                            initial={{ opacity: 0, y: 50 }}
+                                            animate={{ opacity: 1, y: 0 }}> 
+                                    <ArticleCard {...article} />
+                                </Grid.Row>
+                            )
+                        })}
                     </Grid>
                 )
             }
