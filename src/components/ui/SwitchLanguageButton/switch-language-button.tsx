@@ -1,6 +1,5 @@
 "use client"
 
-import Button from "@/components/ui/Button";
 import { usePathname, useRouter } from "next/navigation";
 import Select, { Option } from "../Select";
 import { TranslatedLabels } from "@/data/nav.data";

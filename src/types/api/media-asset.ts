@@ -1,4 +1,4 @@
-export type MediaAsset<T extends {}> = {
+export type MediaAsset<T extends object> = {
     quality: number;
     mimeType: string;
     filename: string;

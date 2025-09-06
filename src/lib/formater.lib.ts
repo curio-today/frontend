@@ -5,6 +5,10 @@ type FormatArticleDateType = {
     locale: string,
 }
 
+/**
+ * 
+ * @deprecated use format-article instead
+ */
 export function formatArticleDateWithLocale({ article, locale }: FormatArticleDateType) {
     const createdAt = new Date(article.createdAt);
 

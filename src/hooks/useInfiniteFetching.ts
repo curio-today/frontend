@@ -1,8 +1,7 @@
+import { FetchOptions } from "@/types/api/fetch-options";
 import { useCallback, useState } from "react";
-import { FetchOptions } from "@/shared/network";
 
-export const useInfiniteFetching
-        = <T, >(fetchFunction: { (options: FetchOptions): Promise<T[]> }, options: FetchOptions) => {
+export const useInfiniteFetching = <T>(fetchFunction: { (options: FetchOptions): Promise<T[]> }, options: FetchOptions) => {
     const [data, setData] = useState<T[]>([])
     const [page, setPage] = useState<number>(options.page ?? 1);
     const [loading, setLoading] = useState<boolean>(false)

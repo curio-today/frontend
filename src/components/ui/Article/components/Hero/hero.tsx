@@ -2,7 +2,7 @@ import styles from "./hero.module.css"
 
 import Text, { TextProps } from "@/components/ui/Text";
 import { ComponentProps } from "react";
-import Image, { ImageProps } from "next/image";
+import { ImageProps } from "next/image";
 import ImageWithFocal from "@/components/ui/ImageWithFocal";
 
 type HeroProps = ComponentProps<"figure">;
@@ -14,8 +14,8 @@ type HeroSourceProps = ComponentProps<"figcaption">;
 
 const HeroImageSource = ({ source, id = "source", variant = "p", ...rest }: { source: string } & Partial<TextProps>) => <Text variant={variant} id={id} className={styles.source}{...rest}>{source}</Text>
 const HeroImage = ({width = 300, height = 300, focalY, focalX, sizes, ...rest }: HeroImageProps) => <ImageWithFocal className={styles.image} width={width} height={height} focalPoint={{
-    x: `${focalX}%`,
-    y: `${focalY}%`
+    x: focalX,
+    y: focalY
 }} sizes={sizes} {...rest}/>
 
 

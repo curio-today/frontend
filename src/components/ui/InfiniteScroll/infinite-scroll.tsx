@@ -1,5 +1,5 @@
 import { InfiniteScrollProps } from "./infinite-scroll.types";
-import { useIntersectionObserver } from "./hooks/useIntersectionObserver";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 /**
  * InfiniteScroll

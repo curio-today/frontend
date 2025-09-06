@@ -13,7 +13,6 @@ import styles from "./Select.module.css";
 import Dropdown from "./parts/Dropdown";
 import Trigger from "./parts/Trigger";
 import { Option as OptionType } from "./Select";
-import { has } from "immutable";
 
 export type Option = {
     label: string;

@@ -1,6 +1,6 @@
-export type Heading = "Amazes" | 
-                    "Informs" | 
-                    "Amuses" | 
-                    "Inspires" | 
-                    "Feed" | 
+export type Heading = "amazes" | 
+                    "informs" | 
+                    "amuses" | 
+                    "inspires" | 
+                    "feed" |
                     (string & {})
