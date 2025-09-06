@@ -1,2 +1,2 @@
 export { default } from "./list"
-export type { ListProps } from "./list.types"
+export type { ListProps } from "../../navigation/list.types"

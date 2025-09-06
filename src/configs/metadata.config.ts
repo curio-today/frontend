@@ -1,3 +1,5 @@
-export default {
-    siteName: "Curio."
+const Metadata = {
+
 }
+
+export default Metadata;

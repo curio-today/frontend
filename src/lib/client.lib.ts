@@ -1,32 +1,9 @@
-import { getPublicApiKey } from "@/configs/client.config";
 import { getAdmin } from "@/configs/url.config";
 import { Endpoint, FetchOptions } from "@/shared/network";
 
 /**
- * @deprecated
- * Get auth header for admin api by using a third-part-access collection in admin panel
- * @example
- *         const response = await fetch(requestUrl, {
- *             method: "GET",
- *             headers: {
- *                 Authorization: getAuthHeader(),
- *             }
- *         });
- */
-function getAuthHeader(): string {
-    const publicApiKey = getPublicApiKey();
-
-    try {
-        return `third-party-access API-Key ${publicApiKey}`
-    } catch (e) {
-        console.error(e);
-        return "";
-    }
-}
-
-/**
  * Fetches data from the admin API with error handling.
- *
+ * @deprecated use fetchAdminData
  * @async
  * @template T
  * @param {string} endpoint - The relative API endpoint (e.g. "users", "settings").

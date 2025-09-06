@@ -1,10 +1,10 @@
 import styles from "./badge.module.scss";
 
 
-import { Heading } from "@/shared/data.types";
 import { ComponentProps } from "react";
 import { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
+import { Heading } from "@/types/content/heading";
 
 export const badgeVariants = cva(styles.badge, {
     variants: {
@@ -20,5 +20,5 @@ export const badgeVariants = cva(styles.badge, {
 
 export type BadgeProps = {
     isActive?: boolean;
-    heading: Heading;
+    name: Heading;
 } & ComponentProps<"div"> & VariantProps<typeof badgeVariants>;

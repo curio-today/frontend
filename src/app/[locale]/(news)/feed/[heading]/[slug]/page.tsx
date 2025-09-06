@@ -1,4 +1,3 @@
-import Button from "@/components/ui/Button";
 import Article from "@/components/ui/Article";
 import RenderContent from "@/components/RenderContent";
 import { Metadata } from "next";
@@ -8,7 +7,7 @@ import MetadataConfig from "@/configs/metadata.config";
 import { getAuthors } from "@/helpers/authors";
 import ShareButton from "@/components/ui/ShareButton";
 
-export type ArticlePageProps = {
+export type PageProps = {
     params: Promise<{
         slug: string;
         heading: string;
@@ -16,7 +15,7 @@ export type ArticlePageProps = {
     }>;
 }
 
-export async function generateMetadata({ params }: ArticlePageProps ): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps ): Promise<Metadata> {
     const { slug, locale } = await params;
     const article = await getArticle({
         locale,
@@ -56,7 +55,7 @@ export async function generateMetadata({ params }: ArticlePageProps ): Promise<M
 }
 
 
-export default async function ArticlePage({ params }: ArticlePageProps) {
+export default async function ArticlePage({ params }: PageProps) {
     const { slug, locale } = await params;
     const article = await getArticle({
         locale,

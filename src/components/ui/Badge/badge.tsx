@@ -6,7 +6,7 @@ import Text from "@/components/ui/Text";
 import { HEADINGS } from "@/data/headings.data";
 
 
-const Badge = ({ className, heading, status }: BadgeProps) => {
+const Badge = ({ className, name: heading, status }: BadgeProps) => {
     const badgeData = HEADINGS[heading];
 
     return (

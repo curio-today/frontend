@@ -1,5 +1,8 @@
 import { ContentEntry } from "@/shared/network/content.types";
 
+/**
+ * @depracated use PaginatedContent instead
+ */
 export type PaginatedContentResponse<Entry extends ContentEntry> = {
     docs: Entry[] | [],
     totalDocs: number

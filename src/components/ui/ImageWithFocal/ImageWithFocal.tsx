@@ -1,4 +1,4 @@
-import { FocalPoint, Percent } from "@/shared/data.types";
+import { FocalPoint } from "@/types/content/focal-point";
 import Image, { ImageProps } from "next/image";
 
 type Props = {
@@ -6,9 +6,9 @@ type Props = {
 } & ImageProps;
 
 
-const ImageWithFocal = ({ focalPoint, children, ...rest }: Props) => {
+const ImageWithFocal = ({ focalPoint, children, alt, ...rest }: Props) => {
     return (
-        <Image style={{ objectPosition: `${focalPoint.x} ${focalPoint.y}`, objectFit: "cover"}} {...rest}>
+        <Image style={{ objectPosition: `${focalPoint.x} ${focalPoint.y}`, objectFit: "cover"}} alt={alt} {...rest}>
             {children}
         </Image>
     )

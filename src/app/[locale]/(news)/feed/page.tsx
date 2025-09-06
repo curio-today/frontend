@@ -1,7 +1,7 @@
-import ArticlesFeed from "@/components/ui/ArticlesFeed";
+import { ArticlesFeed } from "@/components/ui/ArticlesFeed";
 import SwitchLanguageButton from "@/components/ui/SwitchLanguageButton";
 import { generateHeadingMetadata } from "@/helpers/metadata";
-import { Metadata, Viewport } from "next";
+import { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 
 import styles from './page.module.css';
@@ -17,13 +17,6 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 }
 
-export async function generateViewport(): Promise<Viewport> {
-    // TODO: make dynamic theme based on user preference
-    return {
-        themeColor: 'dark'
-    }
-}
-
 export default async function Feed() {
     const locale = await getLocale();
 
@@ -32,10 +25,7 @@ export default async function Feed() {
             <div className={styles.button}>
                 <SwitchLanguageButton />
             </div>
-            <ArticlesFeed options={{
-                limit: 5,
-                locale: locale,
-            }} />
+            <ArticlesFeed locale={locale} maxArticlesPerRequest={15}/>
         </>
     )
 }
