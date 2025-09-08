@@ -1,8 +1,6 @@
-import { Locale } from "next-intl";
+import { QueryParams } from "./query-params";
 
 export type FetchOptions = {
-    locale: Locale;
-    limit: number;
-
-    [k: string]: any; 
+    id?: string;
+    query?: Partial<QueryParams>
 }
