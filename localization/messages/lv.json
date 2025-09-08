@@ -8,7 +8,9 @@
     }
   },
   "Messages": {
-    "loading": "Ielādēšana..."
+    "loading": "Ielādēšana...",
+    "readFullArticle": "Lasīt pilnu rakstu:"
+
   },
   "Headings": {
     "amazes": "Pārsteidz",

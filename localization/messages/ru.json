@@ -8,7 +8,9 @@
     }
   },
   "Messages": {
-    "loading": "Загрузка..."
+    "loading": "Загрузка...",
+    "readFullArticle": "Прочитать статью полностью:"
+    
   },
   "Headings": {
     "amazes": "Удивляет",
