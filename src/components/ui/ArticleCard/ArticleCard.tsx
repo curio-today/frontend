@@ -4,25 +4,27 @@ import ImageWithFocal from "@/components/ui/ImageWithFocal";
 import { PublishedDate } from "../PublishedDate";
 import Link from "next/link";
 import { Article } from "@/types/content/article";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Heading } from "@/types/content/heading";
 import { Slug } from "@/types/content/slug";
 
-function createArticleUrl(heading: Heading, slug: Slug): string {
-    return `/feed/${heading}/${slug}`
+function createArticleUrl(heading: Heading, slug: Slug, id: string): string {
+    return `/feed/${heading}/${slug}?id=${id}`
 }
 
-export const ArticleCard = ({ slug, title, cover, createdAt, subtitle, badge }: Article) => {
+export const ArticleCard = ({ id, slug, title, cover, createdAt, subtitle, badge }: Article) => {
     const locale = useLocale();
+
+    const t = useTranslations("Messages");
 
     return (
         <Link
-            href={createArticleUrl(badge.name.toLowerCase(), slug)}
+            href={createArticleUrl(badge.name.toLowerCase(), slug, id)}
             passHref
             id={slug}
             className={styles.articleCard}
             tabIndex={0}
-            aria-label={`Read full article: ${title}`}
+            aria-label={`${t("readFullArticle")} ${title}`}
         >
             <h1 className={styles.headline}>{title}</h1>
             <div className={styles.cover}>
