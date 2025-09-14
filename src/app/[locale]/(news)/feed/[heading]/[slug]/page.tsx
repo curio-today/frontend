@@ -1,13 +1,11 @@
-import Article from "@/components/ui/Article";
-import RenderContent from "@/components/RenderContent";
 import { Metadata } from "next";
-import { getArticle } from "@/lib/api/feed.lib";
-import { formatArticleDateWithLocale } from "@/lib/formater.lib";
-import MetadataConfig from "@/configs/metadata.config";
 import { getAuthors } from "@/helpers/authors";
-import ShareButton from "@/components/ui/ShareButton";
+import { fetchArticleBySlug } from "@/utils/api/fetch-article-by-slug";
+import { redirect } from "next/navigation";
+import { fetchArticleById } from "@/utils/api/fetch-article-by-id";
+import { Metadata as MetadataConfig } from "@/configs";
 
-export type PageProps = {
+type PageProps = {
     params: Promise<{
         slug: string;
         heading: string;
@@ -15,13 +13,11 @@ export type PageProps = {
     }>;
 }
 
+
 export async function generateMetadata({ params }: PageProps ): Promise<Metadata> {
     const { slug, locale } = await params;
-    const article = await getArticle({
-        locale,
-        slug: slug,
-        limit: 1
-    });
+   
+    const article = await fetchArticleBySlug(slug);
 
     return {
         title: article.title,
@@ -33,7 +29,7 @@ export async function generateMetadata({ params }: PageProps ): Promise<Metadata
         openGraph: {
             title: article.title,
             description: article.subtitle,
-            url: `https://curio.today/${locale}/feed/${article.badge.name.toLowerCase()}/${slug}`,
+            url: `https://curio.today/feed/${article.badge.name.toLowerCase()}/${slug}`,
             siteName: MetadataConfig.siteName,
             images: [
                 {
@@ -54,57 +50,19 @@ export async function generateMetadata({ params }: PageProps ): Promise<Metadata
     }
 }
 
-
 export default async function ArticlePage({ params }: PageProps) {
-    const { slug, locale } = await params;
-    const article = await getArticle({
-        locale,
-        slug: slug,
-        limit: 1
-    });
+    const { locale, slug } = await params;
 
-    formatArticleDateWithLocale({ 
-        article,
-        locale
-     })
+    const articleId = (await fetchArticleBySlug(slug)).id;
+    const article = await fetchArticleById(articleId, locale);
+    
+    if (!article) {
+        redirect("/not-found")
+    }
+
+    console.log(article);
 
     return (
-        <Article>
-            <Article.Header>
-                <Article.Meta>
-                    <Article.CreatedAt timeStamp={article.createdAt} />
-                    <ShareButton urlToCopy={`https://curio.today/${locale}/feed/${article.badge.name.toLowerCase()}/${slug}`}/>
-                </Article.Meta>
-                <Article.Headline headline={article.title} />
-                <Article.Subtitle subtitle={article.subtitle} />
-            </Article.Header>
-            <Article.Hero>
-                <Article.Hero.Image
-                    loading="lazy"
-                    focalX={article.cover?.focalX}
-                    focalY={article.cover?.focalY}
-                    alt={article.cover?.alt}
-                    src={article.cover?.url}
-                    quality={100}
-
-                    width={1200}
-                    height={600}
-                />
-                <Article.Hero.Caption>
-                    <Article.Hero.Image.Source source={article.source} />
-                </Article.Hero.Caption>
-            </Article.Hero>
-            <Article.Content>
-                <RenderContent content={article.content} />
-            </Article.Content>
-            {/*<AdBanner />*/}
-            {/*<Article.Delimiter />*/}
-            {/*<Article.ReadAlso>*/}
-            {/*    <PostList headingToSearch={postAsset.badge.name.toLowerCase()} />*/}
-            {/*</Article.ReadAlso>*/}
-            {/*<Article.Tags>*/}
-            {/*    {postAsset.tags.map(tag => <Tag {...tag}/> )}*/}
-            {/*</Article.Tags>*/}
-        </Article>
-    );
+        <h1>{article.title}</h1>
+    )
 }

@@ -1,43 +1,47 @@
 "use client"
 
-import { FetchOptions } from "@/types/api/fetch-options"
+import { ApiRequest } from "@/types/api/new-request"
 import InfiniteScroll from "./InfiniteScroll"
 import { useInfiniteFetching } from "@/hooks"
 import { Article } from "@/types/content/article"
-import { fetchAdminData } from "@/utils/api/fecthAdminData"
+import { fetchAdminData } from "@/utils/api/fetch-admin-data"
 import { PaginatedContent } from "@/types/api/paginated-content"
 import Grid from "@/components/layout/Grid"
 import { ArticleCard } from "./ArticleCard/ArticleCard"
 import { capitalizeString } from "@/utils/capitalizeString"
 
 export type ArticlesFeedProps = {
-    maxArticlesPerRequest?: FetchOptions["limit"];
-    locale: FetchOptions["locale"];
-    [k: string]: FetchOptions[string];
+    locale: ApiRequest["query"]["locale"];
+    maxArticlesPerRequest?: ApiRequest["query"]["limit"];
 }
 
-async function getArticles(options: FetchOptions): Promise<Article[]> {
-    if (options.heading) {
-        capitalizeString(options.heading);
+async function getArticles({ query }: ApiRequest): Promise<Article[]> {
+    if (query.heading) {
+        capitalizeString(query.heading);
     }
     
     const paginatedArticles = await fetchAdminData<PaginatedContent<Article>>({ 
         endpoint: {
             method: "GET",
-            path: "api/posts"
+            endpoint: "api/posts"
         },
-        options
+        query: query
      })
 
     return paginatedArticles.docs.filter((article) => article.title != undefined);
 }
 
 
-export const ArticlesFeed = ({ locale, maxArticlesPerRequest: maxArticles = 5, ...rest}: ArticlesFeedProps) => {
+export const ArticlesFeed = ({ locale, maxArticlesPerRequest = 5 }: ArticlesFeedProps) => {
     const { data, hasMore, loadMore } = useInfiniteFetching(getArticles, {
-        limit: maxArticles,
-        locale: locale,
-        ...rest
+        endpoint: {
+            method: "GET",
+            endpoint: "api/posts",
+        },
+        query: {
+            locale: locale,
+            limit: maxArticlesPerRequest,
+        }
     })
 
     return (

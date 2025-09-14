@@ -1,5 +1,10 @@
-type QueryParamsName = "limit" | "page" | "locale" | "slug" | "_status" | "heading" | (string & {});
-
 export type QueryParams = {
-    [Q in QueryParamsName]: string;
-}
+    limit: number,
+    page?: number,
+    locale?: string,
+    slug?: string,
+    _status?: boolean,
+    heading?: string,
+};
+
+export default QueryParams;
