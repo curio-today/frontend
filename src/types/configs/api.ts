@@ -7,6 +7,6 @@ export type ApiConfig = {
         [K: string]: ApiEndpoint
     },
     query: {
-        stringfier: QueryStringifier;
+        stringfier: QueryStringifier,
     };
 }

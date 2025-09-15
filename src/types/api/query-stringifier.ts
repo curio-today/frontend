@@ -1,5 +1,3 @@
-import QueryParams from "./query-params";
-
 /**
  * A mapping of query parameter keys to functions that convert their values to strings.
  *
@@ -24,5 +22,5 @@ import QueryParams from "./query-params";
         }
  */
 export type QueryStringifier = {
-    [K in keyof QueryParams]: (value: string | number | boolean) => string;
+    [K: string]: (value: string | number | boolean) => string;
 }

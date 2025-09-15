@@ -1,10 +1,3 @@
-export type QueryParams = {
-    limit: number,
-    page?: number,
-    locale?: string,
-    slug?: string,
-    _status?: boolean,
-    heading?: string,
-};
+import { Api } from "@/configs"
 
-export default QueryParams;
+export type QueryParams = keyof typeof Api.query.stringfier;
