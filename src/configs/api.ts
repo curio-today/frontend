@@ -1,6 +1,6 @@
 import { ApiConfig } from "@/types/configs";
 
-export const Api: ApiConfig = {
+export const Api = {
     baseUrl: "https://admin.curio.today/",
     
     endpoints: {
@@ -20,6 +20,6 @@ export const Api: ApiConfig = {
             heading: (value) => `where[heading][equals]=${value}`
         }
     }
-} as const;
+} as const satisfies ApiConfig;
  
 export default Api;
