@@ -1,4 +1,5 @@
 import NotStartingWithSlash from "../generics/not-starting-with-slash";
+import { ViewDetail, ViewList } from "./views";
 
 /**
  * Represents a API endpoint.
@@ -8,8 +9,8 @@ import NotStartingWithSlash from "../generics/not-starting-with-slash";
  * @property {(id: string) => string} detail - A function that generates the endpoint URL for a specific resource by its ID.
  */
 export type ApiEndpoint = {
-    list: string;
-    detail: (id: string) => string;
+    list: ViewList;
+    detail: ViewDetail;
 }
 
 export default ApiEndpoint;
