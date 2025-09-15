@@ -1,5 +1,9 @@
-import ApiEndpoint from "@/types/api/endpoint";
+import { ViewDetail, ViewList } from "@/types/api/views";
 
-export function resolveEndpoint(endpoint: ApiEndpoint["detail"] | ApiEndpoint["list"]): string {
-    return ""
+export function resolveEndpoint(endpoint: ViewDetail | ViewList, possibleId: string): string {
+    if (typeof endpoint === "function") {
+        return endpoint();
+    }
+    return endpoint;
+
 }
