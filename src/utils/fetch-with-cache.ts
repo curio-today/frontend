@@ -1,6 +1,4 @@
 import { RequestMethod } from "@/types/api/methods";
-import ApiRequest from "@/types/api/new-request";
-import { RequestMeta } from "next/dist/server/request-meta";
 
 export async function fetchWithCache<TExpectedResponseData>(url: string, method: RequestMethod): Promise<TExpectedResponseData> {
     try {
