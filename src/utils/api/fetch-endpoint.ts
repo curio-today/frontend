@@ -4,15 +4,18 @@ import { Api } from "@/configs";
 import { NotInEndpointsList } from "@/types/exceptions/not-in-endpoints-list";
 import { buildUrl } from "./build-url";
 import { resolveEndpoint } from "./resolve-endpoint";
+import { fetchWithCache } from "../fetch-with-cache";
+import { AvailableEndpoints } from "@/types/api/available-endpoints";
 
 type Params = {
-    endpoint: string,
+    endpoint: AvailableEndpoints,
     view: EndpointViewMethod,
     
     requestMethod?: RequestMethod,
     query?: QueryParams
 }
 
+// TODO: Check logic for fetching detail or list in API
 /**
  * 
  * @example
@@ -22,7 +25,7 @@ type Params = {
  *    ...
  * })
  */
-export async function fetchEndpoint<TExpectedResponseData>({ endpoint, view, query, requestMethod = "GET"}: Params): Promise<TExpectedResponseData> {
+export async function fetchEndpoint<T>({ endpoint, view, query, requestMethod = "GET"}: Params): Promise<T> {
     if (!(endpoint in Api.endpoints)) {
         throw new NotInEndpointsList(endpoint);
     }
@@ -34,21 +37,10 @@ export async function fetchEndpoint<TExpectedResponseData>({ endpoint, view, que
         endpointName: endpointName,
         query,
     })
-
-    try {
-        const response = await fetch(requestUrl.href, {
-            method: requestMethod,
-            cache: "reload",
-        })
-
-        if (!response.ok) {
-            throw new Error(`Failed to fetch the endpoint (${endpointName}): ${response.statusText}`);
-        }
-
-        return await response.json() as Promise<TExpectedResponseData>;
-    }
-    catch (error) {
-        throw new Error(`Failed to fetch the endpoint (${endpointName}) with the error: ${error}`);
-    }
-    
+    return fetchWithCache(requestUrl.href, requestMethod);
 }
+
+fetchEndpoint({
+    endpoint: "p",
+    view: "detail"
+})
