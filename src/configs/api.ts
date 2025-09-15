@@ -1,12 +1,12 @@
 import { ApiConfig } from "@/types/configs";
 
 export const Api = {
-    baseUrl: "https://admin.curio.today/",
+    baseUrl: "https://admin.curio.today/api",
     
     endpoints: {
         posts: {
-            list: "/api/posts",
-            detail: (id) => `/api/posts/${id}`
+            list: "/posts",
+            detail: (id) => `/posts/${id}`
         },
     },
 
