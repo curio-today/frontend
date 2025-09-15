@@ -1,3 +1,5 @@
+import Primitive from "./primitive";
+
 /**
  * A mapping of query parameter keys to functions that convert their values to strings.
  *
@@ -22,5 +24,5 @@
         }
  */
 export type QueryStringifier = {
-    [K: string]: (value: string | number | boolean) => string;
+    [K: string]: (value: Primitive) => string;
 }
