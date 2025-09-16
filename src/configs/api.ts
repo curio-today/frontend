@@ -4,9 +4,9 @@ export const Api = {
     baseUrl: "https://admin.curio.today/api",
     
     endpoints: {
-        posts: {
-            list: "/posts",
-            detail: (id) => `/posts/${id}`
+        articles: {
+            list: "posts",
+            detail: (id) => `posts/${id}`
         },
     },
 
