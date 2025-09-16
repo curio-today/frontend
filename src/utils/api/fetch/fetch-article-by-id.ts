@@ -1,6 +1,6 @@
 import { ApiRequest } from "@/types/api/new-request";
 import { Article } from "@/types/content/article";
-import { fetchAdminData } from "@/utils/api/fetch-admin-data";
+import { fetchAdminData } from "@/utils/api/fetch/fetch-admin-data";
 
 
 /**
