@@ -1,5 +1,5 @@
 import { Api } from "@/configs";
-import { buildUrl } from "./build-url";
+import { buildUrl } from "../build-url";
 import { ApiRequest } from "@/types/api/new-request";
 
 
