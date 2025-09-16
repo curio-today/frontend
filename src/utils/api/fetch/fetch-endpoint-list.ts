@@ -1,8 +1,8 @@
 import { RequestMethod } from "@/types/api/methods";
 import { QueryParams } from "@/types/api/query-params";
 import { Api } from "@/configs";
-import { buildUrl } from "./build-url";
-import { fetchWithCache } from "../fetch-with-cache";
+import { buildUrl } from "../build-url";
+import { fetchWithCache } from "@/utils/api/fetch/fetch-with-cache";
 import { AvailableEndpoints } from "@/types/api/available-endpoints";
 
 
