@@ -5,11 +5,12 @@ import { ApiRequest } from "@/types/api/new-request";
 
 /**
  * @deprecated use fetchEndpoint instead and use ApiConfig
+ * @see ApiConfig
  */
 export async function fetchAdminData<TExpectedResponseData>({ method, endpoint, query }: ApiRequest): Promise<TExpectedResponseData> {
     const requestUrl: URL = buildUrl({ 
         baseUrl: Api.baseUrl,
-        endpoint: endpoint,
+        endpointName: endpoint,
         query: query,
     })
 
