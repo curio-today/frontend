@@ -4,7 +4,7 @@ import ImageWithFocal from "@/components/ui/ImageWithFocal";
 import { PublishedDate } from "../PublishedDate";
 import Link from "next/link";
 import { Article } from "@/types/content/article";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Heading } from "@/types/content/heading";
 import { Slug } from "@/types/content/slug";
 
@@ -14,6 +14,7 @@ function createArticleUrl(heading: Heading, slug: Slug): string {
 
 export const ArticleCard = ({ slug, title, cover, createdAt, subtitle, badge }: Article) => {
     const locale = useLocale();
+    const t = useTranslations("Messages");
 
     return (
         <Link
@@ -22,7 +23,8 @@ export const ArticleCard = ({ slug, title, cover, createdAt, subtitle, badge }: 
             id={slug}
             className={styles.articleCard}
             tabIndex={0}
-            aria-label={`Read full article: ${title}`}
+            aria-label={`${t("readFullArticle")} ${title}`}
+            locale={locale}
         >
             <h1 className={styles.headline}>{title}</h1>
             <div className={styles.cover}>

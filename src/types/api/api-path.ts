@@ -1,1 +1,0 @@
-export type ApiPath = "posts" | "api" | (string & {})
