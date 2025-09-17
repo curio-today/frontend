@@ -25,7 +25,7 @@ export default async function Feed() {
             <div className={styles.button}>
                 <SwitchLanguageButton />
             </div>
-            <ArticlesFeed locale={locale} maxArticlesPerRequest={15}/>
+            {/* <ArticlesFeed locale={locale} maxArticlesPerRequest={15}/> */}
         </>
     )
 }
