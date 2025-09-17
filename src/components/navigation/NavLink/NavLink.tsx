@@ -4,20 +4,27 @@ import { useCurrentRoute } from "@/hooks/use-current-route";
 import styles from "./NavLink.module.css"
 
 import { AvailableRoutePath } from "@/types/navigation";
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
+import { PropsWithChildren } from "react";
 
-export type NavLinkProps = PropsWithChildren & {
-    to: AvailableRoutePath;
-}
+export type NavLinkProps = 
+                PropsWithChildren & 
+                Omit<LinkProps, "href"> & 
+                {
+                    to: AvailableRoutePath;
+                }                  
 
+                
 const NavLink = ({ to, children}: NavLinkProps) => {
-    const { isSelected } = useCurrentRoute();
+    const { path } = useCurrentRoute();
+    const isSelected = path == to;
 
     return (
         <Link 
             href={to} 
             className={isSelected ? styles.selected : styles.navLink}
-            onClick={(e) => isSelected && e.preventDefault()}>
+            onClick={(e) => isSelected && e.preventDefault()}
+            >
             {children}
         </Link>
     )
