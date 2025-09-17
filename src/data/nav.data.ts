@@ -1,6 +1,9 @@
 import { NavBarHeading } from "@/components/navigation/NavBar/nav-bar.types";
 import { Option } from "@/components/ui/Select";
 
+/**
+ *  @deprecated use getRoute() instead
+ */
 export const Desktop: NavBarHeading[] = [
     { translationKey: "amazes", href: "/feed/amazes", icon: "wow" },
     { translationKey: "informs", href: "/feed/informs", icon: "clock" },
@@ -9,6 +12,9 @@ export const Desktop: NavBarHeading[] = [
 ];
 
 
+/**
+ * @deprecated use getRoute() instead
+ */
 export const Mobile: NavBarHeading[] = [
     { translationKey: "amazes", href: "/feed/amazes", icon: "wow" },
     { translationKey: "informs", href: "/feed/informs", icon: "megaphone" },
