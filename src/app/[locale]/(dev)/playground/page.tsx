@@ -1,14 +1,7 @@
-import { fetchEndpoint } from "@/utils/api/fetch-endpoint";
-import { redirect } from "next/navigation";
+import NavLink from "@/components/navigation/NavLink";
+import { getRoute } from "@/utils/navigation";
 
 export default async function Playground() {
-    const data = await fetchEndpoint({
-        endpoint: "posts",
-        view: "detail",
-        id: "s"
-    })
+    return <NavLink to="feed/amuses"></NavLink>;
     
-    console.log(data);
-
-    return null;
 }

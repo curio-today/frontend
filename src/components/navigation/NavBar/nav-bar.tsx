@@ -3,10 +3,10 @@
 import dynamic from "next/dynamic";
 
 import { Desktop, Mobile } from "@/data/nav.data";
-import { Server_isMobile } from "@/lib/Platform";
 import { getTranslations } from "next-intl/server";
 import { NavBarHeading } from "@/components/navigation/NavBar/nav-bar.types";
 import { Namespaces } from "@/configs/translation.config";
+import { isMobile } from "@/utils/isMobile";
 
 const MobileComp = dynamic(() => import("./components/mobile"));
 const DesktopComp = dynamic(() => import("./components/desktop/"));
@@ -22,6 +22,6 @@ export default async function NavBar() {
         }));
     }
 
-    return await Server_isMobile() ? <MobileComp headings={translateNavigationHeadings(Mobile)} /> : <DesktopComp headings={translateNavigationHeadings(Desktop)}/>;
+    return await isMobile() ? <MobileComp headings={translateNavigationHeadings(Mobile)} /> : <DesktopComp headings={translateNavigationHeadings(Desktop)}/>;
 }
 
