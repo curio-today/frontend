@@ -15,7 +15,7 @@ export type NavLinkProps =
                 }                  
 
                 
-const NavLink = ({ to, children}: NavLinkProps) => {
+const NavLink = ({ to, children, ...rest}: NavLinkProps) => {
     const { path } = useCurrentRoute();
     const isSelected = path == to;
 
@@ -24,6 +24,7 @@ const NavLink = ({ to, children}: NavLinkProps) => {
             href={to} 
             className={isSelected ? styles.selected : styles.navLink}
             onClick={(e) => isSelected && e.preventDefault()}
+            {...rest}
             >
             {children}
         </Link>
