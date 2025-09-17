@@ -1,10 +1,10 @@
 import { NavigationConfig } from "@/types/configs";
 
-export const Navigation: NavigationConfig = {
+export const Navigation = {
     routes: {
         feed: {
             amazes: {
-                icon: "wow"
+                icon: "wow",
             },
             informs: {
                 icon: "megaphone",
@@ -17,4 +17,4 @@ export const Navigation: NavigationConfig = {
             }
         }
     }
-}
+} satisfies NavigationConfig;
