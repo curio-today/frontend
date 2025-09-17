@@ -1,4 +1,4 @@
-import { RouteHierarchy } from "../routes/route-hierarchy";
+import { RouteHierarchy } from "../navigation/route-hierarchy";
 import { Platform } from "../platform";
 
 export type NavigationConfig = {
