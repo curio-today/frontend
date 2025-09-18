@@ -2,7 +2,7 @@ import styles from "./Mobile.module.css"
 
 import { NavigationBarProps } from "../NavBar";
 
-const MobileNavigationBar = ({ navigationLinks }: NavigationBarProps) => {
+const MobileNavigationBar = () => {
     return null;
 }
 

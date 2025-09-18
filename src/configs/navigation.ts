@@ -1,6 +1,14 @@
 import { NavigationConfig } from "@/types/configs";
 
 export const Navigation = {
+    navigationBar: {
+        links: [
+            "amazes",
+            "informs",
+            "amuses",
+            "inspires"
+        ]
+    },
     routes: {
         playground: {},
         feed: {

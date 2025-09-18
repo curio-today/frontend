@@ -1,10 +1,14 @@
+"use client"
+
+import { useNavigationBar } from "@/hooks/useNavigationBar";
 import styles from "./Desktop.module.css";
 
-import { NavigationBarProps } from "../NavBar";
 import { NavigationBarActionButtons, NavigationBarLinks } from "./components";
 
 
-const DesktopNavigationBar = ({ navigationLinks }: NavigationBarProps) => {
+const DesktopNavigationBar = () => {  
+  const { navigationLinks } = useNavigationBar()
+
   return (
     <nav className={styles.navBar}>
       <NavigationBarLinks navigationLinks={navigationLinks} />
