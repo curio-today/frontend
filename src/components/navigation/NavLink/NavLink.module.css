@@ -10,3 +10,7 @@
 .navLink button {
   flex-direction: column;
 }
+
+.navLink, .selected {
+  text-decoration: none;
+}
