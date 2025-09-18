@@ -1,12 +1,14 @@
 import styles from "./Desktop.module.css";
 
 import { NavigationBarProps } from "../NavBar";
-import NavigationBarLinks from "./components/NavigationBarLinks";
+import { NavigationBarActionButtons, NavigationBarLinks } from "./components";
+
 
 const DesktopNavigationBar = ({ navigationLinks }: NavigationBarProps) => {
   return (
     <nav className={styles.navBar}>
       <NavigationBarLinks navigationLinks={navigationLinks} />
+      <NavigationBarActionButtons />
     </nav>
   );
 };
