@@ -12,7 +12,7 @@ const MobileNavigationBar = dynamic(() => import("./mobile/"));
 const DesktopNavigationBar = dynamic(() => import("./desktop/"));
 
 export default async function NavigationBar() {
-  const headers: NavigationBarProps["navigationLinks"] = [
+  const links: NavigationBarProps["navigationLinks"] = [
     "amazes",
     "amuses",
     "informs",
@@ -20,8 +20,8 @@ export default async function NavigationBar() {
   ];
 
   if (await isMobile()) {
-    return <MobileNavigationBar navigationLinks={headers} />;
+    return <MobileNavigationBar navigationLinks={links} />;
   }
 
-  return <DesktopNavigationBar navigationLinks={headers} />;
+  return <DesktopNavigationBar navigationLinks={links} />;
 }
