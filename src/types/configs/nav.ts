@@ -1,8 +1,14 @@
-import { FeedItem } from "../pages/feed-item";
+import { RouteHierarchy } from "../navigation/route-hierarchy";
 import { Platform } from "../platform";
 
 export type NavigationConfig = {
-    [platform in Platform]: {
-        items: Array<FeedItem>;
+    navigationBar: {
+        links: string[]
+    }
+    routes: RouteHierarchy
+    platforms?: {
+        [platform in Platform]: {
+            routes: RouteHierarchy,
+        }
     }
 }

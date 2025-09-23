@@ -26,7 +26,7 @@ export default async function HeadingPage({ params }: PageProps) {
    
     return (
         <>
-            <ArticlesFeed locale={locale} heading={translatedHeading} />
+            {/* <ArticlesFeed locale={locale} heading={translatedHeading} /> */}
         </>
     )
 };

@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.scss"
 import { ReactNode } from "react";
-import NavBar from "@/components/navigation/NavBar";
 import styles from "./layout.module.css";
 
 import { NextIntlClientProvider } from "next-intl";
+import NavigationBar from "@/components/navigation2/NavBar";
 
 const outfit = Roboto({
     subsets: ["latin"],
@@ -30,7 +30,7 @@ export default async function RootLayout({
         <html lang={locale} className={outfit.className}>
             <body>
                 <NextIntlClientProvider locale={locale}>
-                    <NavBar />
+                    <NavigationBar />
                     <div className={styles.page}>{children}</div>
                 </NextIntlClientProvider>
             </body>

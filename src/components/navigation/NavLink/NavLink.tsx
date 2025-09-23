@@ -1,26 +1,31 @@
 "use client"
 
-import styles from "./NavLink.module.scss"
+import { useCurrentRoute } from "@/hooks/use-current-route";
+import styles from "./NavLink.module.css"
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { AvailableRoutePath } from "@/types/navigation";
+import Link, { LinkProps } from "next/link";
 import { PropsWithChildren } from "react";
 
-export type NavLinkProps = PropsWithChildren & {
-    href: string,
-}
+export type NavLinkProps = 
+                PropsWithChildren & 
+                Omit<LinkProps, "href"> & 
+                {
+                    to: AvailableRoutePath;
+                }                  
 
-
-const NavLink = ({ href, children}: NavLinkProps) => {
-    const pathname = usePathname();
-    const isSelected = pathname.endsWith(href);
+                
+const NavLink = ({ to, children, ...rest}: NavLinkProps) => {
+    const { path } = useCurrentRoute();
+    const isSelected = path == to;
 
     return (
         <Link 
-            href={href} 
+            href={to} 
             className={isSelected ? styles.selected : styles.navLink}
             onClick={(e) => isSelected && e.preventDefault()}
-        >
+            {...rest}
+            >
             {children}
         </Link>
     )
