@@ -1,6 +1,14 @@
+import styles from "./NavigationBarActionButtons.module.css";
+import SwitchLanguageButton from "@/components/ui/SwitchLanguageButton";
+
 const NavigationBarActionButtons = () => {
-    // Check Figma prototype to create buttons
-    return null
-}
+  return (
+    <ul className={styles.buttons}>
+      <li>
+        <SwitchLanguageButton />
+      </li>
+    </ul>
+  );
+};
 
 export default NavigationBarActionButtons;
