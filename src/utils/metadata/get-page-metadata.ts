@@ -1,20 +1,29 @@
-import { AvailableRoutePath } from "@/types/navigation";
 import { Metadata as MetadataConfig } from "@/configs";
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
 
 type Params = {
     pageName: string,
-    metadata: Omit<Metadata, "title">
+    metadata: {
+        description: string,
+        keywords: Metadata["keywords"],
+        locale: string,
+    }
 }
 
 export async function getPageMetadata({
     pageName,
     metadata,
 }: Params): Promise<Metadata> {
+    const title = `${MetadataConfig.prefix} ${MetadataConfig.delimiter} ${pageName}`;
 
     return {
-        title: `${MetadataConfig.siteName} ${MetadataConfig.delimiter} ${pageName}`,
+        title,
+        openGraph: {
+            title,
+            description: metadata.description,            
+            siteName: MetadataConfig.siteName,
+            locale: metadata.locale,
+        },
         ...metadata
     };
 }
