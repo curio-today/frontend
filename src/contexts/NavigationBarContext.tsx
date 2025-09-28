@@ -1,6 +1,6 @@
 "use client"
 
-import { Navigation } from "@/configs/navigation";
+import { Navigation } from "@@/navigation.config";
 import { AvailableRoutePath } from "@/types/navigation";
 import { createContext } from "react";
 
