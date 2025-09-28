@@ -1,4 +1,4 @@
-import { Navigation } from "@/configs/navigation";
+import { Navigation } from "@@/navigation.config";
 import { ExtractPaths } from "../generics/extract-paths";
 
 /**

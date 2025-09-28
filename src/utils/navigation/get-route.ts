@@ -1,4 +1,4 @@
-import { Navigation } from "@/configs/navigation";
+import { Navigation } from "@@/navigation.config";
 import { AvailableRoutePath, Route, RouteHierarchy } from "@/types/navigation";
     
 /**
