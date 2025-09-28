@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     const locale = await getLocale();
     const t = await getTranslations({
         locale,
-        namespace: "Metadata.Pages.Feed"
+        namespace: "Metadata.pages.Feed" // localization/messages/*.json
     })
     
     return getPageMetadata({

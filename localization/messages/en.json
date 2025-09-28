@@ -7,7 +7,7 @@
       "images": ["./meta/en/og-image.png"]
     },
 
-    "Pages": {
+    "pages": {
       "Feed": {
         "name": "Feed",
         "description": "Explore Curio.today's feed — stories that inspire, amaze, inform, and even expose abuses. A curated stream to spark thought and curiosity.",
