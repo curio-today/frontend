@@ -1,7 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation";
-import Select, { Option } from "../Select";
+import Select from "../Select";
 import { TranslatedLabels } from "@/data/nav.data";
 import { useLocale } from "next-intl";
 
