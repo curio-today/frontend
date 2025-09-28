@@ -1,25 +1,30 @@
 "use client"
 
-import { usePathname, useRouter } from "next/navigation";
-import Select, { Option } from "../Select";
+import { useRouter } from "next/navigation";
+import Select from "../Select";
 import { TranslatedLabels } from "@/data/nav.data";
+import { useLocale } from "next-intl";
 
 export const SwitchLanguageButton = () => {
     const router = useRouter();
-    const pathname = usePathname();
-    const currentLocale = pathname.split('/')[1] || 'en';
+    const locale = useLocale();
 
     const switchLocale = (newLocale: string) => {
-        if (newLocale !== currentLocale) {
-        router.replace(pathname.replace(`/${currentLocale}`, `/${newLocale}`));
-        router.refresh();
+        if (newLocale !== locale) {
+            document.cookie = `locale=${newLocale}; path=/; max-age=31536000`;
+            router.refresh();
         }
     };
 
     return (
-        <Select options={TranslatedLabels} value={currentLocale} onChange={function (option: Option): void {
-            switchLocale(option.value as string);
-        }} hasSearch={false}></Select>
+        <Select 
+            options={TranslatedLabels}
+            value={locale}
+            onChange={(option) => (
+                switchLocale(option.value.toString())
+            )}
+            hasSearch={false}
+        />
     )
 }
 

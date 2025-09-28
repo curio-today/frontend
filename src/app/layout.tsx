@@ -6,6 +6,8 @@ import styles from "./layout.module.css";
 
 import { NextIntlClientProvider } from "next-intl";
 import NavigationBar from "@/components/navigation2/NavBar";
+import { getLocale } from "next-intl/server";
+import NavBar from "@/components/navigation/NavBar";
 
 const outfit = Roboto({
     subsets: ["latin"],
@@ -19,19 +21,17 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
                                              children,
-                                             params,
                                          }: {
     children: ReactNode;
-    params: Promise<{ locale: string }>;
-}) {
-    const { locale } = await params;
+}) {    
+    const locale = await getLocale();
 
     return (
         <html lang={locale} className={outfit.className}>
             <body>
-                <NextIntlClientProvider locale={locale}>
-                    <NavigationBar />
-                    <div className={styles.page}>{children}</div>
+                <NextIntlClientProvider>
+                    <NavBar />
+                    {children}
                 </NextIntlClientProvider>
             </body>
         </html>
