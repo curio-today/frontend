@@ -1,4 +1,4 @@
-import { Metadata as MetadataConfig } from "@/configs";
+import { Metadata as MetadataConfig } from "@@/metadata.config";
 import { Metadata } from "next";
 
 type Params = {
