@@ -1,6 +1,6 @@
 "use client"
 
-import { Navigation } from "@/configs/navigation";
+import { Navigation } from "@@/navigation.config";
 import { NavigationBarContext } from "@/contexts/NavigationBarContext";
 import { AvailableRoutePath } from "@/types/navigation";
 import { PropsWithChildren } from "react";
