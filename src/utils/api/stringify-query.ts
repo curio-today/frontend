@@ -1,4 +1,4 @@
-import { Api } from "@/configs";
+import { Api } from "@@/api.config";
 import QueryParams from "@/types/api/query-params";
 
 export const stringifyQuery = (queryParams: QueryParams): string => {

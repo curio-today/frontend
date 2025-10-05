@@ -8,6 +8,7 @@ type GenerateMetadataOptions = {
 }
 
 /**
+ * @deprecated use getPageMetadata instead.
  * Generates metadata for a given locale and heading.
  * @description This function fetches translations for the specified locale and heading,
  * @param locale {string} - locale code, e.g. 'en', 'fr', etc.

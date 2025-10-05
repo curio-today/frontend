@@ -1,3 +1,3 @@
-import { Api } from "@/configs";
+import { Api } from "@@/api.config";
 
 export type AvailableEndpoints = keyof typeof Api.endpoints;

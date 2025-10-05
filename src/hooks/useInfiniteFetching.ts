@@ -4,7 +4,9 @@ import { useCallback, useState } from "react";
 type FetchFunctionType<TReturnType> = {
     (options: ApiRequest): Promise<TReturnType[]>;
 }
-
+/**
+ * @deprecated use useChunkedFetch instead
+ */
 export const useInfiniteFetching = <T>(fetchFunction: FetchFunctionType<T>, { endpoint, query }: ApiRequest) => {
     const [data, setData] = useState<T[]>([])
     const [page, setPage] = useState<number>(query.page ?? 1);

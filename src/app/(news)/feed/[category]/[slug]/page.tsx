@@ -50,7 +50,7 @@
 //     }
 // }
 
-export default async function ArticlePage({ params }: PageProps) {
+export default async function ArticlePage() {
     // const { locale, slug } = await params;
 
     // const articleId = (await fetchArticleBySlug(slug)).id;
