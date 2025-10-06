@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import Feed from "@/components/ui2/Feed";
+import Feed from "@/components/ui2/FeedGrid";
 import { getPageMetadataWithTranslation } from "@/utils/metadata/get-page-metadata-with-translation";
+import FeedViewer from "@/components/ui2/FeedGrid";
 
 
 type PageProps = {
@@ -15,6 +16,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CategoryPage() {
     return (
-        <Feed />
+        <FeedViewer />
     )
 };

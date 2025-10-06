@@ -1,5 +1,11 @@
 import { useEffect, useRef } from "react";
 
+/**
+ * @deprecated use useInfiniteScroll hook instead.
+ * @param callback 
+ * @param hasMore 
+ * @returns 
+ */
 export const useIntersectionObserver = (callback: () => void, hasMore: boolean) => {
     const ref = useRef<HTMLDivElement | null>(null)
 

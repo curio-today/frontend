@@ -1,25 +1,31 @@
-import { ArticlesFeed } from "@/components/ui/ArticlesFeed";
-import SwitchLanguageButton from "@/components/ui/SwitchLanguageButton";
-import { generateHeadingMetadata } from "@/helpers/metadata";
+"use client"
 import { Metadata } from "next";
-import { getLocale, getTranslations } from "next-intl/server";
 
-import styles from './page.module.css';
-import { getPageMetadata } from "@/utils/metadata/get-page-metadata";
 import { getPageMetadataWithTranslation } from "@/utils/metadata/get-page-metadata-with-translation";
+import InfiniteScroll from "@/components/ui2/InfiniteScroll";
+import { useInfiniteScroll } from "@/hooks/use-infinite-scroll";
+import { Article } from "@/types/content/article";
+import { fetchEndpointList } from "@/utils/api/fetch";
+import FeedViewer from "@/components/ui2/FeedGrid";
+import { PaginatedContent } from "@/types/api/paginated-content";
+import Grid from "@/components/layout/Grid";
+import ArticleCard from "@/components/ui2/ArticleCard";
 
-export async function generateMetadata(): Promise<Metadata> {
-    return getPageMetadataWithTranslation("Metadata.pages.feed")
-}
+// export async function generateMetadata(): Promise<Metadata> {
+//     return getPageMetadataWithTranslation("Metadata.pages.feed")
+// }
 
-export default async function Feed() {
+export default function Feed() {
     return (
-        <>
-            <div className={styles.button}>
-                <SwitchLanguageButton />
-            </div>
-            {/* <ArticlesFeed locale={locale} maxArticlesPerRequest={15}/> */}
-        </>
+        <InfiniteScroll<Article>
+            fetchPage={(page) => fetchEndpointList<PaginatedContent<Article>>("articles", { page })}
+            condition={(data) => data.docs.length > 0}
+            onAppend={(prev, next) => ({
+                ...next,
+                docs: [...(prev?.docs ?? []), ...next.docs],
+            })}
+        >
+                    </InfiniteScroll>
     )
 }
 
