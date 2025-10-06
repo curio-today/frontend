@@ -5,7 +5,6 @@ import { ReactNode } from "react";
 import styles from "./layout.module.css";
 
 import { NextIntlClientProvider } from "next-intl";
-import NavigationBar from "@/components/navigation2/NavBar";
 import { getLocale } from "next-intl/server";
 import NavBar from "@/components/navigation/NavBar";
 
@@ -31,7 +30,9 @@ export default async function RootLayout({
             <body>
                 <NextIntlClientProvider>
                     <NavBar />
-                    {children}
+                    <div className={styles.page}>
+                        {children}
+                    </div>
                 </NextIntlClientProvider>
             </body>
         </html>
