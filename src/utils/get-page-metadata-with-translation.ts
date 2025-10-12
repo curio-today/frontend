@@ -11,7 +11,7 @@ import { Metadata } from "next";
      return getPageMetadataWithTranslation("feed"); // feed -> AvailableRoutePath
  * }
  */
-export async function getPageMetadataWithTranslation(route: AvailableRoutePath): Promise<ReturnType<typeof getPageMetadata> | null> {
+export async function getPageMetadataWithTranslation(route: AvailableRoutePath): Promise<ReturnType<typeof getPageMetadata>> {
     const locale = await getLocale();
     try {
         const t = await getTranslations({
@@ -30,6 +30,6 @@ export async function getPageMetadataWithTranslation(route: AvailableRoutePath):
     }       
     catch (e) {
         console.error(e);
-        return null;
+        return {};
     }
 }
