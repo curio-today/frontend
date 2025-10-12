@@ -1,37 +1,27 @@
-import { ArticlesFeed } from "@/components/ui/ArticlesFeed";
-import SwitchLanguageButton from "@/components/ui/SwitchLanguageButton";
-import { generateHeadingMetadata } from "@/helpers/metadata";
 import { Metadata } from "next";
-import { getLocale, getTranslations } from "next-intl/server";
-
-import styles from './page.module.css';
-import { getPageMetadata } from "@/utils/metadata/get-page-metadata";
+import { getPageMetadataWithTranslation } from "@/utils/get-page-metadata-with-translation";
+import { ReactQueryClientProvider } from "@/providers/ReactQueryClientProvider";
+import ArticlesGrid from "@/components/ui/ArticlesGrid";
+import { getLocale } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const locale = await getLocale();
-    const t = await getTranslations({
-        locale,
-        namespace: "Metadata.pages.Feed" // localization/messages/*.json
-    })
-    
-    return getPageMetadata({
-        pageName: t("name"),
-        metadata: {
-            description: t("description"),
-            keywords: t("keywords"),
-            locale: locale
-        }
-    })
+    const metadata = await getPageMetadataWithTranslation("feed");
+    if (metadata) {
+        return metadata;
+    }
+
+    return {};
 }
 
 export default async function Feed() {
+    const locale = await getLocale();
+
     return (
-        <>
-            <div className={styles.button}>
-                <SwitchLanguageButton />
-            </div>
-            {/* <ArticlesFeed locale={locale} maxArticlesPerRequest={15}/> */}
-        </>
+        <main className="flex flex-col items-center mt-[100px] my-8 mx-[15vw] min-h-[calc(100vh-5rem)] pb-20 pt-20">
+            <ReactQueryClientProvider>
+                <ArticlesGrid locale={locale}/>
+            </ReactQueryClientProvider>
+        </main>
     )
 }
 
