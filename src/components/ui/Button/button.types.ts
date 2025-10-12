@@ -7,6 +7,7 @@ import { HTMLMotionProps } from "framer-motion";
 
 import { IconProps, IconVariant } from "@/components/ui/Icon";
 import { PropsWithChildren } from "react";
+import ExtendedUiProps from "@/types/generics/extended-ui-props";
 
 export const buttonVariants = cva(styles.badge, {
     variants: {
@@ -22,9 +23,8 @@ export const buttonVariants = cva(styles.badge, {
     }
 })
 
+type ExtendedIconProps = ExtendedUiProps<IconVariant, IconProps>;
+
 export type ButtonProps = {
-    icon?: {
-        type: IconVariant;
-        props?: IconProps;
-    }
+    icon?: ExtendedIconProps;
 } & PropsWithChildren<HTMLMotionProps<"button">> & VariantProps<typeof buttonVariants>;

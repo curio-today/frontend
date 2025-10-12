@@ -2,8 +2,8 @@ import styles from "./Icon.module.scss"
 
 
 
-import { Size } from "@/shared/data.types";
-import { Include } from "@/shared/utility.types";
+import { Size } from "@/types/size";
+import { Include } from "@/types/utils";
 import { ImageProps } from "next/image";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
