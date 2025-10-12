@@ -5,6 +5,14 @@
     "openGraph": {
       "description": "Smart curiousity",
       "images": ["./meta/en/og-image.png"]
+    },
+
+    "pages": {
+      "feed": {
+        "name": "Feed",
+        "description": "Explore Curio.today's feed — stories that inspire, amaze, inform, and even expose abuses. A curated stream to spark thought and curiosity.",
+        "keywords": "Curio.today feed, inspire stories, amazing discoveries, informative articles, exposing abuses, daily inspiration articles, stories that amaze and engage, news that informs the mind, uncovering truths and abuses, thought-provoking content, explore science culture and tech, stories to spark curiosity, curated content platform"    
+      }
     }
   },
   "Messages": {

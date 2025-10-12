@@ -1,5 +1,5 @@
-import { Api } from "@/configs";
-import QueryParams from "@/types/api/query-params";
+import { Api } from "@@/api.config";
+import { QueryParams } from "@/types/api/query-params";
 
 export const stringifyQuery = (queryParams: QueryParams): string => {
   return (Object.entries(queryParams) as [keyof typeof Api.query.stringfier, string | number | boolean][])
