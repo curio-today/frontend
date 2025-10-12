@@ -1,7 +1,7 @@
 "use client"
 
 import Grid from "@/components/layout/Grid";
-import { ArticleCard } from "@/components/ui/ArticleCard/ArticleCard";
+import { ArticleCard } from "@/components/ui/ArticleCard";
 import { useIntersectionObserver } from "@/hooks";
 import Loader from "./Loader";
 import { createArticlesSuspenseQuery } from "@/utils/suspense-query";
@@ -27,7 +27,6 @@ export default function ArticlesGrid({
 }: Props) {
     const { data: articles, fetchNextPage, hasNextPage, isFetchingNextPage } = useSuspenseInfiniteQuery(createArticlesSuspenseQuery(locale));
     const loadMoreRef = useIntersectionObserver(fetchNextPage, hasNextPage);
-
     return (
         <Grid>
             {articles.map(article => (
@@ -37,9 +36,7 @@ export default function ArticlesGrid({
             ))}
 
             {hasNextPage && (
-                <Loader ref={loadMoreRef}>
-                    {isFetchingNextPage ? "Loading more..." : "Scroll to load more"}
-                </Loader>    
+                <Loader ref={loadMoreRef} isLoading={isFetchingNextPage} />
             )}
         </Grid>
     );
