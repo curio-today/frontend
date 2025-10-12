@@ -1,19 +1,31 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { getPageMetadata } from "./metadata/get-page-metadata";
+import { AvailableRoutePath } from "@/types/navigation";
 
-export async function getPageMetadataWithTranslation(namespace: string) {
+/**
+ * Return page metadata with translation using getTranslations function
+ * @param route {AvailableRoutePath} website route to get metadata
+ * @returns 
+ */
+export async function getPageMetadataWithTranslation(route: AvailableRoutePath): Promise<ReturnType<typeof getPageMetadata> | null> {
     const locale = await getLocale();
-    const t = await getTranslations({
-        locale,
-        namespace: namespace // localization/messages/*.json
-    })
-
-    return getPageMetadata({
-        pageName: t("name"),
-        metadata: {
-            description: t("description"),
-            keywords: t("keywords"),
-            locale: locale
-        }
-    })
+    try {
+        const t = await getTranslations({
+            locale,
+            namespace: `Metadata.pages.${route.toLowerCase()}`,
+        })
+            
+        return getPageMetadata({
+            pageName: t("name"),
+            metadata: {
+                description: t("description"),
+                keywords: t("keywords"),
+                locale: locale
+            }
+        })  
+    }       
+    catch (e) {
+        console.error(e);
+        return null;
+    }
 }
