@@ -1,8 +1,9 @@
+import { AvailableRoutePath } from "@/types/navigation";
 import { Metadata as MetadataConfig } from "@@/metadata.config";
 import { Metadata } from "next";
 
 type Params = {
-    pageName: string,
+    pageName: AvailableRoutePath | (string & {}),
     metadata: {
         description: string,
         keywords: Metadata["keywords"],
