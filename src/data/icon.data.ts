@@ -1,11 +1,11 @@
-import { Image } from "@/shared/data.types";
+import { Image } from "@/types/content/image";
 import { IconVariant } from "@/components/ui/Icon";
 
 type Icons = {
     [K in IconVariant]: Image
 }
 
-export const ICONS_SVG: Icons = {
+export const ICONS_SVG = {
     globe: {
         src: "/icons/globe.svg",
         alt: "globe",
@@ -59,7 +59,7 @@ export const ICONS_SVG: Icons = {
         alt: "wow"
     },
     curio: {
-        src: "/logos/curio.webp",
+        src: "/logos/curio-with-memo.webp",
         alt: "curio"
     },
     newspaper: {

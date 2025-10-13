@@ -1,11 +1,36 @@
 "use client"
 
 import Image from "next/image";
-
-import { IconProps, iconVariants } from "./icon.types";
-import { ICONS_SVG } from "@/data/icon.data";
+import IconsConfig from "@@/icons.config";
 
 import { motion } from "framer-motion";
+import { Include } from "@/types/utils";
+import { ImageProps } from "next/image";
+import { cva, VariantProps } from "class-variance-authority";
+import { ComponentProps } from "react";
+import { IconVariant } from "@/types/content/icon";
+
+export type IconProps = { icon: IconVariant } &     
+    VariantProps<typeof iconVariants> & 
+    Partial<Include<ImageProps, "imageProps">> & 
+    ComponentProps<"img">;
+
+export const iconVariants = cva("relative aspect-square", {
+    variants: {
+        size: {
+            small: "w-[clamp(1rem,2vw,2rem)]",
+            medium: "w-[clamp(1.5rem,2vw,2rem)]",
+            large: "w-[clamp(3rem,5vw,7rem)]",
+            huge: "w-[clamp(5rem,8vw,15rem)]",
+            gigantic: "w-[15rem]",
+        }
+    },
+    defaultVariants: {
+        size: "medium"
+    }
+})
+
+
 
 /**
  * Renders a static (non-animated) icon.
@@ -19,7 +44,7 @@ import { motion } from "framer-motion";
  * @constructor
  */
 const Icon = ({ icon, size, style, className, imageProps}: IconProps) => {
-    const data = ICONS_SVG[icon];
+    const data = IconsConfig.icons[icon];
 
     if (!data) {
         return null;
