@@ -1,16 +1,14 @@
+"use client"
+
+import { useTheme } from "@/hooks/useTheme";
 import Button from "./Button";
 
 
 export const ThemeButton = () => {
-    // TODO: useTheme(), ThemeProvider, ThemeContext
-    // const [currentTheme, toggleTheme] = useTheme();
+    const [currentTheme, toggleTheme] = useTheme();
 
     return (
-        <Button icon={
-            {
-                type: "clock"
-            }
-        }/>
+        <Button icon={{ type: "moon" }} onClick={toggleTheme}/>
     )
 
 }

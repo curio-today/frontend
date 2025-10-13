@@ -7,7 +7,7 @@ import styles from "./layout.module.css";
 import { NextIntlClientProvider } from "next-intl";
 import NavigationBar from "@/components/navigation2/NavBar";
 import { getLocale } from "next-intl/server";
-import NavBar from "@/components/navigation/NavBar";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const outfit = Roboto({
     subsets: ["latin"],
@@ -30,8 +30,10 @@ export default async function RootLayout({
         <html lang={locale} className={outfit.className}>
             <body>
                 <NextIntlClientProvider>
-                    <NavBar />
-                    {children}
+                    <ThemeProvider>
+                        <NavigationBar />
+                        {/* {children} */}
+                    </ThemeProvider>
                 </NextIntlClientProvider>
             </body>
         </html>
