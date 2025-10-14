@@ -42,6 +42,18 @@
   --card-transition-medium: 0.25s ease;
 }
 
+.light {
+  --primary: hsla(214, 100%, 45%, 1);
+  --primary-lighten: hsla(214, 100%, 35%, 1);
+  --text: hsla(0, 0%, 0%, 1);
+  --accent: hsla(0, 0%, 95%, 1);
+  --accent-darken: hsla(0, 0%, 95%, 0.5);
+  --accent-hover: #ccc;
+  --secondary: hsla(0, 0%, 74%, 1);
+  --background: hsla(0, 0%, 98%, 1);
+  --border: hsla(0, 0%, 90%, 1);
+}
+
 h1 {
   font-size: var(--h1);
 }
