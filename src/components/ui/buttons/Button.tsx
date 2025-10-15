@@ -1,17 +1,16 @@
-import { HTMLMotionProps, motion } from "framer-motion";
 import styles from "./button.module.css";
 import { cva, VariantProps } from "class-variance-authority";
 import Icon, { IconProps } from "../Icon";
-import { PropsWithChildren } from "react";
+import { ComponentProps, PropsWithChildren } from "react";
 import { IconVariant } from "@/types/content/icon";
 
 const buttonVariants = cva("button", {
     variants: {
         mode: {
-            normal: "",
-            outline: styles.outline,
-            fill: styles.fill,
-            noBorder: styles.noBorder,
+            normal: styles["btn-normal"],
+            outline: styles["btn-outline"],
+            fill: styles["btn-fill"],
+            noBorder: styles["btn-no-border"],
         },
     },
     defaultVariants: {
@@ -24,7 +23,7 @@ export type ButtonProps = {
     label?: string,
     icon?: IconProps | IconVariant, 
     mode?: VariantProps<typeof buttonVariants>["mode"];
-} & HTMLMotionProps<"button">;
+} & ComponentProps<"button">;
 
 /**
  * Custom animated button component that supports label, icon and children content.
@@ -58,18 +57,14 @@ export const Button = ({ label, icon, mode = "normal", children, ...buttonProps 
         : icon;
 
     return (
-        <motion.button
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            whileHover={{ scale: 1.1 }}
+        <button
             className={buttonVariants({mode})}
             {...buttonProps}
         >
-            {processedIcon && <Icon size="medium"{...processedIcon}/>}
+            {processedIcon && <Icon size="medium" {...processedIcon}/>}
             {label && <p>{label}</p>}
             {children}
-        </motion.button >
+        </button >
     )
 }
 

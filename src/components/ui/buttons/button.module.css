@@ -1,44 +1,47 @@
-.normal {
-  &:hover,
-  &:focus-visible {
-    border: 1px solid var(--primary, #4C9AFF);
+@layer components {
+  .btn-normal {
+    @apply border border-transparent;
+    
+    &:hover,
+    &:focus-visible {
+      @apply border;
+      border-color: var(--primary, #4C9AFF);
+    }
+
+    &:active {
+      background-color: var(--primary, #4C9AFF);
+    }
   }
 
-  &:active {
-    background-color: var(--primary, #4C9AFF);
-  }
-}
+  .btn-fill {
+    @apply bg-[var(--primary,#4C9AFF)];
 
-.fill {
-  background-color: var(--primary, #4C9AFF);
+    &:hover,
+    &:focus-visible {
+      @apply border border-[var(--text)];
+    }
 
-  &:hover,
-  &:focus-visible {
-    border: 1px solid var(--text);
-  }
-
-  &:active {
-    background-color: var(--primary-lighten);
-  }
-}
-
-.outline {
-  background-color: transparent;
-  border: 1px solid var(--primary, #4C9AFF);
-
-  &:hover,
-  &:focus-visible {
-    border: 1px solid var(--text);
-    background-color: rgba(76, 154, 255, 0.1);
+    &:active {
+      background-color: var(--primary-lighten);
+    }
   }
 
-  &:active {
-    background-color: var(--primary-lighten);
-    color: var(--text);
-  }
-}
+  .btn-outline {
+    @apply bg-transparent border border-[var(--primary,#4C9AFF)];
 
-.noBorder {
-  border: none;
-  min-width: 1vw;
+    &:hover,
+    &:focus-visible {
+      @apply border-[var(--text)];
+      background-color: rgba(76, 154, 255, 0.1);
+    }
+
+    &:active {
+      @apply text-[var(--text)];
+      background-color: var(--primary-lighten);
+    }
+  }
+
+  .btn-no-border {
+    @apply border-none min-w-[1vw];
+  }
 }
