@@ -2,8 +2,7 @@ import { FocalPoint } from "./focal-point";
 
 export type Image = {
     alt: string;
-    src: string;
-    quality?: string;
+    url: string;
 }
 
 export type ImageWithFocal = Image & {
