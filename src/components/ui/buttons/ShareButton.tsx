@@ -14,7 +14,7 @@ export const ShareButton = ({ urlToCopy }: ShareButtonProps) => {
     }
 
     return (
-        <Button icon="share" variant={{mode: "noBorder"}} onClick={copySlug}/>
+        <Button icon="share" mode="noBorder" onClick={copySlug}/>
     )
 }
 
