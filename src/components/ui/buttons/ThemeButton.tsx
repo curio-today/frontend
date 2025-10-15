@@ -8,9 +8,7 @@ export const ThemeButton = () => {
     const [, toggleTheme] = useTheme();
 
     return (
-        <Button icon={{
-            icon: "moon"
-        }} onClick={toggleTheme}/>
+        <Button icon="moon" onClick={toggleTheme}/>
     )
 }
 
