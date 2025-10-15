@@ -7,6 +7,10 @@ import { motion } from "framer-motion";
 
 const Icon = dynamic(() => import("@/components/ui/Icon"));
 
+/**
+ * Old version of the button with style
+ * @deprecated use Button from directory "./buttons"
+ */
 const Button = ({ icon, title, children, mode, className, ...rest }: ButtonProps) => {
     return (
         <motion.button initial={{ scale: 0, opacity: 0 }}

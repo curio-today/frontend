@@ -5,7 +5,8 @@ import Button from "./Button";
 export type ShareButtonProps = {
     urlToCopy: string,
 }
-const ShareButton = ({ urlToCopy }: ShareButtonProps) => {
+
+export const ShareButton = ({ urlToCopy }: ShareButtonProps) => {
 
     function copySlug() {
         navigator.clipboard.writeText(urlToCopy);
@@ -13,7 +14,9 @@ const ShareButton = ({ urlToCopy }: ShareButtonProps) => {
     }
 
     return (
-        <Button icon={{ type: "share" }} mode="noBorder" onClick={copySlug}/>
+        <Button icon={{
+            icon: "share"
+        }} mode="noBorder" onClick={copySlug}/>
     )
 }
 
