@@ -5,6 +5,10 @@ import Select from "../Select";
 import { TranslatedLabels } from "@/data/nav.data";
 import { useLocale } from "next-intl";
 
+/**
+ * Use SwitchLanguageButton instead ("ui/buttons")
+ * @deprecated
+ */
 export const SwitchLanguageButton = () => {
     const router = useRouter();
     const locale = useLocale();
