@@ -10,13 +10,13 @@ import React, {
 
 import styles from "./Select.module.css";
 
-import Dropdown from "./parts/Dropdown";
-import Trigger from "./parts/Trigger";
-import { Option as OptionType } from "./Select";
+import Dropdown from "./Dropdown";
+import Trigger from "./Trigger";
+import { useGate } from "@/hooks/useGate";
 
 export type Option = {
     label: string;
-    value: string | number;
+    value: string;
 };
 
 export type SelectProps = {
@@ -38,9 +38,15 @@ const Select = ({
                     hasSearch = true,
                     className = "",
                 }: SelectProps) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [searchTerm, setSearchTerm] = useState("");
-    const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+    // const [isOpen, setIsOpen] = useState(false);
+    // const [searchTerm, setSearchTerm] = useState("");
+    // const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+    const gate = useGate();
+    // gate.isOpen, gate.open()
+    // gate.search("")
+    //
+    // gate.focusedIndex
+
 
     const selectRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -54,9 +60,7 @@ const Select = ({
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
-                setIsOpen(false);
-                setSearchTerm("");
-                setFocusedIndex(null);
+                gate.reset();
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
@@ -64,11 +68,9 @@ const Select = ({
     }, []);
 
     const handleOptionSelect = useCallback(
-        (option: OptionType) => {
+        (option: Option) => {
             onChange(option);
-            setIsOpen(false);
-            setSearchTerm("");
-            setFocusedIndex(null);
+            gate.reset();
         },
         [onChange]
     );

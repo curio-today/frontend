@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../Select.module.css";
-import { Option as OptionType } from "../Select";
+import { Option as OptionType } from "./Select";
 
 type OptionProps = {
     option: OptionType;

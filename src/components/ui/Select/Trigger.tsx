@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../Select.module.css";
-import { Option } from "../Select";
+import { Option } from "./Select";
 
 type TriggerProps = {
     selectedOption: Option | null;

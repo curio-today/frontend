@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "../Select.module.css";
-import Option from "./Option";
-import SearchInput from "./SearchInput";
-import { Option as OptionType } from "../Select";
+import Option from "./parts/Option";
+import SearchInput from "./parts/SearchInput";
+import { Option as OptionType } from "./Select";
 
 type DropdownProps = {
     filteredOptions: OptionType[];
