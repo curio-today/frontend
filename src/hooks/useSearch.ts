@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export type Search<TSearchField extends string> = {
+type Search<TSearchField extends string> = {
     searchValue: TSearchField | null,
 
     search: (value: TSearchField) => TSearchField[],
