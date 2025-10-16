@@ -7,6 +7,10 @@ type Cursor<TCurrentIndex = number | null> = {
     currentIndex: TCurrentIndex,
 }
 
+/**
+ * This hook helps you move on any array by using moveUp and moveDown functions.
+ * This hook uses useState to store currentIndex
+ */
 export const useCursor = <T extends unknown[]>(array: T): Cursor => {
     const [currentIndex, setCurrentIndex] = useState<number | null>(null);
     const arrayLastIndex = array.length - 1;
