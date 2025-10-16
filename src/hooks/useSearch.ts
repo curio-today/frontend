@@ -7,6 +7,11 @@ export type Search<TSearchField extends string> = {
     clear: () => void,
 }
 
+/**
+ * Hook to search in fields by using function search()
+ * @param searchFields fields to search.
+ * @returns 
+ */
 export const useSearch = <TSearchField extends string>(searchFields: TSearchField[]): Search<TSearchField> => {
     const [searchValue, setSearchValue] = useState<TSearchField | null>(null);
     
