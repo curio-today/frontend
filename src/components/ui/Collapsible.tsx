@@ -1,20 +1,22 @@
 "use client"
 
 import { PropsWithDisabled } from "@/types/ui/disabled-props";
-import { KeyboardEvent, PropsWithChildren, useCallback, useEffect, useRef, useState } from "react";
-import { Button, ButtonProps } from "./buttons";
+import { PropsWithChildren, useCallback, useState } from "react";
 
 export type CollapsibleProps = {
-  label?: ButtonProps["label"],
-  icon?: ButtonProps["icon"],
-
+  summary: string,
   defaultIsOpen?: boolean,
   onOpen: () => void,
   onClose: () => void,
 }
 
-export const Collapsible = ({ label, children, defaultIsOpen = false, disabled = false }: PropsWithChildren<PropsWithDisabled<CollapsibleProps>>) => {
- 
+/**
+ * Collapsible Component
+ * 
+ * A custom component that mimics the native `<details>` and `<summary>` elements,
+ * allowing sections of content to be expanded or collapsed.
+ */
+export const Collapsible = ({ summary, children, defaultIsOpen = false, disabled = false }: PropsWithChildren<PropsWithDisabled<CollapsibleProps>>) => {
   const [isOpen, setIsOpen] = useState(defaultIsOpen);
 
   const toggleCollapsible = useCallback(() => {
@@ -24,8 +26,8 @@ export const Collapsible = ({ label, children, defaultIsOpen = false, disabled =
 
 
   return (
-    <details className="collapsible" onClick={toggleCollapsible} open={isOpen}>
-      <summary>{label}</summary>
+    <details onClick={toggleCollapsible} open={isOpen} aria-expanded={isOpen}>
+      <summary>{summary}</summary>
       {isOpen && children}
     </details>
   );
