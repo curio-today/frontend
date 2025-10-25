@@ -1,5 +1,6 @@
+import styles from "./styles/Trigger.module.css";
+
 import React from "react";
-import styles from "../Select.module.css";
 import { Option } from "./Select";
 
 type TriggerProps = {

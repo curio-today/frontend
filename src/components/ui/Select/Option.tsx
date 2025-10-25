@@ -1,5 +1,6 @@
+import styles from "./styles/Option.module.css"
+
 import React from "react";
-import styles from "../Select.module.css";
 import { Option as OptionType } from "./Select";
 
 type OptionProps = {

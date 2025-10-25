@@ -1,5 +1,6 @@
+import styles from "./styles/Search.module.css";
+
 import React from "react";
-import styles from "../Select.module.css";
 
 type SearchInputProps = {
     value: string;

@@ -1,0 +1,22 @@
+.searchWrapper {
+  padding: 0.5rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 14px;
+  border-radius: 6px;
+  border-width: 1px;
+  border-style: solid;
+  color: var(--text);
+  background-color: var(--accent);
+  border-color: var(--border);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.searchInputFocus {
+  border-width: 1px;
+  border-color: var(--primary-lighten);
+}
