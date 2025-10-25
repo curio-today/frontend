@@ -1,4 +1,4 @@
-.triggerBase {
+.preview {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,18 +13,18 @@
   background-color: var(--accent);
 }
 
-.triggerDisabled {
-  background-color: #f3f4f6; /* gray-100 */
-  border-color: #d1d5db; /* gray-300 */
-  color: #9ca3af; /* gray-400 */
+.preview:disabled {
+  background-color: #f3f4f6;
+  border-color: #d1d5db; 
+  color: #9ca3af;
   cursor: not-allowed;
 }
 
-.triggerOpen {
+.preview:open {
   border-color: var(--primary-lighten);
   border-width: 2px;
 }
 
-.triggerClosed {
-  border-color: var(--border); /* gray-300 */
+.preview:not(:open) {
+  border-color: var(--border);
 }

@@ -6,16 +6,6 @@
 
 
 
-.selectedText {
-  color: var(--text); /* gray-900 */
-}
-
-.placeholderText {
-  color: var(--secondary); /* gray-500 */
-}
-
-
-
 
 .checkIcon {
   width: 16px;
