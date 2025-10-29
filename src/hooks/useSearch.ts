@@ -9,16 +9,16 @@ type Search<TSearchField extends string> = {
 
 /**
  * Hook to search in fields by using function search()
- * @param searchFields fields to search.
+ * @param data fields to search.
  * @returns 
  */
-export const useSearch = <TSearchField extends string>(searchFields: TSearchField[]): Search<TSearchField> => {
-    const [searchValue, setSearchValue] = useState<TSearchField | null>(null);
+export const useSearch = <TSearchData extends string>(data: TSearchData[]): Search<TSearchData> => {
+    const [searchValue, setSearchValue] = useState<TSearchData | null>(null);
     
     return {
         search: (value) => {
             setSearchValue(value);
-            return searchFields.filter(field => field.toLowerCase().includes(value.toLowerCase()));
+            return data.filter(field => field.toLowerCase().includes(value.toLowerCase()));
         },
         clear: () => {
             setSearchValue(null);
