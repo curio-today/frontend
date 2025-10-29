@@ -1,30 +1,41 @@
 import { useState } from "react";
 
-type Search<TSearchField extends string> = {
-    searchValue: TSearchField | null,
+type SearchResult = {
+    filteredData: string[],
+    lastTerm: string | null,
 
-    search: (value: TSearchField) => TSearchField[],
+    search: (term: string) => string[],
     clear: () => void,
 }
 
 /**
  * Hook to search in fields by using function search()
- * @param data fields to search.
  * @returns 
  */
-export const useSearch = <TSearchData extends string>(data: TSearchData[]): Search<TSearchData> => {
-    const [searchValue, setSearchValue] = useState<TSearchData | null>(null);
-    
+export const useSearch = (data: string[], isDefault?: boolean): SearchResult => {
+    const [filteredData, setFilteredData] = useState<string[]>(isDefault ? data : []);
+
+    let lastTerm: string | null = null;
+
     return {
-        search: (value) => {
-            setSearchValue(value);
-            return data.filter(field => field.toLowerCase().includes(value.toLowerCase()));
+        search: (term) => {
+            const newFilteredData = data.filter(item => item.toLowerCase().includes(term.toLowerCase()));
+            
+            // Prevents re-render if new data is equal to old data
+            if (newFilteredData != filteredData) {
+                setFilteredData(newFilteredData);
+            }
+            
+            lastTerm = term;            
+            
+            return newFilteredData;
         },
         clear: () => {
-            setSearchValue(null);
+            setFilteredData([]);
         },
 
-        searchValue,
+        lastTerm,
+        filteredData,
     }
 }
 
