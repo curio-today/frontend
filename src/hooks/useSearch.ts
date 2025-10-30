@@ -2,7 +2,7 @@ import { useState } from "react";
 
 type SearchResult<TSearchItem> = {
     filteredData: TSearchItem[],
-    searchTerm: string | null,
+    searchTerm: string,
 
     search: (term: string) => TSearchItem[],
     clear: () => void,
@@ -24,7 +24,7 @@ type SearchArguments<TSearchItem> = {
 export const useSearch = <TSearchItem, >({ data, stringifyFn, isDefault }: SearchArguments<TSearchItem>): SearchResult<TSearchItem> => {
     const [filteredData, setFilteredData] = useState<TSearchItem[]>(isDefault ? data : []);
 
-    let searchTerm: string | null = null;
+    let searchTerm: string = "";
 
     return {
         search: (term) => {
