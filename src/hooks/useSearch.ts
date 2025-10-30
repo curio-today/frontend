@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-type SearchResult<TSearchItem> = {
+export type SearchResult<TSearchItem> = {
     filteredData: TSearchItem[],
     searchTerm: string,
 
@@ -8,20 +8,20 @@ type SearchResult<TSearchItem> = {
     clear: () => void,
 }
 
-type SearchArguments<TSearchItem> = {
+export type SearchArguments<TSearchItem> = {
     data: TSearchItem[]; 
-    stringifyFn: (item: TSearchItem) => string;
+    searchBy: (item: TSearchItem) => string;
     isDefault?: boolean;
 }
 
 /**
  * Custom hook to make search easier. 
  * @param data - a raw data without any filters.
- * @param stringifyFn - a function that returns a string to make search happen to custom types.
+ * @param searchBy - a function that returns a string to make search happen to custom types.
  * @param isDefault - a flag to make a filtered data by default set to data in args
  * @returns {SearchResult}
  */
-export const useSearch = <TSearchItem, >({ data, stringifyFn, isDefault }: SearchArguments<TSearchItem>): SearchResult<TSearchItem> => {
+export const useSearch = <TSearchItem, >({ data, searchBy, isDefault }: SearchArguments<TSearchItem>): SearchResult<TSearchItem> => {
     const [filteredData, setFilteredData] = useState<TSearchItem[]>(isDefault ? data : []);
 
     let searchTerm: string = "";
@@ -29,7 +29,7 @@ export const useSearch = <TSearchItem, >({ data, stringifyFn, isDefault }: Searc
     return {
         search: (term) => {
             // Use custom filter from args
-            const newFilteredData = data.filter(item => stringifyFn(item) == term);
+            const newFilteredData = data.filter(item => searchBy(item) == term);
 
             // Prevents re-render if new data is equal to old data
             if (newFilteredData != filteredData) {
