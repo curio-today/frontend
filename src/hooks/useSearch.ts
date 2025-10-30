@@ -29,7 +29,7 @@ export const useSearch = <TSearchItem, >({ data, searchBy, isDefault }: SearchAr
     return {
         search: (term) => {
             // Use custom filter from args
-            const newFilteredData = data.filter(item => searchBy(item) == term);
+            const newFilteredData = data.filter(item => searchBy(item).toLowerCase().includes(term.toLowerCase()));
 
             // Prevents re-render if new data is equal to old data
             if (newFilteredData != filteredData) {
