@@ -8,11 +8,20 @@ type SearchResult<TSearchItem> = {
     clear: () => void,
 }
 
+type SearchArguments<TSearchItem> = {
+    data: TSearchItem[]; 
+    stringifyFn: (item: TSearchItem) => string;
+    isDefault?: boolean;
+}
+
 /**
- * Hook to search in fields by using function search()
- * @returns 
+ * Custom hook to make search easier. 
+ * @param data - a raw data without any filters.
+ * @param stringifyFn - a function that returns a string to make search happen to custom types.
+ * @param isDefault - a flag to make a filtered data by default set to data in args
+ * @returns {SearchResult}
  */
-export const useSearch = <TSearchItem>(data: TSearchItem[], filter: (term: string, item: TSearchItem) => boolean,  isDefault: boolean = false): SearchResult<TSearchItem> => {
+export const useSearch = <TSearchItem, >({ data, stringifyFn, isDefault }: SearchArguments<TSearchItem>): SearchResult<TSearchItem> => {
     const [filteredData, setFilteredData] = useState<TSearchItem[]>(isDefault ? data : []);
 
     let lastTerm: string | null = null;
@@ -20,7 +29,7 @@ export const useSearch = <TSearchItem>(data: TSearchItem[], filter: (term: strin
     return {
         search: (term) => {
             // Use custom filter from args
-            const newFilteredData = data.filter(item => filter(term, item));
+            const newFilteredData = data.filter(item => stringifyFn(item) == term);
 
             // Prevents re-render if new data is equal to old data
             if (newFilteredData != filteredData) {
