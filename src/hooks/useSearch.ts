@@ -2,7 +2,7 @@ import { useState } from "react";
 
 type SearchResult<TSearchItem> = {
     filteredData: TSearchItem[],
-    lastTerm: string | null,
+    searchTerm: string | null,
 
     search: (term: string) => TSearchItem[],
     clear: () => void,
@@ -24,7 +24,7 @@ type SearchArguments<TSearchItem> = {
 export const useSearch = <TSearchItem, >({ data, stringifyFn, isDefault }: SearchArguments<TSearchItem>): SearchResult<TSearchItem> => {
     const [filteredData, setFilteredData] = useState<TSearchItem[]>(isDefault ? data : []);
 
-    let lastTerm: string | null = null;
+    let searchTerm: string | null = null;
 
     return {
         search: (term) => {
@@ -36,7 +36,7 @@ export const useSearch = <TSearchItem, >({ data, stringifyFn, isDefault }: Searc
                 setFilteredData(newFilteredData);
             }
             
-            lastTerm = term;            
+            searchTerm = term;            
             
             return newFilteredData;
         },
@@ -44,7 +44,7 @@ export const useSearch = <TSearchItem, >({ data, stringifyFn, isDefault }: Searc
             setFilteredData([]);
         },
 
-        lastTerm,
+        searchTerm,
         filteredData,
     }
 }
