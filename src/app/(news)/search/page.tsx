@@ -1,6 +1,9 @@
 import { getPageMetadataWithTranslation } from "@/utils/get-page-metadata-with-translation";
 import { Metadata } from "next";
-import SearchInput from "@/components/ui/SearchInput"
+
+import ArticleSearchBar from "./components/ArticleSearchBar";
+import { fetchEndpointList } from "@/utils/api/fetch";
+import { ARTICLES } from "./data";
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -14,12 +17,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
 
-export default async function SearchPage() {
-    const searchQuery: string = "";
 
+export default async function SearchPage() {
     return (
         <main>
-            <SearchInput defaultValue={searchQuery}/>
+            <ArticleSearchBar articles={ARTICLES} />
         </main>
     )
 }

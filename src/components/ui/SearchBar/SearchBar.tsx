@@ -3,15 +3,18 @@
 import styles from "./styles/SearchBar.module.css"
 
 import Icon from "../Icon"
-import useSearch from "@/hooks/useSearch"
+import useSearch, { SearchArguments } from "@/hooks/useSearch"
 
 
-export type SearchBarProps = {
-    rawData: string[],
-}
+type SearchBarProps<TSearchItem> = { 
+    onSearch?: (term: string, filteredData: TSearchItem[]) => void;
+} & SearchArguments<TSearchItem>
 
-export const SearchBar = ({ rawData }: SearchBarProps) => {
-    const { search, filteredData} = useSearch(rawData, false);
+export const SearchBar = <TSearchItem, >({ data, searchBy, onSearch }: SearchBarProps<TSearchItem>) => {
+    const { search } = useSearch<TSearchItem>({
+        data,
+        searchBy
+    })
 
     return (
         <div className={styles["search-bar"]}>
@@ -20,7 +23,10 @@ export const SearchBar = ({ rawData }: SearchBarProps) => {
                 type="search"
                 className={styles["search-input"]}
                 placeholder="Start typing to search"
-                onChange={e => search(e.target.value)}
+                onChange={(e) => {
+                    const term: string = e.target.value;
+                    onSearch?.(term, search(term));
+                }}
             />
         </div>
 
