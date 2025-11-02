@@ -3,18 +3,36 @@
 import styles from "./styles/SearchBar.module.css"
 
 import Icon from "../Icon"
-import useSearch, { SearchArguments } from "@/hooks/useSearch"
-
+import { useDebouncedCallback } from "@/hooks/useDebounceCallback";
 
 type SearchBarProps<TSearchItem> = { 
-    onSearch?: (term: string, filteredData: TSearchItem[]) => void;
-} & SearchArguments<TSearchItem>
+    preloadedData: TSearchItem[];
 
-export const SearchBar = <TSearchItem, >({ data, searchBy, onSearch }: SearchBarProps<TSearchItem>) => {
-    const { search } = useSearch<TSearchItem>({
-        data,
-        searchBy
-    })
+    findMoreData: (term: string) => Promise<TSearchItem[]>;
+    searchBy: (item: TSearchItem) => string;
+    onFilterData?: (filteredData: TSearchItem[], term: string) => void;
+}
+
+export const SearchBar = <TSearchItem, >({ preloadedData, searchBy, onFilterData, findMoreData }: SearchBarProps<TSearchItem>) => {
+    const debouncedFindMoreData = useDebouncedCallback((term: string) => {
+        findMoreData(term)
+            .then(newData => filterData(newData, term))
+            .catch(err => console.error(err));
+    }, 300);
+    
+    const filterData = (searchData: TSearchItem[], term: string) => {
+        const newFilteredData = searchData.filter(item => searchBy(item).toLowerCase().includes(term.toLowerCase()));
+        onFilterData?.(newFilteredData, term);
+
+        return newFilteredData;
+    }
+
+
+    const handleSearch = (term: string) => {
+        const preloadedFilterData = filterData(preloadedData, term);
+        
+        if (preloadedFilterData.length <= 0 || !preloadedFilterData) debouncedFindMoreData(term);
+    }
 
     return (
         <div className={styles["search-bar"]}>
@@ -23,13 +41,9 @@ export const SearchBar = <TSearchItem, >({ data, searchBy, onSearch }: SearchBar
                 type="search"
                 className={styles["search-input"]}
                 placeholder="Start typing to search"
-                onChange={(e) => {
-                    const term: string = e.target.value;
-                    onSearch?.(term, search(term));
-                }}
+                onChange={e => handleSearch(e.target.value)}
             />
         </div>
-
     )
 }
 
