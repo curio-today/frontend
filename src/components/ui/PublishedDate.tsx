@@ -1,4 +1,4 @@
-import { formatArticleDateWithLocale } from "@/utils/formaters/formatArticle";
+import { formatArticleDateWithLocale } from "@/lib/utils/formaters/formatArticle";
 import { ComponentProps } from "react";
 
 type Props = {

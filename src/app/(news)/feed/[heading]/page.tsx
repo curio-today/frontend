@@ -1,5 +1,4 @@
-import ArticlesFeed from "@/components/ui/ArticlesFeed";
-import { generateHeadingMetadata } from "@/helpers/metadata";
+import { generateHeadingMetadata } from "@/lib/helpers/metadata";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 

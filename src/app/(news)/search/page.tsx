@@ -1,8 +1,8 @@
-import { getPageMetadataWithTranslation } from "@/utils/get-page-metadata-with-translation";
+import { getPageMetadataWithTranslation } from "@/lib/utils/get-page-metadata-with-translation";
 import { Metadata } from "next";
 
 import ArticleSearchBar from "./components/ArticleSearchBar";
-import { fetchArticles } from "@/utils/api/fetch/fetch-articles";
+import { fetchArticles } from "@/lib/utils/api/fetch/fetch-articles";
 import { getLocale } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {

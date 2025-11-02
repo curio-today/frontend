@@ -3,10 +3,10 @@ import styles from "./styles.module.css"
 import ImageWithFocal from "@/components/ui/ImageWithFocal";
 import { PublishedDate } from "../PublishedDate";
 import Link from "next/link";
-import { Article } from "@/types/content/article";
+import { Article } from "@/lib/types/content/article";
 import { useLocale, useTranslations } from "next-intl";
-import { Heading } from "@/types/content/heading";
-import { Slug } from "@/types/content/slug";
+import { Heading } from "@/lib/types/content/heading";
+import { Slug } from "@/lib/types/content/slug";
 
 function createArticleUrl(heading: Heading, slug: Slug): string {
     return `/feed/${heading}/${slug}`

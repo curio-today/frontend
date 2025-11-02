@@ -2,7 +2,7 @@
 
 import { Navigation } from "@@/navigation.config";
 import { NavigationBarContext } from "@/contexts/NavigationBarContext";
-import { AvailableRoutePath } from "@/types/navigation";
+import { AvailableRoutePath } from "@/lib/types/navigation";
 import { PropsWithChildren } from "react";
 
 

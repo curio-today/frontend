@@ -7,13 +7,14 @@ import { useDebouncedCallback } from "@/hooks/useDebounceCallback";
 
 type SearchBarProps<TSearchItem> = { 
     preloadedData: TSearchItem[];
+    placeholder?: string;
 
     findMoreData: (term: string) => Promise<TSearchItem[]>;
     searchBy: (item: TSearchItem) => string;
     onFilterData?: (filteredData: TSearchItem[], term: string) => void;
 }
 
-export const SearchBar = <TSearchItem, >({ preloadedData, searchBy, onFilterData, findMoreData }: SearchBarProps<TSearchItem>) => {
+export const SearchBar = <TSearchItem, >({ preloadedData, placeholder = "Start typing to search", searchBy, onFilterData, findMoreData }: SearchBarProps<TSearchItem>) => {
     const debouncedFindMoreData = useDebouncedCallback((term: string) => {
         findMoreData(term)
             .then(newData => filterData(newData, term))
@@ -40,7 +41,7 @@ export const SearchBar = <TSearchItem, >({ preloadedData, searchBy, onFilterData
             <input
                 type="search"
                 className={styles["search-input"]}
-                placeholder="Start typing to search"
+                placeholder={placeholder}
                 onChange={e => handleSearch(e.target.value)}
             />
         </div>

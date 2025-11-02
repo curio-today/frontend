@@ -1,4 +1,4 @@
-import { MetadataConfig } from "@/types/configs/";
+import { MetadataConfig } from "@/lib/types/configs";
 
 export const Metadata: MetadataConfig = {
     siteName: "Curio.",

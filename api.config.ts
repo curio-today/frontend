@@ -1,4 +1,4 @@
-import { ApiConfig } from "@/types/configs";
+import { ApiConfig } from "@/lib/types/configs";
 
 export const Api = {
     baseUrl: "https://admin.curio.today/api",

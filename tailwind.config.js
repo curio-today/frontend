@@ -10,7 +10,10 @@ module.exports = {
     extend: {
       colors: {
         "text": "var(--text)",
-        "secondary": "var(--secondary)"
+        "secondary": "var(--secondary)",
+      },
+      fontSize: {
+        "h3": "var(--h3)",
       }
     }
   },

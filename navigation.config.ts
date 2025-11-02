@@ -1,4 +1,4 @@
-import { NavigationConfig } from "@/types/configs";
+import { NavigationConfig } from "@/lib/types/configs";
 
 export const Navigation = {
     navigationBar: {
@@ -10,6 +10,7 @@ export const Navigation = {
         ]
     },
     routes: {
+        "/": {},
         playground: {},
         feed: {
             amazes: {
@@ -24,6 +25,7 @@ export const Navigation = {
             inspires: {
                 icon: "lightbulb"
             }
-        }
+        },
+        search: {}
     }
 } satisfies NavigationConfig;

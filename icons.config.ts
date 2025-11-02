@@ -1,4 +1,4 @@
-import { Image } from "@/types/content/image";
+import { Image } from "@/lib/types/content/image";
 
 /**
  * Configuration object for application icons.

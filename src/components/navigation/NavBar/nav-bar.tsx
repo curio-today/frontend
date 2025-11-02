@@ -2,11 +2,11 @@
 
 import dynamic from "next/dynamic";
 
-import { Desktop, Mobile } from "@/data/nav.data";
+import { Desktop, Mobile } from "@/lib/data/nav.data";
 import { getTranslations } from "next-intl/server";
 import { NavBarHeading } from "@/components/navigation/NavBar/nav-bar.types";
 import { Namespaces } from "@/configs/translation.config";
-import { isMobile } from "@/utils/isMobile";
+import { isMobile } from "@/lib/utils/isMobile";
 
 const MobileComp = dynamic(() => import("./components/mobile"));
 const DesktopComp = dynamic(() => import("./components/desktop/"));

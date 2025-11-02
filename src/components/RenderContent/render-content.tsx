@@ -1,6 +1,6 @@
 import React from "react";
 import { RichText } from "@payloadcms/richtext-lexical/react";
-import { blockConverters } from "@/helpers/converters";
+import { blockConverters } from "@/lib/helpers/converters";
 import styles from "./render-content.module.css";
 import { SerializedEditorState } from "lexical";
 

@@ -1,8 +1,8 @@
 "use client"
 
 import ThemeContext from "@/contexts/ThemeContext";
-import { Theme } from "@/types/theme";
-import { loadTheme, saveTheme } from "@/utils/storage/theme";
+import { Theme } from "@/lib/types/theme";
+import { loadTheme, saveTheme } from "@/lib/utils/storage/theme";
 import { ThemeConfig } from "@@/theme.config";
 import { PropsWithChildren, useEffect, useState } from "react";
 

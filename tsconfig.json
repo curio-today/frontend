@@ -23,6 +23,6 @@
       "@@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "vitest.config.mts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "vitest.config.mts", "src/components/ui/SearchBar/SearchBarContext.tss"],
   "exclude": ["node_modules"]
 }

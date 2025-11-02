@@ -1,4 +1,4 @@
-import { getPageMetadata } from '@/utils/metadata/get-page-metadata';
+import { getPageMetadata } from '@/lib/utils/metadata/get-page-metadata';
 import { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { redirect } from 'next/navigation';

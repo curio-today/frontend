@@ -1,7 +1,7 @@
 "use server";
 
-import { AvailableRoutePath } from "@/types/navigation";
-import { isMobile } from "@/utils/isMobile";
+import { AvailableRoutePath } from "@/lib/types/navigation";
+import { isMobile } from "@/lib/utils/isMobile";
 import NavigationBarProvider from "@/providers/NavigationBarProvider";
 
 import dynamic from "next/dynamic";

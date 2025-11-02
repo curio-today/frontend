@@ -1,5 +1,5 @@
 import Icon, { IconProps } from "@/components/ui/Icon";
-import { AvailableRoutePath } from "@/types/navigation";
+import { AvailableRoutePath } from "@/lib/types/navigation";
 import Link from "next/link";
 
 export type IconWithLinkProps = {

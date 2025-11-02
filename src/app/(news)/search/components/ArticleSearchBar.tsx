@@ -1,8 +1,8 @@
 "use client"
 
 import SearchBar from "@/components/ui/SearchBar";
-import { Article } from "@/types/content/article";
-import { fetchArticles } from "@/utils/api/fetch/fetch-articles";
+import { Article } from "@/lib/types/content/article";
+import { fetchArticles } from "@/lib/utils/api/fetch/fetch-articles";
 import { useLocale, useMessages } from "next-intl";
 import { useState } from "react";
 

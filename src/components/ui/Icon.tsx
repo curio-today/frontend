@@ -4,11 +4,11 @@ import Image from "next/image";
 import IconsConfig from "@@/icons.config";
 
 import { motion } from "framer-motion";
-import { Include } from "@/types/utils";
+import { Include } from "@/lib/types/utils";
 import { ImageProps } from "next/image";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
-import { IconVariant } from "@/types/content/icon";
+import { IconVariant } from "@/lib/types/content/icon";
 
 export type IconProps = { icon: IconVariant } &     
     VariantProps<typeof iconVariants> & 

@@ -3,7 +3,7 @@ import { BadgeProps, badgeVariants } from "./badge.types";
 import Icon from "@/components/ui/Icon";
 import Text from "@/components/ui/Text";
 
-import { HEADINGS } from "@/data/headings.data";
+import { HEADINGS } from "@/lib/data/headings.data";
 
 
 const Badge = ({ className, name: heading, status }: BadgeProps) => {

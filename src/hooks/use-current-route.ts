@@ -1,6 +1,6 @@
-import { AvailableRoutePath } from "@/types/navigation";
+import { AvailableRoutePath } from "@/lib/types/navigation";
 import useCleanPathname from "./use-clean-pathname";
-import { getRoute } from "@/utils/navigation";
+import { getRoute } from "@/lib/utils/navigation";
 
 type ReturnParams = {
     path: AvailableRoutePath,

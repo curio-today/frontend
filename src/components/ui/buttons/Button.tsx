@@ -2,7 +2,7 @@ import styles from "./button.module.css";
 import { cva, VariantProps } from "class-variance-authority";
 import Icon, { IconProps } from "../Icon";
 import { ComponentProps, PropsWithChildren } from "react";
-import { IconVariant } from "@/types/content/icon";
+import { IconVariant } from "@/lib/types/content/icon";
 
 const buttonVariants = cva("button", {
     variants: {

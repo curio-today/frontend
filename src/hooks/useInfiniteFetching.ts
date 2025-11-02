@@ -1,4 +1,4 @@
-import { ApiRequest } from "@/types/api/new-request";
+import { ApiRequest } from "@/lib/types/api/new-request";
 import { useCallback, useState } from "react";
 
 type FetchFunctionType<TReturnType> = {

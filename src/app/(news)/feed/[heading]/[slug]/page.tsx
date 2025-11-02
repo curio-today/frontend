@@ -5,13 +5,13 @@
 // import { fetchArticleById } from "@/utils/api/fetch-article-by-id";
 // import { Metadata as MetadataConfig } from "@/configs";
 
-// type PageProps = {
-//     params: Promise<{
-//         slug: string;
-//         heading: string;
-//         locale: string;
-//     }>;
-// }
+type PageProps = {
+    params: Promise<{
+        slug: string;
+        heading: string;
+        locale: string;
+    }>;
+}
 
 
 // export async function generateMetadata({ params }: PageProps ): Promise<Metadata> {

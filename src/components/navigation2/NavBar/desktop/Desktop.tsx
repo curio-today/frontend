@@ -4,18 +4,18 @@ import { useNavigationBar } from "@/hooks/useNavigationBar";
 import styles from "./Desktop.module.css";
 
 import { NavigationBarActionButtons, NavigationBarLinks } from "./components";
-import CurioLogo from "@/components/branding/CurioLogo";
+import IconWithLink from "@/components/ui/IconWithLink";
 
 const DesktopNavigationBar = () => {
   const { navigationLinks } = useNavigationBar();
 
   return (
     <nav className={styles.navBar}>
-      <CurioLogo />
+      <IconWithLink icon="curio" href="/"/>
       <NavigationBarLinks navigationLinks={navigationLinks} />
       <NavigationBarActionButtons />
     </nav>
-  );
+  
 };
 
 export default DesktopNavigationBar;

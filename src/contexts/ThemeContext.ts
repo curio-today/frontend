@@ -1,4 +1,4 @@
-import { Theme } from "@/types/theme";
+import { Theme } from "@/lib/types/theme";
 import { ThemeConfig } from "@@/theme.config";
 import { createContext } from "react";
 

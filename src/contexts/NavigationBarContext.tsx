@@ -1,7 +1,7 @@
 "use client"
 
 import { Navigation } from "@@/navigation.config";
-import { AvailableRoutePath } from "@/types/navigation";
+import { AvailableRoutePath } from "@/lib/types/navigation";
 import { createContext } from "react";
 
 type NavigationBarContextType = {

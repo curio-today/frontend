@@ -31,8 +31,8 @@ export default async function RootLayout({
             <body>
                 <NextIntlClientProvider>
                     <ThemeProvider>
-                        <NavigationBar />
-                        {/* {children} */}
+                        {/* <NavigationBar /> */}
+                        {children}
                     </ThemeProvider>
                 </NextIntlClientProvider>
             </body>

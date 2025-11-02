@@ -5,7 +5,7 @@ import { ArticleCard } from "@/components/ui/ArticleCard/ArticleCard";
 import Loader from "./Loader";
 
 import { useIntersectionObserver } from "@/hooks";
-import { createArticlesSuspenseQuery } from "@/utils/suspense-query";
+import { createArticlesSuspenseQuery } from "@/lib/utils/suspense-query";
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 
 type AnimationStyle = {

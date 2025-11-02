@@ -4,7 +4,7 @@ import styles from "./badge.module.scss";
 import { ComponentProps } from "react";
 import { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
-import { Heading } from "@/types/content/heading";
+import { Heading } from "@/lib/types/content/heading";
 
 export const badgeVariants = cva(styles.badge, {
     variants: {

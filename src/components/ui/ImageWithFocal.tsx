@@ -1,4 +1,4 @@
-import { FocalPoint } from "@/types/content/focal-point";
+import { FocalPoint } from "@/lib/types/content/focal-point";
 import Image, { ImageProps } from "next/image";
 
 type Props = {
