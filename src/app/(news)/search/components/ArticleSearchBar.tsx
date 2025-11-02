@@ -1,6 +1,6 @@
 "use client"
 
-import SearchBar from "@/components/ui/SearchBar";
+import SearchBar from "@/ui/components/ui/SearchBar";
 import { Article } from "@/lib/types/content/article";
 import { fetchArticles } from "@/lib/utils/api/fetch/fetch-articles";
 import { useLocale, useMessages } from "next-intl";

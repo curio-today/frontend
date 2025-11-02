@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { getPageMetadataWithTranslation } from "@/lib/utils/get-page-metadata-with-translation";
 import { ReactQueryClientProvider } from "@/providers/ReactQueryClientProvider";
-import ArticlesGrid from "@/components/ui/ArticlesGrid";
+import ArticlesGrid from "@/ui/components/ui/ArticlesGrid";
 import { getLocale } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {

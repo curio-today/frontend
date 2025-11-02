@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 import styles from "./layout.module.css";
 
 import { NextIntlClientProvider } from "next-intl";
-import NavigationBar from "@/components/navigation2/NavBar";
+import NavigationBar from "@/ui/components/navigation2/NavBar";
 import { getLocale } from "next-intl/server";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 

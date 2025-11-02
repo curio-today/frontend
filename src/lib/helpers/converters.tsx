@@ -1,5 +1,5 @@
 import { JSXConvertersFunction } from '@payloadcms/richtext-lexical/react';
-import QuoteBlock from "@/components/blocks/QuoteBlock";
+import QuoteBlock from "@/ui/components/blocks/QuoteBlock";
 import { SerializedBlockNode } from "@payloadcms/richtext-lexical";
 
 export const blockConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
