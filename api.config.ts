@@ -17,7 +17,8 @@ export const Api = {
             page: (value) => `page=${value}`,
             slug: (value) => `where[slug][equals]=${value}`,
             _status: (value) => `where[_status][equals]=${value}`,
-            heading: (value) => `where[heading][equals]=${value}`
+            heading: (value) => `where[heading][equals]=${value}`,
+            titleLike:  (value) => `where[title][like]=${value}`
         }
     }
 } as const satisfies ApiConfig;
