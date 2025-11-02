@@ -2,12 +2,11 @@ import { getPageMetadataWithTranslation } from "@/utils/get-page-metadata-with-t
 import { Metadata } from "next";
 
 import ArticleSearchBar from "./components/ArticleSearchBar";
-import { fetchEndpointList } from "@/utils/api/fetch";
-import { ARTICLES } from "./data";
-
+import { fetchArticles } from "@/utils/api/fetch/fetch-articles";
+import { getLocale } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const metadata = await getPageMetadataWithTranslation("feed");
+    const metadata = await getPageMetadataWithTranslation("search");
     if (metadata) {
         return metadata;
     }
@@ -19,9 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
 export default async function SearchPage() {
+    const locale = await getLocale();
+
     return (
         <main>
-            <ArticleSearchBar articles={ARTICLES} />
+            <ArticleSearchBar articles={await fetchArticles({ locale, limit: 10 })} />
         </main>
     )
 }
