@@ -1,8 +1,8 @@
 "use client"
 
-import Grid from "@components/layout/Grid";
-import { ArticleCard } from "@components/ui/ArticleCard/ArticleCard";
-import Loader from "../../primitives/Loader";
+import Grid from "@layout/Grid";
+import { ArticleCard } from "@feature/article/ArticleCard/ArticleCard";
+import Loader from "@common/Loader";
 
 import { useIntersectionObserver } from "@hooks";
 import { createArticlesSuspenseQuery } from "@utils/suspense-query";

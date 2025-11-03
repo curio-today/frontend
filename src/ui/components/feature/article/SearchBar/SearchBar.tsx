@@ -2,7 +2,7 @@
 
 import styles from "./styles/SearchBar.module.css"
 
-import Icon from "../../../primitives/Icon"
+import Icon from "@common/Icon"
 import { useDebouncedCallback } from "@/ui/hooks/useDebounceCallback";
 
 type SearchBarProps<TSearchItem> = { 
