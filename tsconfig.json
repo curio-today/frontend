@@ -44,20 +44,29 @@
       "@hooks/*": ["./src/ui/hooks/*"],
       "@hooks": ["./src/ui/hooks/index.ts"],
 
-      // Navigation aliases
-      "@navigation/*": ["./src/ui/components/navigation/*"],
-      "@navigation": ["./src/ui/components/navigation/index.ts"],
+
 
       // Core aliases
       "@core/*": ["./src/ui/components/core/*"],
       "@core": ["./src/ui/components/core/index.ts"],
 
+      // ---------- UI aliases ----------
+      
       // Feature aliases
       "@feature/*": ["./src/ui/components/feature/*"],
       "@feature": ["./src/ui/components/feature/index.ts"],
 
+      // Common aliases
+      "@common/*": ["./src/ui/components/common/*"],
+      "@common": ["./src/ui/components/common/index.ts"],
 
+      // Common aliases
+      "@layout/*": ["./src/ui/components/layout/*"],
+      "@layout": ["./src/ui/components/layout/index.ts"],
 
+      // Navigation aliases
+      "@navigation/*": ["./src/ui/components/navigation/*"],
+      "@navigation": ["./src/ui/components/navigation/index.ts"],
 
       // Library aliases
       "@helpers/*": ["./src/lib/helpers/*"],
