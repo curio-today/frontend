@@ -53,8 +53,10 @@
       "@core": ["./src/ui/components/core/index.ts"],
 
       // Feature aliases
-      "@feature/*": ["./src/ui/components/core/*"],
-      "@feature": ["./src/ui/components/core/index.ts"],
+      "@feature/*": ["./src/ui/components/feature/*"],
+      "@feature": ["./src/ui/components/feature/index.ts"],
+
+
 
 
       // Library aliases
