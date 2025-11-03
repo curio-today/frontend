@@ -1,6 +1,6 @@
 import { BadgeProps, badgeVariants } from "./badge.types";
 
-import Icon from "@/ui/components/ui/Icon";
+import Icon from "@/ui/components/primitives/Icon";
 import Text from "@/ui/components/ui/Text";
 
 import { HEADINGS } from "@/lib/data/headings.data";

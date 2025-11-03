@@ -1,5 +1,5 @@
 import { Image } from "@/lib/types/content/image";
-import { IconVariant } from "@/ui/components/ui/Icon";
+import { IconVariant } from "@/ui/components/primitives/Icon";
 
 type Icons = {
     [K in IconVariant]: Image

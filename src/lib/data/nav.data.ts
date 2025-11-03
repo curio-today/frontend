@@ -1,5 +1,5 @@
 import { NavBarHeading } from "@/ui/components/navigation/NavBar/nav-bar.types";
-import { Option } from "@/ui/components/ui/Select";
+import { Option } from "@/ui/components/core/Select";
 
 /**
  *  @deprecated use getRoute() instead

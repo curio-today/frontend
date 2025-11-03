@@ -3,7 +3,7 @@ import styles from "./hero.module.css"
 import Text, { TextProps } from "@/ui/components/ui/Text";
 import { ComponentProps } from "react";
 import { ImageProps } from "next/image";
-import ImageWithFocal from "@/ui/components/ui/ImageWithFocal";
+import ImageWithFocal from "@/ui/components/primitives/ImageWithFocal";
 
 type HeroProps = ComponentProps<"figure">;
 type HeroImageProps = ImageProps & {

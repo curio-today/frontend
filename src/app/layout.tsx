@@ -7,7 +7,7 @@ import styles from "./layout.module.css";
 import { NextIntlClientProvider } from "next-intl";
 import NavigationBar from "@/ui/components/navigation2/NavBar";
 import { getLocale } from "next-intl/server";
-import { ThemeProvider } from "@/providers/ThemeProvider";
+import { ThemeProvider } from "@/ui/providers/ThemeProvider";
 
 const outfit = Roboto({
     subsets: ["latin"],

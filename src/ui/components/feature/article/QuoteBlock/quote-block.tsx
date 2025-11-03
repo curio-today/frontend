@@ -2,7 +2,7 @@ import styles from "./quote-block.module.css"
 
 import Text from "@/ui/components/ui/Text";
 import { QuoteBlockProps } from "./quote-block.types";
-import Icon from "@/ui/components/ui/Icon";
+import Icon from "@/ui/components/primitives/Icon";
 
 const QuoteBlock = ({ text, author }: QuoteBlockProps ) => {
     return (

@@ -1,7 +1,7 @@
 import styles from "./styles.module.css"
 
-import ImageWithFocal from "@/ui/components/ui/ImageWithFocal";
-import { PublishedDate } from "../PublishedDate";
+import ImageWithFocal from "@/ui/components/primitives/ImageWithFocal";
+import { PublishedDate } from "../../primitives/PublishedDate";
 import Link from "next/link";
 import { Article } from "@/lib/types/content/article";
 import { useLocale, useTranslations } from "next-intl";

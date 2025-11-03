@@ -7,7 +7,7 @@ import { CheckboxProps } from "./checkbox.types";
 import styles from "./checkbox.module.css";
 
 // Components
-import List from "@/ui/components/layout/List";
+import List from "@/ui/components/core/List";
 import CheckboxOption, { CheckboxOptionProps } from "./checkbox-option";
 
 // External libraries

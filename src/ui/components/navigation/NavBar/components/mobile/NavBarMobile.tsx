@@ -1,6 +1,6 @@
 import styles from "./NavBarMobile.module.css";
 
-import List from "@/ui/components/layout/List";
+import List from "@/ui/components/core/List";
 import { NavBarProps } from "../../nav-bar.types";
 
 import NavLink from "@/ui/components/navigation/NavLink";

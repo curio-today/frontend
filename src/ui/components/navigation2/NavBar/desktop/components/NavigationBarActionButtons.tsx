@@ -1,5 +1,5 @@
 import styles from "./NavigationBarActionButtons.module.css";
-import SwitchLanguageButton from "@/ui/components/ui/buttons/SwitchLanguageButton";
+import SwitchLanguageButton from "@/ui/components/base/Buttons/SwitchLanguageButton";
 
 const NavigationBarActionButtons = () => {
   return (

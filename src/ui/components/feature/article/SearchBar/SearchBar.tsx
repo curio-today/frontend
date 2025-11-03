@@ -2,8 +2,8 @@
 
 import styles from "./styles/SearchBar.module.css"
 
-import Icon from "../Icon"
-import { useDebouncedCallback } from "@/hooks/useDebounceCallback";
+import Icon from "../../../primitives/Icon"
+import { useDebouncedCallback } from "@/ui/hooks/useDebounceCallback";
 
 type SearchBarProps<TSearchItem> = { 
     preloadedData: TSearchItem[];

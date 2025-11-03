@@ -1,4 +1,4 @@
-import Icon, { IconProps } from "@/ui/components/ui/Icon";
+import Icon, { IconProps } from "@/ui/components/primitives/Icon";
 import { AvailableRoutePath } from "@/lib/types/navigation";
 import Link from "next/link";
 

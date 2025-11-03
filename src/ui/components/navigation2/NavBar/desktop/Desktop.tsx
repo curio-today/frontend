@@ -4,7 +4,7 @@ import { useNavigationBar } from "@/hooks/useNavigationBar";
 import styles from "./Desktop.module.css";
 
 import { NavigationBarActionButtons, NavigationBarLinks } from "./components";
-import IconWithLink from "@/ui/components/ui/IconWithLink";
+import IconWithLink from "@/ui/components/primitives/IconWithLink";
 
 const DesktopNavigationBar = () => {
   const { navigationLinks } = useNavigationBar();

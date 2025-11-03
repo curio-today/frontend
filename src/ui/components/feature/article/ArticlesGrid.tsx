@@ -1,12 +1,13 @@
 "use client"
 
-import Grid from "@/ui/components/layout/Grid";
-import { ArticleCard } from "@/ui/components/ui/ArticleCard/ArticleCard";
-import Loader from "./Loader";
+import Grid from "@components/layout/Grid";
+import { ArticleCard } from "@components/ui/ArticleCard/ArticleCard";
+import Loader from "../../primitives/Loader";
 
-import { useIntersectionObserver } from "@/hooks";
-import { createArticlesSuspenseQuery } from "@/lib/utils/suspense-query";
+import { useIntersectionObserver } from "@hooks";
+import { createArticlesSuspenseQuery } from "@utils/suspense-query";
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
+import { useLocale } from "next-intl";
 
 type AnimationStyle = {
     opacity: number,
@@ -14,7 +15,6 @@ type AnimationStyle = {
 }
 
 type Props = {
-    locale: string,
     initial?: AnimationStyle,
     animate?: AnimationStyle
 }
@@ -36,18 +36,19 @@ type Props = {
  * @param {object} [props.animate={ opacity: 1, y: 0 }] - The target animation state for each grid row, passed to Framer Motion's `motion` component.
  */
 export default function ArticlesGrid({ 
-    locale, 
     initial = { opacity: 0, y: 50 }, 
     animate = { opacity: 1, y: 0 } 
 }: Props) {
+    const locale = useLocale();
     const { data: articles, fetchNextPage, hasNextPage, isFetchingNextPage } = useSuspenseInfiniteQuery(createArticlesSuspenseQuery(locale));
     const loadMoreRef = useIntersectionObserver(fetchNextPage, hasNextPage);
+    
     return (
         <Grid>
             {articles.map(article => (
                 <Grid.Row key={article.id} initial={initial} animate={animate} >
                     <ArticleCard {...article} />
-                </Grid.Row>
+                </Grid.Row>    
             ))}
 
             {hasNextPage && (

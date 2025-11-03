@@ -1,4 +1,4 @@
-import { IconVariant } from "@/ui/components/ui/Icon";
+import { IconVariant } from "@/ui/components/primitives/Icon";
 import { Heading } from "@/shared/data.types";
 import { Property } from "csstype";
 

@@ -2,7 +2,7 @@
 
 import { saveToCookie } from "@/utils/storage/cookie";
 import { Locale, useLocale } from "next-intl";
-import Select from "../Select";
+import Select from "../../core/Select";
 import { TranslationConfig } from "@@/translation.config";
 import { useRouter } from "next/navigation";
 
