@@ -5,7 +5,7 @@ import { cva, VariantProps } from "class-variance-authority"
 import { IconVariant } from "@/lib/types/content/icon";
 
 import Icon from "./Icon";
-import Text from "./Text"
+import { Paragraph } from "./typography";
 
 
 const badgeVariants = cva(styles.badge, {
@@ -29,7 +29,7 @@ export const Badge = ({ icon, label, status }: BadgeProps) => {
     return (
         <div className={badgeVariants({ status })}>
             <Icon icon={icon} size="small" />
-            <Text variant="p">{label}</Text>
+            <Paragraph>{label}</Paragraph>
         </div>
     )
 }
