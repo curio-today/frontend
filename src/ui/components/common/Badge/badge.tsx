@@ -5,7 +5,9 @@ import Text from "@/ui/components/ui/Text";
 
 import { HEADINGS } from "@/lib/data/headings.data";
 
-
+/**
+ * @deprecated use directly Badge component from "common" folder
+ */
 const Badge = ({ className, name: heading, status }: BadgeProps) => {
     const badgeData = HEADINGS[heading];
 

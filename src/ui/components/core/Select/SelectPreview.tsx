@@ -1,7 +1,7 @@
 import styles from "./styles/TextPreview.module.css";
 
 import React from "react";
-import { PropsWithDisabled } from "@/lib/types/ui/disabled-props";
+import { PropsWithDisabled } from "@/lib/types/ui/PropsWithDisabled";
 
 type Props = {
     value?: string;

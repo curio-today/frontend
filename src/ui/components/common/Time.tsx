@@ -1,13 +1,13 @@
-import { formatArticleDateWithLocale } from "@/lib/utils/formaters/formatArticle";
+import { formatArticleDateWithLocale } from "@utils/formaters/formatArticle";
 import { ComponentProps } from "react";
 
-type Props = {
+export type TimeProps = {
     date: string;
     locale: string;
 } & ComponentProps<"time">;
 
 
-export const PublishedDate = ({ date, locale, ...rest }: Props) => {
+export const Time = ({ date, locale, ...rest }: TimeProps) => {
     const formatedDate = formatArticleDateWithLocale({ 
         date,
         locale
@@ -19,3 +19,5 @@ export const PublishedDate = ({ date, locale, ...rest }: Props) => {
         </time>
     )
 }
+
+export default Time;

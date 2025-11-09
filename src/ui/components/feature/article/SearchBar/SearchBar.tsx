@@ -2,10 +2,11 @@
 
 import styles from "./styles/SearchBar.module.css"
 
-import Icon from "@common/Icon"
-import { useDebouncedCallback } from "@/ui/hooks/useDebounceCallback";
+import { useDebouncedCallback } from "@hooks";
+import { Container, Input, Icon } from "@common";
 
-type SearchBarProps<TSearchItem> = { 
+
+export type SearchBarProps<TSearchItem> = { 
     preloadedData: TSearchItem[];
     placeholder?: string;
 
@@ -36,15 +37,15 @@ export const SearchBar = <TSearchItem, >({ preloadedData, placeholder = "Start t
     }
 
     return (
-        <div className={styles["search-bar"]}>
+        <Container className={styles["search-bar"]}>
             <Icon icon="magnifying_glass" className={styles["icon"]} />
-            <input
+            <Input
                 type="search"
                 className={styles["search-input"]}
                 placeholder={placeholder}
                 onChange={e => handleSearch(e.target.value)}
             />
-        </div>
+        </Container>
     )
 }
 

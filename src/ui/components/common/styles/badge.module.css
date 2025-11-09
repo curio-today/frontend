@@ -1,0 +1,41 @@
+.badge {
+  display: inline-flex;
+  border-radius: var(--tag-radius);
+  height: fit-content;
+  padding: 0.5rem 0.75rem;
+  width: fit-content;
+  justify-content: center;
+
+  gap: 0;
+  transition: gap 0.1s ease;
+
+  text-decoration: none;
+}
+
+.badge:hover, .badge:focus {
+    gap: 0.5rem;
+
+    p {
+      max-width: 7.3rem;
+      opacity: 1;
+    }
+}
+
+.badge > p {
+    align-self: center;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.3s ease-in-out,
+    opacity 0.3s ease-in-out 0.2s;
+}
+
+.active {
+  gap: 0.5rem;
+
+  p {
+    max-width: 7.3rem;
+    opacity: 1;
+  }
+}

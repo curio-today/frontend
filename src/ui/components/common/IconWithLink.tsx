@@ -1,4 +1,4 @@
-import Icon, { IconProps } from "@/ui/components/primitives/Icon";
+import { Icon, IconProps } from "@components/common";
 import { AvailableRoutePath } from "@/lib/types/navigation";
 import Link from "next/link";
 
@@ -14,4 +14,4 @@ export const IconWithLink = ({ href, ...iconProps }: IconWithLinkProps) => {
     )
 }
 
-export default IconWithLink
+export default IconWithLink;

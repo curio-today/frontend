@@ -1,6 +1,6 @@
 "use client"
 
-import { PropsWithDisabled } from "@/lib/types/ui/disabled-props";
+import { PropsWithDisabled } from "@/lib/types/ui/PropsWithDisabled";
 import { PropsWithChildren, useCallback, useState } from "react";
 
 export type CollapsibleProps = {

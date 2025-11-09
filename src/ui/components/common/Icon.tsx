@@ -43,7 +43,7 @@ export const iconVariants = cva("relative aspect-square", {
  *
  * @constructor
  */
-const Icon = ({ icon, size, style, className, imageProps}: IconProps) => {
+export const Icon = ({ icon, size, style, className, imageProps}: IconProps) => {
     const data = IconsConfig.icons[icon];
 
     if (!data) {
