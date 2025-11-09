@@ -60,7 +60,10 @@
       "@primivites/*": ["./src/ui/components/primitives/*"],
       "@primivites": ["./src/ui/components/primitives/index.ts"],
 
-      // Common aliases
+      "@typography/*": ["./src/ui/components/primitives/typography/*"],
+      "@typography": ["./src/ui/components/primitives/typography/index.ts"],
+      
+      // Layout aliases
       "@layout/*": ["./src/ui/components/layout/*"],
       "@layout": ["./src/ui/components/layout/index.ts"],
 

@@ -1,5 +1,4 @@
 export { Input, type InputProps } from "./Input";
-export { Text, type TextProps } from "./Text";
 export { Badge, type BadgeProps } from "./Badge"; 
 export { Container, type ContainerProps } from "./Container";
 export { Icon, type IconProps } from "./Icon";

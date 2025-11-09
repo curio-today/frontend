@@ -1,7 +1,7 @@
 import styles from "./styles.module.css"
 
 import ImageWithFocal from "@/ui/components/primitives/ImageWithFocal";
-import { PublishedDate } from "@/ui/components/primitives/Time";
+import { Time, Text } from "@primivites";
 import Link from "next/link";
 import { Article } from "@/lib/types/content/article";
 import { useLocale, useTranslations } from "next-intl";
@@ -26,7 +26,7 @@ export const ArticleCard = ({ slug, title, cover, createdAt, subtitle, badge }: 
             aria-label={`${t("readFullArticle")} ${title}`}
             locale={locale}
         >
-            <h1 className={styles.headline}>{title}</h1>
+            <Text className={styles.headline}>{title}</Text>
             <div className={styles.cover}>
                 <ImageWithFocal focalPoint={{ 
                     x: cover.focalX,
@@ -35,7 +35,7 @@ export const ArticleCard = ({ slug, title, cover, createdAt, subtitle, badge }: 
             </div>
             <span className={styles.description}>
                 <p className={styles.subtitle}>{subtitle}</p>
-                <PublishedDate date={createdAt} locale={locale}/>
+                <Time date={createdAt} locale={locale}/>
             </span>
         </Link>
     );
