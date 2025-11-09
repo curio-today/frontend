@@ -1,4 +1,4 @@
-import styles from "./styles/paragraph.module.scss"
+import styles from "./styles/typography.module.css"
 import { PropsWithChildren } from "react";
 
 export const Small = ({ children, ...rest }: PropsWithChildren) => {
