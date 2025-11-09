@@ -14,4 +14,4 @@ export const Header = ({ variant = "h1", children, ...rest }: HeaderProps) => {
     return <TextTag className={styles[variant]} {...rest}>{children}</TextTag>
 }
 
-export default Text;
+export default Header;
