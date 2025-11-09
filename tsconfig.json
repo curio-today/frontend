@@ -56,9 +56,9 @@
       "@feature/*": ["./src/ui/components/feature/*"],
       "@feature": ["./src/ui/components/feature/index.ts"],
 
-      // Common aliases
-      "@common/*": ["./src/ui/components/common/*"],
-      "@common": ["./src/ui/components/common/index.ts"],
+      // Primivites aliases
+      "@primivites/*": ["./src/ui/components/primitives/*"],
+      "@primivites": ["./src/ui/components/primitives/index.ts"],
 
       // Common aliases
       "@layout/*": ["./src/ui/components/layout/*"],

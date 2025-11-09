@@ -3,7 +3,7 @@
 import styles from "./styles/SearchBar.module.css"
 
 import { useDebouncedCallback } from "@hooks";
-import { Container, Input, Icon } from "@common";
+import { Container, Input, Icon } from "@/ui/components/primitives";
 
 
 export type SearchBarProps<TSearchItem> = { 
