@@ -1,24 +1,20 @@
-import styles from "./styles.module.css"
+import styles from "./styles/card.module.css"
 
-import ImageWithFocal from "@/ui/components/primitives/ImageWithFocal";
-import { Time, Text } from "@primivites";
-import Link from "next/link";
-import { Article } from "@/lib/types/content/article";
 import { useLocale, useTranslations } from "next-intl";
-import { Heading } from "@/lib/types/content/heading";
-import { Slug } from "@/lib/types/content/slug";
+import Link from "next/link";
+import { Headline } from "@typography";
+import { Container, ImageWithFocal, Span, Time } from "@primitives";
+import { Article } from "@/lib/types/content/article";
 
-function createArticleUrl(heading: Heading, slug: Slug): string {
-    return `/feed/${heading}/${slug}`
-}
+export type ArticleCardProps = Article;
 
-export const ArticleCard = ({ slug, title, cover, createdAt, subtitle, badge }: Article) => {
+export const ArticleCard = ({ slug, title, cover, createdAt, subtitle, badge }: ArticleCardProps) => {
     const locale = useLocale();
     const t = useTranslations("Messages");
 
     return (
         <Link
-            href={createArticleUrl(badge.name.toLowerCase(), slug)}
+            href={`/feed/${title}/${slug}`}
             passHref
             id={slug}
             className={styles.articleCard}
@@ -26,17 +22,17 @@ export const ArticleCard = ({ slug, title, cover, createdAt, subtitle, badge }: 
             aria-label={`${t("readFullArticle")} ${title}`}
             locale={locale}
         >
-            <Text className={styles.headline}>{title}</Text>
-            <div className={styles.cover}>
+            <Headline>{title}</Headline>
+            <Container className={styles.cover}>
                 <ImageWithFocal focalPoint={{ 
                     x: cover.focalX,
                     y: cover.focalY
                  }} src={cover.url} alt={title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
-            </div>
-            <span className={styles.description}>
+            </Container>
+            <Span className={styles.description}>
                 <p className={styles.subtitle}>{subtitle}</p>
                 <Time date={createdAt} locale={locale}/>
-            </span>
+            </Span>
         </Link>
     );
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import Grid from "@layout/Grid";
-import { ArticleCard } from "@feature/article/ArticleCard/ArticleCard";
+import { ArticleCard } from "@/ui/components/feature/article/ArticleCard";
 import Loader from "@/ui/components/primitives/Loader";
 
 import { useIntersectionObserver } from "@hooks";
