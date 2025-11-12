@@ -1,9 +1,9 @@
 "use client"
 
-import { useCurrentRoute } from "@/hooks/use-current-route";
 import styles from "./NavLink.module.css"
 
 import { AvailableRoutePath } from "@/lib/types/navigation";
+import { useCurrentRoute } from "@/ui/hooks";
 import Link, { LinkProps } from "next/link";
 import { PropsWithChildren } from "react";
 

@@ -5,9 +5,9 @@ import { AvailableRoutePath } from "@/lib/types/navigation";
 import { createContext } from "react";
 
 type NavigationBarContextType = {
-    navigationLinks: AvailableRoutePath[];
+    navigationRoutePaths: AvailableRoutePath[];
 }
 
 export const NavigationBarContext = createContext<NavigationBarContextType>({
-    navigationLinks: Navigation.navigationBar.links as AvailableRoutePath[]
+    navigationRoutePaths: Navigation.navigationBar.links as AvailableRoutePath[]
 });

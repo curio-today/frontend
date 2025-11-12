@@ -2,10 +2,9 @@
 
 import { AvailableRoutePath } from "@/lib/types/navigation";
 import { isMobile } from "@/lib/utils/isMobile";
-import NavigationBarProvider from "@/providers/NavigationBarProvider";
+import NavigationBarProvider from "@/ui/providers/NavigationBarProvider";
 
 import dynamic from "next/dynamic";
-
 
 
 export type NavigationBarProps = {
@@ -24,7 +23,7 @@ const DesktopNavigationBar = dynamic(() => import("./desktop"), {
 export default async function NavigationBar() {
   return (
     <NavigationBarProvider>
-        {await isMobile() ? null : <DesktopNavigationBar /> }
+        {await isMobile() ? <MobileNavigationBar /> : <DesktopNavigationBar /> }
     </NavigationBarProvider>
   )
 }

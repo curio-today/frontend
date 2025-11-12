@@ -1,6 +1,6 @@
 "use client"
 
-import Grid from "@layout/Grid";
+import Grid from "@/ui/components/layout/OldGrid";
 import { ArticleCard } from "@/ui/components/feature/article/ArticleCard";
 import Loader from "@/ui/components/primitives/Loader";
 
@@ -8,6 +8,7 @@ import { useIntersectionObserver } from "@hooks";
 import { createArticlesSuspenseQuery } from "@utils/suspense-query";
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { useLocale } from "next-intl";
+import { Header } from "@typography";
 
 type AnimationStyle = {
     opacity: number,
@@ -49,6 +50,7 @@ export default function ArticlesGrid({
                 <Grid.Row key={article.id} initial={initial} animate={animate} >
                     <ArticleCard {...article} />
                 </Grid.Row>    
+
             ))}
 
             {hasNextPage && (

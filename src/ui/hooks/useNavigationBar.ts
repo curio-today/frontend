@@ -1,7 +1,7 @@
 "use client"
 
-import { NavigationBarContext } from "@/lib/contexts/NavigationBarContext"
 import { useContext } from "react"
+import { NavigationBarContext } from "../contexts/NavigationBarContext";
 
 export const useNavigationBar = () => {
     const context = useContext(NavigationBarContext);

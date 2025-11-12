@@ -5,9 +5,9 @@ import { ReactNode } from "react";
 import styles from "./layout.module.css";
 
 import { NextIntlClientProvider } from "next-intl";
-import NavigationBar from "@/ui/components/navigation2/NavBar";
 import { getLocale } from "next-intl/server";
 import { ThemeProvider } from "@/ui/providers/ThemeProvider";
+import NavigationBar from "@/ui/components/navigation/NewNavBar";
 
 const outfit = Roboto({
     subsets: ["latin"],
@@ -31,7 +31,7 @@ export default async function RootLayout({
             <body>
                 <NextIntlClientProvider>
                     <ThemeProvider>
-                        {/* <NavigationBar /> */}
+                        <NavigationBar />
                         {children}
                     </ThemeProvider>
                 </NextIntlClientProvider>
