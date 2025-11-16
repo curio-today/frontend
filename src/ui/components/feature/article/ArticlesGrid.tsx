@@ -17,7 +17,8 @@ type AnimationStyle = {
 
 type Props = {
     initial?: AnimationStyle,
-    animate?: AnimationStyle
+    animate?: AnimationStyle,
+    section?: string,
 }
 
 /**
@@ -38,10 +39,11 @@ type Props = {
  */
 export default function ArticlesGrid({ 
     initial = { opacity: 0, y: 50 }, 
-    animate = { opacity: 1, y: 0 } 
+    animate = { opacity: 1, y: 0 },
+    section = "",
 }: Props) {
     const locale = useLocale();
-    const { data: articles, fetchNextPage, hasNextPage, isFetchingNextPage } = useSuspenseInfiniteQuery(createArticlesSuspenseQuery(locale));
+    const { data: articles, fetchNextPage, hasNextPage, isFetchingNextPage } = useSuspenseInfiniteQuery(createArticlesSuspenseQuery(locale, section));
     const loadMoreRef = useIntersectionObserver(fetchNextPage, hasNextPage);
     
     return (

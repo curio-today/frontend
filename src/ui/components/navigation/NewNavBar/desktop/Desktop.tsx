@@ -18,9 +18,7 @@ const DesktopNavigationBar = () => {
       <List className={styles.links} gap={"medium"}>
         {navigationRoutePaths.map((route, index) => (
           <List.Item key={index}>
-              <NavLink to={route}>
-                <Header variant="h2">{route}</Header>
-              </NavLink>
+              <NavLink to={route} label={route.toUpperCase()} />
           </List.Item>
         ))
         }

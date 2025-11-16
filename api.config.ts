@@ -18,6 +18,7 @@ export const Api = {
             slug: (value) => `where[slug][equals]=${value}`,
             _status: (value) => `where[_status][equals]=${value}`,
             heading: (value) => `where[heading][equals]=${value}`,
+            section: (value) => `where[badge.name][equals]=${value}`,
             titleLike:  (value) => `where[title][like]=${value}`
         }
     }

@@ -6,26 +6,32 @@ import { AvailableRoutePath } from "@/lib/types/navigation";
 import { useCurrentRoute } from "@/ui/hooks";
 import Link, { LinkProps } from "next/link";
 import { PropsWithChildren } from "react";
+import { Header } from "../../primitives/typography";
 
 export type NavLinkProps = 
                 PropsWithChildren & 
                 Omit<LinkProps, "href"> & 
                 {
                     to: AvailableRoutePath;
-                }                  
+                    label?: string;
+                }
 
                 
-const NavLink = ({ to, children, ...rest}: NavLinkProps) => {
+const NavLink = ({ to, label, children, ...rest}: NavLinkProps) => {
     const { path } = useCurrentRoute();
     const isSelected = path == to;
 
     return (
         <Link 
             href={to} 
-            className={isSelected ? styles.selected : styles.navLink}
             onClick={(e) => isSelected && e.preventDefault()}
             {...rest}
             >
+            {label && (
+                <div className={isSelected ? styles.selected : styles.navLink}>
+                    <Header variant="h3">{label}</Header>
+                </div>
+            )}
             {children}
         </Link>
     )

@@ -1,4 +1,4 @@
-.selected p {
+.selected > * {
   color: var(--primary-lighten);
 }
 
