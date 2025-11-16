@@ -9,6 +9,7 @@ import { ImageProps } from "next/image";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
 import { IconVariant } from "@/lib/types/content/icon";
+import useTheme from "@/ui/hooks/useTheme";
 
 export type IconProps = { icon: IconVariant } &     
     VariantProps<typeof iconVariants> & 
@@ -23,10 +24,10 @@ export const iconVariants = cva("relative aspect-square", {
             large: "w-[clamp(3rem,5vw,7rem)]",
             huge: "w-[clamp(5rem,8vw,15rem)]",
             gigantic: "w-[15rem]",
-        }
+        },
     },
     defaultVariants: {
-        size: "medium"
+        size: "medium",
     }
 })
 
@@ -44,18 +45,24 @@ export const iconVariants = cva("relative aspect-square", {
  * @constructor
  */
 export const Icon = ({ icon, size, style, className, imageProps}: IconProps) => {
-    const data = IconsConfig.icons[icon];
+    const iconData = IconsConfig.icons[icon];
+    const [currentTheme] = useTheme();
+    
+    let currentColor = currentTheme === "dark" ? "black" : "white";
 
-    if (!data) {
+    if (!iconData) {
         return null;
     }
 
+
     return (
-        <motion.div className={iconVariants({ size, className })} style={style} initial={{ scale: 0 }} animate={{ scale: 1 }}>
+        <motion.div className={iconVariants({ size, className })} style={{
+            color: currentColor
+        }} initial={{ scale: 0 }} animate={{ scale: 1 }}>
             <Image
                 {...imageProps}
-                src={data.src}
-                alt={data.alt}
+                src={iconData.src}
+                alt={iconData.alt}
                 style={{ objectFit: "contain" }}
                 fill
             />

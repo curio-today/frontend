@@ -1,10 +1,8 @@
 "use client"
 
-import { saveToCookie } from "@/utils/storage/cookie";
 import { Locale, useLocale } from "next-intl";
-import Select from "../../core/Select";
-import { TranslationConfig } from "@@/translation.config";
 import { useRouter } from "next/navigation";
+import Button from "./Button";
 
 
 
@@ -14,19 +12,25 @@ export const SwitchLanguageButton = () => {
 
     const switchLocale = (newLocale: Locale) => {
         if (newLocale !== locale) {
-            saveToCookie(`locale=${newLocale}; path=/; max-age=31536000`);
+            // saveToCookie(`locale=${newLocale}; path=/; max-age=31536000`);
             router.refresh();
         }
     }
 
 
     return (
-        <Select 
-            options={TranslationConfig.languages}
-            value={locale}
-            onChange={option => switchLocale(option.value.toString())}
-            hasSearch={false}
-        />
+        <Button 
+            label={locale}
+            // onClick={e => switchLocale(e.val)}
+        >
+
+        </Button>
+        // <Select 
+        //     options={TranslationConfig.languages}
+        //     value={locale}
+        //     onChange={option => switchLocale(option.value.toString())}
+        //     hasSearch={false}
+        // />
     )
 }
 

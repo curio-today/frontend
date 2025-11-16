@@ -3,11 +3,10 @@
 import styles from "./Desktop.module.css";
 
 import useNavigationBar from "@/ui/hooks/useNavigationBar";
-import { NavigationBarActionButtons, NavigationBarLinks } from "./components";
 import IconWithLink from "@/ui/components/primitives/IconWithLink";
 import { List } from "@components/layout";
 import NavLink from "../../NavLink";
-import { Header } from "@typography";
+import { SwitchLanguageButton, ThemeButton } from "@primitives/buttons";
 
 const DesktopNavigationBar = () => {
   const { navigationRoutePaths } = useNavigationBar();
@@ -23,8 +22,14 @@ const DesktopNavigationBar = () => {
         ))
         }
       </List>
-      {/* <NavigationBarLinks navigationLinks={navigationLinks} /> */}
-      {/* <NavigationBarActionButtons /> */}
+      <List>
+        <List.Item>
+          <SwitchLanguageButton />
+        </List.Item>
+        <List.Item>
+          <ThemeButton />
+        </List.Item>
+      </List>
     </nav>
   )
 };

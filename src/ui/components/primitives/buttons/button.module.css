@@ -45,3 +45,7 @@
     @apply border-none min-w-[1vw];
   }
 }
+
+.test {
+  color: red
+}
