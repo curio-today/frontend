@@ -1,14 +1,16 @@
-import styles from "./styles/Select.module.css";
+import styles from "./styles/Dropdown.module.css";
 
+import React from "react";
 import Option from "./Option";
 import SearchInput from "./SearchInput";
+import { Option as OptionType } from "./Select";
 
 type DropdownProps = {
-    filteredOptions: string[];
+    filteredOptions: OptionType[];
     searchTerm: string;
     onSearchChange: (value: string) => void;
     focusedIndex: number | null;
-    onOptionSelect: (option: string) => void;
+    onOptionSelect: (option: OptionType) => void;
     onOptionHover: (index: number) => void;
     value: string | number | null;
     inputRef: React.RefObject<HTMLInputElement | null>;
@@ -35,11 +37,11 @@ const Dropdown = ({
             <div className={styles.optionsList}>
                 {filteredOptions.length > 0 ? (
                     filteredOptions.map((option, index) => {
-                        const isSelected = option === value;
+                        const isSelected = option.value === value;
                         const isFocused = index === focusedIndex;
                         return (
                             <Option
-                                key={option}
+                                key={option.value}
                                 option={option}
                                 isSelected={isSelected}
                                 isFocused={isFocused}

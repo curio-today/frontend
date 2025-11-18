@@ -8,7 +8,7 @@ import { PropsWithChildren } from "react";
 
 export const NavigationBarProvider = ({ children }: PropsWithChildren) => {
     return (
-        <NavigationBarContext.Provider value={{ navigationRoutePaths: Navigation.navigationBar.links as AvailableRoutePath[] }}>
+        <NavigationBarContext.Provider value={{ navigationRoutes: Navigation.navigationBar.links as AvailableRoutePath[] }}>
             {children}
         </NavigationBarContext.Provider>
     )

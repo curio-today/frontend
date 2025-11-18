@@ -7,12 +7,12 @@ import { ComponentProps } from "react";
 import { useSelectComponentContext } from "./hooks";
 
 type SelectDropdownProps = {
-    // filteredOptions: OptionType[];
-    // onSearchChange: (value: string) => void;
-    // focusedIndex: number | null;
-    // onOptionSelect: (option: OptionType) => void;
-    // onOptionHover: (index: number) => void;
-    // value: string | number | null;
+    filteredOptions: OptionType[];
+    onSearchChange: (value: string) => void;
+    focusedIndex: number | null;
+    onOptionSelect: (option: OptionType) => void;
+    onOptionHover: (index: number) => void;
+    value: string | number | null;
 
     hasSearch: boolean;
 }

@@ -3,7 +3,7 @@ import { Article } from "@/lib/types/content/article";
 import { infiniteQueryOptions } from "@tanstack/react-query";
 import { fetchEndpointList } from "@/lib/utils/api/fetch";
 
-export function createArticlesSuspenseQuery(locale: string, section: string) {
+export function createArticlesSuspenseQuery(locale: string, section?: string) {
     return infiniteQueryOptions<PaginatedContent<Article>, null, Article[]>(
         {
             queryKey: ["articles"],

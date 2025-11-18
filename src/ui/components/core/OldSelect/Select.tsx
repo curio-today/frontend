@@ -1,5 +1,7 @@
 "use client";
 
+import styles from "./styles/Select.module.css";
+
 import React, {
     useState,
     useRef,
@@ -8,16 +10,19 @@ import React, {
     KeyboardEvent,
 } from "react";
 
-import styles from "./styles/Select.module.css";
-
 import Dropdown from "./Dropdown";
 import Trigger from "./Trigger";
 
+export type Option = {
+    label: string;
+    value: string;
+};
+
 export type SelectProps = {
-    options: string[];
+    options: Option[];
     hasSearch?: boolean;
     value: string | number | null;
-    onChange: (option: string) => void;
+    onChange: (option: Option) => void;
     placeholder?: string;
     disabled?: boolean;
     className?: string;
@@ -36,33 +41,38 @@ const Select = ({
     const [searchTerm, setSearchTerm] = useState("");
     const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
 
+
     const selectRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const filteredOptions = options.filter(option =>
-        option.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredOptions = options.filter((option) =>
+        option.label.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    const selectedOption = options.find((option) => option === value) || null;
+    const selectedOption = options.find((option) => option.value === value) || null;
 
+    
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
-                setIsOpen(false);
-                setSearchTerm("");
-                setFocusedIndex(null);
+                reset();
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
+
+    const reset = () => {
+        setIsOpen(false);
+        setSearchTerm("");
+        setFocusedIndex(null);
+    }
+
     const handleOptionSelect = useCallback(
-        (option: string) => {
+        (option: Option) => {
             onChange(option);
-            setIsOpen(false);
-            setSearchTerm("");
-            setFocusedIndex(null);
+            reset();
         },
         [onChange]
     );
@@ -140,7 +150,7 @@ const Select = ({
             aria-disabled={disabled}
             aria-controls="custom-select-listbox"
             aria-activedescendant={
-                selectedOption ? `custom-select-option-${selectedOption}` : undefined
+                selectedOption ? `custom-select-option-${selectedOption.value}` : undefined
             }
         >
             <Trigger

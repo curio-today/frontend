@@ -1,18 +1,20 @@
+import styles from "./styles/Option.module.css"
+
 import React from "react";
-import styles from "./styles/Select.module.css";
+import { Option as OptionType } from "./Select";
 
 type OptionProps = {
-    option: string;
+    option: OptionType;
     isSelected: boolean;
     isFocused: boolean;
-    onSelect: (option: string) => void;
+    onSelect: (option: OptionType) => void;
     onHover: () => void;
 };
 
 const Option = ({ option, isSelected, isFocused, onSelect, onHover }: OptionProps) => {
     return (
         <div
-            id={`custom-select-option-${option}`}
+            id={`custom-select-option-${option.value}`}
             role="option"
             aria-selected={isSelected}
             onClick={() => onSelect(option)}
@@ -22,7 +24,7 @@ const Option = ({ option, isSelected, isFocused, onSelect, onHover }: OptionProp
             } ${isFocused && !isSelected ? styles.optionHover : ""}`}
             tabIndex={-1}
         >
-            <span>{option}</span>
+            <span>{option.label}</span>
             {isSelected && <div className={styles.checkIcon} />}
         </div>
     );

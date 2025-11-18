@@ -4,8 +4,121 @@
   outline: none;
 }
 
+.triggerBase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 8px;
+  min-height: 48px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  background-color: var(--accent);
+}
 
+.triggerDisabled {
+  background-color: #f3f4f6; /* gray-100 */
+  border-color: #d1d5db; /* gray-300 */
+  color: #9ca3af; /* gray-400 */
+  cursor: not-allowed;
+}
 
+.triggerOpen {
+  border-color: var(--primary-lighten);
+  border-width: 2px;
+}
+
+.triggerClosed {
+  border-color: var(--border); /* gray-300 */
+}
+
+.selectedText {
+  color: var(--text); /* gray-900 */
+}
+
+.placeholderText {
+  color: var(--secondary); /* gray-500 */
+}
+.dropdown {
+  position: absolute;
+  z-index: 50;
+  width: 100%;
+  margin-top: 4px;
+  background-color: var(--accent);
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--border); /* gray-300 */
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  max-height: 240px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchWrapper {
+  padding: 0.5rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 14px;
+  border-radius: 6px;
+  border-width: 1px;
+  border-style: solid;
+  color: var(--text);
+  background-color: var(--accent);
+  border-color: var(--border);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.searchInputFocus {
+  border-width: 1px;
+  border-color: var(--primary-lighten);
+}
+
+.optionsList {
+  overflow-y: auto;
+  max-height: 192px;
+}
+
+.optionBase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.optionHover {
+  background-color: var(--accent-hover);
+  color: var(--primary-lighten);
+}
+
+.optionSelected {
+  background-color: var(--primary); /* blue-100 */
+  color: var(--text);
+  font-weight: 500;
+}
+
+.optionUnselected {
+  color: var(--text); /* gray-900 */
+}
+
+.noOptions {
+  padding: 0.75rem 1rem;
+  color: var(--secondary);
+  font-size: 14px;
+}
 
 .checkIcon {
   width: 16px;

@@ -1,0 +1,14 @@
+.container {
+  position: relative;
+  width: 100%;
+  outline: none;
+}
+
+
+
+
+.checkIcon {
+  width: 16px;
+  height: 16px;
+  color: #2563eb; /* blue-600 */
+}

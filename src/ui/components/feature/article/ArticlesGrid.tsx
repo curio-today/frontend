@@ -40,7 +40,7 @@ type Props = {
 export default function ArticlesGrid({ 
     initial = { opacity: 0, y: 50 }, 
     animate = { opacity: 1, y: 0 },
-    section = "",
+    section,
 }: Props) {
     const locale = useLocale();
     const { data: articles, fetchNextPage, hasNextPage, isFetchingNextPage } = useSuspenseInfiniteQuery(createArticlesSuspenseQuery(locale, section));
