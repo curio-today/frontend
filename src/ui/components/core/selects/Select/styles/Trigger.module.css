@@ -1,0 +1,40 @@
+.triggerBase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 8px;
+  min-height: 48px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  background-color: var(--accent);
+}
+
+.triggerDisabled {
+  background-color: #f3f4f6; /* gray-100 */
+  border-color: #d1d5db; /* gray-300 */
+  color: #9ca3af; /* gray-400 */
+  cursor: not-allowed;
+}
+
+.triggerItemSelected {
+  color: var(--text); /* gray-900 */
+}
+
+.placeholderText {
+  color: var(--secondary); /* gray-500 */
+}
+
+
+
+.triggerOpen {
+  border-color: var(--primary-lighten);
+  border-width: 2px;
+}
+
+.triggerClosed {
+  border-color: var(--border); /* gray-300 */
+}

@@ -4,7 +4,7 @@ import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { TranslationConfig } from "@@/translation.config";
 
-import Select from "@core/Select";
+import Select from "@core/selects/Select";
 
 
 export const SwitchLanguageButton = () => {

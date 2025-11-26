@@ -16,26 +16,10 @@ export const LanguageSelect = () => {
             router.refresh();
         }
     }
-    // const codes: string[] = Object.keys(TranslationConfig.languages);
-    const languages = [
-        {
-            name: "English",
-            value: "en",
-        },
-        {
-            name: "Latvian", 
-            value: "lv",
-        },
-        {
-            name: "Russian",
-            value: "ru",
-        }
-    ]
-
     return (
         <Select
-            options={languages}
-            defaultOption={languages.filter(language => language.value === locale)[0]}
+            items={TranslationConfig.languages}
+            selectedItem={locale}
             onChange={option => switchLocale(option)}
             hasSearch={false}
         />

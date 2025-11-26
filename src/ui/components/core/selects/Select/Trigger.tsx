@@ -1,39 +1,45 @@
 import React from "react";
-import styles from "./styles/Select.module.css";
+import styles from "./styles/Trigger.module.css";
 
-import { SelectOption } from "./Select";
+import { Container } from "@primitives";
+import { useSelect } from "./SelectContext";
+import { PropsWithDisabled } from "@/lib/types/ui/PropsWithDisabled";
+import Text from "@/ui/components/primitives/typography/Text";
 
-type TriggerProps = {
-    selectedOption: SelectOption;
+type TriggerProps = PropsWithDisabled<{
     placeholder: string;
-    disabled: boolean;
-    isOpen: boolean;
+    open: boolean;
     onToggle: () => void;
-};
+}>;
 
 const Trigger = ({
-                     selectedOption,
-                     placeholder,
-                     disabled,
-                     isOpen,
-                     onToggle,
-                 }: TriggerProps) => {
+    placeholder,
+    disabled,
+    open,
+    onToggle,
+}: TriggerProps) => {
+    const { selectedItem } = useSelect();
+
     return (
-        <div
+        <Container
+            // Refactor
             className={`${styles.triggerBase} ${
                 disabled
                     ? styles.triggerDisabled
-                    : isOpen
+                    : open
                         ? styles.triggerOpen
                         : styles.triggerClosed
             }`}
+            // --
             onClick={onToggle}
             aria-label="Select dropdown"
         >
-      <span className={selectedOption ? styles.selectedText : styles.placeholderText}>
-        {selectedOption ? selectedOption : placeholder}
-      </span>
-        </div>
+            <Container className={selectedItem ? styles.selectedText : styles.placeholderText}>
+                <Text variant="p">
+                    {selectedItem ? selectedItem : placeholder}
+                </Text>
+            </Container>
+        </Container>
     );
 };
 
