@@ -1,0 +1,26 @@
+.buttons {
+  list-style: none;
+  gap: 0.5rem;
+}
+
+@media screen and (max-width: 920px) {
+  .buttons {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .buttons {
+    p {
+      display: none !important;
+    }
+
+    .icon-wrapper {
+      width: 24px !important;
+    }
+
+    li:first-child {
+      display: none !important;
+    }
+  }
+}
