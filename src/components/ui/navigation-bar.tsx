@@ -1,8 +1,6 @@
 "use client"
 
-import * as React from "react"
 import Link from "next/link"
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import {
@@ -13,59 +11,44 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/core/navigation-menu"
 import { ModeToggle } from "./mode-toggle"
+import { PropsWithChildren } from "react"
+import { SearchInput } from "./search-input"
+import { Logo } from "../logo"
+import { ButtonGroup } from "../core/button-group"
 
 
-export function NavigationBar() {
+export const NavigationBar = () => {
   const isMobile = useIsMobile()
 
   return (
-    <NavigationMenu viewport={isMobile}>
-      <NavigationMenuList className="flex-wrap">
-        <NavigationMenuItem>
-            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/amazes">Amazes</Link>
-            </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/amazes">Informs</Link>
-            </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/amazes">Amuses</Link>
-            </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/amazes">Inspires</Link>
-            </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <ModeToggle />
-        </NavigationMenuItem>
+    <div className="w-full flex justify-center py-5 gap-4 bg-background">
+      <Logo width="100"/>
+      <NavigationMenu viewport={isMobile}>
+        <NavigationMenuList className="flex-wrap">
+          <NavigationBarTooltipLink href="/amazes">Amazes</NavigationBarTooltipLink>
+          <NavigationBarTooltipLink href="/informs">Informs</NavigationBarTooltipLink>
+          <NavigationBarTooltipLink href="/amuses">Amuses</NavigationBarTooltipLink>
+          <NavigationBarTooltipLink href="/inspires">Inspires</NavigationBarTooltipLink>
+        </NavigationMenuList>
+        <ButtonGroup className="ml-3">
+            <SearchInput />
+            <ModeToggle />
+        </ButtonGroup>
+      </NavigationMenu>
+    </div>
 
-      </NavigationMenuList>
-    </NavigationMenu>
   )
 }
 
-function ListItem({
-  title,
-  children,
-  href,
-  ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
-  return (
-    <li {...props}>
-      <NavigationMenuLink asChild>
-        <Link href={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
-  )
+const NavigationBarTooltipLink = ({ children, href }: Readonly<PropsWithChildren<{
+  href: string,
+}>>) => {
+    return (
+      <NavigationMenuItem>
+        <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
+            <Link href={href}>{children}</Link>
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+    )
+    
 }
