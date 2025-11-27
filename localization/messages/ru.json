@@ -1,0 +1,49 @@
+{
+  "Metadata": {
+    "description": "Smart curiousity",
+    "keywords": "curiosity, learning, education, knowledge, explore, discover, curio, today, curio.today",
+    "openGraph": {
+      "description": "Smart curiousity",
+      "images": ["./meta/en/og-image.png"]
+    },
+    "pages": {
+      "feed": {
+        "name": "Главная",
+        "description": "Explore Curio.today's feed — stories that inspire, amaze, inform, and even expose abuses. A curated stream to spark thought and curiosity.",
+        "keywords": "Curio.today feed, inspire stories, amazing discoveries, informative articles, exposing abuses, daily inspiration articles, stories that amaze and engage, news that informs the mind, uncovering truths and abuses, thought-provoking content, explore science culture and tech, stories to spark curiosity, curated content platform"    
+      },
+      
+      "amazes": {
+        "name": "Удивляет"
+      },
+
+      "informs": {
+        "name": "Развивает"
+      },
+      
+      "inspires": {
+        "name": "Вдохновляет"
+      },
+
+      "amuses": {
+        "name": "Забавляет"
+      },
+
+      "search": {
+        "name": "Поиск"
+      }
+    }
+  },
+  "Messages": {
+    "loading": "Загрузка...",
+    "readFullArticle": "Прочитать статью полностью:",
+    "SearchBarPlaceholder": "Начните вводить текст для поиска"
+  },
+  "Headings": {
+    "amazes": "Удивляет",
+    "informs": "Развивает",
+    "amuses": "Забавляет",
+    "feed": "Лента",
+    "inspires": "Вдохновляет"
+  }
+}
