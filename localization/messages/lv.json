@@ -1,4 +1,9 @@
 {
+  "Mode": {
+    "dark": "Tumšs",
+    "light": "Gaiša",
+    "system": "Pēc sistēmas"
+  },
   "Navigation": {
     "placeholder": "Meklē...",
     "Amazes": {

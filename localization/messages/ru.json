@@ -1,4 +1,9 @@
 {
+  "Mode": {
+    "dark": "Темный",
+    "light": "Светлый",
+    "system": "Система"
+  },
   "Navigation": {
     "placeholder": "Начать поиск...",
     "Amazes": {

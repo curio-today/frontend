@@ -2,7 +2,7 @@
 
 import { Search } from "lucide-react"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "../core/input-group"
-import { useState } from "react"
+import { Activity, useState } from "react"
 import { useTranslations } from "next-intl"
 
 export const SearchInput = () => {
@@ -28,9 +28,9 @@ export const SearchInput = () => {
                     <Search />
                 </InputGroupAddon>
             </div>
-            {resultCount !== null && (
+            <Activity mode={resultCount === null ? "hidden" : "visible"} >
                 <InputGroupAddon align="inline-end">{resultCount} results</InputGroupAddon>
-            )}
+            </Activity>
         </InputGroup>
     )
 }

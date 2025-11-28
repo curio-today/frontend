@@ -1,4 +1,9 @@
 {
+  "Mode": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+  },
   "Navigation": {
     "placeholder": "Search...",
     "Amazes": {

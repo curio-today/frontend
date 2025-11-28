@@ -1,5 +1,6 @@
 "use client"
 
+import { PropsWithChildren } from "react";
 import Link from "next/link"
 
 import { useIsMobile } from "@/hooks/use-mobile"
@@ -10,23 +11,23 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/core/navigation-menu"
-import { ModeToggle } from "./toggle/mode-toggle"
-import { PropsWithChildren } from "react"
-import { SearchInput } from "./search-input"
-import { Logo } from "../logo"
-import { ButtonGroup } from "../core/button-group"
-import { LanguageToggle } from "./toggle/language-toggle"
-import { useTranslations } from "next-intl"
+import { ModeToggle } from "./toggle/mode-toggle";
+import { SearchInput } from "./search-input";
+import { Logo } from "../logo";
+import { ButtonGroup } from "../core/button-group";
+import { LanguageToggle } from "./toggle/language-toggle";
+import { useTranslations } from "next-intl";
+
 
 export const NavigationBar = () => {
   const isMobile = useIsMobile()
   const t = useTranslations("Navigation");
 
   return (
-    <div className="w-full relative flex items-center py-5 bg-background">
-      <div className="absolute left-4 flex items-center gap-3">
+    <header className="w-full fixed flex p-4 items-center top-0 left-0 z-50">
+      <Link href="/" className="absolute left-4 flex items-center gap-3">
         <Logo width="100" />
-      </div>
+      </Link>
 
       <NavigationMenu
         viewport={isMobile}
@@ -51,7 +52,7 @@ export const NavigationBar = () => {
           </ButtonGroup>
         </ButtonGroup>
       </div>
-    </div>
+    </header>
   )
 }
 
