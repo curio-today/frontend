@@ -1,5 +1,9 @@
 {
+  "Translation": {
+    "description": "Выберите язык"
+  },
   "Mode": {
+    "description": "Выберите тему",
     "dark": "Темный",
     "light": "Светлый",
     "system": "Система"

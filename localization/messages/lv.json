@@ -1,5 +1,9 @@
 {
+  "Translation": {
+    "description": "Izvēlē valodu"
+  },
   "Mode": {
+    "description": "Select mode",
     "dark": "Tumšs",
     "light": "Gaiša",
     "system": "Pēc sistēmas"

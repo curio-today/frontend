@@ -1,5 +1,9 @@
 {
+  "Translation": {
+    "description": "Select language"
+  },
   "Mode": {
+    "description": "Select mode",
     "dark": "Dark",
     "light": "Light",
     "system": "System"

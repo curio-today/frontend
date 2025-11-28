@@ -7,13 +7,15 @@ import { Button } from "@/components/core/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuCheckboxItem,
+  DropdownMenuLabel, 
+  DropdownMenuSeparator
 } from "@/components/core/dropdown-menu"
 import { useTranslations } from "next-intl"
 
 export function ModeToggle() {
-  const { setTheme } = useTheme()
+  const { setTheme, theme } = useTheme();
   const t = useTranslations("Mode");
 
   return (
@@ -25,17 +27,22 @@ export function ModeToggle() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
+      
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuLabel>{t("description")}</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        
+        <DropdownMenuCheckboxItem checked={theme == "light"} onCheckedChange={() => setTheme("light")}>
           {t("light")}
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={theme == "dark"} onCheckedChange={() => setTheme("dark")}>
           {t("dark")}
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={theme == "system"} onCheckedChange={() => setTheme("system")}>
           {t("system")}
-        </DropdownMenuItem>
+        </DropdownMenuCheckboxItem>
       </DropdownMenuContent>
+    
     </DropdownMenu>
   )
 }
