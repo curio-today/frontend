@@ -1,4 +1,19 @@
 {
+  "Navigation": {
+    "placeholder": "Начать поиск...",
+    "Amazes": {
+      "title": "Удивляет"
+    },
+    "Informs": {
+      "title": "Развивает"
+    },
+    "Amuses": {
+      "title": "Забавляет"
+    },
+    "Inspires": {
+      "title": "Вдохновляет"
+    }
+  },
   "Metadata": {
     "description": "Smart curiousity",
     "keywords": "curiosity, learning, education, knowledge, explore, discover, curio, today, curio.today",

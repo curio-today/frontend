@@ -1,4 +1,19 @@
 {
+  "Navigation": {
+    "placeholder": "Meklē...",
+    "Amazes": {
+      "title": "Pārsteidz"
+    },
+    "Informs": {
+      "title": "Izglīto"
+    },
+    "Amuses": {
+      "title": "Izklaidē"
+    },
+    "Inspires": {
+      "title": "Iedvesmo"
+    }
+  },
   "Metadata": {
     "description": "Smart curiousity",
     "keywords": "curiosity, learning, education, knowledge, explore, discover, curio, today, curio.today",
