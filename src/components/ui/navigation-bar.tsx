@@ -17,6 +17,7 @@ import { Logo } from "../logo";
 import { ButtonGroup } from "../core/button-group";
 import { LanguageToggle } from "./toggle/language-toggle";
 import { useTranslations } from "next-intl";
+import { Tooltip } from "../core/tooltip";
 
 
 export const NavigationBar = () => {
@@ -43,7 +44,7 @@ export const NavigationBar = () => {
 
       <div className="ml-auto pr-4">
         <ButtonGroup>
-          <ButtonGroup>
+          <ButtonGroup className="w-10 md:w-auto">
             <SearchInput />
           </ButtonGroup>
           <ButtonGroup>

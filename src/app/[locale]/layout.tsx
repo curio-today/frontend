@@ -9,6 +9,7 @@ import { getLocale } from "next-intl/server";
 
 import { NavigationBar } from "@/components/ui/navigation-bar"
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Footer } from "@/components/ui/footer";
 
 const outfit = Roboto({
     subsets: ["latin"],
@@ -36,6 +37,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                         <main className="flex flex-col items-center mt-[100px] my-8 mx-[15vw] min-h-[calc(100vh-5rem)] pb-20 pt-20">
                             {children}
                         </main>
+                        <Footer />
                     </ThemeProvider>
                 </NextIntlClientProvider>
             </body>

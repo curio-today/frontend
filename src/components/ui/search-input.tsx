@@ -18,19 +18,17 @@ export const SearchInput = () => {
 
     return (
         <InputGroup onChange={handleSearch}>
-            <div className="flex">
-                <InputGroupInput
-                    placeholder={t("placeholder")} 
-                    value={query}
-                    onChange={e => setQuery(e.target.value)}
-                />
-                <InputGroupAddon>
-                    <Search />
-                </InputGroupAddon>
-            </div>
-            <Activity mode={resultCount === null ? "hidden" : "visible"} >
-                <InputGroupAddon align="inline-end">{resultCount} results</InputGroupAddon>
-            </Activity>
+            <InputGroupInput
+                placeholder={t("placeholder")} 
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+            />
+            <InputGroupAddon>
+                <Search />
+            </InputGroupAddon>
+            {/* <Activity mode={resultCount === null ? "hidden" : "visible"} >
+                <InputGroupAddon align="inline-end" className="hidden lg:flex sm:truncate">{resultCount} results</InputGroupAddon>
+            </Activity> */}
         </InputGroup>
     )
 }
