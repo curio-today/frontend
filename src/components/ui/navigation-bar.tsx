@@ -14,19 +14,25 @@ import {
 import { ModeToggle } from "./toggle/mode-toggle";
 import { SearchInput } from "./search-input";
 import { Logo } from "../logo";
-import { ButtonGroup } from "../core/button-group";
+import { ButtonGroup, ButtonGroupSeparator } from "../core/button-group";
 import { LanguageToggle } from "./toggle/language-toggle";
+import { LayoutToggle } from "./toggle/layout-toggle";
+
 import { useTranslations } from "next-intl";
-import { Tooltip } from "../core/tooltip";
+import { useLayout } from "@/hooks/use-layout";
 
 
 export const NavigationBar = () => {
   const isMobile = useIsMobile()
   const t = useTranslations("Navigation");
+  const { isWide } = useLayout();
 
   return (
-    <header className="w-full fixed flex p-4 items-center top-0 left-0 z-50">
-      <Link href="/" className="absolute left-4 flex items-center gap-3">
+    <header className={isWide
+      ? "w-full fixed flex p-4 items-center top-0 left-0 z-50 transition-all duration-300 ease-in-out"
+      : "pr-100 pl-100 w-full fixed flex p-4 items-center top-0 left-0 z-50 transition-all duration-300 ease-in-out"
+    }>
+      <Link href="/" className="relative left-4 flex items-center gap-3">
         <Logo width="100" />
       </Link>
 
@@ -42,7 +48,7 @@ export const NavigationBar = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <div className="ml-auto pr-4">
+      <ButtonGroup className="ml-auto pr-4">
         <ButtonGroup>
           <ButtonGroup className="w-10 md:w-auto">
             <SearchInput />
@@ -52,7 +58,9 @@ export const NavigationBar = () => {
             <ModeToggle />
           </ButtonGroup>
         </ButtonGroup>
-      </div>
+        <ButtonGroupSeparator />
+        <LayoutToggle />
+      </ButtonGroup>
     </header>
   )
 }
