@@ -33,7 +33,7 @@ export function LanguageToggle() {
             <span className="sr-only">{t("description")}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="center">
         <DropdownMenuLabel>{t("description")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuCheckboxItem checked={locale === "en"} onCheckedChange={() => switchTo("en")}>

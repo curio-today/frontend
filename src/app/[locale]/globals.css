@@ -3,6 +3,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@layer utilities {
+  .row:nth-child(1),
+  .row:nth-child(2) {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+  }
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

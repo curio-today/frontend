@@ -1,6 +1,6 @@
 "use client"
 
-import { PropsWithChildren } from "react";
+import { Fragment, PropsWithChildren } from "react";
 import Link from "next/link"
 
 import { useIsMobile } from "@/hooks/use-mobile"
@@ -11,15 +11,18 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/core/navigation-menu"
-import { ModeToggle } from "./toggle/mode-toggle";
+import { ModeToggle } from "./toggles/mode-toggle";
 import { SearchInput } from "./search-input";
 import { Logo } from "../logo";
 import { ButtonGroup, ButtonGroupSeparator } from "../core/button-group";
-import { LanguageToggle } from "./toggle/language-toggle";
-import { LayoutToggle } from "./toggle/layout-toggle";
+import { LanguageToggle } from "./toggles/language-toggle";
+import { LayoutToggle } from "./toggles/layout-toggle";
 
 import { useTranslations } from "next-intl";
 import { useLayout } from "@/hooks/use-layout";
+
+import { SettingsSheet } from "./sheets/settings-sheet";
+import { SearchSheet } from "./sheets/search-sheet";
 
 
 export const NavigationBar = () => {
@@ -29,18 +32,18 @@ export const NavigationBar = () => {
 
   return (
     <header className={isWide
-      ? "w-full fixed flex p-4 items-center top-0 left-0 z-50 transition-all duration-300 ease-in-out"
-      : "pr-100 pl-100 w-full fixed flex p-4 items-center top-0 left-0 z-50 transition-all duration-300 ease-in-out"
+      ? "bg-background w-full fixed flex p-4 items-center top-0 left-0 z-50 transition-all duration-300 ease-in-out"
+      : "bg-background pr-[15vw] pl-[15vw] w-full fixed flex p-4 items-center top-0 left-0 z-50 transition-all duration-300 ease-in-out"
     }>
-      <Link href="/" className="relative left-4 flex items-center gap-3">
+      <Link href="/" className="relative flex items-center gap-3">
         <Logo width="100" />
       </Link>
 
       <NavigationMenu
         viewport={isMobile}
-        className="absolute left-1/2 -translate-x-1/2"
+        className={isWide ? "md:absolute left-1/2 -translate-x-1/2" : "ml-auto mr-auto"}
       >
-        <NavigationMenuList className="flex-wrap">
+        <NavigationMenuList className="flex-wrap hidden md:flex">
           <NavLink href="/amazes">{t("Amazes.title")}</NavLink>
           <NavLink href="/informs">{t("Informs.title")}</NavLink>
           <NavLink href="/amuses">{t("Amuses.title")}</NavLink>
@@ -48,18 +51,22 @@ export const NavigationBar = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <ButtonGroup className="ml-auto pr-4">
+      <ButtonGroup className="pr-auto">
         <ButtonGroup>
-          <ButtonGroup className="w-10 md:w-auto">
+          <ButtonGroup className="hidden md:flex">
             <SearchInput />
-          </ButtonGroup>
-          <ButtonGroup>
             <LanguageToggle />
             <ModeToggle />
           </ButtonGroup>
+          <ButtonGroup className="block md:hidden">
+            <SearchSheet />
+            <SettingsSheet />
+          </ButtonGroup>
         </ButtonGroup>
-        <ButtonGroupSeparator />
-        <LayoutToggle />
+        <div className="hidden">
+          <ButtonGroupSeparator />
+          <LayoutToggle />
+        </div>
       </ButtonGroup>
     </header>
   )

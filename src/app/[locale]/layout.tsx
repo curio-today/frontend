@@ -33,11 +33,12 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                         attribute="class"
                         defaultTheme="system"
                         enableSystem
+                        disableTransitionOnChange
                     >
                         <LayoutProvider>
                             <NavigationBar />
                         </LayoutProvider>
-                        <main className="flex flex-col items-center mt-[100px] my-8 mx-[15vw] min-h-[calc(100vh-5rem)] pb-20 pt-20">
+                        <main className="flex flex-col items-center mt-20 my-8 mx-[15vw]">
                             {children}
                         </main>
                         <Footer />

@@ -1,4 +1,10 @@
 {
+  "Settings": {
+    "title": "Settings",
+    "description": "Customize your app experience by adjusting language and theme settings.",
+    "language": "Select language",
+    "mode": "Select mode"
+  },
   "Translation": {
     "description": "Select language"
   },
