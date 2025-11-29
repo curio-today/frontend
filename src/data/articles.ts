@@ -1,8 +1,6 @@
 import { ArticleCardProps } from "@/components/ui/article/article-card"
 
-export const articles: (Omit<ArticleCardProps, "image"> & {
-    id: string
-})[] = [
+export const articles = [
     {
         id: "35676476453454365436456546",
         title: "The world’s smallest living horse: miniature therapy stallion from Germany enters Guinness World Records",

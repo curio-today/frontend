@@ -11,6 +11,7 @@ import { NavigationBar } from "@/components/ui/navigation-bar"
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Footer } from "@/components/ui/footer";
 import LayoutProvider from "@/providers/layout-provider";
+import { QueryProvider } from "@/providers/query-provider";
 
 const outfit = Roboto({
     subsets: ["latin"],
@@ -28,22 +29,23 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
     return (
         <html lang={locale} className={outfit.className} suppressHydrationWarning>
             <body>
-                <NextIntlClientProvider>
-                    <ThemeProvider 
-                        attribute="class"
-                        defaultTheme="system"
-                        enableSystem
-                        disableTransitionOnChange
-                    >
-                        <LayoutProvider>
-                            <NavigationBar />
-                        </LayoutProvider>
-                        <main className="flex flex-col items-center mx-[15vw]">
-                            {children}
-                        </main>
-                        <Footer />
-                    </ThemeProvider>
-                </NextIntlClientProvider>
+                <QueryProvider>
+                    <NextIntlClientProvider>
+                        <ThemeProvider 
+                            attribute="class"
+                            defaultTheme="system"
+                            enableSystem
+                            disableTransitionOnChange
+                        >
+                            <LayoutProvider>
+                                <NavigationBar />
+                            </LayoutProvider>
+                            <main className="flex flex-col items-center mx-[15vw]">
+                                {children}
+                            </main>
+                        </ThemeProvider>
+                    </NextIntlClientProvider>
+                </QueryProvider>
             </body>
         </html>
     );
