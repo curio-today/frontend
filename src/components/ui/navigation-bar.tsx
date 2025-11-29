@@ -31,17 +31,15 @@ export const NavigationBar = () => {
   const { isWide } = useLayout();
 
   return (
-    <header className={isWide
-      ? "bg-background w-full fixed flex p-4 items-center top-0 left-0 z-50 transition-all duration-300 ease-in-out"
-      : "bg-background pr-[15vw] pl-[15vw] w-full fixed flex p-4 items-center top-0 left-0 z-50 transition-all duration-300 ease-in-out"
-    }>
-      <Link href="/" className="relative flex items-center gap-3">
-        <Logo width="100" />
-      </Link>
-
+    <header className="lg: pl-10
+     bg-background w-full fixed flex p-4 top-0 left-0 z-50 flex justify-start items-center lg:gap-10">
+      <div className="flex-1 md:flex-0 justify-start">
+        <Link href="/">
+          <Logo width="100" />
+        </Link>
+      </div>
       <NavigationMenu
         viewport={isMobile}
-        className={isWide ? "md:absolute left-1/2 -translate-x-1/2" : "ml-auto mr-auto"}
       >
         <NavigationMenuList className="flex-wrap hidden md:flex">
           <NavLink href="/amazes">{t("Amazes.title")}</NavLink>
@@ -51,23 +49,24 @@ export const NavigationBar = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <ButtonGroup className="pr-auto">
+      <ButtonGroup className="lg:flex-1 justify-end">
         <ButtonGroup>
-          <ButtonGroup className="hidden md:flex">
+          <ButtonGroup className="hidden md:block">
             <SearchInput />
+          </ButtonGroup>
+          <ButtonGroup className="block md:hidden">
+            <SearchSheet />
+          </ButtonGroup>
+          <ButtonGroup className="hidden md:flex">
             <LanguageToggle />
             <ModeToggle />
           </ButtonGroup>
           <ButtonGroup className="block md:hidden">
-            <SearchSheet />
             <SettingsSheet />
           </ButtonGroup>
         </ButtonGroup>
-        <div className="hidden">
-          <ButtonGroupSeparator />
-          <LayoutToggle />
-        </div>
       </ButtonGroup>
+      
     </header>
   )
 }

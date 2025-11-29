@@ -15,17 +15,16 @@ export const SearchInput = () => {
         setResultCount(count);
     };
 
-
     return (
         <InputGroup onChange={handleSearch}>
+            <InputGroupAddon>
+                <Search />
+            </InputGroupAddon>
             <InputGroupInput
                 placeholder={t("placeholder")} 
                 value={query}
                 onChange={e => setQuery(e.target.value)}
             />
-            <InputGroupAddon>
-                <Search />
-            </InputGroupAddon>
             {/* <Activity mode={resultCount === null ? "hidden" : "visible"} >
                 <InputGroupAddon align="inline-end" className="hidden lg:flex sm:truncate">{resultCount} results</InputGroupAddon>
             </Activity> */}
