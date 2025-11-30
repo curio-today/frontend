@@ -13,11 +13,10 @@ type ArticlesFeedProps = { start?: number, step: number, searchParam?: string };
 export const ArticlesFeed = ({ step, start = 8, searchParam = "l"}: ArticlesFeedProps) => {
     const locale = useLocale();
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const articleCount = searchParams.get(searchParam);
 
-    const [currentLimit, setLimit] = useState<number>(articleCount === null ? start : Number(articleCount));
-    const { data: articles, } = useSuspenseQuery(queryOptions({
+    const [currentLimit, setLimit] = useState<number>(start);
+    
+    const { data: articles, refetch } = useSuspenseQuery(queryOptions({
         queryKey: ["articles", currentLimit],
         queryFn: () => fetchArticles({
             "locale": locale,
@@ -34,7 +33,7 @@ export const ArticlesFeed = ({ step, start = 8, searchParam = "l"}: ArticlesFeed
                 className="mb-10"
                 onClick={() => {
                     setLimit(prev => prev + step);
-                    router.replace(`/?${searchParam}=${currentLimit}`);
+                    refetch();
                 }}
                 tabIndex={0}
             >
