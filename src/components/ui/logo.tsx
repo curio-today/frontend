@@ -5,14 +5,6 @@ import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 
 export const Logo = ({ width, height }: ComponentPropsWithoutRef<"svg">) => {
     const { theme } = useTheme();
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => setMounted(true), []);
-
-    if (!mounted) {
-        // Render nothing on the server to avoid mismatch
-        return <svg width={width} height={height} />;
-    }
     
     return (
         <svg className={theme === "light" ? "text-black" : "text-white"} width={width} height={height} viewBox="0 0 866 388" fill="none" xmlns="http://www.w3.org/2000/svg">
