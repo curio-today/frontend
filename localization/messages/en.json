@@ -16,16 +16,16 @@
   },
   "Navigation": {
     "placeholder": "Search...",
-    "Amazes": {
+    "amazes": {
       "title": "Amazes"
     },
-    "Informs": {
+    "informs": {
       "title": "Informs"
     },
-    "Amuses": {
+    "amuses": {
       "title": "Amuses"
     },
-    "Inspires": {
+    "inspires": {
       "title": "Inspires"
     }
   },
@@ -67,15 +67,9 @@
     }
   },
   "Messages": {
+    "loadMore": "Click To Load More",
     "loading": "Loading...",
     "readFullArticle": "Read full article:",
     "SearchBarPlaceholder": "Start typing to search"
-  },
-  "Headings": {
-    "amazes": "Amazes",
-    "informs": "Informs",
-    "amuses": "Amuses",
-    "feed": "Feed",
-    "inspires": "Inspires"
   }
 }

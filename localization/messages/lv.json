@@ -16,16 +16,16 @@
   },
   "Navigation": {
     "placeholder": "Meklē...",
-    "Amazes": {
+    "amazes": {
       "title": "Pārsteidz"
     },
-    "Informs": {
+    "informs": {
       "title": "Izglīto"
     },
-    "Amuses": {
+    "amuses": {
       "title": "Izklaidē"
     },
-    "Inspires": {
+    "inspires": {
       "title": "Iedvesmo"
     }
   },
@@ -66,15 +66,9 @@
     }
   },
   "Messages": {
+    "loadMore": "Ielādēt vairāk",
     "loading": "Ielādēšana...",
     "readFullArticle": "Lasīt pilnu rakstu:",
     "SearchBarPlaceholder": "Sāciet rakstīt, lai meklētu"
-  },
-  "Headings": {
-    "amazes": "Pārsteidz",
-    "informs": "Izglīto",
-    "amuses": "Izklaidē",
-    "feed": "Plūsma",
-    "inspires": "Iedvesmo"
   }
 }

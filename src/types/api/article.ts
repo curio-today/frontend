@@ -11,7 +11,10 @@ export type Article = {
     subtitle: string;
     source: string;
     
-    // badge: BadgeProps;
+    badge: {
+        name: string;
+        id: string;
+    };
     cover: MediaAsset<ImageWithFocal>;
     
     // content: SerializedEditorState;

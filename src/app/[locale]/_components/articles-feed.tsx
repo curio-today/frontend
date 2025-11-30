@@ -1,11 +1,16 @@
 "use client"
 
 import { Button } from "@/components/core/button"
-import { ArticlesGrid } from "../../../components/ui/article/articles-grid"
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query"
 import { fetchArticles } from "@/lib/api/fetch-articles"
-import { useLocale } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { useState } from "react"
+import Link from "next/link"
+import { ArticleCard } from "@/components/ui/article/article-card"
+import categoryIdSlugMap from "@/data/category-id-slug-map"
+import { ArticlesGrid } from "@/components/ui/article/articles-grid"
+
+
 
 type ArticlesFeedProps = { 
     step: number, 
@@ -15,6 +20,7 @@ type ArticlesFeedProps = {
 
 export const ArticlesFeed = ({ step, start = 8, category }: ArticlesFeedProps) => {
     const locale = useLocale();
+    const t = useTranslations("Messages");
 
     const [currentLimit, setLimit] = useState<number>(start);
     
@@ -30,7 +36,7 @@ export const ArticlesFeed = ({ step, start = 8, category }: ArticlesFeedProps) =
 
 
     return (
-        <>
+        <section className="gap-10 flex flex-col">
             <ArticlesGrid articles={articles.docs} />
             <Button 
                 variant="outline"
@@ -40,8 +46,8 @@ export const ArticlesFeed = ({ step, start = 8, category }: ArticlesFeedProps) =
                 }}
                 tabIndex={0}
             >
-                Load More
+                {t("loadMore")}
             </Button>
-        </>
+        </section>
     )
 }

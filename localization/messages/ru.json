@@ -16,16 +16,16 @@
   },
   "Navigation": {
     "placeholder": "Начать поиск...",
-    "Amazes": {
+    "amazes": {
       "title": "Удивляет"
     },
-    "Informs": {
+    "informs": {
       "title": "Развивает"
     },
-    "Amuses": {
+    "amuses": {
       "title": "Забавляет"
     },
-    "Inspires": {
+    "inspires": {
       "title": "Вдохновляет"
     }
   },
@@ -65,6 +65,7 @@
     }
   },
   "Messages": {
+    "loadMore": "Загрузить больше",
     "loading": "Загрузка...",
     "readFullArticle": "Прочитать статью полностью:",
     "SearchBarPlaceholder": "Начните вводить текст для поиска"

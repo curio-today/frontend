@@ -41,10 +41,10 @@ export const NavigationBar = () => {
         viewport={isMobile}
       >
         <NavigationMenuList className="flex-wrap hidden md:flex">
-          <NavLink href="/amazes">{t("Amazes.title")}</NavLink>
-          <NavLink href="/informs">{t("Informs.title")}</NavLink>
-          <NavLink href="/amuses">{t("Amuses.title")}</NavLink>
-          <NavLink href="/inspires">{t("Inspires.title")}</NavLink>
+          <NavLink href="/amazes" >{t("amazes.title")}</NavLink>
+          <NavLink href="/informs">{t("informs.title")}</NavLink>
+          <NavLink href="/amuses">{t("amuses.title")}</NavLink>
+          <NavLink href="/inspires">{t("inspires.title")}</NavLink>
         </NavigationMenuList>
       </NavigationMenu>
       <ButtonGroup className="lg:flex-1 justify-end">
@@ -64,7 +64,6 @@ export const NavigationBar = () => {
           </ButtonGroup>
         </ButtonGroup>
       </ButtonGroup>
-      
     </header>
   )
 }
@@ -74,9 +73,7 @@ const NavLink = ({ children, href }: Readonly<PropsWithChildren<{
 }>>) => {
     return (
       <NavigationMenuItem>
-        <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
-            <Link tabIndex={0} href={href}>{children}</Link>
-        </NavigationMenuLink>
+        <NavigationMenuLink className={navigationMenuTriggerStyle()} href={href} tabIndex={0}>{children}</NavigationMenuLink>
       </NavigationMenuItem>
     )
     
