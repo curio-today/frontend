@@ -7,28 +7,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/core/card"
+import { Article } from "@/types/api/article"
 
-import Image, { ImageProps } from "next/image"
+import Image from "next/image"
 
-export type ArticleCardProps = {
-    image: ImageProps,
-    title: string,
-    description: string,
-    slug: string,
-}
+export type ArticleCardProps = Pick<Article, "title" | "cover" | "slug" | "subtitle">
 
-
-export function ArticleCard({ title, description, slug, image }: ArticleCardProps) {
+export function ArticleCard({ title, subtitle, slug, cover }: ArticleCardProps) {
   return (
     <Card className="w-full flex-column h-full" id={slug}>
       <CardHeader className="flex-1">
         <CardTitle className="text-xl line-clamp-3">{title}</CardTitle>
         <CardContent className="relative aspect-[16/9] overflow-hidden rounded-xl">
-            <Image {...image}/>
+            <Image src={cover.url} alt={cover.alt} fill />
         </CardContent>
       </CardHeader>
       <CardFooter className="flex-col gap-2">
-        <CardDescription className="text-ellipsis">{description}</CardDescription>
+        <CardDescription className="text-ellipsis">{subtitle}</CardDescription>
       </CardFooter>
     </Card>
   )
