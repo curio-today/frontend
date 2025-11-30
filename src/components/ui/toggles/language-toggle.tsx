@@ -21,6 +21,7 @@ export function LanguageToggle() {
     const switchTo = (newLocale: Locale) => {
         if (newLocale !== locale) {
           router.push(`/${newLocale}`)
+          router.refresh();
         }
     }
 
