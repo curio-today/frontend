@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/core/button"
-import { ArticlesGrid } from "./articles-grid"
+import { ArticlesGrid } from "../../../components/ui/article/articles-grid"
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query"
 import { fetchArticles } from "@/lib/api/fetch-articles"
 import { useLocale } from "next-intl"
@@ -18,12 +18,12 @@ export const ArticlesFeed = ({ step, start = 8, category }: ArticlesFeedProps) =
 
     const [currentLimit, setLimit] = useState<number>(start);
     
-    const { data: articles, refetch } = useSuspenseQuery(queryOptions({
-        queryKey: ["articles", category, currentLimit],
+    const { data: articles } = useSuspenseQuery(queryOptions({
+        queryKey: ["articles", { locale, category, limit: currentLimit }],
         queryFn: () => fetchArticles({
-            "locale": locale,
-            "limit": currentLimit,
-            ...(category !== undefined && { "where[badge.name][equals]": category })
+            locale,
+            limit: currentLimit,
+            ...(category ? { "where[badge.name][equals]": category } : {})
         }),
         staleTime: 5 * 1000,
     }));
@@ -37,7 +37,6 @@ export const ArticlesFeed = ({ step, start = 8, category }: ArticlesFeedProps) =
                 className="mb-10"
                 onClick={() => {
                     setLimit(prev => prev + step);
-                    refetch();
                 }}
                 tabIndex={0}
             >

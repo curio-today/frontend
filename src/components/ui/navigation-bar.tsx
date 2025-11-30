@@ -1,7 +1,6 @@
 "use client"
 
-import { Fragment, PropsWithChildren } from "react";
-import Link from "next/link"
+import { PropsWithChildren } from "react";
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import {
@@ -14,7 +13,7 @@ import {
 import { ModeToggle } from "./toggles/mode-toggle";
 import { SearchInput } from "./search-input";
 import { Logo } from "./logo";
-import { ButtonGroup, ButtonGroupSeparator } from "../core/button-group";
+import { ButtonGroup } from "../core/button-group";
 import { LanguageToggle } from "./toggles/language-toggle";
 import { LayoutToggle } from "./toggles/layout-toggle";
 
@@ -23,7 +22,7 @@ import { useLayout } from "@/hooks/use-layout";
 
 import { SettingsSheet } from "./sheets/settings-sheet";
 import { SearchSheet } from "./sheets/search-sheet";
-
+import Link from "next/link";
 
 export const NavigationBar = () => {
   const isMobile = useIsMobile()
@@ -48,7 +47,6 @@ export const NavigationBar = () => {
           <NavLink href="/inspires">{t("Inspires.title")}</NavLink>
         </NavigationMenuList>
       </NavigationMenu>
-
       <ButtonGroup className="lg:flex-1 justify-end">
         <ButtonGroup>
           <ButtonGroup className="hidden md:block">

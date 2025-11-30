@@ -20,7 +20,7 @@ export function LanguageToggle() {
 
     const switchTo = (newLocale: Locale) => {
         if (newLocale !== locale) {
-          router.push(`/${newLocale}`, { scroll: false })
+          router.replace(`/${newLocale}`, { scroll: false, })
           router.refresh();
         }
     }
