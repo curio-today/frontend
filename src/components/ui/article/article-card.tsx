@@ -11,7 +11,7 @@ import { Article } from "@/types/api/article"
 
 import Image from "next/image"
 
-export type ArticleCardProps = Pick<Article, "title" | "cover" | "slug" | "subtitle">
+export type ArticleCardProps = Pick<Article, "title" | "cover" | "slug" | "subtitle" | "id">
 
 export function ArticleCard({ title, subtitle, slug, cover }: ArticleCardProps) {
   return (
