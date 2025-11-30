@@ -6,13 +6,11 @@ import { queryOptions, useSuspenseQuery } from "@tanstack/react-query"
 import { fetchArticles } from "@/lib/api/fetch-articles"
 import { useLocale } from "next-intl"
 import { useState } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
 
 type ArticlesFeedProps = { start?: number, step: number, searchParam?: string };
 
 export const ArticlesFeed = ({ step, start = 8, searchParam = "l"}: ArticlesFeedProps) => {
     const locale = useLocale();
-    const router = useRouter();
 
     const [currentLimit, setLimit] = useState<number>(start);
     
