@@ -1,30 +1,32 @@
 "use client"
 
-import { ArticleCard } from "@/components/ui/article/article-card"
-import { fetchArticles } from "@/lib/fetch-articles";
-import { Article } from "@/types/api/article";
-import { PaginatedContent } from "@/types/api/paginated-article";
-import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { Button } from "@/components/core/button"
+import { ArticlesGrid } from "./articles-grid"
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query"
+import { fetchArticles } from "@/lib/api/fetch-articles"
+import { useLocale } from "next-intl"
+import { useState } from "react"
 
+type ArticlesFeedProps = { start?: number, step: number };
 
-function createArticleQueryOptions() {
-    return queryOptions({
-        queryKey: ["articles", "feed"],
-        queryFn: () => fetchArticles(),
+export const ArticlesFeed = ({ step, start = 8}: ArticlesFeedProps) => {
+    const [currentLimit, setLimit] = useState<number>(start);
+    const locale = useLocale();
+    const { data: articles, } = useSuspenseQuery(queryOptions({
+        queryKey: ["articles", currentLimit],
+        queryFn: () => fetchArticles({
+            "locale": locale,
+            "limit": currentLimit,
+        }),
         staleTime: 5 * 1000,
-    })
-}
-
-export const ArticlesFeed = () => {
-    const { data: articles } = useSuspenseQuery(createArticleQueryOptions())
+    }));
 
     return (
-        <section className="mt-20 w-auto grid grid-cols-[repeat(6,auto)] grid-rows-[repeat(4,auto)] gap-[clamp(1rem,1vw,5rem)] flex flex-col">
-            {articles && articles.map(article => (
-                <div key={article.id} className="row w-full col-span-2 row-span-2">
-                    <ArticleCard {...article} />
-                </div>
-            ))}
-        </section>
+        <>
+            <ArticlesGrid articles={articles.docs} />
+            <Button onClick={() => setLimit(prev => prev + step)}>
+                Load More
+            </Button>
+        </>
     )
 }
