@@ -13,7 +13,7 @@ import {
 } from "@/components/core/navigation-menu"
 import { ModeToggle } from "./toggles/mode-toggle";
 import { SearchInput } from "./search-input";
-import { Logo } from "../logo";
+import { Logo } from "./logo";
 import { ButtonGroup, ButtonGroupSeparator } from "../core/button-group";
 import { LanguageToggle } from "./toggles/language-toggle";
 import { LayoutToggle } from "./toggles/layout-toggle";
@@ -77,7 +77,7 @@ const NavLink = ({ children, href }: Readonly<PropsWithChildren<{
     return (
       <NavigationMenuItem>
         <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
-            <Link href={href}>{children}</Link>
+            <Link tabIndex={0} href={href}>{children}</Link>
         </NavigationMenuLink>
       </NavigationMenuItem>
     )

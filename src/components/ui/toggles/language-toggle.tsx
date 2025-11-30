@@ -16,11 +16,11 @@ import { useRouter } from "next/navigation";
 export function LanguageToggle() {
     const locale = useLocale();
     const router = useRouter();
-    const t = useTranslations("Translation")
+    const t = useTranslations("Translation");
 
     const switchTo = (newLocale: Locale) => {
         if (newLocale !== locale) {
-          router.push(`/${newLocale}`)
+          router.push(`/${newLocale}`, { scroll: false })
           router.refresh();
         }
     }
