@@ -5,7 +5,7 @@ import { PropsWithChildren } from "react";
 
 import { LayoutProviderClient } from "./layout-provider-client";
 
-export default async function LayoutProvider({ children }: PropsWithChildren) {
+export async function LayoutProvider({ children }: PropsWithChildren) {
   const isWide = (await cookies()).get("wide")?.value === "true";
 
   return (
@@ -14,3 +14,5 @@ export default async function LayoutProvider({ children }: PropsWithChildren) {
     </LayoutProviderClient>
   );
 }
+
+export default LayoutProvider;
