@@ -1,7 +1,7 @@
 import { Article } from "@/types/api/article";
-import fetchWithCache from "./fetch-with-cache";
+import { fetchWithCache } from "@/lib/fetch-with-cache";
+import { buildUrl } from "@/lib/build-url";
 import { PaginatedContent } from "@/types/api/paginated-article";
-import { buildUrl } from "./build-url";
 
 import { QueryParams } from "next-intl/navigation";
 
