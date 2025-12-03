@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { ArticlesFeed } from "../_components/articles-feed";
 import { getTranslations } from "next-intl/server";
-
-const allowed = ["inspires", "amuses", "informs", "amazes"]
+import { CATEGORY_LIST } from "@/constants/categories";
+import type { Category } from "@/types/category";
 
 type CategoryPageProps = {
     params: Promise<{ category: string }>
@@ -10,17 +10,22 @@ type CategoryPageProps = {
 
 export default async function Category({ params }: CategoryPageProps) {
     const { category } = await params; 
-    if (!allowed.includes(category)) {
+    if (!CATEGORY_LIST.includes(category as Category)) {
         notFound();
     }    
+    
     const t = await getTranslations(`Navigation.${category}`);
-    const translatedTitle = t("title");
+    const translatedCategory = t("title");
 
     return (
-        <ArticlesFeed 
-            step={4}
-            start={8}
-            category={translatedTitle} 
-        /> 
+        <div className="flex justify-start flex-col">
+            <h1 className="font-bold text-sm text-secondary text-center">{translatedCategory}</h1>
+            <ArticlesFeed 
+                category={translatedCategory} 
+                start={8}
+                step={4}
+            /> 
+        </div>
+
     );
 }
