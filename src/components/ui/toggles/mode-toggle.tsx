@@ -28,7 +28,7 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="center">
         <DropdownMenuLabel>{t("description")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         
