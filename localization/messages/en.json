@@ -15,9 +15,15 @@
     "system": "System"
   },
   "Navigation": {
+    "title": "Category",
+    "description": "Select category.",
+    "category": "Selected category",
     "placeholder": "Search...",
     "amazes": {
       "title": "Amazes"
+    },
+    "home": {
+      "title": "Home"
     },
     "informs": {
       "title": "Informs"
