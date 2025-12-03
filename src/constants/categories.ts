@@ -3,7 +3,7 @@ import { Category } from "@/types/category";
 /**
  * Constant to save a categories
  */
-export const CATEGORY_LIST = ["home", "amazes", "informs", "amuses", "inspires"] as const;
+export const CATEGORY_LIST = ["amazes", "informs", "amuses", "inspires"] as const;
 
 /**
  * Because our backend returns a id of category, we have to check it manually to create human-friendly url. Needs to be fix on the backend
@@ -20,5 +20,4 @@ export const CATEGORY_PATHNAME_MAP: Record<string, Category> = {
     "/amuses": "amuses",
     "/inspires": "inspires",
     "/informs": "informs",
-    "/": "home"
 }
