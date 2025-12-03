@@ -1,15 +1,15 @@
 import Link from "next/link";
 
-import { ModeToggle } from "./toggles/mode-toggle";
-import { SearchInput } from "./search-input";
-import { Logo } from "./logo";
-import { ButtonGroup } from "../core/button-group";
-import { LanguageToggle } from "./toggles/language-toggle";
+import { ModeToggle } from "../toggles/mode-toggle";
+import { SearchInput } from "../search-input";
+import { Logo } from "../logo";
+import { ButtonGroup } from "../../core/button-group";
+import { LanguageToggle } from "../toggles/language-toggle";
 
-import { SettingsSheet } from "./sheets/settings-sheet";
-import { SearchSheet } from "./sheets/search-sheet";
-import { CategorySheet } from "./sheets/category-sheet";
-import { NavigationCategoryMenu } from "./navigation-category-menu";
+import { SettingsSheet } from "../sheets/settings-sheet";
+import { SearchSheet } from "../sheets/search-sheet";
+import { CategorySheet } from "../sheets/category-sheet";
+import { NavigationCategoryMenu } from "../navigation-category-menu";
 
 export const NavigationBar = () => {
   return (

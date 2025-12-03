@@ -10,7 +10,7 @@ import {
 } from "@/components/core/sheet"
 import { Button } from "../../core/button"
 import { Lightbulb, Menu } from "lucide-react"
-import { NavigationCategoryMenu } from "@/components/ui/navigation-category-menu"
+import { NavigationCategoryMenu } from "@/components/ui/navigation/navigation-category-menu"
 import { useTranslations } from "next-intl"
 import { Separator } from "@/components/core/separator"
 
