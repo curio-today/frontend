@@ -7,7 +7,7 @@ import { PropsWithChildren } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 
-import { NavigationBar } from "@/components/ui/navigation-bar"
+import { NavigationBar } from "@/components/ui/navigation/navigation-bar"
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Footer } from "@/components/ui/footer";
 import LayoutProvider from "@/providers/layout-provider";
@@ -43,6 +43,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                             <main className="container mx-auto flex flex-col items-center justify-center min-h-screen">
                                 {children}
                             </main>
+                            <Footer />
                         </ThemeProvider>
                     </NextIntlClientProvider>
                 </QueryProvider>
