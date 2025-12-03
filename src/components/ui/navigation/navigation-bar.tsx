@@ -9,7 +9,7 @@ import { LanguageToggle } from "../toggles/language-toggle";
 import { SettingsSheet } from "../sheets/settings-sheet";
 import { SearchSheet } from "../sheets/search-sheet";
 import { CategorySheet } from "../sheets/category-sheet";
-import { NavigationCategoryMenu } from "../navigation-category-menu";
+import { NavigationCategoryMenu } from "./navigation-category-menu";
 
 export const NavigationBar = () => {
   return (
