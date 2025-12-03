@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/core/button"
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query"
-import { fetchArticles } from "@/lib/api/fetch-articles"
 import { useLocale, useTranslations } from "next-intl"
 import { useState } from "react"
 import { ArticlesGrid } from "@/components/ui/article/articles-grid"
+import { fetchArticles } from "@/data/article/fetch-articles"
 
 
 
