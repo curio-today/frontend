@@ -5,9 +5,6 @@ import { queryOptions, useSuspenseQuery } from "@tanstack/react-query"
 import { fetchArticles } from "@/lib/api/fetch-articles"
 import { useLocale, useTranslations } from "next-intl"
 import { useState } from "react"
-import Link from "next/link"
-import { ArticleCard } from "@/components/ui/article/article-card"
-import categoryIdSlugMap from "@/data/category-id-slug-map"
 import { ArticlesGrid } from "@/components/ui/article/articles-grid"
 
 
