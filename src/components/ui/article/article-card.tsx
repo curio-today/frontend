@@ -1,16 +1,15 @@
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/core/card"
+import { Skeleton } from "@/components/core/skeleton"
 import { Article } from "@/types/api/article"
 
 import Image from "next/image"
-import Link from "next/link"
 
 export type ArticleCardProps = Pick<Article, "title" | "cover" | "slug" | "subtitle" | "id" | "badge" >
 
@@ -19,7 +18,7 @@ export function ArticleCard({ title, subtitle, slug, cover }: ArticleCardProps) 
       <Card className="w-full flex-column h-full" id={slug}>
         <CardHeader className="flex-1">
           <CardTitle className="text-xl line-clamp-3">{title}</CardTitle>
-          <CardContent className="relative aspect-[16/9] overflow-hidden rounded-xl">
+          <CardContent className="relative aspect-video overflow-hidden rounded-xl">
               <Image src={cover.url} alt={cover.alt} fill />
           </CardContent>
         </CardHeader>
@@ -27,5 +26,12 @@ export function ArticleCard({ title, subtitle, slug, cover }: ArticleCardProps) 
           <CardDescription className="text-ellipsis">{subtitle}</CardDescription>
         </CardFooter>
       </Card>
+  )
+}
+
+
+export function ArticleCardSkeleton() {
+  return (
+    <Skeleton className="w-full flex-column h-100" />
   )
 }
