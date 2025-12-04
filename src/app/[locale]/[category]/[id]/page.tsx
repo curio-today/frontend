@@ -40,8 +40,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
             </div>
             <Separator />
             <ArticleCover cover={cover} source={source}/>
-            <section>
-            </section>
         </section>
     )
 }
