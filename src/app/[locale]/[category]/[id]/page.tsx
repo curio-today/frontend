@@ -1,14 +1,30 @@
 import { fetchArticle } from "@/data/article/fetch-article";
 import { Separator } from "@/components/core/separator";
 import { getLocale } from "next-intl/server";
-import Image from "next/image";
 import { ImageWithFocal } from "@/components/ui/image-with-focal";
-import { RenderText } from "./_components/render-text";
+import { Badge } from "@/components/core/badge";
+import { BadgeInfoIcon } from "lucide-react";
+import Link from "next/link";
+import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
+import type { Article } from "@/types/api/article";
 
-export default async function Article({ params }: { params: Promise<{ id: string}> }) {
+const CategoryBadge = ({ badge }: { badge: Article["badge"] }) => (
+    <Link href={`/${CATEGORY_ID_SLUG_MAP[badge.id]}`}>
+        <Badge 
+            className="bg-blue-400"
+            variant="secondary"
+        >
+            <BadgeInfoIcon />
+            {badge.name}
+        </Badge>
+    </Link>
+)
+
+
+export default async function ArticlePage({ params }: { params: Promise<{ id: string}> }) {
     const locale = await getLocale();
     const { id } = await params;
-    const { title, subtitle, cover, createdAt, source } = await fetchArticle(id, {
+    const { title, subtitle, cover, createdAt, source, badge } = await fetchArticle(id, {
         locale,
         limit: 1
     });
@@ -24,7 +40,7 @@ export default async function Article({ params }: { params: Promise<{ id: string
         <section className="article flex flex-col gap-12">
             <div className="metadata flex flex-row gap-4 align-middle justify-start text-center">
                 <time className="font-thin text-sm align-middle text-center">{formateDate(createdAt)}</time>
-                
+                <CategoryBadge badge={badge} />
             </div>
             <div className="container flex flex-col gap-4">
                 <h1 className="title font-bold text-6xl ">{title}</h1>
