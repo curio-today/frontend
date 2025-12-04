@@ -20,6 +20,26 @@ const CategoryBadge = ({ badge }: { badge: Article["badge"] }) => (
     </Link>
 )
 
+const ArticleCover = ({ cover, source }: { cover: Article["cover"], source: Article["source"] }) => {
+    return (
+        <section className="hero flex flex-col justify-center gap-2">
+            <figure className="relative w-full h-200">
+                <ImageWithFocal
+                    className="rounded-md" 
+                    src={cover.url} 
+                    alt={cover.alt} 
+                    focalX={cover.focalX}
+                    focalY={cover.focalY} 
+                    fill
+                />
+            </figure>
+            <figcaption>
+                <p className="text-secondary text-center">{source}</p>
+            </figcaption>
+        </section>
+    )
+}
+
 
 export default async function ArticlePage({ params }: { params: Promise<{ id: string}> }) {
     const locale = await getLocale();
@@ -47,23 +67,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
                 <h3 className="description text-xl text-blue-400">{subtitle}</h3>
             </div>
             <Separator />
-            <section className="hero flex flex-col justify-center gap-2">
-                <figure className="relative w-full h-200">
-                    <ImageWithFocal 
-                        src={cover.url} 
-                        alt={cover.alt} 
-                        focalX={cover.focalX}
-                        focalY={cover.focalY} 
-                        fill
-                    />
-                </figure>
-                <figcaption>
-                    <p className="text-secondary text-center">{source}</p>
-                </figcaption>
-            </section>
+            <ArticleCover cover={cover} source={source}/>
             <section>
             </section>
         </section>
-
     )
 }
