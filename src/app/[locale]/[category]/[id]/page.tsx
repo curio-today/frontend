@@ -5,6 +5,8 @@ import { ArticleCover } from "./_components/article-cover";
 import { CategoryBadge } from "./_components/category-badge";
 import { Lead } from "./_components/lead";
 import { Headline } from "./_components/headline";
+import { ContentRenderer } from "@/components/content/content-renderer";
+import { Paragraph } from "@/components/typography/paragraph";
 
 
 
@@ -12,7 +14,7 @@ import { Headline } from "./_components/headline";
 export default async function ArticlePage({ params }: { params: Promise<{ id: string}> }) {
     const locale = await getLocale();
     const { id } = await params;
-    const { title, subtitle, cover, createdAt, source, badge } = await fetchArticle(id, {
+    const { title, subtitle, cover, createdAt, source, badge, content } = await fetchArticle(id, {
         locale,
         limit: 1
     });
@@ -40,6 +42,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
             </div>
             <Separator />
             <ArticleCover cover={cover} source={source}/>
+            <ContentRenderer 
+                content={content.root}
+                components={{
+                    p: Paragraph,
+                    strong: ({ children }) => <strong className="font-bold text-gray-900">{children}</strong>
+                }}
+            
+            />
         </section>
     )
 }
