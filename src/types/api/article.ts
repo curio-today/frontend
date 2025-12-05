@@ -1,5 +1,6 @@
 import { MediaAsset } from "./media-asset";
 import { ImageWithFocal } from "../image";
+import { RootContent } from "@/components/content/content-renderer";
 
 export type Article = {
     id: string;
@@ -17,6 +18,8 @@ export type Article = {
     };
     cover: MediaAsset<ImageWithFocal>;
     
-    // content: SerializedEditorState;
+    content: {
+        root: RootContent
+    };
     _status: "published" | "draft";
 }
