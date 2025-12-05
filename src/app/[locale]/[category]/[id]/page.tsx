@@ -7,6 +7,8 @@ import { Lead } from "./_components/lead";
 import { Headline } from "./_components/headline";
 import { ContentRenderer } from "@/components/content/content-renderer";
 import { Paragraph } from "@/components/typography/paragraph";
+import { ParagraphItalic } from "@/components/typography/paragraph-italic";
+import { Time } from "@/components/ui/time";
 
 
 
@@ -19,17 +21,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
         limit: 1
     });
 
-    function formateDate(iso: string): string {
-        return new Intl.DateTimeFormat(locale, {
-            dateStyle: "full",
-            timeStyle: "short"
-        }).format(new Date(iso)).toUpperCase()
-    }
+
 
     return (
-        <section className="article flex flex-col gap-12">
+    <section className="article flex flex-col gap-8 overflow-hidden">
             <div className="metadata flex flex-row gap-4 align-middle justify-start text-center">
-                <time className="font-thin text-sm align-middle text-center">{formateDate(createdAt)}</time>
+                <Time 
+                    className="font-thin text-xs md:text-base align-middle text-center" 
+                    iso={createdAt}
+                    locale={locale}
+                />
                 <CategoryBadge badge={badge} />
             </div>
             <div className="container flex flex-col gap-4">
@@ -42,14 +43,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
             </div>
             <Separator />
             <ArticleCover cover={cover} source={source}/>
-            <ContentRenderer 
-                content={content.root}
-                components={{
-                    p: Paragraph,
-                    strong: ({ children }) => <strong className="font-bold text-gray-900">{children}</strong>
-                }}
-            
-            />
+            <article className="prose prose-base md:prose-lg max-w-none [&>p:first-of-type]:text-xl [&>p:first-of-type]:md:text-2xl [&>p:first-of-type]:lg:text-3xl">
+                <ContentRenderer 
+                    content={content.root}
+                    components={{
+                        p: Paragraph,
+                        em: ParagraphItalic
+                    }}
+                />
+            </article>
         </section>
     )
 }

@@ -4,7 +4,7 @@ import type { Article } from "@/types/api/article";
 export const ArticleCover = ({ cover, source }: { cover: Article["cover"], source: Article["source"] }) => {
     return (
         <section className="hero flex flex-col justify-center gap-2">
-            <figure className="relative w-full h-200">
+            <figure className="relative w-full h-50 md:h-100 lg:h-200">
                 <ImageWithFocal
                     className="rounded-md" 
                     src={cover.url} 
