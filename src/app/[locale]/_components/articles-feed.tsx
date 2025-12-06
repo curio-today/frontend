@@ -6,7 +6,6 @@ import { useLocale, useTranslations } from "next-intl"
 import { useState } from "react"
 import { ArticlesGrid, ArticlesGridSkeleton } from "@/components/ui/article/articles-grid"
 import { getArticles } from "@/data/article/get-articles"
-import { Skeleton } from "@/components/core/skeleton"
 
 type ArticlesFeedProps = { 
     step: number, 
