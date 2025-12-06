@@ -44,25 +44,30 @@
     },
 
     "feed": {
-      "name": "Feed",
+      "title": "Feed",
       "description": "Explore Curio.today's feed — stories that inspire, amaze, inform, and even expose abuses. A curated stream to spark thought and curiosity.",
       "keywords": "Curio.today feed, inspire stories, amazing discoveries, informative articles, exposing abuses, daily inspiration articles, stories that amaze and engage, news that informs the mind, uncovering truths and abuses, thought-provoking content, explore science culture and tech, stories to spark curiosity, curated content platform"    
     },
     
     "amazes": {
-      "name": "Amazes"
+      "title": "Amazes",
+      "description": "Content that astounds, surprises, or leaves viewers in awe through extraordinary facts, phenomena, or revelations",
+      "keywords": "astonishing, surprising, mind-blowing, incredible, astounding, extraordinary"
     },
-
     "informs": {
-      "name": "Informs"
+      "title": "Informs",
+      "description": "Content that educates, explains, or provides valuable knowledge and information to the audience",
+      "keywords": "educational, informative, explains, teaches, knowledge, factual, insightful"
     },
-    
     "inspires": {
-      "name": "Inspires"
+      "title": "Inspires",
+      "description": "Content that motivates, uplifts, or encourages viewers to take action or think differently",
+      "keywords": "motivational, uplifting, encouraging, empowering, aspirational, moving"
     },
-
     "amuses": {
-      "name": "Amuses"
+      "title": "Amuses",
+      "description": "Content that entertains, delights, or brings joy and laughter to the audience",
+      "keywords": "entertaining, funny, humorous, delightful, playful, lighthearted, comedic"
     }
   },
   "Messages": {

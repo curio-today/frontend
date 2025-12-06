@@ -43,21 +43,29 @@
       "images": ["./meta/lv/og-image.png"]
     },
     "feed": {
-      "name": "Plūsma",
+      "title": "Plūsma",
       "description": "Izpētiet Curio.today plūsmu — stāsti, kas iedvesmo, pārsteidz, informē un pat atklāj ļaunprātīgu rīcību. Rūpīgi izvēlēts saturs, lai rosinātu domas un zinātkāri.",
       "keywords": "Curio.today plūsma, iedvesmojoši stāsti, pārsteidzoši atklājumi, informatīvi raksti, ļaunprātīgas rīcības atklāšana, ikdienas iedvesma, aizraujoši stāsti, ziņas prātam, patiesības atklāšana, pārdomām rosinošs saturs, zinātne kultūra un tehnoloģijas, stāsti zinātkārei, kuratora platforma"    
     },
-    "amazes": {
-      "name": "Pārsteidz"
+      "amazes": {
+    "title": "Pārsteidz",
+    "description": "Saturs, kas pārsteidz, apbrīno vai atstāj skatītājus sajūsmā ar neparastiem faktiem, parādībām vai atklājumiem",
+    "keywords": "pārsteidzošs, apbrīnojams, prātu kutinošs, neticams, iespaidīgs, ārkārtējs"
     },
     "informs": {
-      "name": "Izglīto"
+      "title": "Izglīto",
+      "description": "Saturs, kas izglīto, izskaidro vai sniedz vērtīgas zināšanas un informāciju auditorijai",
+      "keywords": "izglītojošs, informatīvs, izskaidrojošs, mācošs, zināšanas, faktu balstīts, izziņas"
     },
     "inspires": {
-      "name": "Iedvesmo"
+      "title": "Iedvesmo",
+      "description": "Saturs, kas motivē, uzmundrina vai mudina skatītājus rīkoties vai domāt citādāk",
+      "keywords": "motivējošs, uzmundrinošs, iedrošinošs, iedvesmojošs, spēcinošs, aizkustinošs"
     },
     "amuses": {
-      "name": "Izklaidē"
+      "title": "Izklaidē",
+      "description": "Saturs, kas izklaidē, iepriecina vai sagādā prieku un smieklus auditorijai",
+      "keywords": "izklaidējošs, jautrs, humoristisks, patīkams, rotaļīgs, viegls, komisks"
     }
   },
   "Messages": {
