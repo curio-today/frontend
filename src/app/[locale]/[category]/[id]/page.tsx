@@ -1,4 +1,4 @@
-import { fetchArticle } from "@/data/article/fetch-article";
+import { getArticle } from "@/data/article/get-article";
 import { Separator } from "@/components/core/separator";
 import { getLocale } from "next-intl/server";
 import { ArticleCover } from "./_components/article-cover";
@@ -16,7 +16,7 @@ import { Time } from "@/components/ui/time";
 export default async function ArticlePage({ params }: { params: Promise<{ id: string}> }) {
     const locale = await getLocale();
     const { id } = await params;
-    const { title, subtitle, cover, createdAt, source, badge, content } = await fetchArticle(id, {
+    const { title, subtitle, cover, createdAt, source, badge, content } = await getArticle(id, {
         locale,
         limit: 1
     });

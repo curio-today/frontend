@@ -5,7 +5,7 @@ import { queryOptions, useSuspenseQuery } from "@tanstack/react-query"
 import { useLocale, useTranslations } from "next-intl"
 import { useState } from "react"
 import { ArticlesGrid, ArticlesGridSkeleton } from "@/components/ui/article/articles-grid"
-import { fetchArticles } from "@/data/article/fetch-articles"
+import { getArticles } from "@/data/article/get-articles"
 import { Skeleton } from "@/components/core/skeleton"
 
 type ArticlesFeedProps = { 
@@ -22,7 +22,7 @@ export const ArticlesFeed = ({ step, start = 8, category }: ArticlesFeedProps) =
     
     const { data: articles } = useSuspenseQuery(queryOptions({
         queryKey: ["articles", { locale, category, limit: currentLimit }],
-        queryFn: () => fetchArticles({
+        queryFn: () => getArticles({
             locale,
             limit: currentLimit,
             ...(category ? { "where[badge.name][equals]": category } : {})

@@ -5,7 +5,7 @@ import { PaginatedContent } from "@/types/api/paginated-article";
 
 import { QueryParams } from "next-intl/navigation";
 
-export async function fetchArticles(query: QueryParams): Promise<PaginatedContent<Article>> {
+export async function getArticles(query: QueryParams): Promise<PaginatedContent<Article>> {
     const url =  buildUrl("/posts", query)
 
     try {

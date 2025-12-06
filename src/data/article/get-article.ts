@@ -4,7 +4,7 @@ import { buildUrl } from "@/lib/build-url";
 
 import { QueryParams } from "next-intl/navigation";
 
-export async function fetchArticle(id: string, query?: QueryParams): Promise<Article> {
+export async function getArticle(id: string, query?: QueryParams): Promise<Article> {
     const url =  buildUrl(`/posts/${id}`, query)
 
     try {
