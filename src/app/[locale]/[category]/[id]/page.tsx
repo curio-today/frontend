@@ -9,14 +9,41 @@ import { ContentRenderer } from "@/components/content/content-renderer";
 import { Paragraph } from "@/components/typography/paragraph";
 import { ParagraphItalic } from "@/components/typography/paragraph-italic";
 import { Time } from "@/components/ui/time";
+import { cache } from "react";
+import { Metadata } from "next";
+import { getMetadata } from "@/data/metadata/get-metadata";
+
+const cachedGetArticle = cache(getArticle);
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const { id } = await params;
+
+    const locale = await getLocale();
+    const { title, subtitle, cover } = await cachedGetArticle(id, {
+        locale,
+        limit: 1,
+    })
 
 
+    return {
+        title,
+        description: subtitle,
+        keywords: subtitle,
+        openGraph: {
+            title,
+            description: subtitle,
+            images: [
+                cover.url
+            ]
+        }
+    }
+}
 
 
-export default async function ArticlePage({ params }: { params: Promise<{ id: string}> }) {
+export default async function ArticlePage({ params }: { params: Promise<{ id: string }> }) {
     const locale = await getLocale();
     const { id } = await params;
-    const { title, subtitle, cover, createdAt, source, badge, content } = await getArticle(id, {
+    const { title, subtitle, cover, createdAt, source, badge, content } = await cachedGetArticle(id, {
         locale,
         limit: 1
     });

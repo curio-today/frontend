@@ -3,6 +3,16 @@ import { ArticlesFeed } from "../_components/articles-feed";
 import { getTranslations } from "next-intl/server";
 import { CATEGORY_LIST } from "@/constants/categories";
 import type { Category } from "@/types/category";
+import { getMetadata } from "@/data/metadata/get-metadata";
+import { Metadata } from "next";
+
+
+export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+    const { category } = await params;
+
+    return getMetadata(category);
+}
+
 
 type CategoryPageProps = {
     params: Promise<{ category: string }>
@@ -10,6 +20,7 @@ type CategoryPageProps = {
 
 export default async function Category({ params }: CategoryPageProps) {
     const { category } = await params; 
+    
     if (!CATEGORY_LIST.includes(category as Category)) {
         notFound();
     }    
