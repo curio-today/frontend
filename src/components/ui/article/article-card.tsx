@@ -32,6 +32,11 @@ export function ArticleCard({ title, subtitle, slug, cover }: ArticleCardProps) 
 
 export function ArticleCardSkeleton() {
   return (
-    <Skeleton className="w-full flex-column h-100" />
+    <Skeleton className="w-full flex-column h-full">
+      <Skeleton className="flex-1">
+          <Skeleton className="text-xl line-clamp-3 w-100" />
+          <Skeleton className="relative aspect-video overflow-hidden rounded-xl" />
+      </Skeleton>
+    </Skeleton>
   )
 }

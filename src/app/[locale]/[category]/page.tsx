@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { ArticlesFeed } from "../_components/articles-feed";
+import { ArticlesFeedWithSuspense } from "../_components/articles-feed";
 import { getTranslations } from "next-intl/server";
 import { CATEGORY_LIST } from "@/constants/categories";
 import type { Category } from "@/types/category";
@@ -31,12 +31,11 @@ export default async function Category({ params }: CategoryPageProps) {
     return (
         <div className="flex justify-start flex-col">
             <h1 className="font-bold text-sm text-secondary text-center">{translatedCategory}</h1>
-            <ArticlesFeed 
+            <ArticlesFeedWithSuspense 
                 category={translatedCategory} 
                 start={8}
                 step={4}
             /> 
         </div>
-
     );
 }

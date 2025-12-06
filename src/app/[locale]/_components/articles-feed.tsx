@@ -3,7 +3,7 @@
 import { Button } from "@/components/core/button"
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query"
 import { useLocale, useTranslations } from "next-intl"
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import { ArticlesGrid, ArticlesGridSkeleton } from "@/components/ui/article/articles-grid"
 import { getArticles } from "@/data/article/get-articles"
 
@@ -51,4 +51,10 @@ export const ArticlesFeedSkeleton = () => (
     <section className="flex flex-col gap">
         <ArticlesGridSkeleton cardCount={6}/>
     </section>
+)
+
+export const ArticlesFeedWithSuspense = (props: ArticlesFeedProps) => (
+    <Suspense fallback={<ArticlesFeedSkeleton />}>
+        <ArticlesFeed {...props} />
+    </Suspense>
 )
