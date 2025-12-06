@@ -1,27 +1,32 @@
 {
   "Settings": {
-    "title": "Settings",
-    "description": "Customize your app experience by adjusting language and theme settings.",
-    "language": "Select language",
-    "mode": "Select mode"
+    "title": "Iestatījumi",
+    "description": "Pielāgojiet savu lietotnes pieredzi, mainot valodu un tēmas iestatījumus.",
+    "language": "Izvēlieties valodu",
+    "mode": "Izvēlieties režīmu"
   },
   "Translation": {
-    "description": "Izvēlē valodu"
+    "description": "Izvēlieties valodu"
   },
   "Mode": {
-    "description": "Select mode",
+    "description": "Izvēlieties režīmu",
     "dark": "Tumšs",
-    "light": "Gaiša",
-    "system": "Pēc sistēmas"
+    "light": "Gaišs",
+    "system": "Sistēmas"
   },
   "Navigation": {
-    "title": "Navigācija",
-    "placeholder": "Meklē...",
+    "title": "Kategorija",
+    "description": "Izvēlieties kategoriju.",
+    "category": "Izvēlētā kategorija",
+    "placeholder": "Meklēt...",
     "amazes": {
       "title": "Pārsteidz"
     },
+    "home": {
+      "title": "Sākums"
+    },
     "informs": {
-      "title": "Izglīto"
+      "title": "Informē"
     },
     "amuses": {
       "title": "Izklaidē"
@@ -31,44 +36,33 @@
     }
   },
   "Metadata": {
-    "description": "Smart curiousity",
-    "keywords": "curiosity, learning, education, knowledge, explore, discover, curio, today, curio.today",
+    "description": "Viedā zinātkāre",
+    "keywords": "zinātkāre, mācīšanās, izglītība, zināšanas, izpēte, atklājumi, curio, šodien, curio.today",
     "openGraph": {
-      "description": "Smart curiousity",
-      "images": ["./meta/en/og-image.png"]
+      "description": "Viedā zinātkāre",
+      "images": ["./meta/lv/og-image.png"]
     },
-
-    "pages": {
-      "feed": {
-        "name": "Plūsma",
-        "description": "Explore Curio.today's feed — stories that inspire, amaze, inform, and even expose abuses. A curated stream to spark thought and curiosity.",
-        "keywords": "Curio.today feed, inspire stories, amazing discoveries, informative articles, exposing abuses, daily inspiration articles, stories that amaze and engage, news that informs the mind, uncovering truths and abuses, thought-provoking content, explore science culture and tech, stories to spark curiosity, curated content platform"    
-      },
-
-      "amazes": {
-        "name": "Удивляет"
-      },
-
-      "informs": {
-        "name": ""
-      },
-      
-      "inspires": {
-        "name": ""
-      },
-
-      "amuses": {
-        "name": ""
-      },
-
-      "search": {
-        "name": "Meklēšana"
-      }
+    "feed": {
+      "name": "Plūsma",
+      "description": "Izpētiet Curio.today plūsmu — stāsti, kas iedvesmo, pārsteidz, informē un pat atklāj ļaunprātīgu rīcību. Rūpīgi izvēlēts saturs, lai rosinātu domas un zinātkāri.",
+      "keywords": "Curio.today plūsma, iedvesmojoši stāsti, pārsteidzoši atklājumi, informatīvi raksti, ļaunprātīgas rīcības atklāšana, ikdienas iedvesma, aizraujoši stāsti, ziņas prātam, patiesības atklāšana, pārdomām rosinošs saturs, zinātne kultūra un tehnoloģijas, stāsti zinātkārei, kuratora platforma"    
+    },
+    "amazes": {
+      "name": "Pārsteidz"
+    },
+    "informs": {
+      "name": "Izglīto"
+    },
+    "inspires": {
+      "name": "Iedvesmo"
+    },
+    "amuses": {
+      "name": "Izklaidē"
     }
   },
   "Messages": {
-    "loadMore": "Ielādēt vairāk",
-    "loading": "Ielādēšana...",
+    "loadMore": "Noklikšķiniet, lai ielādētu vairāk",
+    "loading": "Ielādē...",
     "readFullArticle": "Lasīt pilnu rakstu:",
     "SearchBarPlaceholder": "Sāciet rakstīt, lai meklētu"
   }

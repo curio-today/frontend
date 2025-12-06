@@ -1,23 +1,29 @@
 {
   "Settings": {
-    "title": "Settings",
-    "description": "Customize your app experience by adjusting language and theme settings.",
-    "language": "Select language",
-    "mode": "Select mode"
+    "title": "Настройки",
+    "description": "Настройте свой опыт работы с приложением, изменив язык и тему.",
+    "language": "Выберите язык",
+    "mode": "Выберите режим"
   },
   "Translation": {
     "description": "Выберите язык"
   },
   "Mode": {
-    "description": "Выберите тему",
-    "dark": "Темный",
+    "description": "Выберите режим",
+    "dark": "Тёмный",
     "light": "Светлый",
-    "system": "Система"
+    "system": "Системный"
   },
   "Navigation": {
-    "placeholder": "Начать поиск...",
+    "title": "Категория",
+    "description": "Выберите категорию.",
+    "category": "Выбранная категория",
+    "placeholder": "Поиск...",
     "amazes": {
       "title": "Удивляет"
+    },
+    "home": {
+      "title": "Главная"
     },
     "informs": {
       "title": "Развивает"
@@ -30,51 +36,34 @@
     }
   },
   "Metadata": {
-    "description": "Smart curiousity",
-    "keywords": "curiosity, learning, education, knowledge, explore, discover, curio, today, curio.today",
+    "description": "Умное любопытство",
+    "keywords": "любопытство, обучение, образование, знания, исследование, открытие, curio, сегодня, curio.today",
     "openGraph": {
-      "description": "Smart curiousity",
-      "images": ["./meta/en/og-image.png"]
+      "description": "Умное любопытство",
+      "images": ["./meta/ru/og-image.png"]
     },
-    "pages": {
-      "feed": {
-        "name": "Главная",
-        "description": "Explore Curio.today's feed — stories that inspire, amaze, inform, and even expose abuses. A curated stream to spark thought and curiosity.",
-        "keywords": "Curio.today feed, inspire stories, amazing discoveries, informative articles, exposing abuses, daily inspiration articles, stories that amaze and engage, news that informs the mind, uncovering truths and abuses, thought-provoking content, explore science culture and tech, stories to spark curiosity, curated content platform"    
-      },
-      
-      "amazes": {
-        "name": "Удивляет"
-      },
-
-      "informs": {
-        "name": "Развивает"
-      },
-      
-      "inspires": {
-        "name": "Вдохновляет"
-      },
-
-      "amuses": {
-        "name": "Забавляет"
-      },
-
-      "search": {
-        "name": "Поиск"
-      }
+    "feed": {
+      "name": "Лента",
+      "description": "Изучайте ленту Curio.today — истории, которые вдохновляют, удивляют, информируют и даже разоблачают злоупотребления. Тщательно отобранный поток контента для пробуждения мысли и любопытства.",
+      "keywords": "лента Curio.today, вдохновляющие истории, удивительные открытия, информативные статьи, разоблачение злоупотреблений, ежедневное вдохновение, захватывающие истории, новости для ума, раскрытие правды, заставляющий задуматься контент, наука культура и технологии, истории для любопытства, кураторская платформа"    
+    },
+    "amazes": {
+      "name": "Удивляет"
+    },
+    "informs": {
+      "name": "Информирует"
+    },
+    "inspires": {
+      "name": "Вдохновляет"
+    },
+    "amuses": {
+      "name": "Развлекает"
     }
   },
   "Messages": {
-    "loadMore": "Загрузить больше",
+    "loadMore": "Нажмите, чтобы загрузить ещё",
     "loading": "Загрузка...",
-    "readFullArticle": "Прочитать статью полностью:",
-    "SearchBarPlaceholder": "Начните вводить текст для поиска"
-  },
-  "Headings": {
-    "amazes": "Удивляет",
-    "informs": "Развивает",
-    "amuses": "Забавляет",
-    "feed": "Лента",
-    "inspires": "Вдохновляет"
+    "readFullArticle": "Читать полную статью:",
+    "SearchBarPlaceholder": "Начните вводить для поиска"
   }
 }
