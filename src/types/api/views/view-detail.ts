@@ -1,1 +1,0 @@
-export type ViewDetail = (id: string) => string;

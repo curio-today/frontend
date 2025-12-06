@@ -1,4 +1,40 @@
 {
+  "Settings": {
+    "title": "Settings",
+    "description": "Customize your app experience by adjusting language and theme settings.",
+    "language": "Select language",
+    "mode": "Select mode"
+  },
+  "Translation": {
+    "description": "Select language"
+  },
+  "Mode": {
+    "description": "Select mode",
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+  },
+  "Navigation": {
+    "title": "Category",
+    "description": "Select category.",
+    "category": "Selected category",
+    "placeholder": "Search...",
+    "amazes": {
+      "title": "Amazes"
+    },
+    "home": {
+      "title": "Home"
+    },
+    "informs": {
+      "title": "Informs"
+    },
+    "amuses": {
+      "title": "Amuses"
+    },
+    "inspires": {
+      "title": "Inspires"
+    }
+  },
   "Metadata": {
     "description": "Smart curiousity",
     "keywords": "curiosity, learning, education, knowledge, explore, discover, curio, today, curio.today",
@@ -7,23 +43,38 @@
       "images": ["./meta/en/og-image.png"]
     },
 
-    "pages": {
-      "Feed": {
-        "name": "Feed",
-        "description": "Explore Curio.today's feed — stories that inspire, amaze, inform, and even expose abuses. A curated stream to spark thought and curiosity.",
-        "keywords": "Curio.today feed, inspire stories, amazing discoveries, informative articles, exposing abuses, daily inspiration articles, stories that amaze and engage, news that informs the mind, uncovering truths and abuses, thought-provoking content, explore science culture and tech, stories to spark curiosity, curated content platform"    
-      }
+    "feed": {
+      "title": "Feed",
+      "description": "Explore Curio.today's feed — stories that inspire, amaze, inform, and even expose abuses. A curated stream to spark thought and curiosity.",
+      "keywords": "Curio.today feed, inspire stories, amazing discoveries, informative articles, exposing abuses, daily inspiration articles, stories that amaze and engage, news that informs the mind, uncovering truths and abuses, thought-provoking content, explore science culture and tech, stories to spark curiosity, curated content platform"    
+    },
+    
+    "amazes": {
+      "title": "Amazes",
+      "description": "Content that astounds, surprises, or leaves viewers in awe through extraordinary facts, phenomena, or revelations",
+      "keywords": "astonishing, surprising, mind-blowing, incredible, astounding, extraordinary"
+    },
+    "informs": {
+      "title": "Informs",
+      "description": "Content that educates, explains, or provides valuable knowledge and information to the audience",
+      "keywords": "educational, informative, explains, teaches, knowledge, factual, insightful"
+    },
+    "inspires": {
+      "title": "Inspires",
+      "description": "Content that motivates, uplifts, or encourages viewers to take action or think differently",
+      "keywords": "motivational, uplifting, encouraging, empowering, aspirational, moving"
+    },
+    "amuses": {
+      "title": "Amuses",
+      "description": "Content that entertains, delights, or brings joy and laughter to the audience",
+      "keywords": "entertaining, funny, humorous, delightful, playful, lighthearted, comedic"
     }
   },
   "Messages": {
+    "loadMore": "Click To Load More",
     "loading": "Loading...",
-    "readFullArticle": "Read full article:"
-  },
-  "Headings": {
-    "amazes": "Amazes",
-    "informs": "Informs",
-    "amuses": "Amuses",
-    "feed": "Feed",
-    "inspires": "Inspires"
+    "readFullArticle": "Read full article:",
+    "searchBarPlaceholder": "Start typing to search",
+    "memo": "Smart Curiosity"
   }
 }
