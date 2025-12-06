@@ -12,6 +12,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import { Footer } from "@/components/ui/footer";
 import LayoutProvider from "@/providers/layout-provider";
 import { QueryProvider } from "@/providers/query-provider";
+import { Toaster } from "@/components/core/sonner";
 
 const outfit = Roboto({
     subsets: ["latin"],
@@ -44,6 +45,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                                 {children}
                             </main>
                             <Footer />
+                            <Toaster />
                         </ThemeProvider>
                     </NextIntlClientProvider>
                 </QueryProvider>
