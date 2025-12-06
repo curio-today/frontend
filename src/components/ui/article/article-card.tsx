@@ -17,7 +17,7 @@ export function ArticleCard({ title, subtitle, slug, cover }: ArticleCardProps) 
   return (
     <Card className="gap-5 flex-1 h-full hover:outline-1 hover:outline-blue-400" id={slug}>
       <CardHeader>
-        <CardTitle className="text-xl line-clamp-3">{title}</CardTitle>
+        <CardTitle className="text-xl line-clamp-3 min-h-15">{title}</CardTitle>
       </CardHeader>
       <CardContent className="relative aspect-video overflow-hidden rounded-xl">
         <ImageWithFocal src={cover.url} alt={cover.alt} focalX={cover.focalX} focalY={cover.focalY} fill />
