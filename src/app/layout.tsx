@@ -13,6 +13,7 @@ import { Footer } from "@/components/ui/footer";
 import LayoutProvider from "@/providers/layout-provider";
 import { QueryProvider } from "@/providers/query-provider";
 import { Toaster } from "@/components/core/sonner";
+import { Separator } from "@/components/core/separator";
 
 const outfit = Roboto({
     subsets: ["latin"],
@@ -44,6 +45,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                             <main className="container mt-30 mx-auto flex flex-col items-center min-h-screen">
                                 {children}
                             </main>
+                            <Separator />
                             <Footer />
                             <Toaster />
                         </ThemeProvider>

@@ -73,6 +73,7 @@
     "loadMore": "Нажмите, чтобы загрузить ещё",
     "loading": "Загрузка...",
     "readFullArticle": "Читать полную статью:",
-    "SearchBarPlaceholder": "Начните вводить для поиска"
+    "searchBarPlaceholder": "Начните вводить для поиска",
+    "memo": "Любопытно cо смыслом"
   }
 }
