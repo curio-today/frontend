@@ -8,17 +8,21 @@ type ArticlesGridProps = {
 
 export const ArticlesGrid = ({ articles }: ArticlesGridProps) => {
     return (
-        <section className="w-auto flex flex-col gap-[clamp(1rem,1vw,5rem)] md:grid md:grid-cols-[repeat(6,auto)] md:grid-rows-[repeat(4,auto)]">
-            {articles.map(article => (
+        <section className="w-auto flex flex-col gap-[clamp(1rem,1vw,5rem)] md:grid md:grid-cols-6 md:auto-rows-auto">
+            {articles.map((article, index) => {
+                const colSpan = index < 2 ? "md:col-span-3" : "md:col-span-2";
+                
+                return (
                 <Link 
-                    className="row w-full col-span-2 row-span-2" 
+                    className={`w-full ${colSpan}`}
                     href={`${CATEGORY_ID_SLUG_MAP[article.badge.id]}/${article.id}`} 
                     key={article.id}  
                     tabIndex={0}
                 >
                     <ArticleCard {...article} />
                 </Link>
-            ))}
+                );
+            })}
         </section>
     )   
 }
