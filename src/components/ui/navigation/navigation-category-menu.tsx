@@ -16,7 +16,7 @@ export const NavigationCategoryMenu = ({ orientation }: { orientation?: "vertica
     <NavigationMenu viewport={isMobile}>
         <NavigationMenuList className={orientation === "vertical" ? "flex flex-col" : undefined}>
           {CATEGORY_LIST.map(category => (
-            <NavigationLink key={category} href={category}>{t(`${category}.title`)}</NavigationLink>
+            <NavigationLink key={category} href={`/${category}`}>{t(`${category}.title`)}</NavigationLink>
           ))}
         </NavigationMenuList>
     </NavigationMenu>
