@@ -17,7 +17,9 @@ export const NavigationBar = () => {
     <header className="lg:pl-10 bg-background w-full fixed flex p-4 top-0 left-0 z-50 justify-start items-center outline-solid outline-1">
       <Link href="/" className="flex flex-1 justify-start flex-row gap-5">
         <Logo width="100"/>
-        <Memo />
+        <div className="hidden md:flex items-center justify-center">
+          <Memo />
+        </div>
       </Link>
 
       <div className="flex-wrap hidden md:flex">
