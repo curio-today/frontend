@@ -6,8 +6,9 @@ import { cache } from "react";
 export const getMetadata = cache(async (page: string, metadata?: Metadata): Promise<Metadata> => {
     const locale = await getLocale();
     const t = await getTranslations(`Metadata.${page.toLowerCase()}`);
+    const pageTitle = t("title");
 
-    const title = `${t("title")} ${METADATA_DELIMITER} ${METADATA_PREFIX} `;
+    const title = `${METADATA_PREFIX} ${METADATA_DELIMITER} ${pageTitle}`;
     const description = t("description");
     const keywords = t("keywords");
 
