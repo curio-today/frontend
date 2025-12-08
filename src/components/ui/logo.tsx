@@ -13,7 +13,7 @@ export const Logo = ({ width, height, className, ...rest }: ComponentPropsWithou
     useEffect(() => setMounted(true), []);
 
     if (!mounted) {
-        return <Skeleton className={`w-${width} h-${height}`}/>;
+        return <Skeleton className={`w-25 h-${height}`}/>;
     }
 
     return (
