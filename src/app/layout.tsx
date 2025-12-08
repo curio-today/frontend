@@ -28,6 +28,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
 
     return (
         <html lang={locale} className={roboto.className} suppressHydrationWarning>
+            <meta name="google-site-verification" content="EbEK3drHlDtsnh-1tCp99LBW6KGGSlm1GxSBISfhnxM" />
             <GoogleAnalytics gaId="G-MNV4816TQ0"/>
             <body>
                 <QueryProvider>
