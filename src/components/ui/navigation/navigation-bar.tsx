@@ -28,9 +28,9 @@ export const NavigationBar = () => {
 
       <ButtonGroup className="lg:flex-1 justify-end">
         <ButtonGroup>
-          <ButtonGroup className="hidden md:block">
+          {/* <ButtonGroup className="hidden md:block">
             <SearchInput />
-          </ButtonGroup>
+          </ButtonGroup> */}
           <ButtonGroup className="block md:hidden">
             <SearchSheet />
           </ButtonGroup>
