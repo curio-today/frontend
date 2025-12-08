@@ -14,9 +14,8 @@ import LayoutProvider from "@/providers/layout-provider";
 import { QueryProvider } from "@/providers/query-provider";
 import { Toaster } from "@/components/core/sonner";
 import { Separator } from "@/components/core/separator";
-import Script from "next/script";
-import Head from "next/head";
-
+import { GoogleAnalytics } from '@next/third-parties/google';
+ 
 const roboto = Roboto({
     subsets: ["latin"],
     display: "swap",
@@ -29,21 +28,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
 
     return (
         <html lang={locale} className={roboto.className} suppressHydrationWarning>
-            <head>
-                {/* Google Analytics */}
-                <Script
-                    src="https://www.googletagmanager.com/gtag/js?id=G-MNV4816TQ0"
-                    strategy="afterInteractive"
-                />
-                <Script id="google-analytics" strategy="afterInteractive">
-                {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-MNV4816TQ0');
-                `}
-                </Script>
-            </head>
+            <GoogleAnalytics gaId="G-MNV4816TQ0"/>
             <body>
                 <QueryProvider>
                     <NextIntlClientProvider>
