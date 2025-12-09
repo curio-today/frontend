@@ -53,14 +53,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
     return (
     <section className="article flex flex-col gap-8 overflow-hidden">
             <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center">
-                <div className="flex flex-1 justify-start items-center gap-4">
                     <Time 
-                        className="font-thin text-xs md:text-base align-middle text-center" 
+                        className="font-thin text-xs align-middle text-center" 
                         iso={createdAt}
                         locale={locale}
                     />
                     <CategoryBadge badge={badge} />
-                </div>
                 <div className="flex flex-1 justify-end items-center">
                     <ShareButton />
                 </div>
