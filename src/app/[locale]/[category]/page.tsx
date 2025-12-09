@@ -33,8 +33,6 @@ export default async function Category({ params }: CategoryPageProps) {
             <h1 className="font-bold text-sm text-secondary text-center">{translatedCategory}</h1>
             <ArticlesFeedWithSuspense 
                 category={translatedCategory} 
-                start={8}
-                step={4}
             /> 
         </div>
     );

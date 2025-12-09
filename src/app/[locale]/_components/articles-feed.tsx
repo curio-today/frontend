@@ -6,17 +6,17 @@ import { useLocale, useTranslations } from "next-intl"
 import { Suspense, useState } from "react"
 import { ArticlesGrid, ArticlesGridSkeleton } from "@/components/ui/article/articles-grid"
 import { getArticles } from "@/data/article/get-articles"
+import { Spinner } from "@/components/core/spinner"
 
 type ArticlesFeedProps = { 
-    step: number, 
+    step?: number, 
     start?: number, 
     category?: string,
 };
 
-export const ArticlesFeed = ({ step, start = 8, category }: ArticlesFeedProps) => {
+export const ArticlesFeed = ({ step = 6, start = 5, category }: ArticlesFeedProps) => {
     const locale = useLocale();
     const t = useTranslations("Messages");
-
     const [currentLimit, setLimit] = useState<number>(start);
     
     const { data: articles } = useSuspenseQuery(queryOptions({
@@ -29,20 +29,23 @@ export const ArticlesFeed = ({ step, start = 8, category }: ArticlesFeedProps) =
         staleTime: 5 * 1000,
     }));
 
+    const hasMore = articles.docs.length < articles.totalDocs;
 
     return (
         <section className="flex flex-col gap-10">
             <ArticlesGrid articles={articles.docs} />
-            <Button 
-                variant="outline"
-                className="mb-10"
-                onClick={() => {
-                    setLimit(prev => prev + step);
-                }}
-                tabIndex={0}
-            >
-                {t("loadMore")}
-            </Button>
+            {hasMore && (
+                <Button 
+                    variant="outline"
+                    className="mb-10"
+                    onClick={() => {
+                        setLimit(prev => prev + step);
+                    }}
+                    tabIndex={0}
+                >
+                    {t("loadMore")}
+                </Button>
+            )}
         </section>
     )
 }
@@ -54,7 +57,5 @@ export const ArticlesFeedSkeleton = () => (
 )
 
 export const ArticlesFeedWithSuspense = (props: ArticlesFeedProps) => (
-    <Suspense fallback={<ArticlesFeedSkeleton />}>
-        <ArticlesFeed {...props} />
-    </Suspense>
+    <ArticlesFeed {...props} />
 )
