@@ -68,6 +68,18 @@
       "keywords": "izklaidējošs, jautrs, humoristisks, patīkams, rotaļīgs, viegls, komisks"
     }
   },
+  "Buttons": {
+      "Share": {
+        "button": "Kopīgot",
+        "title": "Kopīgošanas saite",
+        "description": "Ikviens, kam ir šī saite, varēs to apskatīt",
+        "sr": "Saite",
+        "or": "vai",
+        "buttons": {
+          "close": "Aizvērt"
+        }
+      }
+  },
   "Messages": {
     "loadMore": "Noklikšķiniet, lai ielādētu vairāk",
     "loading": "Ielādē...",

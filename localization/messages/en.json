@@ -70,6 +70,18 @@
       "keywords": "entertaining, funny, humorous, delightful, playful, lighthearted, comedic"
     }
   },
+  "Buttons": {
+      "Share": {
+        "button": "Share",
+        "title": "Share link",
+        "description": "Anyone who has this link will be able to view this",
+        "sr": "Link",
+        "or": "or",
+        "buttons": {
+          "close": "Close"
+        }
+      }
+  },
   "Messages": {
     "loadMore": "Click To Load More",
     "loading": "Loading...",
