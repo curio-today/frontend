@@ -79,11 +79,16 @@
         "or": "or",
         "buttons": {
           "close": "Close"
-        },
-        "success": "Successfully copied url"
+        }
+      },
+      "Copy": {
+        "tooltipContent": "Copy to clipboard"
       }
   },
   "Messages": {
+    "clipboard": {
+      "successMessage": "Copied successfully"
+    },
     "loadMore": "Click To Load More",
     "loading": "Loading...",
     "readFullArticle": "Read full article:",

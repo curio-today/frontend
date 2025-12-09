@@ -79,9 +79,15 @@
         "buttons": {
           "close": "Закрыть"
         }
+      },
+      "Copy": {
+        "tooltipContent": "Скопировать в буфер"
       }
   },
   "Messages": {
+    "clipboard": {
+      "successMessage": "Успешно скопировано"
+    },
     "loadMore": "Нажмите, чтобы загрузить ещё",
     "loading": "Загрузка...",
     "readFullArticle": "Читать полную статью:",

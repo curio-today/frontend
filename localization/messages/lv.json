@@ -78,9 +78,15 @@
         "buttons": {
           "close": "Aizvērt"
         }
+      },
+      "Copy": {
+        "tooltipContent": "Kopēt starpliktuvē"
       }
   },
   "Messages": {
+    "clipboard": {
+      "successMessage": "Успешно скопировано"
+    },
     "loadMore": "Noklikšķiniet, lai ielādētu vairāk",
     "loading": "Ielādē...",
     "readFullArticle": "Lasīt pilnu rakstu:",
