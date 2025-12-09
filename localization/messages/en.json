@@ -79,7 +79,8 @@
         "or": "or",
         "buttons": {
           "close": "Close"
-        }
+        },
+        "success": "Successfully copied url"
       }
   },
   "Messages": {
