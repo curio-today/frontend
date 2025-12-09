@@ -9,21 +9,16 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/core/dropdown-menu"
+import { useChangeLocale } from "@/hooks/use-change-locale";
 import { Languages } from "lucide-react";
-import { Locale, useLocale, useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 export function LanguageToggle() {
-    const locale = useLocale();
-    const router = useRouter();
-    const t = useTranslations("Translation");
+  const locale = useLocale();
+  const t = useTranslations("Translation");
 
-    const switchTo = (newLocale: Locale) => {
-        if (newLocale !== locale) {
-          router.replace(`/${newLocale}`, { scroll: false, })
-          router.refresh();
-        }
-    }
+  const changeLocale = useChangeLocale();
+   
 
   return (
     <DropdownMenu>
@@ -37,13 +32,13 @@ export function LanguageToggle() {
       <DropdownMenuContent align="center">
         <DropdownMenuLabel>{t("description")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuCheckboxItem checked={locale === "en"} onCheckedChange={() => switchTo("en")}>
+        <DropdownMenuCheckboxItem checked={locale === "en"} onCheckedChange={() => changeLocale("en")}>
           English
         </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem checked={locale === "lv"} onCheckedChange={() => switchTo("lv")}>
+        <DropdownMenuCheckboxItem checked={locale === "lv"} onCheckedChange={() => changeLocale("lv")}>
           Latviešu
         </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem checked={locale === "ru"} onCheckedChange={() => switchTo("ru")}>
+        <DropdownMenuCheckboxItem checked={locale === "ru"} onCheckedChange={() => changeLocale("ru")}>
           Русский
         </DropdownMenuCheckboxItem>
       </DropdownMenuContent>
