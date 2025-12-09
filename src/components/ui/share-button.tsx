@@ -14,9 +14,9 @@ import {
 
 import { Label } from "../core/label"
 import { Share } from "lucide-react"
-import { useLocale, useTranslations } from "next-intl"
+import { useTranslations } from "next-intl"
 import { InputGroup, InputGroupInput } from "../core/input-group"
-import { usePathname } from "@/i18n/navigation"
+import { usePathname } from "next/navigation"
 import { CopyToClipboardButton } from "./copy-to-clipboard-button"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { useClipboard } from "@/hooks/use-clipboard"
@@ -25,10 +25,9 @@ export const ShareButton = () => {
     const pathname = usePathname();
     const isMobile = useIsMobile();
     const t = useTranslations("Buttons.Share");
-    const locale = useLocale();
     const { copy } = useClipboard();
     
-    const link = `https://curio.today/${locale}` + pathname;
+    const link = `https://curio.today` + pathname;
 
 
     return (
