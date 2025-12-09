@@ -11,7 +11,7 @@ import { ParagraphItalic } from "@/components/typography/paragraph-italic";
 import { Time } from "@/components/ui/time";
 import { cache } from "react";
 import { Metadata } from "next";
-import { getMetadata } from "@/data/metadata/get-metadata";
+import { ShareButton } from "@/components/ui/share-button";
 
 const cachedGetArticle = cache(getArticle);
 
@@ -52,13 +52,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
 
     return (
     <section className="article flex flex-col gap-8 overflow-hidden">
-            <div className="metadata flex flex-row gap-4 align-middle justify-start text-center">
+            <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center">
                 <Time 
                     className="font-thin text-xs md:text-base align-middle text-center" 
                     iso={createdAt}
                     locale={locale}
                 />
                 <CategoryBadge badge={badge} />
+                <ShareButton />
             </div>
             <div className="container flex flex-col gap-4">
                 <Headline>
