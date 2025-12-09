@@ -3,10 +3,9 @@
 import { Button } from "@/components/core/button"
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query"
 import { useLocale, useTranslations } from "next-intl"
-import { Suspense, useState } from "react"
+import { useState } from "react"
 import { ArticlesGrid, ArticlesGridSkeleton } from "@/components/ui/article/articles-grid"
 import { getArticles } from "@/data/article/get-articles"
-import { Spinner } from "@/components/core/spinner"
 
 type ArticlesFeedProps = { 
     step?: number, 
