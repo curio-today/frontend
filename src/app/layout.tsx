@@ -19,7 +19,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 const roboto = Roboto({
     subsets: ["latin"],
     display: "swap",
-    weight: "400",
+    weight: "500",
 });
 
 
