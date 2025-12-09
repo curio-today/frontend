@@ -34,7 +34,7 @@ export const ShareButton = () => {
     return (
         <Dialog>
             <DialogTrigger asChild>
-            <Button size="lg" variant="ghost" onClick={() => copy(link)} >
+            <Button size="lg" variant="outline" onClick={() => copy(link)} >
                     <Share />
                     <span className="hidden sm:block">
                         {t("button")}
