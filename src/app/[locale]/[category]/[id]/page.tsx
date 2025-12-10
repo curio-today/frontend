@@ -2,7 +2,7 @@ import { getArticle } from "@/data/article/get-article";
 import { Separator } from "@/components/core/separator";
 import { getLocale } from "next-intl/server";
 import { ArticleCover } from "./_components/article-cover";
-import { CategoryBadge } from "./_components/category-badge";
+import { ArticleBadge } from "@/components/ui/article/article-badge";
 import { Lead } from "./_components/lead";
 import { Headline } from "./_components/headline";
 import { ContentRenderer } from "@/components/content/content-renderer";
@@ -51,14 +51,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
 
 
     return (
-    <section className="article flex flex-col gap-8 overflow-hidden">
+        <section className="article flex flex-col gap-8 overflow-hidden">
             <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center">
                     <Time 
                         className="font-thin text-xs align-middle text-center" 
                         iso={createdAt}
-                        locale={locale}
                     />
-                    <CategoryBadge badge={badge} />
+                    <ArticleBadge id={badge.id} name={badge.name} className="bg-blue-400" />
                 <div className="flex flex-1 justify-end items-center">
                     <ShareButton />
                 </div>
