@@ -10,10 +10,12 @@ import { Skeleton } from "@/components/core/skeleton"
 import { Article } from "@/types/api/article"
 
 import { ImageWithFocal } from "../image-with-focal"
+import { Time } from "../time"
+import { ArticleBadge } from "@/components/ui/article/article-badge"
 
-export type ArticleCardProps = Pick<Article, "title" | "cover" | "slug" | "subtitle" | "id" | "badge" >
+export type ArticleCardProps = Pick<Article, "title" | "cover" | "slug" | "subtitle" | "id" | "badge" | "createdAt" | "badge">
 
-export function ArticleCard({ title, subtitle, slug, cover }: ArticleCardProps) {
+export function ArticleCard({ title, subtitle, slug, cover, createdAt, badge }: ArticleCardProps) {
   return (
     <Card className="gap-5 flex-1 h-full hover:outline-1 hover:outline-blue-400" id={slug}>
       <CardHeader>
@@ -22,8 +24,19 @@ export function ArticleCard({ title, subtitle, slug, cover }: ArticleCardProps) 
           <ImageWithFocal src={cover.url} alt={cover.alt} focalX={cover.focalX} focalY={cover.focalY} fill />
         </CardContent>
       </CardHeader>
-      <CardFooter>
+      <CardFooter className="flex-col items-start gap-2">
         <CardDescription className="line-clamp-2 text-left font-medium">{subtitle}</CardDescription>
+        <div className="flex flex-row w-full items-center">
+          <Time 
+              className="flex-1 text-muted-foreground font-thin text-xs align-middle text-left" 
+              iso={createdAt}
+          />
+          <ArticleBadge 
+            name={badge.name}
+            id={badge.id}
+            variant="outline"
+          />
+        </div>
       </CardFooter>
     </Card>
   )
