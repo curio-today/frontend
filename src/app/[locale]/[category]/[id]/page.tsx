@@ -9,9 +9,12 @@ import { ContentRenderer } from "@/components/content/content-renderer";
 import { Paragraph } from "@/components/typography/paragraph";
 import { ParagraphItalic } from "@/components/typography/paragraph-italic";
 import { Time } from "@/components/ui/time";
-import { cache } from "react";
+import { Activity, cache } from "react";
 import { Metadata } from "next";
 import { ShareButton } from "@/components/ui/share-button";
+import { draftMode } from "next/headers";
+import { DraftItem } from "@/components/ui/draft-item";
+
 
 const cachedGetArticle = cache(getArticle);
 
@@ -43,15 +46,18 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 export default async function ArticlePage({ params }: { params: Promise<{ id: string }> }) {
     const locale = await getLocale();
     const { id } = await params;
-    const { title, subtitle, cover, createdAt, source, badge, content } = await cachedGetArticle(id, {
+    const { isEnabled: isDraftModeEnabled } = await draftMode();
+    const { title, subtitle, cover, createdAt, source, badge, content } = await getArticle(id, {
         locale,
-        limit: 1
+        limit: 1,
+        draft: isDraftModeEnabled
     });
-
-
 
     return (
         <section className="article flex flex-col gap-8 overflow-hidden">
+            <Activity mode={isDraftModeEnabled ? "visible" : "hidden"}>
+                <DraftItem />
+            </Activity>
             <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center">
                     <Time 
                         className="font-thin text-xs align-middle text-center" 
