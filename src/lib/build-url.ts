@@ -1,8 +1,10 @@
 import { QueryParams } from "next-intl/navigation";
 import { stringify } from "querystring";
 
-export function buildUrl(endpoint: string, query?: QueryParams, baseUrl: string = "https://admin.curio.today/api", ): URL {
-    const url = baseUrl + endpoint + (query ? `?${stringify(query)}` : "")
-    
-    return new URL(url, baseUrl);
+export function buildUrl(endpoint: string, query?: QueryParams): URL {
+    const base = process.env.NEXT_PUBLIC_API_URL;
+
+    const url = base + endpoint + (query ? `?${stringify(query)}` : "")
+
+    return new URL(url, base);
 }
