@@ -2,22 +2,24 @@ import { Badge } from "@/components/core/badge";
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
 import { Article } from "@/types/api/article";
 import { BadgeInfoIcon } from "lucide-react";
-import Link from "next/link";
 import { ComponentProps } from "react";
 
-export type ArticleBadgeProps = {
-    badge: Article["badge"],
-} & ComponentProps<"span">
+import Link from "next/link";
 
-export const ArticleBadge = ({ badge, ...rest }: ArticleBadgeProps) => (
-    <Link href={`/${CATEGORY_ID_SLUG_MAP[badge.id]}`}>
-        <Badge 
-            className="bg-blue-400"
-            variant="secondary"
-            {...rest}
-        >
+export type ArticleBadgeProps = {
+    id: Article["badge"]["id"],
+    name: Article["badge"]["name"],
+} & ComponentProps<typeof Badge>;
+ 
+export const ArticleBadge = ({ name, id, ...rest }: ArticleBadgeProps) => (
+    <Badge 
+        variant="secondary"
+        asChild
+        {...rest}
+    >
+        <Link href={`/${CATEGORY_ID_SLUG_MAP[id]}`}>
             <BadgeInfoIcon />
-            {badge.name}
-        </Badge>
-    </Link>
+            {name}
+        </Link>
+    </Badge>
 )
