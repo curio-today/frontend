@@ -1,10 +1,6 @@
 import { getArticle } from "@/data/article/get-article";
 import { Separator } from "@/components/core/separator";
 import { getLocale } from "next-intl/server";
-import { ArticleCover } from "./_components/article-cover";
-import { ArticleBadge } from "@/components/ui/article/article-badge";
-import { Lead } from "./_components/lead";
-import { Headline } from "./_components/headline";
 import { ContentRenderer } from "@/components/content/content-renderer";
 import { Paragraph } from "@/components/typography/paragraph";
 import { ParagraphItalic } from "@/components/typography/paragraph-italic";
@@ -13,8 +9,20 @@ import { Activity, cache } from "react";
 import { Metadata } from "next";
 import { ShareButton } from "@/components/ui/share-button";
 import { draftMode } from "next/headers";
-import { DraftItem } from "@/components/ui/draft-item";
 
+
+import {
+    Article,
+    ArticleMetadata,
+    ArticleCover,
+    ArticleActions,
+    ArticleHead,
+    ArticleBadge,
+    ArticleHeadline,
+    ArticleLead,
+    ArticleContent
+} from "@/components/ui/article"
+import { PreviewItem } from "@/components/ui/items/preview-item";
 
 const cachedGetArticle = cache(getArticle);
 
@@ -54,32 +62,31 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
     });
 
     return (
-        <section className="article flex flex-col gap-8 overflow-hidden">
+        <Article className="article flex flex-col gap-8 overflow-hidden">
             <Activity mode={isDraftModeEnabled ? "visible" : "hidden"}>
-                <DraftItem />
+                <PreviewItem />
             </Activity>
-            <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center">
-                    <Time 
-                        className="font-thin text-xs align-middle text-center" 
-                        iso={createdAt}
-                    />
-                    <ArticleBadge id={badge.id} name={badge.name} className="bg-blue-400" />
-                <div className="flex flex-1 justify-end items-center">
+            <ArticleMetadata className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center">
+                <Time 
+                    className="font-thin text-xs align-middle text-center" 
+                    iso={createdAt}
+                />
+                <ArticleBadge id={badge.id} name={badge.name} className="bg-blue-400" />
+                <ArticleActions className="flex flex-1 justify-end items-center">
                     <ShareButton />
-                </div>
-
-            </div>
-            <div className="container flex flex-col gap-4">
-                <Headline>
+                </ArticleActions>
+            </ArticleMetadata>
+            <ArticleHead className="container flex flex-col gap-4">
+                <ArticleHeadline>
                     {title}
-                </Headline>
-                <Lead>
+                </ArticleHeadline>
+                <ArticleLead>
                     {subtitle}
-                </Lead>
-            </div>
+                </ArticleLead>
+            </ArticleHead>
             <Separator />
             <ArticleCover cover={cover} source={source}/>
-            <article className="prose prose-base md:prose-lg max-w-none [&>p:first-of-type]:text-xl [&>p:first-of-type]:md:text-2xl [&>p:first-of-type]:lg:text-3xl">
+            <ArticleContent>
                 <ContentRenderer 
                     content={content.root}
                     components={{
@@ -87,7 +94,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
                         em: ParagraphItalic
                     }}
                 />
-            </article>
-        </section>
+            </ArticleContent>
+        </Article>
     )
 }
