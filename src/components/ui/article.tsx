@@ -17,7 +17,7 @@ export const Article = ({ children, ...rest }: ComponentProps<"section"> ) => {
 
 export const ArticleActions = ({ children, ...rest }: ComponentProps<"div">) => {
     return (
-        <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center">
+        <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center" {..rest}>
             {children}            
         </div>        
     )
@@ -25,7 +25,7 @@ export const ArticleActions = ({ children, ...rest }: ComponentProps<"div">) => 
 
 export const ArticleMetadata = ({ children, ...rest }: ComponentProps<"div">) => {
     return (
-        <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center">
+        <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center" {...rest}>
             {children}            
         </div>        
     )
@@ -83,7 +83,7 @@ export const ArticleBadge = ({ name, id, isClickable = false, ...rest }: Article
 
 export const ArticleHead = ({ children, ...rest }: ComponentProps<"div">) => {
     return (
-        <div className="container flex flex-col gap-4">
+        <div className="container flex flex-col gap-4" {...rest}>
             {children}
         </div>
     )
@@ -99,7 +99,7 @@ export const ArticleLead = ({ children }: PropsWithChildren) => {
 
 export const ArticleContent = ({ children, ...rest }: ComponentProps<"article">) => {
     return (    
-        <article className="prose prose-base md:prose-lg max-w-none [&>p:first-of-type]:text-xl [&>p:first-of-type]:md:text-2xl [&>p:first-of-type]:lg:text-3xl">
+        <article className="prose prose-base md:prose-lg max-w-none [&>p:first-of-type]:text-xl [&>p:first-of-type]:md:text-2xl [&>p:first-of-type]:lg:text-3xl" {...rest}>
             {children}
         </article>
     )
