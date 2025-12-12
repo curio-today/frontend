@@ -17,7 +17,7 @@ export const Article = ({ children, ...rest }: ComponentProps<"section"> ) => {
 
 export const ArticleActions = ({ children, ...rest }: ComponentProps<"div">) => {
     return (
-        <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center" {..rest}>
+        <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center" {...rest}>
             {children}            
         </div>        
     )
