@@ -21,7 +21,7 @@ export function ArticleCard({ title, subtitle, slug, cover, createdAt, badge }: 
     <Card className="gap-5 flex-1 h-full hover:outline-1 hover:outline-primary" id={slug}>
       <CardHeader>
         <CardTitle className="text-xl line-clamp-3 min-h-15">{title}</CardTitle>
-        <Suspense fallback={<Skeleton className="w-100"/>}>
+        <Suspense fallback={<Skeleton className="w-100 h-25"/>}>
           <CardContent className="relative aspect-video overflow-hidden rounded-xl w-full">
             <ImageWithFocal src={cover.url} alt={cover.alt} focalX={cover.focalX} focalY={cover.focalY} fill />
           </CardContent>
