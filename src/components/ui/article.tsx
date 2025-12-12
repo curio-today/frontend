@@ -1,4 +1,4 @@
-import { ComponentProps, PropsWithChildren } from "react"
+import { ComponentProps, Fragment, PropsWithChildren } from "react"
 import type { Article as ArticleType } from "@/types/api/article";
 import { ImageWithFocal } from "@/components/ui/image-with-focal";
 import { Badge } from "@/components/core/badge";
@@ -56,20 +56,30 @@ export const ArticleCover = ({ cover, source }: { cover: ArticleType["cover"], s
 export type ArticleBadgeProps = {
     id: ArticleType["badge"]["id"],
     name: ArticleType["badge"]["name"],
+    isClickable?: boolean,
 } & ComponentProps<typeof Badge>;
  
-export const ArticleBadge = ({ name, id, ...rest }: ArticleBadgeProps) => (
-    <Badge 
-        variant="secondary"
-        asChild
-        {...rest}
-    >
-        <Link href={`/${CATEGORY_ID_SLUG_MAP[id]}`}>
-            <BadgeInfoIcon />
-            {name}
-        </Link>
-    </Badge>
-)
+export const ArticleBadge = ({ name, id, isClickable = false, ...rest }: ArticleBadgeProps) => {
+    return (
+        <Badge 
+            variant="secondary"
+            asChild={isClickable}
+            {...rest}
+        >
+            {isClickable ? (
+                <Link href={`/${CATEGORY_ID_SLUG_MAP[id]}`}>
+                    <BadgeInfoIcon />
+                    {name}
+                </Link>
+            ) : (
+                <>
+                    <BadgeInfoIcon />
+                    {name}
+                </>
+            )}
+        </Badge>
+    )
+}
 
 export const ArticleHead = ({ children, ...rest }: ComponentProps<"div">) => {
     return (
