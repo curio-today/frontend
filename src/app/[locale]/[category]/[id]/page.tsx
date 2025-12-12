@@ -22,7 +22,6 @@ import {
     ArticleLead,
     ArticleContent
 } from "@/components/ui/article"
-import { PreviewItem } from "@/components/ui/items/preview-item";
 
 const cachedGetArticle = cache(getArticle);
 
@@ -63,20 +62,22 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
 
     return (
         <Article className="article flex flex-col gap-8 overflow-hidden">
-            <Activity mode={isDraftModeEnabled ? "visible" : "hidden"}>
-                <PreviewItem />
-            </Activity>
-            <ArticleMetadata className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center">
+            <ArticleMetadata>
                 <Time 
                     className="font-thin text-xs align-middle text-center" 
                     iso={createdAt}
                 />
-                <ArticleBadge id={badge.id} name={badge.name} className="bg-blue-400" />
+                <ArticleBadge 
+                    className="bg-primary"
+                    id={badge.id} 
+                    name={badge.name} 
+                    isClickable
+                />
                 <ArticleActions className="flex flex-1 justify-end items-center">
                     <ShareButton />
                 </ArticleActions>
             </ArticleMetadata>
-            <ArticleHead className="container flex flex-col gap-4">
+            <ArticleHead>
                 <ArticleHeadline>
                     {title}
                 </ArticleHeadline>
