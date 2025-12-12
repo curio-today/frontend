@@ -4,7 +4,7 @@ import { Button } from "@/components/core/button"
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query"
 import { useLocale, useTranslations } from "next-intl"
 import { useState } from "react"
-import { ArticlesGrid, ArticlesGridSkeleton } from "@/components/ui/article/articles-grid"
+import { FeaturedArticlesGrid, FeaturedArticlesGridSkeleton } from "@/components/ui/featured-articles-grid"
 import { getArticles } from "@/data/article/get-articles"
 
 type ArticlesFeedProps = { 
@@ -32,7 +32,7 @@ export const ArticlesFeed = ({ step = 6, start = 5, category }: ArticlesFeedProp
 
     return (
         <section className="flex flex-col gap-10">
-            <ArticlesGrid articles={articles.docs} />
+            <FeaturedArticlesGrid articles={articles.docs} />
             {hasMore && (
                 <Button 
                     variant="outline"
@@ -51,7 +51,7 @@ export const ArticlesFeed = ({ step = 6, start = 5, category }: ArticlesFeedProp
 
 export const ArticlesFeedSkeleton = () => (
     <section className="flex flex-col gap">
-        <ArticlesGridSkeleton cardCount={6}/>
+        <FeaturedArticlesGridSkeleton cardCount={6}/>
     </section>
 )
 
