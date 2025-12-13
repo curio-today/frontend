@@ -6,7 +6,6 @@ import { ButtonGroup } from "../../core/button-group";
 import { LanguageToggle } from "../toggles/language-toggle";
 
 import { SettingsSheet } from "../sheets/settings-sheet";
-import { SearchSheet } from "../sheets/search-sheet";
 import { CategorySheet } from "../sheets/category-sheet";
 import { NavigationCategoryMenu } from "./navigation-category-menu";
 import { Memo } from "../memo";
@@ -28,10 +27,7 @@ export const NavigationBar = () => {
 
       <ButtonGroup className="lg:flex-1 justify-end">
         <ButtonGroup>
-          <ButtonGroup className="block md:hidden">
-            <SearchSheet />
-          </ButtonGroup>
-          <ButtonGroup className="hidden md:block">
+          <ButtonGroup>
             <SearchButton />
           </ButtonGroup>
           <ButtonGroup className="hidden md:flex">
