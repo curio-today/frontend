@@ -19,6 +19,7 @@
     "description": "Select category.",
     "category": "Selected category",
     "placeholder": "Search...",
+    "searchButton": "Search",
     "amazes": {
       "title": "Amazes"
     },
@@ -68,6 +69,11 @@
       "title": "Amuses",
       "description": "Content that entertains, delights, or brings joy and laughter to the audience",
       "keywords": "entertaining, funny, humorous, delightful, playful, lighthearted, comedic"
+    },
+    "search": {
+      "title": "Search",
+      "description": "Search our news portal to find the latest articles, breaking stories, and in-depth reports across all categories",
+      "keywords": "news search, latest news articles, breaking news, trending news, in-depth reports, news portal, online news archive, current events"
     }
   },
   "Buttons": {
@@ -94,5 +100,18 @@
     "readFullArticle": "Read full article:",
     "searchBarPlaceholder": "Start typing to search",
     "memo": "Smart Curiosity"
+  },
+  "Empties": {
+    "noArticlesAvailable": {
+      "title": "No Articles Available",
+      "description": "We couldn’t find any articles for that search. Try a different title or reset your search.",
+      "buttons": {
+        "reset": "Reset search"
+      }
+    },
+    "startTypingToSearch": {
+      "title": "Start Typing To search",
+      "description":"Start typing to find the most related articles."
+    }
   }
 }

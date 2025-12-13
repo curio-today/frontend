@@ -1,16 +1,15 @@
 import Link from "next/link";
 
 import { ModeToggle } from "../toggles/mode-toggle";
-import { SearchInput } from "../search-input";
 import { Logo } from "../logo";
 import { ButtonGroup } from "../../core/button-group";
 import { LanguageToggle } from "../toggles/language-toggle";
 
 import { SettingsSheet } from "../sheets/settings-sheet";
-import { SearchSheet } from "../sheets/search-sheet";
 import { CategorySheet } from "../sheets/category-sheet";
 import { NavigationCategoryMenu } from "./navigation-category-menu";
 import { Memo } from "../memo";
+import { SearchButton } from "../search-button";
 
 export const NavigationBar = () => {
   return (
@@ -28,11 +27,8 @@ export const NavigationBar = () => {
 
       <ButtonGroup className="lg:flex-1 justify-end">
         <ButtonGroup>
-          {/* <ButtonGroup className="hidden md:block">
-            <SearchInput />
-          </ButtonGroup> */}
-          <ButtonGroup className="block md:hidden">
-            <SearchSheet />
+          <ButtonGroup>
+            <SearchButton />
           </ButtonGroup>
           <ButtonGroup className="hidden md:flex">
             <LanguageToggle />
