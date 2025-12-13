@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { ModeToggle } from "../toggles/mode-toggle";
-import { SearchInput } from "../search-input";
 import { Logo } from "../logo";
 import { ButtonGroup } from "../../core/button-group";
 import { LanguageToggle } from "../toggles/language-toggle";
@@ -28,9 +27,6 @@ export const NavigationBar = () => {
 
       <ButtonGroup className="lg:flex-1 justify-end">
         <ButtonGroup>
-          {/* <ButtonGroup className="hidden md:block">
-            <SearchInput />
-          </ButtonGroup> */}
           <ButtonGroup className="block md:hidden">
             <SearchSheet />
           </ButtonGroup>
