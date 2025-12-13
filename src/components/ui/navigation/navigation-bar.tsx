@@ -10,6 +10,7 @@ import { SearchSheet } from "../sheets/search-sheet";
 import { CategorySheet } from "../sheets/category-sheet";
 import { NavigationCategoryMenu } from "./navigation-category-menu";
 import { Memo } from "../memo";
+import { SearchButton } from "../search-button";
 
 export const NavigationBar = () => {
   return (
@@ -29,6 +30,9 @@ export const NavigationBar = () => {
         <ButtonGroup>
           <ButtonGroup className="block md:hidden">
             <SearchSheet />
+          </ButtonGroup>
+          <ButtonGroup className="hidden md:block">
+            <SearchButton />
           </ButtonGroup>
           <ButtonGroup className="hidden md:flex">
             <LanguageToggle />
