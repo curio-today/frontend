@@ -6,7 +6,6 @@ import { sanitizeInput } from "@/lib/sanitize-input";
 
 export const getArticlesByQuery = async (query: string, queryParams: QueryParams): Promise<PaginatedContent<Article>> => {
     const sanitizedQuery = sanitizeInput(query);
-    console.log(sanitizedQuery);
     
     const articles = await getArticles({
         "where[title][like]": sanitizedQuery || "",
