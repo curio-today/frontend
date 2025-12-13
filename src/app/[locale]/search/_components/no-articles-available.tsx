@@ -7,9 +7,8 @@ import {
     EmptyMedia, 
     EmptyTitle 
 } from "@/components/core/empty";
-import { CircleX } from "lucide-react";
+import { SearchX } from "lucide-react";
 import { getTranslations } from "next-intl/server"
-import Link from "next/link";
 
 export const NoArticlesAvailable = async () => {
     const t = await getTranslations("Empties.noArticlesAvailable");
@@ -18,7 +17,7 @@ export const NoArticlesAvailable = async () => {
         <Empty>
             <EmptyHeader>
                 <EmptyMedia variant="icon">
-                    <CircleX />
+                    <SearchX />
                 </EmptyMedia>
                 <EmptyTitle>{t("title")}</EmptyTitle>
                 <EmptyDescription>
