@@ -19,6 +19,7 @@
     "description": "Izvēlieties kategoriju.",
     "category": "Izvēlētā kategorija",
     "placeholder": "Meklēt...",
+    "searchButton": "Meklēt",
     "amazes": {
       "title": "Pārsteidz"
     },
@@ -66,6 +67,11 @@
       "title": "Izklaidē",
       "description": "Saturs, kas izklaidē, iepriecina vai sagādā prieku un smieklus auditorijai",
       "keywords": "izklaidējošs, jautrs, humoristisks, patīkams, rotaļīgs, viegls, komisks"
+    },
+    "search": {
+      "title": "Meklēšana",
+      "description": "Meklējiet mūsu ziņu portālā, lai atrastu jaunākos rakstus, aktuālākos notikumus un padziļinātus ziņojumus visās kategorijās.",
+      "keywords": "ziņu meklēšana, jaunākie ziņu raksti, aktuālās ziņas, populārākās ziņas, padziļināti ziņojumi, ziņu portāls, tiešsaistes ziņu arhīvs, aktuālie notikumi"
     }
   },
   "Buttons": {
@@ -81,6 +87,9 @@
       },
       "Copy": {
         "tooltipContent": "Kopēt starpliktuvē"
+      },
+      "Search": {
+        "button": "Поиск"
       }
   },
   "Messages": {
@@ -92,5 +101,18 @@
     "readFullArticle": "Lasīt pilnu rakstu:",
     "searchBarPlaceholder": "Sāciet rakstīt, lai meklētu",
     "memo": "Gudra ziņkāre"
+  },
+  "Empties": {
+    "noArticlesAvailable": {
+      "title": "Raksti nav pieejami",
+      "description": "Mēs nevarējām atrast nevienu rakstu šim meklējumam. Mēģiniet citu nosaukumu vai atiestatiet meklēšanu.",
+      "buttons": {
+        "reset": "Atiestatīt meklēšanu"
+      }
+    },
+    "startTypingToSearch": {
+      "title": "Sāciet rakstīt, lai meklētu",
+      "description": "Sāciet rakstīt, lai atrastu visatbilstošākos rakstus."
+    }
   }
 }
