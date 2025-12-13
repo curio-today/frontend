@@ -29,7 +29,8 @@ export const SearchForm = ({ initQuery }: { initQuery?: string }) => {
                         type="submit"
                         disabled={query === "" ? true : false}
                     >
-                        {t("searchButton")}
+                        <Search />
+                        <span className="hidden md:block">{t("searchButton")}</span>
                     </InputGroupButton>
                 </InputGroupAddon>
             </InputGroup>
