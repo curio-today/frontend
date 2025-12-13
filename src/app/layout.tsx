@@ -42,7 +42,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                             <LayoutProvider>
                                 <NavigationBar />
                             </LayoutProvider>
-                            <main className="container mt-30 mx-auto flex flex-col items-center min-h-screen">
+                            <main className="container mt-30 mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0">
                                 {children}
                             </main>
                             <Separator />

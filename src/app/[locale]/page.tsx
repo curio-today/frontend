@@ -7,6 +7,8 @@ export async function generateMetadata() {
 
 export default async function Feed() {
     return (
-        <ArticlesFeedWithSuspense />
+        <>
+            <ArticlesFeedWithSuspense />
+        </>
     )
 }
