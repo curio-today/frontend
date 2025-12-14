@@ -10,3 +10,9 @@ jest.mock("@/components/core/dialog", () => ({
   DialogFooter: ({ children }: any) => <div className="footer">{children}</div>,
   DialogClose: ({ children }: any) => <div className="close">{children}</div>,
 }))
+
+jest.mock("next-intl", () => ({
+  useTranslations: () => (key: string) => key,
+  useLocale: () => "en",
+  useMessages: () => ({}),
+}))
