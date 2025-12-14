@@ -16,3 +16,5 @@ jest.mock("next-intl", () => ({
   useLocale: () => "en",
   useMessages: () => ({}),
 }))
+
+process.env.TZ = "UTC"
