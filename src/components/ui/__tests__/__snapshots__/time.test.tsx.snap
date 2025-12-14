@@ -2,7 +2,7 @@
 
 exports[`Time Component Snapshot Tests matches snapshot for English locale 1`] = `
 <time>
-  MONDAY, JANUARY 15, 2024 AT 4:30 PM
+  MONDAY, JANUARY 15, 2024 AT 2:30 PM
 </time>
 `;
 
@@ -11,6 +11,6 @@ exports[`Time Component Snapshot Tests matches snapshot with custom props 1`] = 
   class="test-class"
   data-custom="value"
 >
-  MONDAY, JANUARY 15, 2024 AT 4:30 PM
+  MONDAY, JANUARY 15, 2024 AT 2:30 PM
 </time>
 `;
