@@ -12,6 +12,9 @@ const customJestConfig: Config = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  modulePathIgnorePatterns: [
+    "<rootDir>/.next/"
+  ],
   globals: {
     'ts-jest': {
       tsconfig: {
