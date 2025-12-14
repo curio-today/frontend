@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: ["Tests"]
+    types:
+      - completed
+
+jobs:
+  notify-and-deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger deploy in another repository
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.ENTRYPOINT_TOKEN }}
+          repository: other-org/other-repo
+          event-type: deploy
+          client-payload: |
+            {
+              "source_repo": "${{ github.repository }}",
+              "ref": "${{ github.event.workflow_run.head_branch }}",
+              "sha": "${{ github.event.workflow_run.head_sha }}"
+            }
