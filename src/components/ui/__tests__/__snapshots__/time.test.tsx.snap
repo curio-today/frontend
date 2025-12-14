@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Time Component Snapshot Tests matches snapshot for English locale 1`] = `
+<time>
+  MONDAY, JANUARY 15, 2024 AT 4:30 PM
+</time>
+`;
+
+exports[`Time Component Snapshot Tests matches snapshot with custom props 1`] = `
+<time
+  class="test-class"
+  data-custom="value"
+>
+  MONDAY, JANUARY 15, 2024 AT 4:30 PM
+</time>
+`;
