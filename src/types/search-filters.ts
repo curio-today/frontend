@@ -1,10 +1,6 @@
 import { Category } from "./category";
 
-export type SearchFilters = {
+export type SearchFilters = Partial<{
+    q: string,
     category: Category,
-}
-
-export type SearchFiltersList = {
-    key: keyof SearchFilters,
-    value: string,
-}[];
+}>
