@@ -12,7 +12,7 @@ import { useSearch } from "@/hooks/use-search"
 
 export const SearchBar = () => {
   const t = useTranslations("Navigation")
-  const { query, setQuery, onKeyDown } = useSearch({ debounceMs: 250 }) // 500ms auto-search
+  const { query, setQuery, onKeyDown } = useSearch({ debounceMs: 250 }) 
 
   return (
     <div className="flex flex-row gap-2 md:gap-4">
