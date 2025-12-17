@@ -15,6 +15,23 @@ interface UseCategoriesReturn {
     extractFromPathname: (pathname: string) => Category | undefined,
 }
 
+/**
+ * Provides category metadata and helper utilities with localization support.
+ *
+ * This hook acts as an abstraction layer over category-related constants,
+ * preventing consumers from importing or depending on them directly.
+ * It also resolves translated category labels using the `Navigation`
+ * translation namespace.
+ *
+ * @example
+ * const { categories, getId } = useCategories();
+ *
+ * categories.forEach(c => {
+ *   console.log(c.key, c.label);
+ * });
+ *
+ * const categoryId = getId('amazes');
+ */
 export const useCategories = (): UseCategoriesReturn => {
     const t = useTranslations("Navigation");
 
