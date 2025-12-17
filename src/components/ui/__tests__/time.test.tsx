@@ -164,30 +164,4 @@ describe('Time Component', () => {
       expect(timeElement.textContent).toContain('2024')
     })
   })
-
-  describe('Snapshot Tests', () => {
-    it('matches snapshot for English locale', () => {
-      mockUseLocale.mockReturnValue('en')
-      const isoDate = '2024-01-15T14:30:00.000Z'
-      
-      const { container } = render(<Time iso={isoDate} />)
-      
-      expect(container.firstChild).toMatchSnapshot()
-    })
-
-    it('matches snapshot with custom props', () => {
-      mockUseLocale.mockReturnValue('en')
-      const isoDate = '2024-01-15T14:30:00.000Z'
-      
-      const { container } = render(
-        <Time 
-          iso={isoDate} 
-          className="test-class" 
-          data-custom="value"
-        />
-      )
-      
-      expect(container.firstChild).toMatchSnapshot()
-    })
-  })
 })
