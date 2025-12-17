@@ -11,9 +11,6 @@ import {
 } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 
-/**
- * Options for the `useSearch` hook.
- */
 interface UseSearchOptions {
   /**
    * Debounce delay in milliseconds before automatically submitting
@@ -24,9 +21,6 @@ interface UseSearchOptions {
   debounceMs?: number;
 }
 
-/**
- * Return type for the `useSearch` hook.
- */
 interface UseSearchReturn {
   /**
    * Current search query value.
