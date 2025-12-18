@@ -88,8 +88,9 @@
       "Copy": {
         "tooltipContent": "Kopēt starpliktuvē"
       },
-      "Search": {
-        "button": "Поиск"
+      "Filters": {
+        "label": "Filtri",
+        "category": "Kategorija"
       }
   },
   "Messages": {
