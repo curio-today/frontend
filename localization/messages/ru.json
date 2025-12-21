@@ -89,8 +89,9 @@
       "Copy": {
         "tooltipContent": "Скопировать в буфер"
       },
-      "Search": {
-        "button": "Поиск"
+      "Filters": {
+        "label": "Фильтры",
+        "category": "Категория"
       }
   },
   "Messages": {

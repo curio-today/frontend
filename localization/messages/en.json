@@ -89,6 +89,10 @@
       },
       "Copy": {
         "tooltipContent": "Copy to clipboard"
+      },
+      "Filters": {
+        "label": "Filters",
+        "category": "Category"
       }
   },
   "Messages": {
