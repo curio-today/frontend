@@ -3,18 +3,9 @@
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { ComponentPropsWithoutRef, useEffect, useState } from "react";
-import { Skeleton } from "../core/skeleton";
 
 export const Logo = ({ width, height, className, ...rest }: ComponentPropsWithoutRef<"svg">) => {
     const { theme } = useTheme();
-
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => setMounted(true), []);
-
-    if (!mounted) {
-        return <Skeleton className={`w-25 h-${height}`}/>;
-    }
 
     return (
         <svg className={cn(className, theme === "dark" ? "text-white" : "text-dark")} width={width} height={height} viewBox="0 0 866 388" fill="none" xmlns="http://www.w3.org/2000/svg">
