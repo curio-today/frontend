@@ -1,6 +1,5 @@
 import "./globals.css"
 
-import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { PropsWithChildren } from "react";
 
@@ -10,7 +9,6 @@ import { getLocale } from "next-intl/server";
 import { NavigationBar } from "@/components/ui/navigation/navigation-bar"
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Footer } from "@/components/ui/footer";
-import LayoutProvider from "@/providers/layout-provider";
 import { QueryProvider } from "@/providers/query-provider";
 import { Toaster } from "@/components/core/sonner";
 import { Separator } from "@/components/core/separator";
@@ -39,9 +37,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                             enableSystem
                             disableTransitionOnChange
                         >
-                            <LayoutProvider>
-                                <NavigationBar />
-                            </LayoutProvider>
+                            <NavigationBar />
                             <main className="container mt-30 mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0">
                                 {children}
                             </main>
