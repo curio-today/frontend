@@ -1,4 +1,4 @@
-import { ArticlesFeedWithSuspense } from "./_components/articles-feed";
+import { ArticlesFeed } from "./_components/articles-feed";
 import { getMetadata } from "@/data/metadata/get-metadata";
 
 export async function generateMetadata() {
@@ -8,7 +8,7 @@ export async function generateMetadata() {
 export default async function Feed() {
     return (
         <>
-            <ArticlesFeedWithSuspense />
+            <ArticlesFeed />
         </>
     )
 }

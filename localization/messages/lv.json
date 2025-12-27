@@ -20,20 +20,24 @@
     "category": "Izvēlētā kategorija",
     "placeholder": "Meklēt...",
     "searchButton": "Meklēt",
-    "amazes": {
-      "title": "Pārsteidz"
-    },
     "home": {
       "title": "Sākums"
     },
+    "amazes": {
+      "title": "Pārsteidz",
+      "description": "Neticami stāsti, kas liek apbrīnot"
+    },
     "informs": {
-      "title": "Izglīto"
+      "title": "Izglīto",
+      "description": "Svarīgi stāsti, kas sniedz informāciju"
     },
     "amuses": {
-      "title": "Izklaidē"
+      "title": "Izklaidē",
+      "description": "Jautri stāsti, kas izklaidē un uzjautrina"
     },
     "inspires": {
-      "title": "Iedvesmo"
+      "title": "Iedvesmo",
+      "description": "Iedvesmojoši stāsti, kas motivē"
     }
   },
   "Metadata": {
