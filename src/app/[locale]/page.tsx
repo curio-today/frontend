@@ -1,16 +1,21 @@
 import { ArticlesFeed } from "./_components/articles-feed";
 import { getMetadata } from "@/data/metadata/get-metadata";
-import { ArticlesSection } from "./_components/articles-section";
+import { ArticlesList } from "./_components/articles-list";
+import { CATEGORY_LIST } from "@/constants/categories";
 
 export async function generateMetadata() {
     return getMetadata("feed");
 }
 
-export default async function Feed() {
+export default async function FeedPage() {
     return (
         <>
             <ArticlesFeed />
-            <ArticlesSection />
+            <div className="flex flex-col gap-8">
+                {CATEGORY_LIST.map(category => (
+                    <ArticlesList key={category} category={category}/>
+                ))}
+            </div>
         </>
     )
 }
