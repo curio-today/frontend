@@ -107,7 +107,8 @@
     "loading": "Loading...",
     "readFullArticle": "Read full article:",
     "searchBarPlaceholder": "Start typing to search",
-    "memo": "Smart Curiosity"
+    "memo": "Smart Curiosity",
+    "readAlso": "Read also"
   },
   "Empties": {
     "noArticlesAvailable": {
