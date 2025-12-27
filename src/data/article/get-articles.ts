@@ -18,6 +18,6 @@ export async function getArticles(query: QueryParams): Promise<PaginatedContent<
         return await response.json() as Promise<PaginatedContent<Article>>;
     } 
     catch (err) {
-        throw new Error("Unexpected error occured. Try again later");
+        throw new Error(`Unexpected error occured. Try again later.`);
     }
 }

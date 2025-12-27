@@ -4,6 +4,7 @@ import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
 import { Grid2then3 } from "./grid";
 
 import Link from "next/link";
+import { ArticleLink } from "./article-link";
 
 export const FeaturedArticlesGrid = ({ articles }: { articles: ArticleCardProps[] }) => {
     return (
@@ -12,14 +13,14 @@ export const FeaturedArticlesGrid = ({ articles }: { articles: ArticleCardProps[
                 const colSpan = index < 2 ? "md:col-span-3" : "md:col-span-2";
                 
                 return (
-                    <Link 
+                    <ArticleLink 
+                        article={article}
                         className={`w-full ${colSpan}`}
-                        href={`${CATEGORY_ID_SLUG_MAP[article.badge.id]}/${article.id}`} 
                         key={article.id}  
                         tabIndex={0}
                     >
                         <ArticleCard {...article} />
-                    </Link>
+                    </ArticleLink>
                 );
             })}
         </Grid2then3>

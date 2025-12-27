@@ -20,8 +20,11 @@ import {
     ArticleBadge,
     ArticleHeadline,
     ArticleLead,
-    ArticleContent
+    ArticleContent,
+    ArticleReadAlso,
 } from "@/components/ui/article"
+import { ArticlesList } from "@/components/ui/articles-list";
+import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
 
 const cachedGetArticle = cache(getArticle);
 
@@ -96,6 +99,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
                     }}
                 />
             </ArticleContent>
+            <Separator />
+            <ArticleReadAlso>
+                <ArticlesList category={CATEGORY_ID_SLUG_MAP[badge.id]} showCategoryHeader={false}/>
+            </ArticleReadAlso>
         </Article>
     )
 }

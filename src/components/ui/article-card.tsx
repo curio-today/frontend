@@ -18,7 +18,7 @@ export type ArticleCardProps = Pick<Article, "title" | "cover" | "slug" | "subti
 
 export function ArticleCard({ title, subtitle, slug, cover, createdAt, badge }: ArticleCardProps) {
   return (
-    <Card className="gap-5 flex-1 h-full hover:outline-1 hover:outline-primary" id={slug}>
+    <Card className="gap-5 flex-1 h-full hover:bg-accent" id={slug}>
       <CardHeader>
         <CardTitle className="text-xl line-clamp-3 min-h-15">{title}</CardTitle>
         <Suspense fallback={<Skeleton className="w-100 h-25"/>}>

@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import { ArticlesFeedWithSuspense } from "../_components/articles-feed";
-import { getTranslations } from "next-intl/server";
 import { CATEGORY_LIST } from "@/constants/categories";
 import type { Category } from "@/types/category";
 import { getMetadata } from "@/data/metadata/get-metadata";
 import { Metadata } from "next";
+import { getCategoryTranslation } from "@/data/translation/get-category-translation";
 
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
@@ -15,24 +15,23 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
 
 type CategoryPageProps = {
-    params: Promise<{ category: string }>
+    params: Promise<{ category: Category }>
 }
 
-export default async function Category({ params }: CategoryPageProps) {
+export default async function CategoryPage({ params }: CategoryPageProps) {
     const { category } = await params; 
     
     if (!CATEGORY_LIST.includes(category as Category)) {
         notFound();
     }    
     
-    const t = await getTranslations(`Navigation.${category}`);
-    const translatedCategory = t("title");
-
+    const t = await getCategoryTranslation(category);
+   
     return (
         <div className="flex justify-start flex-col">
-            <h1 className="font-bold text-sm text-secondary text-center">{translatedCategory}</h1>
+            <h1 className="font-bold text-sm text-secondary text-center">{t("title")}</h1>
             <ArticlesFeedWithSuspense 
-                category={translatedCategory} 
+                category={category} 
             /> 
         </div>
     );

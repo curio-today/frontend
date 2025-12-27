@@ -20,20 +20,24 @@
     "category": "Selected category",
     "placeholder": "Search...",
     "searchButton": "Search",
-    "amazes": {
-      "title": "Amazes"
-    },
     "home": {
       "title": "Home"
     },
+    "amazes": {
+      "title": "Amazes",
+      "description": "Incredible stories that leave you amazed"
+    },
     "informs": {
-      "title": "Informs"
+      "title": "Informs",
+      "description": "Important stories that keep you informed"
     },
     "amuses": {
-      "title": "Amuses"
+      "title": "Amuses",
+      "description": "Lighthearted stories that entertain and amuse"
     },
     "inspires": {
-      "title": "Inspires"
+      "title": "Inspires",
+      "description": "Uplifting stories that motivate and inspire"
     }
   },
   "Metadata": {
@@ -103,7 +107,8 @@
     "loading": "Loading...",
     "readFullArticle": "Read full article:",
     "searchBarPlaceholder": "Start typing to search",
-    "memo": "Smart Curiosity"
+    "memo": "Smart Curiosity",
+    "readAlso": "Read also"
   },
   "Empties": {
     "noArticlesAvailable": {

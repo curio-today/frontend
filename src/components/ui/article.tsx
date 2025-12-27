@@ -1,10 +1,13 @@
-import { ComponentProps, Fragment, PropsWithChildren } from "react"
+import { ComponentProps, PropsWithChildren } from "react"
 import type { Article as ArticleType } from "@/types/api/article";
 import { ImageWithFocal } from "@/components/ui/image-with-focal";
 import { Badge } from "@/components/core/badge";
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
 import { BadgeInfoIcon } from "lucide-react";
+import { ArticlesList } from "@/components/ui/articles-list";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Separator } from "../core/separator";
 
 
 export const Article = ({ children, ...rest }: ComponentProps<"section"> ) => {
@@ -102,5 +105,18 @@ export const ArticleContent = ({ children, ...rest }: ComponentProps<"article">)
         <article className="prose prose-base md:prose-lg max-w-none [&>p:first-of-type]:text-xl [&>p:first-of-type]:md:text-2xl [&>p:first-of-type]:lg:text-3xl" {...rest}>
             {children}
         </article>
+    )
+}
+
+export const ArticleReadAlso = ({ children }: ComponentProps<"div">) => {
+    const t = useTranslations("Messages");
+    
+    return (
+        <section className="flex flex-col gap-4" id="read-also">
+            <h2 className="font-bold text-2xl">
+                {t("readAlso")}
+            </h2>
+            {children}
+        </section>
     )
 }
