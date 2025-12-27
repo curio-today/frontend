@@ -1,5 +1,5 @@
 import { ArticlesFeed } from "./_components/articles-feed";
-import { getMetadata } from "@/data/metadata/get-metadata";
+import { getMetadata } from "@/lib/get-metadata";
 import { ArticlesList } from "../../components/ui/articles-list";
 import { CATEGORY_LIST } from "@/constants/categories";
 

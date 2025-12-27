@@ -2,7 +2,7 @@
 
 import { FeaturedArticlesGrid } from "@/components/ui/featured-articles-grid";
 import { SearchBar } from "@/components/ui/search-bar";
-import { getMetadata } from "@/data/metadata/get-metadata";
+import { getMetadata } from "@/lib/get-metadata";
 import { NoArticlesAvailable } from "./_components/no-articles-available";
 import { StartTypingToSearch } from "./_components/start-typing-to-search";
 import { SearchFilters } from "@/types/search-filters";

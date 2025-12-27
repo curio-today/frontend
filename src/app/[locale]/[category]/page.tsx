@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import { ArticlesFeedWithSuspense } from "../_components/articles-feed";
 import { CATEGORY_LIST } from "@/constants/categories";
 import type { Category } from "@/types/category";
-import { getMetadata } from "@/data/metadata/get-metadata";
+import { getMetadata } from "@/lib/get-metadata";
 import { Metadata } from "next";
-import { getCategoryTranslation } from "@/data/translation/get-category-translation";
+import { getCategoryTranslation } from "@/lib/get-category-translation";
 
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
