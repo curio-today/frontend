@@ -1,34 +1,22 @@
 "use client"
 
 import { Button } from "@/components/core/button"
-import { queryOptions, useSuspenseQuery } from "@tanstack/react-query"
-import { useLocale, useTranslations } from "next-intl"
+import { useTranslations } from "next-intl"
 import { useState } from "react"
 import { FeaturedArticlesGrid, FeaturedArticlesGridSkeleton } from "@/components/ui/featured-articles-grid"
-import { getArticles } from "@/data/article/get-articles"
+import { useSuspenseArticles } from "@/hooks/api/use-suspense-articles"
+import { Category } from "@/types/category"
 
 type ArticlesFeedProps = { 
     step?: number, 
     start?: number, 
-    category?: string,
+    category?: Category,
 };
 
 export const ArticlesFeed = ({ step = 6, start = 5, category }: ArticlesFeedProps) => {
-    const locale = useLocale();
     const t = useTranslations("Messages");
     const [currentLimit, setLimit] = useState<number>(start);
-    
-    const { data: articles } = useSuspenseQuery(queryOptions({
-        queryKey: ["articles", { locale, category, limit: currentLimit }],
-        queryFn: () => getArticles({
-            locale,
-            limit: currentLimit,
-            ...(category ? { "where[badge.name][equals]": category } : {})
-        }),
-        staleTime: 5 * 1000,
-    }));
-
-    const hasMore = articles.docs.length < articles.totalDocs;
+    const { data: articles, hasMore } = useSuspenseArticles(category, { "limit": currentLimit })
 
     return (
         <section className="flex flex-col gap-10">
