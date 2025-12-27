@@ -12,7 +12,6 @@ import { Button } from "../../core/button"
 import { Menu } from "lucide-react"
 import { NavigationCategoryMenu } from "@/components/ui/navigation/navigation-category-menu"
 import { useTranslations } from "next-intl"
-import { Separator } from "@/components/core/separator"
 
 export const CategorySheet = () => {
     const t = useTranslations("Navigation")
