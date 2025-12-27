@@ -9,7 +9,7 @@ type ArticleLinkProps = PropsWithChildren<{
 
 export const ArticleLink = ({ article, children, ...rest}: ArticleLinkProps) => {
     return (
-        <Link href={`${CATEGORY_ID_SLUG_MAP[article.badge.id]}/${article.id}`} {...rest}>
+        <Link href={`/${CATEGORY_ID_SLUG_MAP[article.badge.id]}/${article.id}`} {...rest}>
             {children}
         </Link>
     )
