@@ -6,6 +6,6 @@ export async function generateMetadata() {
 }
 
 export default async function AppPage() {
-    // Temporary redirect to [locale]
+    // Temporary redirect to English locale
     return permanentRedirect("/en");
 }
