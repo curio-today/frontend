@@ -13,7 +13,8 @@ import { QueryProvider } from "@/providers/query-provider";
 import { Toaster } from "@/components/core/sonner";
 import { Separator } from "@/components/core/separator";
 import { GoogleAnalytics } from '@next/third-parties/google';
- 
+import { Snowfall } from "@/components/feature/new-year";
+
 const roboto = Roboto({
     subsets: ["latin"],
     display: "swap",
@@ -26,19 +27,25 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
 
     return (
         <html lang={locale} className={roboto.className} suppressHydrationWarning>
-            <meta name="google-site-verification" content="EbEK3drHlDtsnh-1tCp99LBW6KGGSlm1GxSBISfhnxM" />
-            <GoogleAnalytics gaId="G-MNV4816TQ0"/>
+            <head>
+                <meta
+                name="google-site-verification"
+                content="EbEK3drHlDtsnh-1tCp99LBW6KGGSlm1GxSBISfhnxM"
+                />
+                <GoogleAnalytics gaId="G-MNV4816TQ0" />
+            </head>
             <body>
+                <Snowfall />
                 <QueryProvider>
                     <NextIntlClientProvider>
-                        <ThemeProvider 
+                        <ThemeProvider
                             attribute="class"
                             defaultTheme="system"
                             enableSystem
                             disableTransitionOnChange
                         >
                             <NavigationBar />
-                            <main className="container mt-30 mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0">
+                            <main className="container mt-30 mb-30 mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0">
                                 {children}
                             </main>
                             <Separator />
