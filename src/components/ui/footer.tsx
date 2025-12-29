@@ -3,6 +3,7 @@ import { Separator } from "../core/separator"
 import { ChristmasWreath } from "../feature/new-year"
 import { Logo } from "./logo"
 import { Memo } from "./memo"
+import { SocialMediaList } from "./social"
 
 export const Footer = () => {
     return (
@@ -16,6 +17,7 @@ export const Footer = () => {
                 <Separator orientation="vertical"/>
                 <ChristmasWreath width={32} height={32}/>
             </div>
+            <SocialMediaList />
         </footer>  
     ) 
 }
