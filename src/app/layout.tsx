@@ -38,7 +38,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                             disableTransitionOnChange
                         >
                             <NavigationBar />
-                            <main className="container mt-30 mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0">
+                            <main className="container mt-30 mb-30 mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0">
                                 {children}
                             </main>
                             <Separator />
