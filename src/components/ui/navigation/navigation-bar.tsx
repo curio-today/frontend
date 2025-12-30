@@ -24,7 +24,7 @@ export const NavigationBar = () => {
         <NavigationCategoryMenu />
       </div>
 
-      <ButtonGroup className="justify-end">
+      <ButtonGroup className="flex-1 justify-end">
         <ButtonGroup>
           <ButtonGroup>
             <SearchButton />
