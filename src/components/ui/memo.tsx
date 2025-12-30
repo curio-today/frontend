@@ -1,9 +1,9 @@
-"use server"
+"use client"
 
-import { getTranslations } from "next-intl/server"
+import { useTranslations } from "next-intl";
 
-export async function Memo() {
-    const t = await getTranslations("Messages");
+export function Memo() {
+    const t = useTranslations("Messages");
 
     return (
         <small className="text-center text-xs uppercase max-w-25">

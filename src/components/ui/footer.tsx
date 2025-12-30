@@ -1,21 +1,23 @@
 import { CurioWithChristmasHat } from "../content/curio"
 import { Separator } from "../core/separator"
 import { ChristmasWreath } from "../feature/new-year"
-import { Logo } from "./logo"
-import { Memo } from "./memo"
+import { LogoWithMemo } from "./logo"
+import { SocialMediaList } from "./social"
 
 export const Footer = () => {
     return (
-        <footer className="w-full h-50 bg-background flex justify-center items-center flex-col">
-            <Logo width={100}>
-                <CurioWithChristmasHat />
-            </Logo>
-            <Memo />
+        <footer className="w-full h-50 bg-background flex justify-center items-center flex-col gap-4">
             <div className="flex flex-row justify-center items-center gap-4">
-                <p className="text-muted-foreground">All Rights Are Reserved©</p>
+                <LogoWithMemo>
+                    <CurioWithChristmasHat />
+                </LogoWithMemo>
                 <Separator orientation="vertical"/>
-                <ChristmasWreath width={32} height={32}/>
+                <SocialMediaList />
             </div>
+            <p className="flex flex-row items-center gap-2 text-muted-foreground">
+                <ChristmasWreath width={32} height={32}/>
+                All Rights Are Reserved©
+            </p>
         </footer>  
     ) 
 }
