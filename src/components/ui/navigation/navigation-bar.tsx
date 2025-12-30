@@ -13,18 +13,18 @@ import { CurioWithChristmasHat } from "@/components/content/curio";
 
 export const NavigationBar = () => {
   return (
-    <header className="lg:pl-10 bg-background w-full fixed flex p-4 top-0 left-0 z-50 justify-start items-center outline-solid outline-1">
-      <Link href="/">
+    <header className="lg:pl-10 bg-background w-full fixed flex p-4 top-0 left-0 z-50 items-center lg:justify-start justify-between outline-solid outline-1">
+      <Link className="sm:flex-1" href="/">
         <LogoWithMemo>
           <CurioWithChristmasHat />
         </LogoWithMemo>
       </Link>
 
-      <div className="flex-wrap hidden md:flex">
+      <div className="flex-1 justify-center items-center flex-wrap hidden md:flex">
         <NavigationCategoryMenu />
       </div>
 
-      <ButtonGroup className="lg:flex-1 justify-end">
+      <ButtonGroup className="justify-end">
         <ButtonGroup>
           <ButtonGroup>
             <SearchButton />
