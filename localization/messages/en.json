@@ -108,7 +108,9 @@
     "readFullArticle": "Read full article:",
     "searchBarPlaceholder": "Start typing to search",
     "memo": "Smart Curiosity",
-    "readAlso": "Read also"
+    "readAlso": "Read also",
+    "allRightsAreReserved": "All Rights Are Reserved ©",
+    "createdBy": "Created by"
   },
   "Empties": {
     "noArticlesAvailable": {
