@@ -106,7 +106,9 @@
     "readFullArticle": "Lasīt pilnu rakstu:",
     "searchBarPlaceholder": "Sāciet rakstīt, lai meklētu",
     "memo": "Gudra ziņkāre",
-    "readAlso": "Lasiet arī"
+    "readAlso": "Lasiet arī",
+    "allRightsAreReserved": "Visas tiesības aizsargātas ©",
+    "createdBy": "Izveidoja"
   },
   "Empties": {
     "noArticlesAvailable": {
