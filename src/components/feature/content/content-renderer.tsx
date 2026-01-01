@@ -1,90 +1,5 @@
 import React, { ReactNode } from 'react';
-
-// Types for the content structure
-interface TextNode {
-  detail: number;
-  format: number;
-  mode: string;
-  style: string;
-  text: string;
-  type: "text";
-  version: number;
-}
-
-interface LinkNode {
-  children: TextNode[];
-  direction: string;
-  format: string;
-  indent: number;
-  type: "link";
-  version: number;
-  rel: string;
-  target: string;
-  title: string;
-  url: string;
-}
-
-interface ParagraphNode {
-  children: (TextNode | LinkNode)[];
-  direction: string;
-  format: string;
-  indent: number;
-  type: "paragraph";
-  version: number;
-  textFormat?: number;
-  textStyle?: string;
-}
-
-interface HeadingNode {
-  children: TextNode[];
-  direction: string;
-  format: string;
-  indent: number;
-  type: "heading";
-  version: number;
-  tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-}
-
-interface ListItemNode {
-  children: (TextNode | LinkNode)[];
-  direction: string;
-  format: string;
-  indent: number;
-  type: "listitem";
-  version: number;
-  value: number;
-}
-
-interface ListNode {
-  children: ListItemNode[];
-  direction: string;
-  format: string;
-  indent: number;
-  type: "list";
-  version: number;
-  listType: "bullet" | "number";
-  start: number;
-  tag: "ul" | "ol";
-}
-
-interface QuoteNode {
-  children: ParagraphNode[];
-  direction: string;
-  format: string;
-  indent: number;
-  type: "quote";
-  version: number;
-}
-
-type ContentNode = ParagraphNode | HeadingNode | ListNode | QuoteNode;
-
-export interface RootContent {
-  direction: string;
-  indent: number;
-  type: "root";
-  version: number;
-  children: ContentNode[];
-}
+import { ContentNode, HeadingNode, InlineNode, LinkNode, ListItemNode, ListNode, ParagraphNode, QuoteNode, RootContent, TextNode } from './types';
 
 // Format flags
 const FORMAT_BOLD = 1;
@@ -118,6 +33,7 @@ interface ContentRendererProps {
     code?: React.ComponentType<any>;
     sub?: React.ComponentType<any>;
     sup?: React.ComponentType<any>;
+    br?: React.ComponentType<any>;
   };
 }
 
@@ -156,10 +72,10 @@ interface ContentRendererProps {
     }}
   />
 */
-export const ContentRenderer: React.FC<ContentRendererProps> = ({ 
+export const ContentRenderer = ({ 
   content, 
   components = {} 
-}) => {
+}: ContentRendererProps) => {
   if (!content?.children) return null;
 
   const getComponent = (tag: string) => {
@@ -226,15 +142,16 @@ export const ContentRenderer: React.FC<ContentRendererProps> = ({
     );
   };
 
-  const renderInlineContent = (
-    children: (TextNode | LinkNode)[],
-    keyPrefix: string
-  ): ReactNode[] => {
+  const renderInlineContent = (children: InlineNode[], keyPrefix: string): ReactNode[] => {
     return children.map((child, idx) => {
       if (child.type === 'text') {
         return renderTextNode(child, `${keyPrefix}-text-${idx}`);
-      } else if (child.type === 'link') {
+      } 
+      if (child.type === 'link') {
         return renderLinkNode(child, `${keyPrefix}-link-${idx}`);
+      } 
+      if (child.type === "linebreak") {
+        return renderLineBreakNode(`${keyPrefix}-br-${idx}`);
       }
       return null;
     });
@@ -291,6 +208,11 @@ export const ContentRenderer: React.FC<ContentRendererProps> = ({
       </List>
     );
   };
+  
+  const renderLineBreakNode = (key: string): ReactNode => {
+    const Br = getComponent("br");
+    return <Br key={key}/>
+  }
 
   const renderQuote = (node: QuoteNode, key: string): ReactNode => {
     const Blockquote = getComponent('blockquote');

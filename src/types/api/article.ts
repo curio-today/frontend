@@ -1,6 +1,6 @@
 import { MediaAsset } from "./media-asset";
 import { ImageWithFocal } from "../image";
-import { RootContent } from "@/components/content/content-renderer";
+import { RootContent } from "@/components/feature/content/types";
 
 export type Article = {
     id: string;
