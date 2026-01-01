@@ -1,11 +1,11 @@
 import { getArticle } from "@/data/article/get-article";
 import { Separator } from "@/components/core/separator";
 import { getLocale } from "next-intl/server";
-import { ContentRenderer } from "@/components/content/content-renderer";
+import { ContentRenderer } from "@/components/feature/content";
 import { Paragraph } from "@/components/typography/paragraph";
 import { ParagraphItalic } from "@/components/typography/paragraph-italic";
 import { Time } from "@/components/ui/time";
-import { Activity, cache } from "react";
+import { cache } from "react";
 import { Metadata } from "next";
 import { ShareButton } from "@/components/ui/share-button";
 import { draftMode } from "next/headers";
