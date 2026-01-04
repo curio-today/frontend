@@ -1,7 +1,8 @@
 import { getMetadata } from "@/lib/get-metadata";
 import { permanentRedirect } from "next/navigation";
+import {Metadata} from "next";
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
     return getMetadata("feed");
 }
 

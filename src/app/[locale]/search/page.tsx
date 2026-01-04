@@ -7,8 +7,9 @@ import { NoArticlesAvailable } from "./_components/no-articles-available";
 import { StartTypingToSearch } from "./_components/start-typing-to-search";
 import { SearchFilters } from "@/types/search-filters";
 import { getLocalizedArticlesWithFilters } from "@/data/article/get-localized-articles-with-filters";
+import {Metadata} from "next";
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
     return getMetadata("search");
 }
 

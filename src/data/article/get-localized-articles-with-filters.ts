@@ -1,5 +1,3 @@
-"server-only"
-
 import { SearchFilters } from "@/types/search-filters";
 import { getLocale } from "next-intl/server";
 import { getArticles } from "./get-articles";
