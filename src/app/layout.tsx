@@ -6,7 +6,7 @@ import { PropsWithChildren } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 
-import { NavigationBar } from "@/components/ui/navigation/navigation-bar"
+import { NavigationBar } from "@/components/navigation/navigation-bar"
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Footer } from "@/components/ui/footer";
 import { QueryProvider } from "@/providers/query-provider";
@@ -45,7 +45,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                             disableTransitionOnChange
                         >
                             <NavigationBar />
-                            <main className="container mt-30 mb-30 mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0">
+                            <main className="container mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0 mt-30">
                                 {children}
                             </main>
                             <Separator />
