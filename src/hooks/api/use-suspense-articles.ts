@@ -9,7 +9,7 @@ import { useCategoryTranslation } from "../translations/use-category-translation
 export function useSuspenseArticles(category?: Category, options?: Record<string, unknown>) {
     const locale = useLocale();
     const t = useCategoryTranslation(category ?? "amazes");
-    
+
     const suspenseQuery = useSuspenseQuery(queryOptions({
         queryKey: ["articles", { locale, category, ...options }],
         queryFn: () => getArticles({
@@ -17,8 +17,11 @@ export function useSuspenseArticles(category?: Category, options?: Record<string
             ...(category ? { "where[badge.name][equals]": t("title") } : {}),
             ...options
         }),
-        staleTime: 5 * 1000,
+        staleTime: 5 * 60 * 1000,
+        retry: 2,
+        retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
     }));
+
     const hasMore = suspenseQuery.data.docs.length < suspenseQuery.data.totalDocs;
 
     return {
