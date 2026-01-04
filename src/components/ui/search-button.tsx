@@ -1,10 +1,12 @@
+"use client"
+
 import { Search } from "lucide-react"
 import { Button } from "../core/button"
 import Link from "next/link"
-import { getTranslations } from "next-intl/server"
+import {useTranslations} from "next-intl";
 
-export const SearchButton = async () => {
-    const t = await getTranslations("Navigation");
+export const SearchButton = () => {
+    const t = useTranslations("Navigation");
 
     return (
         <Button variant="outline" asChild>
