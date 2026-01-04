@@ -1,7 +1,7 @@
 import "./globals.css"
 
 import { Roboto } from "next/font/google";
-import { PropsWithChildren } from "react";
+import {PropsWithChildren, Suspense} from "react";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
@@ -14,6 +14,7 @@ import { Toaster } from "@/components/core/sonner";
 import { Separator } from "@/components/core/separator";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Snowfall } from "@/components/feature/new-year";
+import {Skeleton} from "@/components/core/skeleton";
 
 const roboto = Roboto({
     subsets: ["latin"],
@@ -22,7 +23,7 @@ const roboto = Roboto({
 });
 
 
-export default async function RootLayout({ children }: Readonly<PropsWithChildren>) {    
+export default async function RootLayout({ children }: Readonly<PropsWithChildren>) {
     const locale = await getLocale();
 
     return (
@@ -46,7 +47,9 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                         >
                             <NavigationBar />
                             <main className="container mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0 mt-30">
-                                {children}
+                                <Suspense fallback={<Skeleton className="h-screen w-full" />}>
+                                    {children}
+                                </Suspense>
                             </main>
                             <Separator />
                             <Footer />
