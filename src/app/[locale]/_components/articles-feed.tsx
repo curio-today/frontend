@@ -3,7 +3,7 @@
 import { Button } from "@/components/core/button"
 import { useTranslations } from "next-intl"
 import { useState } from "react"
-import { FeaturedArticlesGrid, FeaturedArticlesGridSkeleton } from "@/components/ui/featured-articles-grid"
+import { FeaturedArticlesGrid } from "@/components/ui/featured-articles-grid"
 import { useSuspenseArticles } from "@/hooks/api/use-suspense-articles"
 import { Category } from "@/types/category"
 
@@ -22,7 +22,7 @@ export const ArticlesFeed = ({ step = 6, start = 5, category }: ArticlesFeedProp
         <section className="flex flex-col gap-10">
             <FeaturedArticlesGrid articles={articles.docs} />
             {hasMore && (
-                <Button 
+                <Button
                     variant="outline"
                     className="mb-10"
                     onClick={() => {
@@ -36,13 +36,3 @@ export const ArticlesFeed = ({ step = 6, start = 5, category }: ArticlesFeedProp
         </section>
     )
 }
-
-export const ArticlesFeedSkeleton = () => (
-    <section className="flex flex-col gap">
-        <FeaturedArticlesGridSkeleton cardCount={6}/>
-    </section>
-)
-
-export const ArticlesFeedWithSuspense = (props: ArticlesFeedProps) => (
-    <ArticlesFeed {...props} />
-)

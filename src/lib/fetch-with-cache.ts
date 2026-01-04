@@ -1,5 +1,6 @@
-import { cache } from "react";
+/**
+ * @deprecated
+ */
+export const fetchWithCache = fetch;
 
-export const fetchWithCache = cache(fetch);
-
-export default cache(fetch);
+export default fetchWithCache;
