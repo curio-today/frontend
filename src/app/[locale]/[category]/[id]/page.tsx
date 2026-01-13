@@ -90,7 +90,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
             </ArticleHead>
             <Separator />
             <ArticleCover cover={cover} source={source}/>
-            <ArticleContent>
+            <ArticleContent className="bg-background">
                 <ContentRenderer 
                     content={content.root}
                     components={{
