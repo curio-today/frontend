@@ -138,11 +138,12 @@ pnpm test
 
 
 ### End-to-End Tests (Playwright)
-
+If you don't have installed Playwright, install it first:
+```bash
+pnpm exec playwright install
+```
 
 Run E2E tests using:
-
-
 ```bash
 pnpm test:e2e
 ```
