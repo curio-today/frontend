@@ -1,52 +1,78 @@
 "use client"
 
-import { Button, type ButtonProps } from "@/components/core/button";
 import {
     BrainIcon,
-    HomeIcon, LightbulbIcon, SmileIcon,
+    HomeIcon, LightbulbIcon, ListIcon, SearchIcon, SmileIcon,
     SparklesIcon,
 } from "lucide-react";
-import Link, {LinkProps} from "next/link";
-import {cn} from "@/lib/utils";
-import {useTranslations} from "next-intl";
-import {usePathname} from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
+import { Tabs, TabsButton, TabsCategoryItem } from "./components/tabs";
+import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/core/drawer";
+import path from "path";
 
-const Tabs = [
+
+const tabs = [
     { key: 'amuses', icon: SmileIcon, href: "/amuses" },
     { key: 'amazes', icon: SparklesIcon, href: "/amazes" },
-    { key: 'home', icon: HomeIcon, href: "/" },
     { key: 'informs', icon: BrainIcon, href: "/informs" },
     { key: 'inspires', icon: LightbulbIcon, href: "/inspires" },
 ];
 
-type TabButtonProps = {
-    isSelected: boolean;
-} & Pick<LinkProps, "href"> & ButtonProps
 
-export const TabButton = ({ children, href, isSelected }: TabButtonProps) => (
-    <Button
-        className={cn("flex flex-col justify-center p-0 w-20 h-20", isSelected ? 'text-primary bg-accent' : 'text-secondary')}
-        variant="link"
-        asChild
-    >
-        <Link href={href} >
-            {children}
-        </Link>
-    </Button>
-)
 
 export const NavigationBarMobile = () => {
     const t = useTranslations("Navigation");
     const pathname = usePathname();
 
     return (
-        <header className="p-1 bg-background w-full h-25 fixed flex bottom-0 left-0 z-50 items-center justify-between outline-solid outline-1">
-            {Tabs.map(tab => (
-                <TabButton key={tab.key} href={tab.href} isSelected={pathname === tab.href}>
-                    <tab.icon className="size-5" />
-                    <small className="text-xs">{t(`${tab.key}.title`)}</small>
-                </TabButton>
-            ))}
-        </header>
+        <Tabs className="justify-center">
+            <Drawer>
+                <DrawerTrigger asChild>
+                    <TabsButton
+                        icon={ListIcon}
+                        label={t("title")}
+                    >
+                    </TabsButton>
+                </DrawerTrigger>
+                <DrawerContent className="pb-4">
+                    <DrawerHeader>
+                        <DrawerTitle>{t("title")}</DrawerTitle>
+                        <DrawerDescription>{t("description")}</DrawerDescription>
+                    </DrawerHeader>
+                    <div className="flex flex-col gap-4 m-2">
+                        {tabs.map(tab => 
+                            <TabsCategoryItem 
+                                key={tab.key}
+                                href={tab.href} 
+                                icon={tab.icon}
+                                title={t(`${tab.key}.title`)}
+                                description={t(`${tab.key}.description`)}
+                                isSelected={pathname === tab.href}
+                            />
+                     )}
+                    </div>
+                </DrawerContent>
+            </Drawer>
+            <Link href="/">
+                <TabsButton 
+                    icon={HomeIcon} 
+                    label={t(`home.title`)}
+                    isSelected={pathname === "/"}
+                >
+                </TabsButton>
+            </Link>
+            <Link href="/search">
+               <TabsButton 
+                    icon={SearchIcon}
+                    label={t("searchButton")}
+                    isSelected={pathname === "/search"}
+                >
+
+               </TabsButton>
+            </Link>
+    
+            
+        </Tabs>
     )
 }
