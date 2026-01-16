@@ -21,11 +21,11 @@ export function ArticleCard({ title, subtitle, slug, cover, createdAt, badge }: 
     <Card className="gap-5 flex-1 h-full hover:bg-accent justify-between" id={slug}>
       <CardHeader>
         <CardTitle className="text-xl line-clamp-3 min-h-15">{title}</CardTitle>
-        <Suspense fallback={<Skeleton className="w-100 h-25"/>}>
-          <CardContent className="relative aspect-video overflow-hidden rounded-xl w-full">
-            <ImageWithFocal src={cover.url} alt={cover.alt} focalX={cover.focalX} focalY={cover.focalY} fill />
-          </CardContent>
-        </Suspense>
+        <CardContent className="relative aspect-video overflow-hidden rounded-xl w-full">
+            <Suspense fallback={<Skeleton className="w-full h-full"/>}>
+                <ImageWithFocal src={cover.url} alt={cover.alt} focalX={cover.focalX} focalY={cover.focalY} fill />
+            </Suspense>
+        </CardContent>
       </CardHeader>
       <CardFooter className="flex-col items-start gap-2">
         <CardDescription className="line-clamp-2 text-left font-medium">
