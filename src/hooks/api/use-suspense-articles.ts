@@ -14,10 +14,11 @@ export function useSuspenseArticles(category?: Category, options?: Record<string
         queryKey: ["articles", { locale, category, ...options }],
         queryFn: () => getArticles({
             locale,
+            "where[title][exists]": true,
             ...(category ? { "where[badge.name][equals]": t("title") } : {}),
             ...options
         }),
-        staleTime: 5 * 60 * 1000,
+        staleTime: 10 * 60 * 1000,
         retry: 2,
         retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
     }));
