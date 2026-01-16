@@ -4,7 +4,7 @@ import type { Category } from "@/types/category";
 import { getMetadata } from "@/lib/get-metadata";
 import { Metadata } from "next";
 import { getCategoryTranslation } from "@/lib/get-category-translation";
-import {ArticlesFeed} from "../_components/articles-feed";
+import { ArticlesFeedSection } from "../_components/articles-feed";
 import { Separator } from "@/components/core/separator";
 
 
@@ -35,7 +35,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 <h2 className="">{t("description")}</h2>
             </div>
             <Separator />
-            <ArticlesFeed category={category} />
+            <ArticlesFeedSection category={category} />
         </div>
     );
 }
