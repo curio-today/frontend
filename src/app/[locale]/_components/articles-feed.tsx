@@ -13,7 +13,7 @@ type ArticlesFeedProps = {
     category?: Category,
 };
 
-export const ArticlesFeed = ({ step = 6, start = 5, category }: ArticlesFeedProps) => {
+export const ArticlesFeedSection = ({ step = 6, start = 5, category }: ArticlesFeedProps) => {
     const t = useTranslations("Messages");
     const [currentLimit, setLimit] = useState<number>(start);
     const { data: { docs: articles }, hasMore } = useSuspenseArticles(category, { "limit": currentLimit, "where[title][exists]": true })

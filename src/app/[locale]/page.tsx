@@ -1,4 +1,4 @@
-import { ArticlesFeed } from "./_components/articles-feed";
+import { ArticlesFeedSection } from "./_components/articles-feed";
 import { getMetadata } from "@/lib/get-metadata";
 import { ArticlesList } from "@/components/ui/articles-list";
 import { CATEGORY_LIST } from "@/constants/categories";
@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function FeedPage() {
     return (
         <>
-            <ArticlesFeed />
+            <ArticlesFeedSection />
             <div className="flex flex-col gap-8">
                 {CATEGORY_LIST.map(category => (
                     <ArticlesList key={category} category={category}/>
