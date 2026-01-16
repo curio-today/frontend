@@ -1,7 +1,7 @@
 import "./globals.css"
 
 import { Roboto } from "next/font/google";
-import { PropsWithChildren, Suspense }  from "react";
+import { Activity, PropsWithChildren, Suspense }  from "react";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
@@ -15,6 +15,7 @@ import { Separator } from "@/components/core/separator";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Snowfall } from "@/components/feature/new-year";
 import { Skeleton } from "@/components/core/skeleton";
+import { isMobile } from "@/actions/is-mobile";
 
 const roboto = Roboto({
     subsets: ["latin"],
@@ -25,6 +26,7 @@ const roboto = Roboto({
 
 export default async function RootLayout({ children }: Readonly<PropsWithChildren>) {
     const locale = await getLocale();
+    const mobile = await isMobile();
 
     return (
         <html lang={locale} className={roboto.className} suppressHydrationWarning>
@@ -36,9 +38,11 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                 <GoogleAnalytics gaId="G-MNV4816TQ0" />
             </head>
             <body>
-                <Suspense>
-                    <Snowfall />
-                </Suspense>
+                <Activity mode={mobile ? "hidden" : "visible" }>
+                    <Suspense>
+                        <Snowfall />
+                    </Suspense>
+                </Activity>
                 <QueryProvider>
                     <NextIntlClientProvider>
                         <ThemeProvider
