@@ -16,7 +16,7 @@ type ArticlesFeedProps = {
 export const ArticlesFeedSection = ({ step = 6, start = 5, category }: ArticlesFeedProps) => {
     const t = useTranslations("Messages");
     const [currentLimit, setLimit] = useState<number>(start);
-    const { data: { docs: articles }, hasMore } = useSuspenseArticles(category, { "limit": currentLimit, "where[title][exists]": true })
+    const { data: { docs: articles }, hasMore } = useSuspenseArticles(category, { "limit": currentLimit })
 
     return (
         <section className="flex flex-col gap-10">
