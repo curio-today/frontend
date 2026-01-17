@@ -16,7 +16,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.ENTRYPOINT_TOKEN }}
-          repository: entrypoint
+          repository: YOUR_ORG_NAME/entrypoint
           event-type: deploy
           client-payload: |
             {
