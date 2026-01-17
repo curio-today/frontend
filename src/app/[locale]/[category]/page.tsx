@@ -4,7 +4,8 @@ import type { Category } from "@/types/category";
 import { getMetadata } from "@/lib/get-metadata";
 import { Metadata } from "next";
 import { getCategoryTranslation } from "@/lib/get-category-translation";
-import {ArticlesFeed} from "../_components/articles-feed";
+import { ArticlesFeedSection } from "../_components/articles-feed";
+import { Separator } from "@/components/core/separator";
 
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
@@ -28,9 +29,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     const t = await getCategoryTranslation(category);
    
     return (
-        <div className="flex justify-start flex-col">
-            <h1 className="font-bold text-sm text-secondary text-center">{t("title")}</h1>
-            <ArticlesFeed category={category} />
+        <div className="flex justify-start flex-col gap-8">
+            <div className="flex flex-col md:flex-row gap-4 md:items-center">
+                <h1 className="font-bold text-xl text-start">{t("title")}</h1>
+                <h2 className="">{t("description")}</h2>
+            </div>
+            <Separator />
+            <ArticlesFeedSection category={category} />
         </div>
     );
 }

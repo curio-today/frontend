@@ -57,7 +57,6 @@ export const NavigationCategoryMenu = ({
 
 export const NavigationCategoryMenuItem = ({ category }: NavigationCategoryItemProps) => {
   const t = useTranslations("Navigation");
-  const isMobile = useIsMobile();
 
   const href = `/${category}`;
   const name = t(`${category}.title`);
@@ -70,34 +69,6 @@ export const NavigationCategoryMenuItem = ({ category }: NavigationCategoryItemP
     });
   };
 
-  const LinkContent = (
-    <>
-      {isMobile ? (
-        <>
-          <ItemContent>
-            <ItemTitle>{name}</ItemTitle>
-            <ItemDescription>{description}</ItemDescription>
-          </ItemContent>
-          <ItemActions>
-            <ChevronRightIcon className="size-4" />
-          </ItemActions>
-        </>
-      ) : (
-        <>{name}</>
-      )}
-    </>
-  );
-
-  if (isMobile) {
-    return (
-      <Item className="w-full" variant="outline" asChild>
-        <Link href={href} onClick={handleClick}>
-          {LinkContent}
-        </Link>
-      </Item>
-    );
-  }
-
   return (
     <NavigationMenuItem>
       <Tooltip>
@@ -107,7 +78,7 @@ export const NavigationCategoryMenuItem = ({ category }: NavigationCategoryItemP
             onClick={handleClick}
             className={navigationMenuTriggerStyle()}
           >
-            {LinkContent}
+            {name}
           </NavigationMenuLink>
         </TooltipTrigger>
         <TooltipContent>{description}</TooltipContent>

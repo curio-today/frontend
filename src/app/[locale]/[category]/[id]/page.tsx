@@ -5,7 +5,7 @@ import { ContentRenderer } from "@/components/feature/content";
 import { Paragraph } from "@/components/typography/paragraph";
 import { ParagraphItalic } from "@/components/typography/paragraph-italic";
 import { Time } from "@/components/ui/time";
-import { cache } from "react";
+import { cache, Suspense } from "react";
 import { Metadata } from "next";
 import { ShareButton } from "@/components/ui/share-button";
 import { draftMode } from "next/headers";
@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/article"
 import { ArticlesList } from "@/components/ui/articles-list";
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
+import { Skeleton } from "@/components/core/skeleton";
 
 const cachedGetArticle = cache(getArticle);
 
@@ -66,16 +67,18 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
     return (
         <Article className="article flex flex-col gap-8 overflow-hidden">
             <ArticleMetadata>
-                <Time 
-                    className="font-thin text-xs align-middle text-center" 
-                    iso={createdAt}
-                />
-                <ArticleBadge 
-                    className="bg-primary"
-                    id={badge.id} 
-                    name={badge.name} 
-                    isClickable
-                />
+                <Suspense fallback={<Skeleton className="w-100 h-10" />}>
+                    <Time 
+                        className="font-thin text-xs align-middle text-center" 
+                        iso={createdAt}
+                    />
+                    <ArticleBadge 
+                        className="bg-primary"
+                        id={badge.id} 
+                        name={badge.name} 
+                        isClickable
+                    />
+                </Suspense>
                 <ArticleActions className="flex flex-1 justify-end items-center">
                     <ShareButton />
                 </ArticleActions>
@@ -89,8 +92,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
                 </ArticleLead>
             </ArticleHead>
             <Separator />
-            <ArticleCover cover={cover} source={source}/>
-            <ArticleContent>
+            <Suspense fallback={<Skeleton className="w-full h-200"/>}>
+                <ArticleCover cover={cover} source={source}/>
+            </Suspense>
+            <ArticleContent className="bg-background">
                 <ContentRenderer 
                     content={content.root}
                     components={{
@@ -100,9 +105,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
                 />
             </ArticleContent>
             <Separator />
-            <ArticleReadAlso>
-                <ArticlesList category={CATEGORY_ID_SLUG_MAP[badge.id]} showCategoryHeader={false}/>
-            </ArticleReadAlso>
+            <Suspense fallback={<Skeleton className="w-full h-200" />}>
+                <ArticleReadAlso>
+                    <ArticlesList category={CATEGORY_ID_SLUG_MAP[badge.id]} showCategoryHeader={false}/>
+                </ArticleReadAlso>
+            </Suspense>
         </Article>
     )
 }
