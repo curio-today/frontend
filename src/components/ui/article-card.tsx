@@ -5,7 +5,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/core/card"
+} from "@/components/animated/card"
 import { Skeleton } from "@/components/core/skeleton"
 import { Article } from "@/types/api/article"
 
