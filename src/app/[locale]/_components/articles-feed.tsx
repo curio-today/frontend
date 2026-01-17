@@ -13,14 +13,14 @@ type ArticlesFeedProps = {
     category?: Category,
 };
 
-export const ArticlesFeed = ({ step = 6, start = 5, category }: ArticlesFeedProps) => {
+export const ArticlesFeedSection = ({ step = 6, start = 5, category }: ArticlesFeedProps) => {
     const t = useTranslations("Messages");
     const [currentLimit, setLimit] = useState<number>(start);
-    const { data: articles, hasMore } = useSuspenseArticles(category, { "limit": currentLimit })
+    const { data: { docs: articles }, hasMore } = useSuspenseArticles(category, { "limit": currentLimit })
 
     return (
         <section className="flex flex-col gap-10">
-            <FeaturedArticlesGrid articles={articles.docs} />
+            <FeaturedArticlesGrid articles={articles} />
             {hasMore && (
                 <Button
                     variant="outline"
