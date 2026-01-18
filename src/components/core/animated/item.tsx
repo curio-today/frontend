@@ -6,7 +6,7 @@ import * as React from "react"
 import { Separator } from "@/components/core/separator"
 import { cn } from "@/lib/utils"
 
-const MotionSeparator = motion(Separator)
+const MotionSeparator = motion.create(Separator)
 
 function ItemGroup({ className, ...props }: HTMLMotionProps<"div">) {
     return (
@@ -206,7 +206,7 @@ function ItemActions({ className, ...props }: HTMLMotionProps<"div">) {
 function ItemHeader({ className, ...props }: HTMLMotionProps<"div">) {
     return (
         <motion.div
-            data-slot="item-header"
+            data-slot="item-header>"
             initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2, delay: 0.1 }}
