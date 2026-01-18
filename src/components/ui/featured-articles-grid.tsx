@@ -1,3 +1,5 @@
+"use client"
+
 import { ArticleCard, type ArticleCardProps } from "@/components/ui/article-card"
 import { Grid2then3 } from "./grid";
 import { ArticleLink } from "./article-link";
