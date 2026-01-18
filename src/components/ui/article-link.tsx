@@ -1,11 +1,9 @@
 "use client"
 
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories"
-import { useRouter } from "@/i18n/navigation"
-import { getArticleViewTransitionName } from "@/lib/view-transition"
 import { Article } from "@/types/api/article"
 import Link from "next/link"
-import { ComponentProps, PropsWithChildren, ViewTransition, MouseEvent, startTransition } from "react"
+import { ComponentProps, PropsWithChildren } from "react"
 
 type ArticleLinkProps = PropsWithChildren<{
     article: Pick<Article, "badge" | "id">,
