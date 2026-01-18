@@ -14,15 +14,17 @@ export const FeaturedArticlesGrid = ({ articles }: { articles: ArticleCardProps[
                 const colSpan = index < 2 ? "md:col-span-3" : "md:col-span-2";
 
                 return (
-                    <ViewTransition key={article.id} name={getArticleViewTransitionName(article.id)}>
-                        <ArticleLink
-                            article={article}
-                            className={`w-full ${colSpan}`}
-                            tabIndex={0}
-                        >
+                    <ArticleLink
+                        key={article.id}
+                        article={article}
+                        className={`w-full ${colSpan}`}
+                        tabIndex={0}
+                        prefetch
+                    >
+                        <ViewTransition name={getArticleViewTransitionName(article.id)}>
                             <ArticleCard {...article} />
-                        </ArticleLink>
-                    </ViewTransition>
+                        </ViewTransition>
+                    </ArticleLink>
                 );
             })}
         </Grid2then3>
