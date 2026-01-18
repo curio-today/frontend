@@ -1,12 +1,12 @@
 "use client"
 
-import { 
-  useState, 
-  useCallback, 
-  useEffect, 
-  useRef, 
-  Dispatch, 
-  SetStateAction, 
+import {
+  useState,
+  useCallback,
+  useEffect,
+  useRef,
+  Dispatch,
+  SetStateAction,
   KeyboardEvent
 } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
@@ -71,7 +71,7 @@ interface UseSearchReturn {
  *   onKeyDown={onKeyDown}
  * />
  */
-export function useSearch({ debounceMs = 0 }: UseSearchOptions): UseSearchReturn {
+export function useSearch({ debounceMs = 300 }: UseSearchOptions): UseSearchReturn {
   const router = useRouter()
   const searchParams = useSearchParams()
   const initialQuery = searchParams.get("q") ?? ""
@@ -89,7 +89,7 @@ export function useSearch({ debounceMs = 0 }: UseSearchOptions): UseSearchReturn
     }
 
     router.push(`/search?${params.toString()}`)
-  }, [query, router, searchParams])
+  }, [query, router])
 
   useEffect(() => {
     if (debounceMs <= 0) return
@@ -107,7 +107,7 @@ export function useSearch({ debounceMs = 0 }: UseSearchOptions): UseSearchReturn
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Enter") {
         e.preventDefault()
-        window.clearTimeout(debounceRef.current) 
+        window.clearTimeout(debounceRef.current)
         submitSearch()
       }
     },
