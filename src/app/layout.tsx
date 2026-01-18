@@ -1,7 +1,7 @@
 import "./globals.css"
 
 import { Roboto } from "next/font/google";
-import { Activity, PropsWithChildren, Suspense, ViewTransition } from "react";
+import { Activity, PropsWithChildren, Suspense } from "react";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
