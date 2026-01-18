@@ -1,11 +1,11 @@
 import { Article } from "@/types/api/article"
-import { 
-    Item, 
-    ItemActions, 
+import {
+    Item,
+    ItemActions,
     ItemContent,
     ItemDescription,
     ItemTitle
-} from "../core/item"
+} from "../core/animated/item"
 import { ChevronRight } from "lucide-react"
 import { Suspense } from "react"
 import { Skeleton } from "../core/skeleton"
