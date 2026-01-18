@@ -7,9 +7,9 @@ export const FeaturedArticlesGrid = ({ articles }: { articles: ArticleCardProps[
         <Grid2then3>
             {articles.map((article, index) => {
                 const colSpan = index < 2 ? "md:col-span-3" : "md:col-span-2";
-                
+
                 return (
-                    <ArticleLink 
+                    <ArticleLink
                         article={article}
                         className={`w-full ${colSpan}`}
                         key={article.id}

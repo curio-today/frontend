@@ -5,7 +5,7 @@ import { ContentRenderer } from "@/components/feature/content";
 import { Paragraph } from "@/components/typography/paragraph";
 import { ParagraphItalic } from "@/components/typography/paragraph-italic";
 import { Time } from "@/components/ui/time";
-import { cache, Suspense } from "react";
+import { cache, Suspense, ViewTransition } from "react";
 import { Metadata } from "next";
 import { ShareButton } from "@/components/ui/share-button";
 import { draftMode } from "next/headers";
@@ -26,6 +26,7 @@ import {
 import { ArticlesList } from "@/components/ui/articles-list";
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
 import { Skeleton } from "@/components/core/skeleton";
+import { getArticleViewTransitionName } from "@/lib/view-transition";
 
 const cachedGetArticle = cache(getArticle);
 
@@ -65,51 +66,53 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
     });
 
     return (
-        <Article className="article flex flex-col gap-8 overflow-hidden">
-            <ArticleMetadata>
-                <Suspense fallback={<Skeleton className="w-100 h-10" />}>
-                    <Time 
-                        className="font-thin text-xs align-middle text-center" 
-                        iso={createdAt}
-                    />
-                    <ArticleBadge 
-                        className="bg-primary"
-                        id={badge.id} 
-                        name={badge.name} 
-                        isClickable
-                    />
+        <ViewTransition name={getArticleViewTransitionName(id)}>
+            <Article className="article flex flex-col gap-8 overflow-hidden">
+                <ArticleMetadata>
+                    <Suspense fallback={<Skeleton className="w-100 h-10" />}>
+                        <Time
+                            className="font-thin text-xs align-middle text-center"
+                            iso={createdAt}
+                        />
+                        <ArticleBadge
+                            className="bg-primary"
+                            id={badge.id}
+                            name={badge.name}
+                            isClickable
+                        />
+                    </Suspense>
+                    <ArticleActions className="flex flex-1 justify-end items-center">
+                        <ShareButton />
+                    </ArticleActions>
+                </ArticleMetadata>
+                <ArticleHead>
+                    <ArticleHeadline>
+                        {title}
+                    </ArticleHeadline>
+                    <ArticleLead>
+                        {subtitle}
+                    </ArticleLead>
+                </ArticleHead>
+                <Separator />
+                <Suspense fallback={<Skeleton className="w-full h-200" />}>
+                    <ArticleCover cover={cover} source={source} />
                 </Suspense>
-                <ArticleActions className="flex flex-1 justify-end items-center">
-                    <ShareButton />
-                </ArticleActions>
-            </ArticleMetadata>
-            <ArticleHead>
-                <ArticleHeadline>
-                    {title}
-                </ArticleHeadline>
-                <ArticleLead>
-                    {subtitle}
-                </ArticleLead>
-            </ArticleHead>
-            <Separator />
-            <Suspense fallback={<Skeleton className="w-full h-200"/>}>
-                <ArticleCover cover={cover} source={source}/>
-            </Suspense>
-            <ArticleContent className="bg-background">
-                <ContentRenderer 
-                    content={content.root}
-                    components={{
-                        p: Paragraph,
-                        em: ParagraphItalic
-                    }}
-                />
-            </ArticleContent>
-            <Separator />
-            <Suspense fallback={<Skeleton className="w-full h-200" />}>
-                <ArticleReadAlso>
-                    <ArticlesList category={CATEGORY_ID_SLUG_MAP[badge.id]} showCategoryHeader={false}/>
-                </ArticleReadAlso>
-            </Suspense>
-        </Article>
+                <ArticleContent className="bg-background">
+                    <ContentRenderer
+                        content={content.root}
+                        components={{
+                            p: Paragraph,
+                            em: ParagraphItalic
+                        }}
+                    />
+                </ArticleContent>
+                <Separator />
+                <Suspense fallback={<Skeleton className="w-full h-200" />}>
+                    <ArticleReadAlso>
+                        <ArticlesList category={CATEGORY_ID_SLUG_MAP[badge.id]} showCategoryHeader={false} />
+                    </ArticleReadAlso>
+                </Suspense>
+            </Article>
+        </ViewTransition>
     )
 }

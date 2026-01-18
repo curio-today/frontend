@@ -27,16 +27,20 @@ export const ArticlesList = ({ category, showCategoryHeader = true }: ArticlesLi
     return (
         <section className="flex flex-col gap-4" id={category}>
             <Activity mode={showCategoryHeader ? "visible" : "hidden"}>
-                <CategoryLink category={category}/>
+                <CategoryLink category={category} />
                 <Separator />
             </Activity>
             <div className="flex flex-col md:flex-row gap-4">
-                <ArticleLink className="flex-1" article={articles.docs[0]}>
+                <ArticleLink
+                    className="flex-1"
+                    article={
+                        articles.docs[0]}
+                >
                     <ArticleCard {...articles.docs[0]} />
                 </ArticleLink>
                 <div className="flex-1 flex flex-col gap-4 justify-between">
                     {articles.docs.slice(1).map(article => (
-                        <ArticleLink  key={article.id} article={article} >
+                        <ArticleLink key={article.id} article={article} >
                             <ArticleItem {...article} />
                         </ArticleLink>
                     ))}
