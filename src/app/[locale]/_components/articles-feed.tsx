@@ -7,9 +7,9 @@ import { FeaturedArticlesGrid } from "@/components/ui/featured-articles-grid"
 import { useSuspenseArticles } from "@/hooks/api/use-suspense-articles"
 import { Category } from "@/types/category"
 
-type ArticlesFeedProps = { 
-    step?: number, 
-    start?: number, 
+type ArticlesFeedProps = {
+    step?: number,
+    start?: number,
     category?: Category,
 };
 

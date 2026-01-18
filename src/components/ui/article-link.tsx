@@ -14,27 +14,10 @@ type ArticleLinkProps = PropsWithChildren<{
 export const ArticleLink = ({ article, children, ...rest }: ArticleLinkProps) => {
     const { badge, id } = article;
     const href = `/${CATEGORY_ID_SLUG_MAP[badge.id]}/${id}`;
-    const router = useRouter();
-
-    const handleOnClick = (e: MouseEvent) => {
-        e.preventDefault();
-
-        startTransition(() => {
-            if (document.startViewTransition) {
-                document.startViewTransition(() => {
-                    router.push(href);
-                })
-            } else {
-                router.push(href);
-            }
-        })
-    }
 
     return (
-        <Link href={href} onClick={handleOnClick} {...rest}>
-            <ViewTransition name={getArticleViewTransitionName(id)}>
-                {children}
-            </ViewTransition>
+        <Link href={href} {...rest}>
+            {children}
         </Link>
     )
 }
