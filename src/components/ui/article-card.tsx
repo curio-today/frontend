@@ -36,7 +36,7 @@ export function ArticleCard({ title, subtitle, slug, cover, createdAt, badge }: 
             className="flex-1 text-muted-foreground font-thin text-xs align-middle text-left"
             iso={createdAt}
           />
-          <Suspense fallback={<Skeleton className="w-50 h-50" />}>
+          <Suspense fallback={<Skeleton className="w-25 h-5" />}>
             <ArticleBadge
               name={badge.name}
               id={badge.id}
