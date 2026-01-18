@@ -1,13 +1,13 @@
 "use client"
 
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories"
+import { Link } from "@/i18n/navigation"
 import { Article } from "@/types/api/article"
-import Link from "next/link"
-import { ComponentProps, PropsWithChildren } from "react"
+import { ComponentProps } from "react"
 
-type ArticleLinkProps = PropsWithChildren<{
+type ArticleLinkProps = {
     article: Pick<Article, "badge" | "id">,
-}> & ComponentProps<"a">
+} & Omit<ComponentProps<typeof Link>, "href">
 
 export const ArticleLink = ({ article, children, ...rest }: ArticleLinkProps) => {
     const { badge, id } = article;
