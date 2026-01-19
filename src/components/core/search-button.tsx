@@ -1,9 +1,9 @@
 "use client"
 
 import { Search } from "lucide-react"
-import { Button } from "../core/button"
+import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import {useTranslations} from "next-intl";
+import { useTranslations } from "next-intl";
 
 export const SearchButton = () => {
     const t = useTranslations("Navigation");

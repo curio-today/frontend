@@ -5,10 +5,10 @@ import {
     ItemContent,
     ItemDescription,
     ItemTitle
-} from "../core/item"
+} from "@/components/ui/item"
 import { ChevronRight } from "lucide-react"
 import { Suspense } from "react"
-import { Skeleton } from "../core/skeleton"
+import { Skeleton } from "@/components/ui/skeleton"
 
 export type ArticleItemProps = Pick<Article, "title" | "slug" | "subtitle" | "id" | "badge" | "createdAt" | "badge">
 

@@ -1,21 +1,21 @@
 "use client"
 
-import { Button } from "../core/button"
-import { 
-    Dialog, 
-    DialogTrigger, 
-    DialogHeader, 
-    DialogTitle, 
+import { Button } from "@/components/ui/button"
+import {
+    Dialog,
+    DialogTrigger,
+    DialogHeader,
+    DialogTitle,
     DialogDescription,
     DialogContent,
     DialogClose,
     DialogFooter
-} from "../core/dialog"
+} from "@/components/ui/dialog"
 
-import { Label } from "../core/label"
+import { Label } from "@/components/ui/label"
 import { Share } from "lucide-react"
 import { useTranslations } from "next-intl"
-import { InputGroup, InputGroupInput } from "../core/input-group"
+import { InputGroup, InputGroupInput } from "@/components/ui/input-group"
 import { usePathname } from "next/navigation"
 import { CopyToClipboardButton } from "./copy-to-clipboard-button"
 import { useIsMobile } from "@/hooks/use-mobile"
@@ -26,14 +26,14 @@ export const ShareButton = () => {
     const isMobile = useIsMobile();
     const t = useTranslations("Buttons.Share");
     const { copy } = useClipboard();
-    
+
     const link = `https://curio.today` + pathname;
 
 
     return (
         <Dialog>
             <DialogTrigger asChild>
-            <Button size="lg" variant="outline" onClick={() => copy(link)} >
+                <Button size="lg" variant="outline" onClick={() => copy(link)} >
                     <Share />
                     <span className="hidden sm:block">
                         {t("button")}
@@ -54,7 +54,7 @@ export const ShareButton = () => {
                                 defaultValue={link}
                                 readOnly
                             />
-                            <CopyToClipboardButton text={link}/>
+                            <CopyToClipboardButton text={link} />
                         </InputGroup>
                     </div>
                 </div>

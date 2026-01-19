@@ -1,15 +1,15 @@
 "use client"
 
-import { Button } from "@/components/core/button"
+import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
 import { useState } from "react"
-import { FeaturedArticlesGrid } from "@/components/ui/featured-articles-grid"
+import { FeaturedArticlesGrid } from "@/components/core/featured-articles-grid"
 import { useSuspenseArticles } from "@/hooks/api/use-suspense-articles"
 import { Category } from "@/types/category"
 
-type ArticlesFeedProps = { 
-    step?: number, 
-    start?: number, 
+type ArticlesFeedProps = {
+    step?: number,
+    start?: number,
     category?: Category,
 };
 

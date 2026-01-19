@@ -1,38 +1,36 @@
 import { ComponentProps, PropsWithChildren } from "react"
 import type { Article as ArticleType } from "@/types/api/article";
-import { ImageWithFocal } from "@/components/ui/image-with-focal";
-import { Badge } from "@/components/core/badge";
+import { ImageWithFocal } from "@/components/core/image-with-focal";
+import { Badge } from "@/components/ui/badge";
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
 import { BadgeInfoIcon } from "lucide-react";
-import { ArticlesList } from "@/components/ui/articles-list";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { Separator } from "../core/separator";
 
 
-export const Article = ({ children, ...rest }: ComponentProps<"section"> ) => {
+export const Article = ({ children, ...rest }: ComponentProps<"section">) => {
     return (
         <section className="article flex flex-col gap-8 overflow-hidden" {...rest}>
             {children}
-        </section>        
+        </section>
     )
-}    
+}
 
 export const ArticleActions = ({ children, ...rest }: ComponentProps<"div">) => {
     return (
         <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center" {...rest}>
-            {children}            
-        </div>        
+            {children}
+        </div>
     )
-}    
+}
 
 export const ArticleMetadata = ({ children, ...rest }: ComponentProps<"div">) => {
     return (
         <div className="metadata flex flex-row gap-4 align-middle justify-start items-center text-center" {...rest}>
-            {children}            
-        </div>        
+            {children}
+        </div>
     )
-}    
+}
 
 
 export const ArticleCover = ({ cover, source }: { cover: ArticleType["cover"], source: ArticleType["source"] }) => {
@@ -40,20 +38,20 @@ export const ArticleCover = ({ cover, source }: { cover: ArticleType["cover"], s
         <section className="hero flex flex-col justify-center gap-2">
             <figure className="relative w-full h-100 md:h-150 lg:h-200">
                 <ImageWithFocal
-                    className="rounded-md" 
-                    src={cover.url} 
-                    alt={cover.alt} 
+                    className="rounded-md"
+                    src={cover.url}
+                    alt={cover.alt}
                     focalX={cover.focalX}
-                    focalY={cover.focalY} 
-                    fill        
+                    focalY={cover.focalY}
+                    fill
                 />
             </figure>
             <figcaption>
                 <p className="text-secondary text-center">{source}</p>
             </figcaption>
-        </section>        
+        </section>
     )
-}    
+}
 
 
 export type ArticleBadgeProps = {
@@ -61,10 +59,10 @@ export type ArticleBadgeProps = {
     name: ArticleType["badge"]["name"],
     isClickable?: boolean,
 } & ComponentProps<typeof Badge>;
- 
+
 export const ArticleBadge = ({ name, id, isClickable = false, ...rest }: ArticleBadgeProps) => {
     return (
-        <Badge 
+        <Badge
             variant="secondary"
             asChild={isClickable}
             {...rest}
@@ -101,7 +99,7 @@ export const ArticleLead = ({ children }: PropsWithChildren) => {
 }
 
 export const ArticleContent = ({ children, ...rest }: ComponentProps<"article">) => {
-    return (    
+    return (
         <article className="prose prose-base md:prose-lg max-w-none [&>p:first-of-type]:text-xl [&>p:first-of-type]:md:text-2xl [&>p:first-of-type]:lg:text-3xl" {...rest}>
             {children}
         </article>
@@ -110,7 +108,7 @@ export const ArticleContent = ({ children, ...rest }: ComponentProps<"article">)
 
 export const ArticleReadAlso = ({ children }: ComponentProps<"div">) => {
     const t = useTranslations("Messages");
-    
+
     return (
         <section className="flex flex-col gap-4" id="read-also">
             <h2 className="font-bold text-2xl">

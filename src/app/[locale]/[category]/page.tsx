@@ -5,7 +5,7 @@ import { getMetadata } from "@/lib/get-metadata";
 import { Metadata } from "next";
 import { getCategoryTranslation } from "@/lib/get-category-translation";
 import { ArticlesFeedSection } from "../_components/articles-feed";
-import { Separator } from "@/components/core/separator";
+import { Separator } from "@/components/ui/separator";
 
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
@@ -20,14 +20,14 @@ type CategoryPageProps = {
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-    const { category } = await params; 
-    
+    const { category } = await params;
+
     if (!CATEGORY_LIST.includes(category as Category)) {
         notFound();
-    }    
-    
+    }
+
     const t = await getCategoryTranslation(category);
-   
+
     return (
         <div className="flex justify-start flex-col gap-8">
             <div className="flex flex-col md:flex-row gap-4 md:items-center">

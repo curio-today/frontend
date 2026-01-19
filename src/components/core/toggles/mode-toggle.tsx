@@ -3,15 +3,15 @@
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
-import { Button } from "@/components/core/button"
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
   DropdownMenuCheckboxItem,
-  DropdownMenuLabel, 
+  DropdownMenuLabel,
   DropdownMenuSeparator
-} from "@/components/core/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
 import { useTranslations } from "next-intl"
 
 export function ModeToggle() {
@@ -27,11 +27,11 @@ export function ModeToggle() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      
+
       <DropdownMenuContent align="center">
         <DropdownMenuLabel>{t("description")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        
+
         <DropdownMenuCheckboxItem checked={theme == "light"} onCheckedChange={() => setTheme("light")}>
           {t("light")}
         </DropdownMenuCheckboxItem>
@@ -42,7 +42,7 @@ export function ModeToggle() {
           {t("system")}
         </DropdownMenuCheckboxItem>
       </DropdownMenuContent>
-    
+
     </DropdownMenu>
   )
 }

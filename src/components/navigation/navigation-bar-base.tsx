@@ -1,14 +1,14 @@
 "use client"
 
 import Link from "next/link";
-import {LogoWithMemo} from "@/components/ui/logo";
-import {CurioWithChristmasHat} from "@/components/content/curio";
-import {NavigationCategoryMenu} from "@/components/navigation/navigation-category-menu";
-import {ButtonGroup} from "@/components/core/button-group";
-import {SearchButton} from "@/components/ui/search-button";
-import {LanguageToggle} from "@/components/ui/toggles/language-toggle";
-import {ModeToggle} from "@/components/ui/toggles/mode-toggle";
-import {SettingsSheet} from "@/components/ui/sheets/settings-sheet";
+import { LogoWithMemo } from "@/components/core/logo";
+import { CurioWithChristmasHat } from "@/components/content/curio";
+import { NavigationCategoryMenu } from "@/components/navigation/navigation-category-menu";
+import { ButtonGroup } from "@/components/ui/button-group";
+import { SearchButton } from "@/components/core/search-button";
+import { LanguageToggle } from "@/components/core/toggles/language-toggle";
+import { ModeToggle } from "@/components/core/toggles/mode-toggle";
+import { SettingsSheet } from "@/components/core/sheets/settings-sheet";
 
 export const NavigationBarBase = () => {
     return (

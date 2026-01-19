@@ -11,9 +11,9 @@ import {
   ArticleHeadline,
   ArticleLead,
   ArticleContent,
-} from "@/components/ui/article"
+} from "@/components/core/article"
 
-jest.mock("@/components/ui/image-with-focal", () => ({
+jest.mock("@/components/core/image-with-focal", () => ({
   ImageWithFocal: (props: any) => (
     <img
       data-testid="image-with-focal"
@@ -30,7 +30,7 @@ jest.mock("next/link", () => ({
   ),
 }))
 
-jest.mock("@/components/core/badge", () => ({
+jest.mock("@/components/ui/badge", () => ({
   Badge: ({ children }: any) => <div data-testid="badge">{children}</div>,
 }))
 

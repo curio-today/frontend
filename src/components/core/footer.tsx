@@ -1,5 +1,5 @@
 import { CurioWithChristmasHat } from "../content/curio"
-import { Separator } from "../core/separator"
+import { Separator } from "@/components/ui/separator"
 import { ChristmasWreath } from "../feature/new-year"
 import { LogoWithMemo } from "./logo"
 import { getTranslations } from "next-intl/server"
@@ -20,17 +20,17 @@ export const Footer = async () => {
                 <LogoWithMemo>
                     <CurioWithChristmasHat />
                 </LogoWithMemo>
-                <Separator orientation="vertical"/>
+                <Separator orientation="vertical" />
                 <SocialMediaList socialMedia={curioSocialMedia} />
             </div>
             <p className="flex flex-row items-center gap-2 text-muted-foreground">
-                <ChristmasWreath width={32} height={32}/>
+                <ChristmasWreath width={32} height={32} />
                 {t("allRightsAreReserved")}
             </p>
             <div className="text-secondary flex items-center flex-row">
                 {t("createdBy")}
                 <SocialMediaHoverCard contact="@dmytropolizhai" />
             </div>
-        </footer>  
-    ) 
+        </footer>
+    )
 }
