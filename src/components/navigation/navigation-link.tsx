@@ -3,7 +3,7 @@ import {
     NavigationMenuItem,
     NavigationMenuLink,
     navigationMenuTriggerStyle,
-} from "@/components/core/navigation-menu"
+} from "@/components/ui/navigation-menu"
 
 export const NavigationLink = ({ children, href }: Readonly<PropsWithChildren<{
   href: string,

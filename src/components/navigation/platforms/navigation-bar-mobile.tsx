@@ -8,8 +8,7 @@ import {
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Tabs, TabsButton, TabsCategoryItem } from "./components/tabs";
-import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/core/drawer";
-import path from "path";
+import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 
 
 const tabs = [
@@ -41,38 +40,38 @@ export const NavigationBarMobile = () => {
                         <DrawerDescription>{t("description")}</DrawerDescription>
                     </DrawerHeader>
                     <div className="flex flex-col gap-4 m-2">
-                        {tabs.map(tab => 
-                            <TabsCategoryItem 
+                        {tabs.map(tab =>
+                            <TabsCategoryItem
                                 key={tab.key}
-                                href={tab.href} 
+                                href={tab.href}
                                 icon={tab.icon}
                                 title={t(`${tab.key}.title`)}
                                 description={t(`${tab.key}.description`)}
                                 isSelected={pathname === tab.href}
                             />
-                     )}
+                        )}
                     </div>
                 </DrawerContent>
             </Drawer>
             <Link href="/">
-                <TabsButton 
-                    icon={HomeIcon} 
+                <TabsButton
+                    icon={HomeIcon}
                     label={t(`home.title`)}
                     isSelected={pathname === "/"}
                 >
                 </TabsButton>
             </Link>
             <Link href="/search">
-               <TabsButton 
+                <TabsButton
                     icon={SearchIcon}
                     label={t("searchButton")}
                     isSelected={pathname === "/search"}
                 >
 
-               </TabsButton>
+                </TabsButton>
             </Link>
-    
-            
+
+
         </Tabs>
     )
 }

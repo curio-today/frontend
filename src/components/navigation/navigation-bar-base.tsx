@@ -1,21 +1,21 @@
 "use client"
 
 import Link from "next/link";
-import {LogoWithMemo} from "@/components/ui/logo";
-import {CurioWithChristmasHat} from "@/components/content/curio";
-import {NavigationCategoryMenu} from "@/components/navigation/navigation-category-menu";
-import {ButtonGroup} from "@/components/core/button-group";
-import {SearchButton} from "@/components/ui/search-button";
-import {LanguageToggle} from "@/components/ui/toggles/language-toggle";
-import {ModeToggle} from "@/components/ui/toggles/mode-toggle";
-import {SettingsSheet} from "@/components/ui/sheets/settings-sheet";
+import { LogoWithMemo } from "@/components/core/logo";
+import { Curio } from "@/components/content/curio";
+import { NavigationCategoryMenu } from "@/components/navigation/navigation-category-menu";
+import { ButtonGroup } from "@/components/ui/button-group";
+import { SearchButton } from "@/components/core/search-button";
+import { LanguageToggle } from "@/components/core/toggles/language-toggle";
+import { ModeToggle } from "@/components/core/toggles/mode-toggle";
+import { SettingsSheet } from "@/components/core/sheets/settings-sheet";
 
 export const NavigationBarBase = () => {
     return (
         <header className="lg:pl-10 bg-background w-full fixed flex p-4 top-0 left-0 z-50 items-center lg:justify-start justify-between outline-solid outline-1">
             <Link className="sm:flex-1" href="/">
                 <LogoWithMemo>
-                    <CurioWithChristmasHat />
+                    <Curio />
                 </LogoWithMemo>
             </Link>
 

@@ -1,30 +1,30 @@
-import { Button } from "../core/button";
-import { 
+import { Button } from "@/components/ui/button";
+import {
     Avatar,
     AvatarFallback,
-    AvatarImage, 
-} from "../core/avatar";
-import { 
+    AvatarImage,
+} from "@/components/ui/avatar";
+import {
     HoverCard,
     HoverCardContent,
     HoverCardTrigger,
- } from "../core/hover-card";
+} from "@/components/ui/hover-card";
 import { CREDITS } from "@/constants/social-media";
 import Link, { LinkProps } from "next/link"
 import { ComponentProps, PropsWithChildren } from "react"
 import { SocialMedia, SocialMediaIcon as SocialMediaIconType } from "@/types/social-media";
-import { 
-    FacebookIcon, 
-    InstagramIcon, 
-    TelegramIcon, 
+import {
+    FacebookIcon,
+    InstagramIcon,
+    TelegramIcon,
     WhatsAppIcon,
     GithubIcon
 } from "../content/icons";
 import { cn } from "@/lib/utils";
 
 
-type SocialMediaContact = { 
-    contact: keyof typeof CREDITS 
+type SocialMediaContact = {
+    contact: keyof typeof CREDITS
 }
 
 type SocialMediaListProps = {
@@ -39,7 +39,7 @@ const socialMediaIcon: SocialMediaIconType = {
     "github": <GithubIcon width="24" />
 }
 
-const SocialMediaLink = ({ children, ...rest }: PropsWithChildren<LinkProps> ) => {
+const SocialMediaLink = ({ children, ...rest }: PropsWithChildren<LinkProps>) => {
     return (
         <Link target="_blank" className="text-secondary hover:text-primary" {...rest}>
             {children}
@@ -53,10 +53,10 @@ export const SocialMediaList = ({ socialMedia, className, ...props }: SocialMedi
             {socialMedia.map(({ href, name }) => (
                 <SocialMediaLink key={name} href={href}>
                     {socialMediaIcon[name]}
-                </SocialMediaLink>    
+                </SocialMediaLink>
             ))}
         </div>
-    ) 
+    )
 }
 
 export const SocialMediaHoverCard = ({ contact }: SocialMediaContact) => {
@@ -70,7 +70,7 @@ export const SocialMediaHoverCard = ({ contact }: SocialMediaContact) => {
             <HoverCardContent className="w-80 flex justify-between items-center">
                 <div className="flex items-center gap-4">
                     <Avatar>
-                        <AvatarImage src={avatar?.src} alt={contact}/>
+                        <AvatarImage src={avatar?.src} alt={contact} />
                         <AvatarFallback>{avatar?.fallback}</AvatarFallback>
                     </Avatar>
                     <div className="flex flex-col">

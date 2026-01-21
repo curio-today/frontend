@@ -1,12 +1,10 @@
-import { Button } from "@/components/core/button";
 import { 
     Empty, 
-    EmptyContent, 
     EmptyDescription, 
     EmptyHeader,
     EmptyMedia, 
     EmptyTitle 
-} from "@/components/core/empty";
+} from "@/components/ui/empty";
 import { SearchX } from "lucide-react";
 import { getTranslations } from "next-intl/server"
 

@@ -1,20 +1,20 @@
 import "./globals.css"
 
 import { Roboto } from "next/font/google";
-import { Activity, PropsWithChildren, Suspense }  from "react";
+import { Activity, PropsWithChildren, Suspense } from "react";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 
 import { NavigationBar } from "@/components/navigation/navigation-bar"
 import { ThemeProvider } from "@/providers/theme-provider";
-import { Footer } from "@/components/ui/footer";
+import { Footer } from "@/components/core/footer";
 import { QueryProvider } from "@/providers/query-provider";
-import { Toaster } from "@/components/core/sonner";
-import { Separator } from "@/components/core/separator";
+import { Toaster } from "@/components/ui/sonner";
+import { Separator } from "@/components/ui/separator";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Snowfall } from "@/components/feature/new-year";
-import { Skeleton } from "@/components/core/skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 import { isMobile } from "@/actions/is-mobile";
 
 const roboto = Roboto({
@@ -38,11 +38,6 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                 <GoogleAnalytics gaId="G-MNV4816TQ0" />
             </head>
             <body>
-                <Activity mode={mobile ? "hidden" : "visible" }>
-                    <Suspense>
-                        <Snowfall />
-                    </Suspense>
-                </Activity>
                 <QueryProvider>
                     <NextIntlClientProvider>
                         <ThemeProvider
@@ -51,7 +46,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                             enableSystem
                             disableTransitionOnChange
                         >
-                            <Suspense fallback={<Skeleton className="lg:pl-10 w-full h-20 fixed p-4 top-0 left-0 z-50 outline-solid rounded-[0px] outline-1"/>}>
+                            <Suspense fallback={<Skeleton className="lg:pl-10 w-full h-20 fixed p-4 top-0 left-0 z-50 outline-solid rounded-[0px] outline-1" />}>
                                 <NavigationBar />
                             </Suspense>
                             <main className="container mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0 mt-30">

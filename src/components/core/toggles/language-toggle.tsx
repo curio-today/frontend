@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/components/core/button"
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from "@/components/core/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
 import { useChangeLocale } from "@/hooks/use-change-locale";
 import { Languages } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -18,15 +18,15 @@ export function LanguageToggle() {
   const t = useTranslations("Translation");
 
   const changeLocale = useChangeLocale();
-   
+
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="default">
-            <Languages />
-            <span>{locale.toLocaleUpperCase()}</span>
-            <span className="sr-only">{t("description")}</span>
+          <Languages />
+          <span>{locale.toLocaleUpperCase()}</span>
+          <span className="sr-only">{t("description")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="center">

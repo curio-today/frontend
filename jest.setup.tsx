@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 
-jest.mock("@/components/core/dialog", () => ({
+jest.mock("@/components/ui/dialog", () => ({
   Dialog: ({ children }: any) => <div className="dialog">{children}</div>,
   DialogTrigger: ({ children }: any) => <div className="trigger">{children}</div>,
   DialogContent: ({ children }: any) => <div className="content">{children}</div>,

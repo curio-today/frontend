@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { ShareButton } from "@/components/ui/share-button"
+import { ShareButton } from "@/components/core/share-button"
 
 // ====== Mocks ======
 
@@ -24,7 +24,7 @@ jest.mock("@/hooks/use-clipboard", () => ({
   }),
 }))
 
-jest.mock("@/components/ui/copy-to-clipboard-button", () => ({
+jest.mock("@/components/core/copy-to-clipboard-button", () => ({
   CopyToClipboardButton: ({ text }: { text: string }) => (
     <button data-testid="copy-button">{text}</button>
   ),

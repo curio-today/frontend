@@ -1,13 +1,13 @@
 import { getArticle } from "@/data/article/get-article";
-import { Separator } from "@/components/core/separator";
+import { Separator } from "@/components/ui/separator";
 import { getLocale } from "next-intl/server";
 import { ContentRenderer } from "@/components/feature/content";
 import { Paragraph } from "@/components/typography/paragraph";
 import { ParagraphItalic } from "@/components/typography/paragraph-italic";
-import { Time } from "@/components/ui/time";
+import { Time } from "@/components/core/time";
 import { cache, Suspense } from "react";
 import { Metadata } from "next";
-import { ShareButton } from "@/components/ui/share-button";
+import { ShareButton } from "@/components/core/share-button";
 import { draftMode } from "next/headers";
 
 
@@ -22,10 +22,10 @@ import {
     ArticleLead,
     ArticleContent,
     ArticleReadAlso,
-} from "@/components/ui/article"
-import { ArticlesList } from "@/components/ui/articles-list";
+} from "@/components/core/article"
+import { ArticlesList } from "@/components/core/articles-list";
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
-import { Skeleton } from "@/components/core/skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const cachedGetArticle = cache(getArticle);
 
@@ -68,14 +68,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
         <Article className="article flex flex-col gap-8 overflow-hidden">
             <ArticleMetadata>
                 <Suspense fallback={<Skeleton className="w-100 h-10" />}>
-                    <Time 
-                        className="font-thin text-xs align-middle text-center" 
+                    <Time
+                        className="font-thin text-xs align-middle text-center"
                         iso={createdAt}
                     />
-                    <ArticleBadge 
+                    <ArticleBadge
                         className="bg-primary"
-                        id={badge.id} 
-                        name={badge.name} 
+                        id={badge.id}
+                        name={badge.name}
                         isClickable
                     />
                 </Suspense>
@@ -92,11 +92,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
                 </ArticleLead>
             </ArticleHead>
             <Separator />
-            <Suspense fallback={<Skeleton className="w-full h-200"/>}>
-                <ArticleCover cover={cover} source={source}/>
+            <Suspense fallback={<Skeleton className="w-full h-200" />}>
+                <ArticleCover cover={cover} source={source} />
             </Suspense>
             <ArticleContent className="bg-background">
-                <ContentRenderer 
+                <ContentRenderer
                     content={content.root}
                     components={{
                         p: Paragraph,
@@ -107,7 +107,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
             <Separator />
             <Suspense fallback={<Skeleton className="w-full h-200" />}>
                 <ArticleReadAlso>
-                    <ArticlesList category={CATEGORY_ID_SLUG_MAP[badge.id]} showCategoryHeader={false}/>
+                    <ArticlesList category={CATEGORY_ID_SLUG_MAP[badge.id]} showCategoryHeader={false} />
                 </ArticleReadAlso>
             </Suspense>
         </Article>

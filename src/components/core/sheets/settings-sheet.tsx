@@ -1,20 +1,19 @@
 "use client"
 
 import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/core/sheet"
-import { Button } from "../../core/button"
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet"
+import { Button } from "@/components/ui/button"
 import { Settings2 } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { LanguageToggle } from "../toggles/language-toggle"
 import { ModeToggle } from "../toggles/mode-toggle"
-import { Label } from "../../core/label"
+import { Label } from "@/components/ui/label"
 
 export const SettingsSheet = () => {
     const t = useTranslations("Settings")

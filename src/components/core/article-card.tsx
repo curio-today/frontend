@@ -5,8 +5,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/core/card"
-import { Skeleton } from "@/components/core/skeleton"
+} from "@/components/ui/card"
+import { Skeleton } from "@/components/ui/skeleton"
 import { Article } from "@/types/api/article"
 
 import { ImageWithFocal } from "./image-with-focal"
@@ -22,9 +22,9 @@ export function ArticleCard({ title, subtitle, slug, cover, createdAt, badge }: 
       <CardHeader>
         <CardTitle className="text-xl line-clamp-3 min-h-15">{title}</CardTitle>
         <CardContent className="relative aspect-video overflow-hidden rounded-xl w-full">
-            <Suspense fallback={<Skeleton className="w-full h-full"/>}>
-                <ImageWithFocal src={cover.url} alt={cover.alt} focalX={cover.focalX} focalY={cover.focalY} fill />
-            </Suspense>
+          <Suspense fallback={<Skeleton className="w-full h-full" />}>
+            <ImageWithFocal src={cover.url} alt={cover.alt} focalX={cover.focalX} focalY={cover.focalY} fill />
+          </Suspense>
         </CardContent>
       </CardHeader>
       <CardFooter className="flex-col items-start gap-2">
@@ -32,12 +32,12 @@ export function ArticleCard({ title, subtitle, slug, cover, createdAt, badge }: 
           {subtitle}
         </CardDescription>
         <div className="flex flex-row w-full items-center">
-          <Time 
-            className="flex-1 text-muted-foreground font-thin text-xs align-middle text-left" 
+          <Time
+            className="flex-1 text-muted-foreground font-thin text-xs align-middle text-left"
             iso={createdAt}
           />
-          <Suspense fallback={<Skeleton className="w-50 h-50"/>}>
-            <ArticleBadge 
+          <Suspense fallback={<Skeleton className="w-50 h-50" />}>
+            <ArticleBadge
               name={badge.name}
               id={badge.id}
               variant="outline"
@@ -54,8 +54,8 @@ export function ArticleCardSkeleton() {
   return (
     <Skeleton className="w-full flex-column h-full">
       <Skeleton className="flex-1">
-          <Skeleton className="text-xl line-clamp-3 w-100" />
-          <Skeleton className="relative aspect-video overflow-hidden rounded-xl" />
+        <Skeleton className="text-xl line-clamp-3 w-100" />
+        <Skeleton className="relative aspect-video overflow-hidden rounded-xl" />
       </Skeleton>
     </Skeleton>
   )

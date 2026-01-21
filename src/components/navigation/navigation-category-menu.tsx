@@ -1,24 +1,22 @@
 "use client"
 
 import { CATEGORY_LIST } from "@/constants/categories";
-import { NavigationMenu, NavigationMenuList } from "@/components/core/navigation-menu"
+import { NavigationMenu, NavigationMenuList } from "@/components/ui/navigation-menu"
 import { useIsMobile } from "@/hooks/use-mobile";
 import { sendGAEvent } from "@next/third-parties/google";
-import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from "@/components/core/item";
-import Link from "next/link";
-import { 
+import {
   Tooltip,
-  TooltipContent, 
-  TooltipTrigger 
-} from "@/components/core/tooltip";
+  TooltipContent,
+  TooltipTrigger
+} from "@/components/ui/tooltip";
 import { ChevronRightIcon } from "lucide-react";
 import { Category } from "@/types/category";
 import { useTranslations } from "next-intl";
-import { 
-    NavigationMenuItem, 
-    NavigationMenuLink, 
-    navigationMenuTriggerStyle 
-} from "@/components/core/navigation-menu";
+import {
+  NavigationMenuItem,
+  NavigationMenuLink,
+  navigationMenuTriggerStyle
+} from "@/components/ui/navigation-menu";
 
 
 type NavigationCategoryItemProps = {

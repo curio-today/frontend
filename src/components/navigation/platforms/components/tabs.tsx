@@ -1,5 +1,5 @@
-import { Button, ButtonProps } from "@/components/core/button";
-import { Separator } from "@/components/core/separator";
+import { Button, ButtonProps } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { LucideProps } from "lucide-react";
@@ -19,7 +19,7 @@ type TabsCustomizationProps = {
 
 
 type TabsButtonProps = TabsStateProps & TabsCustomizationProps & ButtonProps
-type TabsCategoryItemProps = { 
+type TabsCategoryItemProps = {
     title: string;
     href: string;
     description: string;
@@ -47,7 +47,7 @@ export const TabsButton = ({ children, label, icon: Icon, className, isSelected 
             {label && <small className="text-xs">{label}</small>}
             {children}
         </Button>
- 
+
     )
 }
 
@@ -55,8 +55,8 @@ export const TabsButton = ({ children, label, icon: Icon, className, isSelected 
 export const TabsCategoryItem = ({ href, title, description, isSelected = false, icon: Icon }: TabsCategoryItemProps) => {
     return (
         <Link href={href} className={cn("transition-colors gap-4 flex flex-row items-center w-full h-20 bg-accent p-4 rounded-md", isSelected ? "outline-solid outline-1 outline-primary bg-accent" : "")}>
-            <Icon className={cn("transition-colors size-6", isSelected && "text-primary")}/>
-            <Separator orientation="vertical"/>
+            <Icon className={cn("transition-colors size-6", isSelected && "text-primary")} />
+            <Separator orientation="vertical" />
             <div>
                 <h1 className={cn("transition-colors text-xl", isSelected && "text-primary")}>{title}</h1>
                 <h2 className="text-secondary text-sm">{description}</h2>
