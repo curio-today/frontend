@@ -13,8 +13,8 @@ import {
     DropdownMenuSubContent,
     DropdownMenuRadioItem,
     DropdownMenuRadioGroup
-} from "../core/dropdown-menu"
-import { InputGroupButton } from "../core/input-group"
+} from "@/components/ui/dropdown-menu"
+import { InputGroupButton } from "@/components/ui/input-group"
 import { useTranslations } from "next-intl"
 import { useFilters } from "@/hooks/use-filters"
 import { useCategories } from "@/hooks/use-categories"

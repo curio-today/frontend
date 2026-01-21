@@ -4,7 +4,7 @@ import {
     EmptyHeader,
     EmptyMedia,
     EmptyTitle
-} from "@/components/core/empty"
+} from "@/components/ui/empty"
 import { Search } from "lucide-react"
 import { getTranslations } from "next-intl/server"
 

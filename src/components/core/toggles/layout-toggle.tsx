@@ -1,7 +1,7 @@
 "use client"
 
 import { setWidePreference } from "@/actions/set-wide-preference";
-import { Button } from "@/components/core/button"
+import { Button } from "@/components/ui/button"
 import { useLayout } from "@/hooks/use-layout"
 import { TextAlignCenter, TextAlignJustify } from "lucide-react"
 import { Activity, useTransition } from "react";

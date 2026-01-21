@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server"
-import { Item, ItemHeader } from "../../core/item"
+import { Item, ItemHeader } from "@/components/ui/item"
 
 export const PreviewItem = async () => {
     const t = await getTranslations("Messages");
