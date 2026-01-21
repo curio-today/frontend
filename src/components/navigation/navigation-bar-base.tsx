@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { LogoWithMemo } from "@/components/core/logo";
-import { CurioWithChristmasHat } from "@/components/content/curio";
+import { Curio } from "@/components/content/curio";
 import { NavigationCategoryMenu } from "@/components/navigation/navigation-category-menu";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { SearchButton } from "@/components/core/search-button";
@@ -15,7 +15,7 @@ export const NavigationBarBase = () => {
         <header className="lg:pl-10 bg-background w-full fixed flex p-4 top-0 left-0 z-50 items-center lg:justify-start justify-between outline-solid outline-1">
             <Link className="sm:flex-1" href="/">
                 <LogoWithMemo>
-                    <CurioWithChristmasHat />
+                    <Curio />
                 </LogoWithMemo>
             </Link>
 

@@ -38,11 +38,6 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                 <GoogleAnalytics gaId="G-MNV4816TQ0" />
             </head>
             <body>
-                <Activity mode={mobile ? "hidden" : "visible"}>
-                    <Suspense>
-                        <Snowfall />
-                    </Suspense>
-                </Activity>
                 <QueryProvider>
                     <NextIntlClientProvider>
                         <ThemeProvider
