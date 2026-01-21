@@ -1,7 +1,7 @@
 import "./globals.css"
 
 import { Roboto } from "next/font/google";
-import { Activity, PropsWithChildren, Suspense } from "react";
+import { PropsWithChildren, Suspense } from "react";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
@@ -13,7 +13,6 @@ import { QueryProvider } from "@/providers/query-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { Separator } from "@/components/ui/separator";
 import { GoogleAnalytics } from '@next/third-parties/google';
-import { Snowfall } from "@/components/feature/new-year";
 import { Skeleton } from "@/components/ui/skeleton";
 import { isMobile } from "@/actions/is-mobile";
 
