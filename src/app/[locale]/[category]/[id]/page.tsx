@@ -26,6 +26,7 @@ import {
 import { ArticlesList } from "@/components/core/articles-list";
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ShareHandler } from "@/components/feature/share-handler";
 
 const cachedGetArticle = cache(getArticle);
 
@@ -66,6 +67,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
 
     return (
         <Article className="article flex flex-col gap-8 overflow-hidden">
+            <ShareHandler />
             <ArticleMetadata>
                 <Suspense fallback={<Skeleton className="w-100 h-10" />}>
                     <Time
