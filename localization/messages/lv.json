@@ -45,12 +45,14 @@
     "keywords": "zinātkāre, mācīšanās, izglītība, zināšanas, izpēte, atklājumi, curio, šodien, curio.today",
     "openGraph": {
       "description": "Viedā zinātkāre",
-      "images": ["./meta/lv/og-image.png"]
+      "images": [
+        "./meta/lv/og-image.png"
+      ]
     },
     "feed": {
       "title": "Plūsma",
       "description": "Izpētiet Curio.today plūsmu — stāsti, kas iedvesmo, pārsteidz, informē un pat atklāj ļaunprātīgu rīcību. Rūpīgi izvēlēts saturs, lai rosinātu domas un zinātkāri.",
-      "keywords": "Curio.today plūsma, iedvesmojoši stāsti, pārsteidzoši atklājumi, informatīvi raksti, ļaunprātīgas rīcības atklāšana, ikdienas iedvesma, aizraujoši stāsti, ziņas prātam, patiesības atklāšana, pārdomām rosinošs saturs, zinātne kultūra un tehnoloģijas, stāsti zinātkārei, kuratora platforma"    
+      "keywords": "Curio.today plūsma, iedvesmojoši stāsti, pārsteidzoši atklājumi, informatīvi raksti, ļaunprātīgas rīcības atklāšana, ikdienas iedvesma, aizraujoši stāsti, ziņas prātam, patiesības atklāšana, pārdomām rosinošs saturs, zinātne kultūra un tehnoloģijas, stāsti zinātkārei, kuratora platforma"
     },
     "amazes": {
       "title": "Pārsteidz",
@@ -79,23 +81,24 @@
     }
   },
   "Buttons": {
-      "Share": {
-        "button": "Kopīgot",
-        "title": "Kopīgošanas saite",
-        "description": "Ikviens, kam ir šī saite, varēs to apskatīt",
-        "sr": "Saite",
-        "or": "vai",
-        "buttons": {
-          "close": "Aizvērt"
-        }
-      },
-      "Copy": {
-        "tooltipContent": "Kopēt starpliktuvē"
-      },
-      "Filters": {
-        "label": "Filtri",
-        "category": "Kategorija"
+    "Share": {
+      "button": "Kopīgot",
+      "title": "Kopīgošanas saite",
+      "description": "Ikviens, kam ir šī saite, varēs to apskatīt",
+      "question": "Vai vēlaties to kopīgot?",
+      "sr": "Saite",
+      "or": "vai",
+      "buttons": {
+        "close": "Aizvērt"
       }
+    },
+    "Copy": {
+      "tooltipContent": "Kopēt starpliktuvē"
+    },
+    "Filters": {
+      "label": "Filtri",
+      "category": "Kategorija"
+    }
   },
   "Messages": {
     "clipboard": {

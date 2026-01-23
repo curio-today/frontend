@@ -58,9 +58,9 @@ export const ShareButton = () => {
                         </InputGroup>
                     </div>
                 </div>
-                <DialogFooter className="sm:justify-start">
+                <DialogFooter >
                     <DialogClose asChild>
-                        <Button variant="secondary">{t("buttons.close")}</Button>
+                        <Button variant="ghost">{t("buttons.close")}</Button>
                     </DialogClose>
                 </DialogFooter>
             </DialogContent>

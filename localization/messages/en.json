@@ -45,15 +45,15 @@
     "keywords": "curiosity, learning, education, knowledge, explore, discover, curio, today, curio.today",
     "openGraph": {
       "description": "Smart curiousity",
-      "images": ["./meta/en/og-image.png"]
+      "images": [
+        "./meta/en/og-image.png"
+      ]
     },
-
     "feed": {
       "title": "Feed",
       "description": "Explore Curio.today's feed — stories that inspire, amaze, inform, and even expose abuses. A curated stream to spark thought and curiosity.",
-      "keywords": "Curio.today feed, inspire stories, amazing discoveries, informative articles, exposing abuses, daily inspiration articles, stories that amaze and engage, news that informs the mind, uncovering truths and abuses, thought-provoking content, explore science culture and tech, stories to spark curiosity, curated content platform"    
+      "keywords": "Curio.today feed, inspire stories, amazing discoveries, informative articles, exposing abuses, daily inspiration articles, stories that amaze and engage, news that informs the mind, uncovering truths and abuses, thought-provoking content, explore science culture and tech, stories to spark curiosity, curated content platform"
     },
-    
     "amazes": {
       "title": "Amazes",
       "description": "Content that astounds, surprises, or leaves viewers in awe through extraordinary facts, phenomena, or revelations",
@@ -81,23 +81,24 @@
     }
   },
   "Buttons": {
-      "Share": {
-        "button": "Share",
-        "title": "Share link",
-        "description": "Anyone who has this link will be able to view this",
-        "sr": "Link",
-        "or": "or",
-        "buttons": {
-          "close": "Close"
-        }
-      },
-      "Copy": {
-        "tooltipContent": "Copy to clipboard"
-      },
-      "Filters": {
-        "label": "Filters",
-        "category": "Category"
+    "Share": {
+      "button": "Share",
+      "title": "Share link",
+      "question": "Want to share this article?",
+      "description": "Anyone who has this link will be able to view this",
+      "sr": "Link",
+      "or": "or",
+      "buttons": {
+        "close": "Close"
       }
+    },
+    "Copy": {
+      "tooltipContent": "Copy to clipboard"
+    },
+    "Filters": {
+      "label": "Filters",
+      "category": "Category"
+    }
   },
   "Messages": {
     "clipboard": {
@@ -122,7 +123,7 @@
     },
     "startTypingToSearch": {
       "title": "Start Typing To search",
-      "description":"Start typing to find the most related articles."
+      "description": "Start typing to find the most related articles."
     }
   }
 }
