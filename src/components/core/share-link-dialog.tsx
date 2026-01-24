@@ -18,12 +18,10 @@ import { useTranslations } from "next-intl"
 import { InputGroup, InputGroupInput } from "@/components/ui/input-group"
 import { usePathname } from "next/navigation"
 import { CopyToClipboardButton } from "./copy-to-clipboard-button"
-import { useIsMobile } from "@/hooks/use-mobile"
 import { useClipboard } from "@/hooks/use-clipboard"
 
-export const ShareButton = () => {
+export const ShareLinkDialog = () => {
     const pathname = usePathname();
-    const isMobile = useIsMobile();
     const t = useTranslations("Buttons.Share");
     const { copy } = useClipboard();
 

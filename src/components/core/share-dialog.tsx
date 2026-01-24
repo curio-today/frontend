@@ -2,7 +2,7 @@
 
 import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogClose, DialogFooter } from "@/components/ui/dialog"
 import { useTranslations } from "next-intl"
-import { ShareButton } from "@/components/core/share-button"
+import { ShareLinkDialog } from "@/components/core/share-link-dialog"
 import { useState } from "react"
 import { DontShowAgainButton } from "@/components/core/dont-show-again-button";
 import { Button } from "@/components/ui/button";
@@ -26,7 +26,7 @@ export const ShareDialog = () => {
                 <DialogDescription>
                     {t("description")}
                 </DialogDescription>
-                <ShareButton />
+                <ShareLinkDialog />
                 <DialogFooter className="items-center">
                     <DontShowAgainButton onClick={() => {
                         localStorage.setItem(STORAGE_KEY, "false");

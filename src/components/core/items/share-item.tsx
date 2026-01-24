@@ -1,7 +1,7 @@
 "use client"
 
 import { Item, ItemContent, ItemDescription, ItemTitle } from "@/components/ui/item"
-import { ShareButton } from "@/components/core/share-button"
+import { ShareLinkDialog } from "@/components/core/share-link-dialog"
 import { useTranslations } from "next-intl"
 
 export const ShareItem = () => {
@@ -18,7 +18,7 @@ export const ShareItem = () => {
                 </ItemDescription>
             </div>
             <ItemContent className="w-full">
-                <ShareButton />
+                <ShareLinkDialog />
             </ItemContent>
         </Item>
     )

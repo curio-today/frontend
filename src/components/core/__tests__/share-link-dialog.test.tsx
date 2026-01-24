@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { ShareButton } from "@/components/core/share-button"
+import { ShareLinkDialog } from "@/components/core/share-link-dialog"
 
 // ====== Mocks ======
 
@@ -47,14 +47,14 @@ describe("ShareButton", () => {
   })
 
   it("renders the share button with label and icon", () => {
-    render(<ShareButton />)
+    render(<ShareLinkDialog />)
 
     expect(screen.getByRole("button", { name: "button" })).toBeInTheDocument()
     expect(screen.getByTestId("share-icon")).toBeInTheDocument()
   })
 
   it("copies the link immediately when share button is clicked", async () => {
-    render(<ShareButton />)
+    render(<ShareLinkDialog />)
 
     await user.click(screen.getByRole("button", { name: "button" }))
 
@@ -63,7 +63,7 @@ describe("ShareButton", () => {
   })
 
   it("opens the dialog when clicking the share button", async () => {
-    render(<ShareButton />)
+    render(<ShareLinkDialog />)
 
     await user.click(screen.getByRole("button", { name: "button" }))
 
@@ -72,7 +72,7 @@ describe("ShareButton", () => {
   })
 
   it("renders the generated link inside the input", async () => {
-    render(<ShareButton />)
+    render(<ShareLinkDialog />)
 
     await user.click(screen.getByRole("button", { name: "button" }))
 
@@ -83,7 +83,7 @@ describe("ShareButton", () => {
   })
 
   it("passes the correct link to CopyToClipboardButton", async () => {
-    render(<ShareButton />)
+    render(<ShareLinkDialog />)
 
     await user.click(screen.getByRole("button", { name: "button" }))
 
