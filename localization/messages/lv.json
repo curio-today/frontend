@@ -88,6 +88,7 @@
       "question": "Vai vēlaties to kopīgot?",
       "sr": "Saite",
       "or": "vai",
+      "shareWithYourFriend": "Kopīgot ar draugu",
       "buttons": {
         "close": "Aizvērt"
       }
@@ -104,12 +105,6 @@
     }
   },
   "Messages": {
-    "article": {
-      "share": {
-        "label": "Jums patīk šis raksts?",
-        "description": "Kopīgojiet to ar draugiem un kolēģiem."
-      }
-    },
     "clipboard": {
       "successMessage": "Kopēts starpliktuvē"
     },
