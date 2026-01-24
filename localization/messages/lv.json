@@ -88,9 +88,13 @@
       "question": "Vai vēlaties to kopīgot?",
       "sr": "Saite",
       "or": "vai",
+      "shareWithYourFriend": "Kopīgot ar draugu",
       "buttons": {
         "close": "Aizvērt"
       }
+    },
+    "DontShowAgain": {
+      "label": "Neatgādināt"
     },
     "Copy": {
       "tooltipContent": "Kopēt starpliktuvē"

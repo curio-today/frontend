@@ -88,9 +88,13 @@
       "description": "Anyone who has this link will be able to view this",
       "sr": "Link",
       "or": "or",
+      "shareWithYourFriend": "Share with your friend",
       "buttons": {
         "close": "Close"
       }
+    },
+    "DontShowAgain": {
+      "label": "Don't show again"
     },
     "Copy": {
       "tooltipContent": "Copy to clipboard"

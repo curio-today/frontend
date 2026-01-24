@@ -88,9 +88,13 @@
       "question": "Хотите поделиться этим?",
       "sr": "Ссылка",
       "or": "или",
+      "shareWithYourFriend": "Поделиться с другом",
       "buttons": {
         "close": "Закрыть"
       }
+    },
+    "DontShowAgain": {
+      "label": "Не показывать снова"
     },
     "Copy": {
       "tooltipContent": "Скопировать в буфер"

@@ -1,6 +1,6 @@
 import { getArticle } from "@/data/article/get-article";
 import { Separator } from "@/components/ui/separator";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { ContentRenderer } from "@/components/feature/content";
 import { Paragraph } from "@/components/typography/paragraph";
 import { ParagraphItalic } from "@/components/typography/paragraph-italic";
@@ -27,6 +27,8 @@ import { ArticlesList } from "@/components/core/articles-list";
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ShareHandler } from "@/components/feature/share-handler";
+import { Item, ItemContent, ItemDescription, ItemTitle } from "@/components/ui/item";
+import { ShareItem } from "@/components/core/items/share-item";
 
 const cachedGetArticle = cache(getArticle);
 
@@ -66,7 +68,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
     });
 
     return (
-        <Article className="article flex flex-col gap-8 overflow-hidden">
+        <Article className="flex flex-col gap-8 overflow-hidden">
             <ShareHandler />
             <ArticleMetadata>
                 <Suspense fallback={<Skeleton className="w-100 h-10" />}>
@@ -106,6 +108,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
                     }}
                 />
             </ArticleContent>
+            <Separator />
+            <ArticleActions>
+                <ShareItem />
+            </ArticleActions>
             <Separator />
             <Suspense fallback={<Skeleton className="w-full h-200" />}>
                 <ArticleReadAlso>

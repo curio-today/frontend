@@ -1,29 +1,25 @@
 "use client"
 
-import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogClose, DialogFooter } from "@/components/ui/dialog"
+import { Item, ItemContent, ItemDescription, ItemTitle } from "@/components/ui/item"
+import { ShareButton } from "@/components/core/share-button"
 import { useTranslations } from "next-intl"
-import { Button } from "@/components/ui/button"
-import { ShareButton } from "../share-button"
 
 export const ShareItem = () => {
     const t = useTranslations("Buttons.Share");
 
     return (
-        <Dialog defaultOpen>
-            <DialogContent>
-                <DialogTitle>
+        <Item className="flex flex-1 md:flex-col md:justify-start md:items-start justify-center items-center" variant="outline">
+            <div className="flex justify-start items-start flex-col">
+                <ItemTitle>
                     {t("question")}
-                </DialogTitle>
-                <DialogDescription>
-                    {t("description")}
-                </DialogDescription>
+                </ItemTitle>
+                <ItemDescription>
+                    {t("shareWithYourFriend")}
+                </ItemDescription>
+            </div>
+            <ItemContent className="w-full">
                 <ShareButton />
-                <DialogFooter>
-                    <DialogClose asChild>
-                        <Button variant="ghost">{t("buttons.close")}</Button>
-                    </DialogClose>
-                </DialogFooter>
-            </DialogContent>
-        </Dialog>
+            </ItemContent>
+        </Item>
     )
 }
