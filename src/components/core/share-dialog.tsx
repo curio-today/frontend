@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 
 const STORAGE_KEY = "share-item";
 
-export const ShareItem = () => {
+export const ShareDialog = () => {
     const t = useTranslations("Buttons.Share");
     const [open, setOpen] = useState(true);
 

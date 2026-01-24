@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import { ShareItem } from "../core/items/share-item";
+import { ShareDialog } from "../core/share-dialog";
 
 /**
  * ShareHandler is a client-side component that monitors user behavior to trigger
@@ -56,5 +56,5 @@ export function ShareHandler() {
         };
     }, []);
 
-    return open ? <ShareItem /> : null;
+    return open ? <ShareDialog /> : null;
 }
