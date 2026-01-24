@@ -104,6 +104,12 @@
     }
   },
   "Messages": {
+    "article": {
+      "share": {
+        "label": "Вам нравится эта статья?",
+        "description": "Поделитесь ею с друзьями и коллегами."
+      }
+    },
     "clipboard": {
       "successMessage": "Успешно скопировано"
     },
