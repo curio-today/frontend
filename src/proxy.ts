@@ -1,12 +1,12 @@
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
 import { NextRequest, NextResponse } from 'next/server';
-import { getArticles } from './data/article/get-articles';
+import { getArticles } from './data/article';
 import { CATEGORY_ID_SLUG_MAP } from './constants/categories';
 
 export default async function middleware(req: NextRequest) {
     const { pathname } = req.nextUrl;
-    
+
     const match = pathname.match(/^\/([a-z]{2})\/feed\/[^/]+\/([^/]+)$/);
 
     if (match) {
