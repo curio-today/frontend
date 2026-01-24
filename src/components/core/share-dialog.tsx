@@ -7,7 +7,7 @@ import { useState } from "react"
 import { DontShowAgainButton } from "@/components/core/dont-show-again-button";
 import { Button } from "@/components/ui/button";
 
-const STORAGE_KEY = "share-item";
+const STORAGE_KEY = "share-dialog";
 
 export const ShareDialog = () => {
     const t = useTranslations("Buttons.Share");
