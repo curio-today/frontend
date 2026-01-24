@@ -104,6 +104,12 @@
     }
   },
   "Messages": {
+    "article": {
+      "share": {
+        "label": "Jums patīk šis raksts?",
+        "description": "Kopīgojiet to ar draugiem un kolēģiem."
+      }
+    },
     "clipboard": {
       "successMessage": "Kopēts starpliktuvē"
     },

@@ -107,6 +107,12 @@
     "clipboard": {
       "successMessage": "Copied successfully"
     },
+    "article": {
+      "share": {
+        "label": "Do you like this article?",
+        "description": "Share it with your friends"
+      }
+    },
     "loadMore": "Click To Load More",
     "loading": "Loading...",
     "readFullArticle": "Read full article:",
