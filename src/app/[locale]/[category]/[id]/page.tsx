@@ -7,7 +7,7 @@ import { ParagraphItalic } from "@/components/typography/paragraph-italic";
 import { Time } from "@/components/core/time";
 import { cache, Suspense } from "react";
 import { Metadata } from "next";
-import { ShareButton } from "@/components/core/share-button";
+import { ShareLinkDialog } from "@/components/core/share-link-dialog";
 import { draftMode } from "next/headers";
 
 
@@ -27,7 +27,6 @@ import { ArticlesList } from "@/components/core/articles-list";
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ShareHandler } from "@/components/feature/share-handler";
-import { Item, ItemContent, ItemDescription, ItemTitle } from "@/components/ui/item";
 import { ShareItem } from "@/components/core/items/share-item";
 
 const cachedGetArticle = cache(getArticle);
@@ -84,7 +83,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
                     />
                 </Suspense>
                 <ArticleActions className="flex flex-1 justify-end items-center">
-                    <ShareButton />
+                    <ShareLinkDialog />
                 </ArticleActions>
             </ArticleMetadata>
             <ArticleHead>
