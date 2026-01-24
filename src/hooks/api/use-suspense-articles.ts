@@ -1,6 +1,6 @@
 "use client"
 
-import { getArticles } from "@/data/article/get-articles";
+import { getArticles } from "@/data/article";
 import { Category } from "@/types/category";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { useLocale } from "next-intl";
