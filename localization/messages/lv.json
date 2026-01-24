@@ -92,6 +92,9 @@
         "close": "Aizvērt"
       }
     },
+    "DontShowAgain": {
+      "label": "Neatgādināt"
+    },
     "Copy": {
       "tooltipContent": "Kopēt starpliktuvē"
     },

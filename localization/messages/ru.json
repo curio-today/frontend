@@ -92,6 +92,9 @@
         "close": "Закрыть"
       }
     },
+    "DontShowAgain": {
+      "label": "Не показывать снова"
+    },
     "Copy": {
       "tooltipContent": "Скопировать в буфер"
     },

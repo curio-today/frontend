@@ -92,6 +92,9 @@
         "close": "Close"
       }
     },
+    "DontShowAgain": {
+      "label": "Don't show again"
+    },
     "Copy": {
       "tooltipContent": "Copy to clipboard"
     },
