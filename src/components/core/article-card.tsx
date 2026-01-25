@@ -23,7 +23,9 @@ export function ArticleCard({ title, subtitle, slug, cover, createdAt, badge }: 
         <CardTitle className="text-xl line-clamp-3 min-h-15">{title}</CardTitle>
         <CardContent className="relative aspect-video overflow-hidden rounded-xl w-full">
           <Suspense fallback={<Skeleton className="w-full h-full" />}>
-            <ImageWithFocal src={cover.url} alt={cover.alt} focalX={cover.focalX} focalY={cover.focalY} fill />
+            {cover && (
+              <ImageWithFocal src={cover.url} alt={cover.alt} focalX={cover.focalX} focalY={cover.focalY} fill />
+            )}
           </Suspense>
         </CardContent>
       </CardHeader>
@@ -37,11 +39,13 @@ export function ArticleCard({ title, subtitle, slug, cover, createdAt, badge }: 
             iso={createdAt}
           />
           <Suspense fallback={<Skeleton className="w-50 h-50" />}>
-            <ArticleBadge
-              name={badge.name}
-              id={badge.id}
-              variant="outline"
-            />
+            {badge && (
+              <ArticleBadge
+                name={badge.name}
+                id={badge.id}
+                variant="outline"
+              />
+            )}
           </Suspense>
         </div>
       </CardFooter>
