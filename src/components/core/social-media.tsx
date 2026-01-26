@@ -24,6 +24,7 @@ import {
 } from "../content/icons";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { LinkedinIcon } from "lucide-react";
 
 
 type SocialMediaContact = {
@@ -35,6 +36,7 @@ type SocialMediaListProps = {
 } & ComponentProps<"div">
 
 const socialMediaIcon: SocialMediaIconType = {
+    "linkedin": <LinkedinIcon width="24" />,
     "instagram": <InstagramIcon width="24" />,
     "facebook": <FacebookIcon width="24" />,
     "telegram": <TelegramIcon width="24" />,
