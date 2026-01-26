@@ -1,6 +1,5 @@
-import { getArticle } from "@/data/article/get-article";
 import { Separator } from "@/components/ui/separator";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 import { ContentRenderer } from "@/components/feature/content";
 import { Paragraph } from "@/components/typography/paragraph";
 import { ParagraphItalic } from "@/components/typography/paragraph-italic";
@@ -27,19 +26,14 @@ import { ArticlesList } from "@/components/core/articles-list";
 import { CATEGORY_ID_SLUG_MAP } from "@/constants/categories";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ShareHandler } from "@/components/feature/share-handler";
-import { Item, ItemContent, ItemDescription, ItemTitle } from "@/components/ui/item";
 import { ShareItem } from "@/components/core/items/share-item";
+import { getArticle } from "@/data/article";
 
-const cachedGetArticle = cache(getArticle);
+const cachedGetArticle = cache(getArticle)
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
-    const { id } = await params;
-
-    const locale = await getLocale();
-    const { title, subtitle, cover } = await cachedGetArticle(id, {
-        locale,
-        limit: 1,
-    })
+export async function generateMetadata({ params }: { params: Promise<{ id: string, locale: string }> }): Promise<Metadata> {
+    const { id, locale } = await params;
+    const { title, subtitle, cover } = await cachedGetArticle(id, { locale })
 
 
     return {
@@ -61,7 +55,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
     const locale = await getLocale();
     const { id } = await params;
     const { isEnabled: isDraftModeEnabled } = await draftMode();
-    const { title, subtitle, cover, createdAt, source, badge, content } = await getArticle(id, {
+    const { title, subtitle, cover, createdAt, source, badge, content } = await cachedGetArticle(id, {
         locale,
         limit: 1,
         draft: isDraftModeEnabled
@@ -73,7 +67,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
             <ArticleMetadata>
                 <Suspense fallback={<Skeleton className="w-100 h-10" />}>
                     <Time
-                        className="font-thin text-xs align-middle text-center"
+                        className="font-thin text-xs align-middle text-start"
                         iso={createdAt}
                     />
                     <ArticleBadge
