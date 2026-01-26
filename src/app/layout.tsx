@@ -25,7 +25,6 @@ const roboto = Roboto({
 
 export default async function RootLayout({ children }: Readonly<PropsWithChildren>) {
     const locale = await getLocale();
-    const mobile = await isMobile();
 
     return (
         <html lang={locale} className={roboto.className} suppressHydrationWarning>
