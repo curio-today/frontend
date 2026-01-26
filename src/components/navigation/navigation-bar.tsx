@@ -1,12 +1,10 @@
-'use client'
-
 import { NavigationBarBase } from "./navigation-bar-base";
 import { NavigationBarMobile } from "./platforms/navigation-bar-mobile";
-import {Activity} from "react";
-import {useIsMobile} from "@/hooks/use-mobile";
+import { Activity } from "react";
+import { isMobile } from "@/actions/is-mobile";
 
-export function NavigationBar() {
-    const mobile = useIsMobile();
+export async function NavigationBar() {
+    const mobile = await isMobile();
 
     return (
         <>

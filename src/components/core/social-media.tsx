@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button";
 import {
     Avatar,
@@ -21,6 +23,7 @@ import {
     GithubIcon
 } from "../content/icons";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 
 type SocialMediaContact = {
@@ -61,6 +64,13 @@ export const SocialMediaList = ({ socialMedia, className, ...props }: SocialMedi
 
 export const SocialMediaHoverCard = ({ contact }: SocialMediaContact) => {
     const { avatar, description, socialMedia } = CREDITS[contact];
+    const isMobile = useIsMobile();
+
+    if (isMobile) {
+        return (
+            <SocialMediaLink href={socialMedia[0].href}>{contact}</SocialMediaLink>
+        )
+    }
 
     return (
         <HoverCard>
