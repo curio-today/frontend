@@ -5,9 +5,10 @@ export const CREDITS = {
             fallback: "DP"
         },
         description: "Software Developer",
-        socialMedia: [ 
+        socialMedia: [
+            { name: "linkedin", href: "https://www.linkedin.com/in/dmytro-polizhai-770a86384/" },
             { name: "instagram", href: "https://instagram.com/dmytropolizhai" },
             { name: "github", href: "https://github.com/dmytropolizhai" }
-        ]              
+        ]
     },
 } as const

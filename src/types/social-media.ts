@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 
-export type SocialMediaName = "instagram" | "facebook" | "telegram" | "whatsapp" | "github"
+export type SocialMediaName = "instagram" | "facebook" | "telegram" | "whatsapp" | "github" | "linkedin"
 
 export type SocialMediaIcon = {
     [name in SocialMediaName]: ReactNode

@@ -14,7 +14,7 @@ export const Footer = async () => {
     const t = await getTranslations("Messages");
 
     return (
-        <footer className="w-full h-50 bg-background flex justify-center items-center flex-col gap-4">
+        <footer className="w-full h-50 bg-background flex justify-center items-center flex-col gap-4 mb-20">
             <div className="flex flex-row justify-center items-center gap-4">
                 <LogoWithMemo>
                     <Curio />
@@ -25,7 +25,7 @@ export const Footer = async () => {
             <p className="flex flex-row items-center gap-2 text-muted-foreground">
                 {t("allRightsAreReserved")}
             </p>
-            <div className="text-secondary flex items-center flex-row">
+            <div className="text-secondary flex items-center flex-row gap-2">
                 {t("createdBy")}
                 <SocialMediaHoverCard contact="@dmytropolizhai" />
             </div>
