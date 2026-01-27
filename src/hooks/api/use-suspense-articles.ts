@@ -18,7 +18,8 @@ export function useSuspenseArticles(category?: Category, options?: Record<string
             ...(category ? { "where[badge.name][equals]": t("title") } : {}),
             ...options
         }),
-        staleTime: 10 * 60 * 1000,
+        staleTime: 5 * 60 * 1000, // 5 minutes
+        gcTime: 0,
         retry: 2,
         retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
     }));
