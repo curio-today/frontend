@@ -1,4 +1,7 @@
 {
+  "general": {
+    "loading": "Ielādē..."
+  },
   "Settings": {
     "title": "Iestatījumi",
     "description": "Pielāgojiet savu lietotnes pieredzi, mainot valodu un tēmas iestatījumus.",

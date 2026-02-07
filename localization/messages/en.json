@@ -1,4 +1,7 @@
 {
+  "general": {
+    "loading": "Loading..."
+  },
   "Settings": {
     "title": "Settings",
     "description": "Customize your app experience by adjusting language and theme settings.",
