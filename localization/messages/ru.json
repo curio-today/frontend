@@ -1,4 +1,9 @@
 {
+  "numerologgi": {
+    "numerocast": {
+      "title": "Нумерокаст"
+    }
+  },
   "general": {
     "loading": "Загрузка..."
   },
