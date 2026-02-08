@@ -1,4 +1,4 @@
-import { Precept } from "@/types/numerologgi";
+import { Precept } from "@/app/[locale]/numerocast/_types/precept";
 
 type PreceptCardProps = Precept & { index?: number };
 

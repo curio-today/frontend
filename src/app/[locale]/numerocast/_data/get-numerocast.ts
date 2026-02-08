@@ -1,7 +1,7 @@
 import { Video } from "@/types/api/video";
-import { Precept } from "@/types/numerologgi";
+import { Precept } from "@/app/[locale]/numerocast/_types/precept";
 
-export interface NumerologgiPost {
+export interface Numerocast {
     title: string;
     date: string;
     precepts: Precept[];
@@ -12,7 +12,7 @@ export interface NumerologgiPost {
     };
 }
 
-export async function getNumerologgiPost(): Promise<NumerologgiPost> {
+export async function getNumerocast(): Promise<Numerocast> {
     return {
         title: "Нумерокаст",
         date: "9 февраля",
@@ -25,7 +25,10 @@ export async function getNumerologgiPost(): Promise<NumerologgiPost> {
             { emoji: "🚫", title: "Нельзя ничего разрушать." }
         ],
         description: "24 листопада • Слово має неймовірну силу сьогодні. #прогноздня #лунныйкалендарь #нумерологическийпрогноз #гумилёванумеролог",
-        video: null,
+        video: {
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        },
+        // video: null
         cover: {
             url: "",
         }
