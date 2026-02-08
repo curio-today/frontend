@@ -1,24 +1,14 @@
-"use client"
-
 import { useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { VideoPlayerProvider, useVideo } from "./video-context"
-import {
-    VideoElement,
-    BigPlayButton,
-    LoadingOverlay,
-    ProgressBar,
-    ControlButtons
-} from "./ui"
+import { useVideo } from "../contexts/video-context"
+import { VideoElement } from "../components/normal/video-element"
+import { BigPlayButton } from "../components/normal/big-play-button"
+import { LoadingOverlay } from "../components/normal/loading-overlay"
+import { ProgressBar } from "../components/normal/progress-bar"
+import { ControlButtons } from "../components/normal/control-buttons"
+import { VideoPlayerProps } from "../types"
 
-export type VideoPlayerProps = {
-    src: string
-    poster?: string
-    className?: string
-    autoPlay?: boolean
-}
-
-const VideoPlayerContent = ({ src, poster, className }: Omit<VideoPlayerProps, "autoPlay">) => {
+export const VideoPlayerContent = ({ src, poster, className }: Omit<VideoPlayerProps, "autoPlay" | "mode">) => {
     const {
         containerRef,
         isFullscreen,
@@ -92,13 +82,5 @@ const VideoPlayerContent = ({ src, poster, className }: Omit<VideoPlayerProps, "
                 <ControlButtons />
             </div>
         </div>
-    )
-}
-
-export const VideoPlayer = (props: VideoPlayerProps) => {
-    return (
-        <VideoPlayerProvider autoPlay={props.autoPlay}>
-            <VideoPlayerContent {...props} />
-        </VideoPlayerProvider>
     )
 }

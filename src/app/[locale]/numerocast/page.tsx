@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
 import { BodyClass } from "@/components/core/body-class";
+import { ShortVideoPlayer } from "@/features/video-player";
 
 import { MagicBackground } from "./_components/magic-background";
 import { HeaderSection } from "./_components/header-section";
@@ -24,9 +25,9 @@ export default async function NumerocastPage() {
                         <ShortVideoPlayer
                             className="h-full w-full sm:aspect-9/16 sm:h-auto sm:max-w-[450px] sm:rounded-3xl rounded-none shadow-none sm:shadow-2xl border-none sm:border border-white/10"
                             src={numerocast?.video?.src || ""}
-                            poster={numerologgi?.cover?.url || ""}
-                            username="numerologgi"
-                            description={numerologgi?.description || "24 ноября..."}
+                            poster={numerocast?.cover?.url || ""}
+                            userName="numerologgi"
+                            description={numerocast?.description || "24 ноября..."}
                             musicName="Original Sound"
                             autoPlay
                         />
