@@ -14,7 +14,7 @@ export const Footer = async () => {
     const t = await getTranslations("Messages");
 
     return (
-        <footer className="w-full h-50 bg-background flex justify-center items-center flex-col gap-4 mb-20">
+        <footer className="w-full h-50 bg-background flex justify-center items-center flex-col gap-4">
             <div className="flex flex-row justify-center items-center gap-4">
                 <LogoWithMemo>
                     <Curio />
