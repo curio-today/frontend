@@ -1,0 +1,33 @@
+import { Video } from "@/types/api/video";
+import { Precept } from "@/types/numerologgi";
+
+export interface NumerologgiPost {
+    title: string;
+    date: string;
+    precepts: Precept[];
+    description: string;
+    video: Video | null;
+    cover: {
+        url: string;
+    };
+}
+
+export async function getNumerologgiPost(): Promise<NumerologgiPost> {
+    return {
+        title: "Нумерокаст",
+        date: "9 февраля",
+        precepts: [
+            { emoji: "🗣️", title: "Слово имеет невероятную силу сегодня." },
+            { emoji: "🤍", title: "Не осуждайте" },
+            { emoji: "🧹", title: "Избавьтесь от слов паразитов." },
+            { emoji: "🙊", title: "Не провоцируйте сквернословие в свой адрес" },
+            { emoji: "🤐", title: "Не сплетничайте" },
+            { emoji: "🚫", title: "Нельзя ничего разрушать." }
+        ],
+        description: "24 листопада • Слово має неймовірну силу сьогодні. #прогноздня #лунныйкалендарь #нумерологическийпрогноз #гумилёванумеролог",
+        video: null,
+        cover: {
+            url: "",
+        }
+    };
+}
