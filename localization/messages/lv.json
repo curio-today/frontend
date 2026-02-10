@@ -1,7 +1,9 @@
 {
   "numerologgi": {
     "numerocast": {
-      "title": "Numerocast"
+      "title": "Numerocast",
+      "description": "Uzzini, kā šodienas skatītāji varētu būt",
+      "button": "Uzskatīt"
     }
   },
   "general": {

@@ -1,7 +1,9 @@
 {
   "numerologgi": {
     "numerocast": {
-      "title": "Numerocast"
+      "title": "Numerocast",
+      "description": "Find out what this day is all about",
+      "button": "Check it out"
     }
   },
   "general": {

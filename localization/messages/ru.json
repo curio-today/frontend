@@ -1,7 +1,9 @@
 {
   "numerologgi": {
     "numerocast": {
-      "title": "Нумерокаст"
+      "title": "Нумерокаст",
+      "description": "Узнай в чем сила этого дня",
+      "button": "Смотреть прогноз"
     }
   },
   "general": {
