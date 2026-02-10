@@ -19,7 +19,7 @@ export const ShortVideoPlayerContent = ({
     return (
         <div
             className={cn(
-                "relative overflow-hidden bg-black shadow-2xl border border-white/10 mx-auto transition-all duration-300",
+                "relative overflow-hidden bg-black shadow-2xl border border-white/10  transition-all duration-300",
                 "relative overflow-hidden sm:rounded-3xl sm:px-6",
                 className
             )}
