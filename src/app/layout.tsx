@@ -35,7 +35,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                 />
                 <GoogleAnalytics gaId="G-MNV4816TQ0" />
             </head>
-            <body>
+            <body className="min-h-screen flex flex-col">
                 <QueryProvider>
                     <NextIntlClientProvider>
                         <ThemeProvider
@@ -47,7 +47,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                             <Suspense fallback={<Skeleton className="lg:pl-10 w-full h-20 fixed p-4 top-0 left-0 z-50 outline-solid rounded-[0px] outline-1" />}>
                                 <NavigationBar />
                             </Suspense>
-                            <main className="container mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0 mt-30">
+                            <main className="container mx-auto flex flex-col items-center grow px-4 sm:px-0 mt-30">
                                 {children}
                             </main>
                             <Separator />
