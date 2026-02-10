@@ -6,34 +6,9 @@ import { SearchFilters } from "@/types/search-filters";
 import { getLocale } from "next-intl/server";
 import { CATEGORY_SLUG_ID_MAP } from "@/constants/categories";
 import { buildUrl } from "@/lib/build-url";
-import { fetchWithTimeout } from "@/lib/fetch-with-timeout";
 import { sanitizeInput } from "@/lib/sanitize-input";
+import { fetchJson } from "@/lib/fetch-json";
 
-
-async function fetchJson<T>(url: string, options: RequestInit = {}, timeout = 15000): Promise<T> {
-    try {
-        const response = await fetchWithTimeout(url, options, timeout);
-
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error(`Failed to fetch ${url}:`, response.status, errorText);
-            throw new Error(`HTTP ${response.status} ${response.statusText}`);
-        }
-
-        return (await response.json()) as T;
-    } catch (err) {
-        console.error(`Error fetching ${url}:`, err);
-
-        if (err instanceof TypeError && err.message.includes('fetch')) {
-            throw new Error('Network error. Please check your connection and try again.');
-        }
-        if (err instanceof Error && err.name === 'AbortError') {
-            throw new Error('Request timed out. Please try again.');
-        }
-
-        throw new Error('Unexpected error occurred. Please try again later.');
-    }
-}
 
 export async function getArticle(id: string, query?: QueryParams): Promise<Article> {
     const url = buildUrl(`/posts/${id}`, query);
