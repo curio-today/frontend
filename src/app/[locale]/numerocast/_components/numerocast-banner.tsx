@@ -39,7 +39,7 @@ const NumerocastBannerButton = () => {
     return (
         <Button
             variant="secondary"
-            className="flex-1 min-w-100 relative overflow-hidden rounded-full border border-white/30 h-15 bg-white/20 px-10 py-4 text-base font-semibold text-white backdrop-blur-md transition-all hover:bg-white/30 hover:scale-105 active:scale-95"
+            className="flex-1 min-w-64 relative overflow-hidden rounded-full border border-white/30 h-15 bg-white/20 px-10 py-4 text-base font-semibold text-white backdrop-blur-md transition-all hover:bg-white/30 hover:scale-105 active:scale-95"
             onClick={() => router.push("/numerocast")}
         >
             {t("button")}
