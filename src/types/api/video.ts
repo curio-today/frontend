@@ -1,3 +1,4 @@
 export type Video = {
-    src: string;
+    url: string;
+    thumbnailURL: string | null;
 }
