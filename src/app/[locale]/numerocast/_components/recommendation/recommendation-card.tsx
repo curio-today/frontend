@@ -1,8 +1,8 @@
-import { Precept } from "@/app/[locale]/numerocast/_types/precept";
+import { Recommendation } from "@/app/[locale]/numerocast/_types/recommendation";
 
-type PreceptCardProps = Precept & { index?: number };
+type RecommendationCardProps = Recommendation & { index?: number };
 
-export const PreceptCard = ({ emoji, title, index = 0 }: PreceptCardProps) => {
+export const RecommendationCard = ({ emoji, title, index = 0 }: RecommendationCardProps) => {
     return (
         <li className="group flex items-center gap-6 p-4 rounded-2xl 
                        bg-white/40 dark:bg-white/5 backdrop-blur-xl

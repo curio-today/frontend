@@ -5,12 +5,20 @@ import { ShortVideoPlayer } from "@/features/video-player";
 
 import { MagicBackground } from "./_components/magic-background";
 import { HeaderSection } from "./_components/header-section";
-import { PreceptList } from "./_components/precept/precept-list";
+import { RecommendationList } from "./_components/recommendation/recommendation-list";
 import { getNumerocast } from "./_data/get-numerocast";
+import { Suspense } from "react";
+import { getLocale } from "next-intl/server";
 
 
 export default async function NumerocastPage() {
     const t = await getTranslations("numerologgi.numerocast");
+    const locale = await getLocale();
+    const today = new Date().toLocaleDateString(locale, {
+        day: "numeric",
+        month: "long",
+    });
+
     const numerocast = await getNumerocast();
 
     return (
@@ -19,8 +27,8 @@ export default async function NumerocastPage() {
             <MagicBackground />
 
             <main className="relative z-10 py-0 sm:py-12 max-w-4xl mx-auto space-y-12 sm:space-y-16">
-                <HeaderSection title={t("title")} date={numerocast?.date || ""} />
-                {/* {numerocast.video && (
+                <HeaderSection title={t("title")} date={numerocast?.date || today} />
+                {numerocast.video && (
                     <section className="relative h-dvh sm:h-auto w-screen sm:w-full overflow-hidden sm:rounded-3xl sm:px-6">
                         <ShortVideoPlayer
                             className="h-full w-full sm:aspect-9/16 sm:h-auto sm:max-w-[450px] sm:rounded-3xl rounded-none shadow-none sm:shadow-2xl border-none sm:border border-white/10"
@@ -32,9 +40,12 @@ export default async function NumerocastPage() {
                             autoPlay
                         />
                     </section>
-                )} */}
-
-                <PreceptList precepts={numerocast.precepts} />
+                )}
+                {numerocast?.recommendations && (
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <RecommendationList recommendations={numerocast.recommendations} />
+                    </Suspense>
+                )}
             </main>
         </>
     );

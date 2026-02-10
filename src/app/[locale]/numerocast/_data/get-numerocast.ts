@@ -1,10 +1,10 @@
 import { Video } from "@/types/api/video";
-import { Precept } from "@/app/[locale]/numerocast/_types/precept";
+import { Recommendation } from "@/app/[locale]/numerocast/_types/recommendation";
+import { fetchJson } from "@/lib/fetch-json";
 
 export interface Numerocast {
-    title: string;
     date: string;
-    precepts: Precept[];
+    recommendations: Recommendation[];
     description: string;
     video: Video | null;
     cover: {
@@ -13,10 +13,11 @@ export interface Numerocast {
 }
 
 export async function getNumerocast(): Promise<Numerocast> {
+    const numerocast = await fetchJson<Numerocast>("/api/numerocast").catch(() => null);
+
     return {
-        title: "Нумерокаст",
-        date: "9 февраля",
-        precepts: [
+        date: "",
+        recommendations: [
             { emoji: "🗣️", title: "Слово имеет невероятную силу сегодня." },
             { emoji: "🤍", title: "Не осуждайте" },
             { emoji: "🧹", title: "Избавьтесь от слов паразитов." },
