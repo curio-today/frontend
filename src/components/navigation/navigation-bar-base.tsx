@@ -13,12 +13,11 @@ import { SettingsSheet } from "@/components/core/sheets/settings-sheet";
 export const NavigationBarBase = () => {
     return (
         <header className="lg:pl-10 bg-background w-full fixed flex p-4 top-0 left-0 z-50 items-center lg:justify-start justify-between outline-solid outline-1">
-            <Link className="sm:flex-1" href="/">
-                <LogoWithMemo>
+            <LogoWithMemo className="flex-1">
+                <Link href="/"> 
                     <Curio />
-                </LogoWithMemo>
-            </Link>
-
+                </Link>
+            </LogoWithMemo>
             <div className="flex-1 justify-center items-center flex-wrap hidden md:flex">
                 <NavigationCategoryMenu />
             </div>

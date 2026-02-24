@@ -27,7 +27,7 @@ export const Logo = ({ width, height, className, children, ...rest }: LogoProps)
 
 export const LogoWithMemo = ({ children, className, width = 100, ...rest }: LogoProps) => {
     return (
-      <div className={cn("flex flex-1 justify-start flex-row gap-5", className)}>
+      <div className={cn("flex justify-start flex-row gap-5", className)}>
         <Logo width={width} {...rest}>
           {children}
         </Logo>
