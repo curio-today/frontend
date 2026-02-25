@@ -13,16 +13,16 @@ import { SettingsSheet } from "@/components/core/sheets/settings-sheet";
 export const NavigationBarBase = () => {
     return (
         <header className="lg:pl-10 bg-background w-full fixed flex p-4 top-0 left-0 z-50 items-center lg:justify-start justify-between outline-solid outline-1">
-            <LogoWithMemo className="flex-1">
-                <Link href="/"> 
-                    <Curio />
-                </Link>
-            </LogoWithMemo>
+            <Link href="/"> 
+                <LogoWithMemo>
+                        <Curio />
+                </LogoWithMemo>
+            </Link>
             <div className="flex-1 justify-center items-center flex-wrap hidden md:flex">
                 <NavigationCategoryMenu />
             </div>
 
-            <ButtonGroup className="flex-1 justify-end">
+            <ButtonGroup className="justify-end">
                 <ButtonGroup>
                     <ButtonGroup>
                         <SearchButton />
