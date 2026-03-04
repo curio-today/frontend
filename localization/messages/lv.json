@@ -105,6 +105,9 @@
     }
   },
   "Messages": {
+    "accept": "Pieņemt",
+    "cookieMessage": "Sīkdatnes",
+    "cookieMessageDescription": "Mēs izmantojam sīkdatnes, lai tev sniegtu labāko pieredzi mūsu portālā.",
     "clipboard": {
       "successMessage": "Kopēts starpliktuvē"
     },

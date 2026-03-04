@@ -105,6 +105,7 @@
     }
   },
   "Messages": {
+    "accept": "Accept",
     "clipboard": {
       "successMessage": "Copied successfully"
     },
@@ -115,7 +116,9 @@
     "memo": "Smart Curiosity",
     "readAlso": "Read also",
     "allRightsAreReserved": "All Rights Are Reserved ©",
-    "createdBy": "Created by"
+    "createdBy": "Created by",
+    "cookieMessage": "Cookie message",
+    "cookieMessageDescription": "We use cookies to ensure that we give you the best experience on our website."
   },
   "Empties": {
     "noArticlesAvailable": {

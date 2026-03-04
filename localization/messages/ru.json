@@ -105,6 +105,9 @@
     }
   },
   "Messages": {
+    "accept": "Принять",
+    "cookieMessage": "Cookie",
+    "cookieMessageDescription": "Мы используем файлы cookie, чтобы обеспечить вам наилучший опыт использования нашего веб-сайта.",
     "clipboard": {
       "successMessage": "Успешно скопировано"
     },
