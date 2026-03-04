@@ -23,7 +23,7 @@ export const Footer = async () => {
                 <SocialMediaList socialMedia={curioSocialMedia} />
             </div>
             <p className="flex flex-row items-center gap-2 text-muted-foreground">
-                {t("allRightsAreReserved")}
+                2026 {t("allRightsAreReserved")}
             </p>
             <div className="text-secondary flex items-center flex-row gap-2">
                 {t("createdBy")}
