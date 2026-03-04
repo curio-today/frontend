@@ -14,7 +14,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Separator } from "@/components/ui/separator";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Skeleton } from "@/components/ui/skeleton";
-import { isMobile } from "@/actions/is-mobile";
+import { CookieMessage } from "@/components/core/cookie-message";
 
 const roboto = Roboto({
     subsets: ["latin"],
@@ -47,6 +47,7 @@ export default async function RootLayout({ children }: Readonly<PropsWithChildre
                             <Suspense fallback={<Skeleton className="lg:pl-10 w-full h-20 fixed p-4 top-0 left-0 z-50 outline-solid rounded-[0px] outline-1" />}>
                                 <NavigationBar />
                             </Suspense>
+                            <CookieMessage />
                             <main className="container mx-auto flex flex-col items-center min-h-screen px-4 sm:px-0 mt-30">
                                 {children}
                             </main>
