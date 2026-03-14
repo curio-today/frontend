@@ -3,7 +3,8 @@
     "numerocast": {
       "title": "Numerocast",
       "description": "Find out what this day is all about",
-      "button": "Check it out"
+      "button": "Check it out",
+      "authors": "Authors"
     }
   },
   "general": {

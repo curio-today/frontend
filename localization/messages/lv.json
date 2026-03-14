@@ -3,7 +3,8 @@
     "numerocast": {
       "title": "Numerocast",
       "description": "Uzzini, kā šodienas skatītāji varētu būt",
-      "button": "Uzskatīt"
+      "button": "Uzskatīt",
+      "authors": "Autori"
     }
   },
   "general": {
